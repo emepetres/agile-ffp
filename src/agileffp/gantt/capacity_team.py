@@ -28,6 +28,51 @@ class CapacityTeam:
             for d in daterange(self.starts, self.ends + timedelta(days=1))
         ]
 
+    def _next_available_day(self) -> date:
+        for i, c in enumerate(self.capacity):
+            if c > 0:
+                return i
+
+        raise ValueError("No available day")
+
+    def assign_effort(self, effort: int, max_capacity: int = None) -> tuple[date, date]:
+        """Assigns effort to team's capacity.
+
+        Args:
+            effort (int): effort to assign
+            max_capacity (int), optional): maximum capacity to assign.
+                Defaults to member's team.
+        Returns:
+            init_date: first date when effort was assigned
+            end_date: latest date when effort was assigned
+            days: working days between init_date and end_date
+        """
+        if max_capacity is None:
+            max_capacity = self.members
+
+        if max_capacity <= 0:
+            raise ValueError("max_capacity must be greater than 0")
+
+        if effort <= 0:
+            raise ValueError("effort must be greater than 0")
+
+        assigned = 0
+        init_day_idx = self._next_available_day()
+        init_date = self.starts + timedelta(days=init_day_idx)
+        end_date = init_date
+        for i in range(init_day_idx, len(self.capacity)):
+            assigned += self._reserve_effort_at(i, min(max_capacity, effort - assigned))
+
+            if assigned == effort:
+                end_date = self.starts + timedelta(days=i)
+                break
+
+        return (
+            init_date,
+            end_date,
+            self.cal.get_working_days_delta(init_date, end_date) + 1,
+        )
+
     def capacity_at(self, date: date) -> int:
         if date < self.starts or date > self.ends:
             return 0
@@ -35,12 +80,7 @@ class CapacityTeam:
         idx = (date - self.starts).days
         return self.capacity[idx]
 
-    def reserve_capacity_at(self, date: date, capacity: int) -> int:
-        """Returns capacity that was able to assign to date."""
-        if date < self.starts or date > self.ends:
-            return 0
-
-        idx = (date - self.starts).days
+    def _reserve_effort_at(self, idx: int, capacity: int) -> int:
         capacity_available = self.capacity[idx]
 
         if capacity_available == 0:

@@ -28,6 +28,6 @@ def assert_failure_reading_nonexistent_yaml_file():
 def assert_iteration_over_two_dates():
     dates = [
         d
-        for d in daterange(date(2023, 1, 1), date(2023, 12, 31), include_end_date=True)
+        for d in daterange(date(2023, 1, 1), date(2023, 12, 31))
     ]
-    assert len(dates) == 365
+    assert len(dates) == 364
