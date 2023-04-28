@@ -1,7 +1,8 @@
+from datetime import date
 import pytest
 import yaml
 
-from src.agileffp.utils import read_yaml_file
+from src.agileffp.utils import daterange, read_yaml_file
 
 
 @pytest.fixture
@@ -13,12 +14,20 @@ def example_yaml_file(tmpdir):
     return file_path
 
 
-def get_dict_from_yaml(example_yaml_file):
+def assert_get_dict_from_yaml(example_yaml_file):
     data = read_yaml_file(example_yaml_file)
     expected = {"name": "John", "age": 30, "city": "New York"}
     assert data == expected
 
 
-def fail_reading_nonexistent_yaml_file():
+def assert_failure_reading_nonexistent_yaml_file():
     with pytest.raises(FileNotFoundError):
         read_yaml_file("nonexistent.yml")
+
+
+def assert_iteration_over_two_dates():
+    dates = [
+        d
+        for d in daterange(date(2023, 1, 1), date(2023, 12, 31), include_end_date=True)
+    ]
+    assert len(dates) == 365
