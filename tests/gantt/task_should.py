@@ -11,7 +11,7 @@ def task1():
 
 @pytest.fixture
 def task2():
-    return Task("sample_task3", {"team1": 10, "team2": 13})
+    return Task("sample_task2", {"team1": 10, "team2": 13})
 
 
 @pytest.fixture

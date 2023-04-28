@@ -29,7 +29,7 @@ class TeamTask:
         )
 
     def __str__(self):
-        return f"[{self.team}]{self.name} ({self.start} - {self.end}) - {self.days}"
+        return f"[{self.team}]{self.name} ({self.init} - {self.end}) - {self.days}"
 
     def __repr__(self):
         return str(self)

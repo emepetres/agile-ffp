@@ -4,8 +4,23 @@ from src.agileffp.gantt.capacity_team import CapacityTeam
 
 
 class Task:
-    def __init__(self, name: str, teams_effort: dict[str, int | dict[str, int]]):
+    def __init__(
+        self,
+        name: str,
+        teams_effort: dict[str, int | dict[str, int]],
+        depends_on: list = [],
+    ):
+        """Creates a task
+
+        Args:
+            name (str): The name of the task
+            teams_effort (dict[str, int | dict[str, int]]): A dictionary with the
+              effort for each team
+            depends_on (list[Task], optional): A list of tasks that this task
+            depends on. Defaults to None.
+        """
         self.name = name
+        self.depends_on = depends_on
         self.init, self.end, self.days = None, None, None
         self.cal = Seville()
 
@@ -35,7 +50,7 @@ class Task:
         self.days = self.cal.get_working_days_delta(self.init, self.end) + 1
 
     def __str__(self):
-        return f"{self.name} ({self.start} - {self.end}) - {self.days}"
+        return f"{self.name} ({self.init} - {self.end}) - {self.days}"
 
     def __repr__(self):
         return str(self)
