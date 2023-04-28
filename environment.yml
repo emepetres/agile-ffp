@@ -6,3 +6,4 @@ dependencies:
   - pip
   - pip:
       - pyyaml==6.0
+      - workalendar==17.0.*
