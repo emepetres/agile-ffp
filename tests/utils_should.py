@@ -1,7 +1,7 @@
 import pytest
 import yaml
 
-from src.agileffp.gantt.compute import read_yaml_file
+from src.agileffp.utils import read_yaml_file
 
 
 @pytest.fixture
@@ -19,6 +19,6 @@ def get_dict_from_yaml(example_yaml_file):
     assert data == expected
 
 
-def fail_nonexistent_yaml_file():
+def fail_reading_nonexistent_yaml_file():
     with pytest.raises(FileNotFoundError):
         read_yaml_file("nonexistent.yml")
