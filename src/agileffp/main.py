@@ -38,6 +38,7 @@ def main():
         help="The path to the YAML file to read.",
         required=True,
     )
+    parser.add_argument("-o", "--output", type=str, help="The csv output file path.")
     args = parser.parse_args()
 
     data = read_yaml_file(args.file_path)
@@ -47,6 +48,9 @@ def main():
     chart.build(capacity)
 
     print(chart)
+
+    if args.output:
+        chart.to_csv(args.output)
 
 
 if __name__ == "__main__":

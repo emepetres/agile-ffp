@@ -21,6 +21,13 @@ class DependencyNode:
     def __repr__(self):
         return str(self)
 
+    def to_csv(self):
+        return (
+            f"{self.task.name}"
+            + f",{self.task.init}"
+            + f",{int((self.task.end-self.task.init).days)}"
+        )
+
 
 class Gantt:
     def __init__(self, tasks: list[Task]):
@@ -77,3 +84,10 @@ class Gantt:
 
     def __repr__(self):
         return str(self)
+
+    def to_csv(self, file_path: str) -> None:
+        s = "Task,Start Date,Duration\n"
+        for node in self.nodes.values():
+            s += f"{node.to_csv()}\n"
+        with open(file_path, "w") as f:
+            f.write(s)

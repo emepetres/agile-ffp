@@ -9,7 +9,7 @@ def read_yaml_file(file_path: str) -> dict:
     return data
 
 
-def daterange(start_date: date, end_date: date):
-    """Returns a generator of dates between start_date and end_date."""
+def dayrange(start_date: date, end_date: date) -> list[date]:
+    """Returns a generator of day dates between start_date and end_date."""
     for n in range(int((end_date - start_date).days)):
         yield start_date + timedelta(days=n)

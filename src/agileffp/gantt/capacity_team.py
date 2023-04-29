@@ -1,5 +1,5 @@
 from datetime import date, timedelta
-from src.agileffp.utils import daterange
+from src.agileffp.utils import dayrange
 
 from src.agileffp.seville_calendar import Seville
 
@@ -25,7 +25,7 @@ class CapacityTeam:
     def _build_capacity_calendar(self):
         self.capacity = [
             self.members if self.cal.is_working_day(d) else 0
-            for d in daterange(self.starts, self.ends + timedelta(days=1))
+            for d in dayrange(self.starts, self.ends + timedelta(days=1))
         ]
 
     def _next_available_day(self) -> date:

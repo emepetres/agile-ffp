@@ -7,7 +7,7 @@ Build agile charts for firm fixed price projects, to compute estimated milestone
 - [x] CLI tool to create Gantt from yaml
 - [x] Support priority between tasks
 - [ ] Support for vacations low capacity
-- [ ] Export to CSV
+- [x] Export to CSV
 
 ## Usage
 
