@@ -9,6 +9,7 @@ class Task:
         name: str,
         estimate: dict[str, int | dict[str, int]],
         depends_on: list = [],
+        priority: int = 99,
     ):
         """Creates a task
 
@@ -21,6 +22,7 @@ class Task:
         """
         self.name = name
         self.depends_on = depends_on
+        self.priority = priority
         self.init, self.end, self.days = None, None, None
         self.cal = Seville()
 

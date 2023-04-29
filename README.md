@@ -5,7 +5,7 @@ Build agile charts for firm fixed price projects, to compute estimated milestone
 ## Features
 
 - [x] CLI tool to create Gantt from yaml
-- [ ] Support priority between tasks
+- [x] Support priority between tasks
 - [ ] Support for vacations low capacity
 - [ ] Export to CSV
 
@@ -13,7 +13,9 @@ Build agile charts for firm fixed price projects, to compute estimated milestone
 
 `python -m src.agileffp.main -f sample.yml`
 
-### Format yml file
+### Sample yml file
+
+This sample represents the espected schema of the yaml file
 
 ```yaml
 capacity:
@@ -42,6 +44,7 @@ tasks:
       web:
         effort: 50
         max_capacity: 1
+    priority: 50 # [0 - 99]
     depends_on:
       - task1
 ```

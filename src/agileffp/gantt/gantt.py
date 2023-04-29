@@ -40,13 +40,17 @@ class Gantt:
         """Gets the tasks that are ready to be processed
 
         Returns:
-            list[DependencyNode]: A list of tasks that are ready to be processed
+            list[DependencyNode]: A list of tasks that are ready to be processed,
+            ordered by priority
         """
-        return [
-            n
-            for n in self.nodes.values()
-            if n.dependencies_satisfied() and not n.processed
-        ]
+        return sorted(
+            [
+                n
+                for n in self.nodes.values()
+                if n.dependencies_satisfied() and not n.processed
+            ],
+            key=lambda node: node.task.priority,
+        )
 
     def build(self, capacity: dict[str, CapacityTeam]) -> None:
         """Builds the gantt chart for the dependency graph
