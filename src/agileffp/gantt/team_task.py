@@ -2,15 +2,15 @@ from src.agileffp.gantt.capacity_team import CapacityTeam
 
 
 class TeamTask:
-    def __init__(self, name: str, team: str, effort: int | dict[str, int]):
+    def __init__(self, name: str, team: str, estimate: int | dict[str, int]):
         self.name = name
         self.team = team
-        if isinstance(effort, int):
-            self.effort = effort
+        if isinstance(estimate, int):
+            self.effort = estimate
             self.max_capacity = None
         else:
-            self.effort = effort["effort"]
-            self.max_capacity = effort["max_capacity"]
+            self.effort = estimate["effort"]
+            self.max_capacity = estimate["max_capacity"]
         self.init, self.end, self.days = None, None, None
 
     def assign_capacity(self, capacity: CapacityTeam) -> None:

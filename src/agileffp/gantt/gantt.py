@@ -15,6 +15,12 @@ class DependencyNode:
                 return False
         return True
 
+    def __str__(self):
+        return str(self.task)
+
+    def __repr__(self):
+        return str(self)
+
 
 class Gantt:
     def __init__(self, tasks: list[Task]):
@@ -58,3 +64,12 @@ class Gantt:
             root.processed = True
 
         self.build(capacity)
+
+    def __str__(self):
+        s = "Gantt: \n"
+        for node in self.nodes.values():
+            s += f"\t{node}\n"
+        return s
+
+    def __repr__(self):
+        return str(self)

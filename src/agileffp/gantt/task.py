@@ -7,7 +7,7 @@ class Task:
     def __init__(
         self,
         name: str,
-        teams_effort: dict[str, int | dict[str, int]],
+        estimate: dict[str, int | dict[str, int]],
         depends_on: list = [],
     ):
         """Creates a task
@@ -25,7 +25,7 @@ class Task:
         self.cal = Seville()
 
         self.teams_tasks = {
-            team: TeamTask(name, team, effort) for team, effort in teams_effort.items()
+            team: TeamTask(name, team, effort) for team, effort in estimate.items()
         }
 
     def assign_capacity(self, capacity: dict[str, CapacityTeam]) -> None:

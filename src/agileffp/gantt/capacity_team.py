@@ -90,3 +90,9 @@ class CapacityTeam:
         self.capacity[idx] -= assignable
 
         return assignable
+
+    def __str__(self):
+        return f"{self.team}: {self.members} ({self.starts} - {self.ends})"
+
+    def __repr__(self):
+        return str(self)
