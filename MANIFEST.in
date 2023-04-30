@@ -1,0 +1,3 @@
+graft src/agileffp/static
+graft src/agileffp/templates
+global-exclude *.pyc
