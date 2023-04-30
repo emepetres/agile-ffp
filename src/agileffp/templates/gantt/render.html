@@ -17,6 +17,7 @@
     var data = new google.visualization.DataTable();
     data.addColumn("string", "Task ID");
     data.addColumn("string", "Task Name");
+    data.addColumn('string', 'Resource');
     data.addColumn("date", "Start Date");
     data.addColumn("date", "End Date");
     data.addColumn("number", "Duration");
@@ -26,6 +27,7 @@
     data.addRows([
       {%for t in gantt%}
       [
+        "{{t.name}}",
         "{{t.name}}",
         "{{t.name}}",
         new Date("{{t.init}}"),
