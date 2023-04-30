@@ -18,12 +18,6 @@ from agileffp.utils import read_yaml_file
 bp = Blueprint("gantt", __name__, url_prefix="/gantt")
 
 
-# a simple page that says hello
-@bp.route("/hello")
-def hello():
-    return "Hello, World!"
-
-
 def allowed_file(filename):
     return (
         "." in filename
