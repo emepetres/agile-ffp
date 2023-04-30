@@ -41,7 +41,9 @@
 
     var options = {
       height: {{height}},
-      criticalPathEnabled: false,
+      gantt: {
+            criticalPathEnabled: false,
+      }
     };
 
     var chart = new google.visualization.Gantt(
