@@ -1,0 +1,21 @@
+[project]
+name = "agileffp"
+version = "0.1.0"
+dependencies = [
+    "pyyaml",
+    "workalendar",
+    "flask",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --import-mode=importlib"
+testpaths = ["tests"]
+python_files = "*_should.py"
+python_classes = "*Should"
+python_functions = "assert_*"
+pythonpath = "src"

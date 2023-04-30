@@ -1,0 +1,10 @@
+name: agileffp
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - pyyaml==6.0
+      - workalendar==17.0.*
+      - flask==2.3.*

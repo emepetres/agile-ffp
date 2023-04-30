@@ -1,0 +1,4 @@
+pytest==3.7.*
+ruff
+black
+build
