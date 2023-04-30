@@ -25,7 +25,7 @@ class TeamTask:
             )
 
         self.init, self.end, self.days = capacity.assign_effort(
-            self.effort, self.max_capacity
+            self.name, self.effort, self.max_capacity
         )
 
     def __str__(self):
