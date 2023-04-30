@@ -6,7 +6,7 @@ Build agile charts for firm fixed price projects, to compute estimated milestone
 
 - [x] CLI tool to create Gantt from yaml
 - [x] Support priority between tasks
-- [ ] Support for vacations low capacity
+- [x] Support for vacations low capacity
 - [x] Export to CSV
 
 ## Usage
@@ -22,6 +22,9 @@ capacity:
   team1:
     members: 2
     starts: 2023-04-17
+    vacation_months:
+      - 7
+      - 8
   team2:
     members: 2
     starts: 2023-05-15

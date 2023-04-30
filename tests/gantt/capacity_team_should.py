@@ -10,6 +10,11 @@ def capacity():
     return CapacityTeam("team1", 2, date(2023, 1, 1))
 
 
+@pytest.fixture
+def summer_capacity():
+    return CapacityTeam("team1", 2, date(2023, 6, 1))
+
+
 def assert_no_capacity_before_start_day(capacity):
     assert capacity.capacity_at(date(2022, 12, 31)) == 0
 
@@ -53,4 +58,11 @@ def assert_mid_effort_init_end_dates(capacity):
     init, end, days = capacity.assign_effort(10, 1)
     assert init == date(2023, 1, 2)
     assert end == date(2023, 1, 16)
+    assert days == 10
+
+
+def assert_half_effort_on_vacation_months(summer_capacity):
+    init, end, days = summer_capacity.assign_effort(10)
+    assert init == date(2023, 6, 1)
+    assert end == date(2023, 6, 15)
     assert days == 10

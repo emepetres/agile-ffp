@@ -6,7 +6,12 @@ from agileffp.seville_calendar import Seville
 
 class CapacityTeam:
     def __init__(
-        self, team: str, members: int, starts: date, ends: date = None
+        self,
+        team: str,
+        members: int,
+        starts: date,
+        ends: date = None,
+        vacation_months=[6, 12],
     ) -> None:
         """If ends is None, it is set as the end of current year, or the same year as
         starts occurs above current year."""
@@ -14,6 +19,7 @@ class CapacityTeam:
         self.members = members
         self.starts = starts
         self.ends = ends
+        self.vacation_months = vacation_months
         if self.ends is None:
             current_year = date.today().year
             year = current_year if current_year >= starts.year else starts.year
@@ -24,9 +30,18 @@ class CapacityTeam:
 
     def _build_capacity_calendar(self):
         self.capacity = [
-            self.members if self.cal.is_working_day(d) else 0
+            self._get_max_capacity(d)
             for d in dayrange(self.starts, self.ends + timedelta(days=1))
         ]
+
+    def _get_max_capacity(self, date: date) -> int:
+        if not self.cal.is_working_day(date):
+            return 0
+
+        if date.month not in self.vacation_months:
+            return self.members
+        else:
+            return self.members / 2
 
     def _next_available_day(self) -> date:
         for i, c in enumerate(self.capacity):
