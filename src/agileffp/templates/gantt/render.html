@@ -1,5 +1,85 @@
-{% extends 'base.html' %} {% block header %}
+{% extends 'base.html' %}
+<!---->
+{% block scripts %}
+<script
+  type="text/javascript"
+  src="https://www.gstatic.com/charts/loader.js"
+></script>
+<script type="text/javascript">
+  google.charts.load("current", { packages: ["gantt"] });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function daysToMilliseconds(days) {
+    return days * 24 * 60 * 60 * 1000;
+  }
+
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn("string", "Task ID");
+    data.addColumn("string", "Task Name");
+    data.addColumn("date", "Start Date");
+    data.addColumn("date", "End Date");
+    data.addColumn("number", "Duration");
+    data.addColumn("number", "Percent Complete");
+    data.addColumn("string", "Dependencies");
+
+    data.addRows([
+      {%for t in gantt%}
+      [
+        "{{t.name}}",
+        "{{t.name}}",
+        new Date("{{t.init}}"),
+        null,
+        daysToMilliseconds({{t.days}}),
+        0,
+        null,
+      ],
+      {%endfor%}
+    ]);
+
+    var options = {
+      //height: 275,
+    };
+
+    var chart = new google.visualization.Gantt(
+      document.getElementById("chart_div")
+    );
+
+    google.visualization.events.addListener(chart, 'ready', function () {
+      let button = document.getElementById('export');
+      let svg = document.getElementsByTagName('svg')[0];
+      ////
+      //get svg source.
+      var serializer = new XMLSerializer();
+      var source = serializer.serializeToString(svg);
+
+      //add name spaces.
+      if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+          source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+      }
+      if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+          source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+      }
+
+      //add xml declaration
+      source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+
+      //convert svg source to URI data scheme.
+      var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+      ////
+      button.href = url;
+    });
+
+    chart.draw(data, options);
+  }
+</script>
+{% endblock %}
+<!---->
+{% block header %}
 <h1>{% block title %}Gantt Chart{% endblock %}</h1>
-{% endblock %} {% block content %}
-<p>{{ data }}</p>
+{% endblock %}
+<!---->
+{% block content %}
+<div id="chart_div"></div>
+<a id="export" href="#" download="gantt.svg">Export</a>
 {% endblock %}

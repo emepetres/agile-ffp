@@ -28,6 +28,13 @@ class DependencyNode:
             + f",{int((self.task.end-self.task.init).days)}"
         )
 
+    def to_dict(self):
+        return {
+            "name": self.task.name,
+            "init": str(self.task.init),
+            "days": int((self.task.end - self.task.init).days),
+        }
+
 
 class Gantt:
     def __init__(self, tasks: list[Task]):
@@ -91,3 +98,7 @@ class Gantt:
             s += f"{node.to_csv()}\n"
         with open(file_path, "w") as f:
             f.write(s)
+
+    def to_dict(self) -> list[dict]:
+        tasks = [node.to_dict() for node in self.nodes.values()]
+        return sorted(tasks, key=lambda task: task["init"])

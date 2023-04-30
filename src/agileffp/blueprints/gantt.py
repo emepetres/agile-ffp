@@ -60,4 +60,4 @@ def render_chart(filename):
     tasks = Task.parse(data)
     chart = Gantt(tasks)
     chart.build(capacity)
-    return render_template("gantt/render.html", data=str(chart))
+    return render_template("gantt/render.html", gantt=chart.to_dict())
