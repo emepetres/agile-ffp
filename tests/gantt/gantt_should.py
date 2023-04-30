@@ -88,19 +88,53 @@ def assert_duration_according_to_priority(two_children_with_priority, capacity):
     assert task3.days == 12
 
 
-def assert_dict(sequential2, capacity):
+def assert_to_list(sequential2, capacity):
     sequential2.build(capacity)
-    d = sequential2.to_dict()
-    assert d == [{
-            "name": "sample_task1",
-            "init": "2023-01-02",
-            "days": 7,
-            "depends_on": "",
-        },
-        {
-            "name": "sample_task2",
-            "init": "2023-01-09",
-            "days": 7,
-            "depends_on": "sample_task1",
-        },
-    ]
+    d = sequential2.to_list()
+    assert len(d) == 2
+    assert d[0] == {
+        "name": "sample_task1",
+        "init": "2023-01-02",
+        "end": "2023-01-09",
+        "days": 7,
+        "depends_on": "",
+        "teams": [
+            {
+                "name": "team1",
+                "init": "2023-01-02",
+                "end": "2023-01-09",
+                "days": 7,
+                "depends_on": ["sample_task1"],
+            },
+            {
+                "name": "team2",
+                "init": "2023-01-02",
+                "end": "2023-01-09",
+                "days": 7,
+                "depends_on": ["sample_task1"],
+            },
+        ],
+    }
+    assert d[1] == {
+        "name": "sample_task2",
+        "init": "2023-01-09",
+        "end": "2023-01-16",
+        "days": 7,
+        "depends_on": "sample_task1",
+        "teams": [
+            {
+                "name": "team1",
+                "init": "2023-01-10",
+                "end": "2023-01-16",
+                "days": 6,
+                "depends_on": ["sample_task2"],
+            },
+            {
+                "name": "team2",
+                "init": "2023-01-09",
+                "end": "2023-01-13",
+                "days": 4,
+                "depends_on": ["sample_task2"],
+            },
+        ],
+    }

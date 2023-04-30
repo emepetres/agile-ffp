@@ -41,3 +41,15 @@ def assert_duration_according_to_max_capacity(task2, capacity1):
     assert task2.init == date(2023, 1, 2)
     assert task2.end == date(2023, 1, 16)
     assert task2.days == 10
+
+
+def assert_task_to_dict(task1, capacity1):
+    task1.assign_capacity(capacity1)
+    d = task1.to_dict()
+    assert d == {
+        "name": "team1",
+        "init": "2023-01-02",
+        "end": "2023-01-09",
+        "days": 7,
+        "depends_on": "sample_task",
+    }

@@ -33,3 +33,12 @@ class TeamTask:
 
     def __repr__(self):
         return str(self)
+
+    def to_dict(self):
+        return {
+            "name": self.team,
+            "init": str(self.init),
+            "end": str(self.end),
+            "days": int((self.end - self.init).days),
+            "depends_on": self.name,
+        }

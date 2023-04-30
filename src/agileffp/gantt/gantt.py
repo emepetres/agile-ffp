@@ -32,8 +32,10 @@ class DependencyNode:
         return {
             "name": self.task.name,
             "init": str(self.task.init),
+            "end": str(self.task.end),
             "days": int((self.task.end - self.task.init).days),
             "depends_on": ",".join([n.task.name for n in self.parent_nodes]),
+            "teams": [t.to_dict() for _, t in self.task.teams_tasks.items()],
         }
 
 
@@ -100,6 +102,6 @@ class Gantt:
         with open(file_path, "w") as f:
             f.write(s)
 
-    def to_dict(self) -> list[dict]:
+    def to_list(self) -> list[dict]:
         tasks = [node.to_dict() for node in self.nodes.values()]
         return sorted(tasks, key=lambda task: task["init"])

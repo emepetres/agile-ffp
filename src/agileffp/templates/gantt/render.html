@@ -31,11 +31,23 @@
         "{{t.name}}",
         "{{t.name}}",
         new Date("{{t.init}}"),
-        null,
+        new Date("{{t.end}}"),
         daysToMilliseconds({{t.days}}),
         0,
         "{{t.depends_on}}",
       ],
+      {%for tt in t.teams%}
+      [
+        "{{t.name}}{{tt.name}}",
+        "{{tt.name}}",
+        "{{t.name}}",
+        new Date("{{tt.init}}"),
+        new Date("{{tt.end}}"),
+        daysToMilliseconds({{tt.days}}),
+        0,
+        "{{tt.depends_on}}",
+      ],
+      {%endfor%}
       {%endfor%}
     ]);
 
@@ -43,6 +55,12 @@
       height: {{height}},
       gantt: {
             criticalPathEnabled: false,
+            arrow: {
+              angle: 100,
+              width: 5,
+              color: 'green',
+              radius: 0
+            }
       }
     };
 

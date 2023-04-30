@@ -54,5 +54,7 @@ def render_chart(filename):
     tasks = Task.parse(data)
     chart = Gantt(tasks)
     chart.build(capacity)
-    info = chart.to_dict()
-    return render_template("gantt/render.html", gantt=info, height=50 * (1 + len(info)))
+    info = chart.to_list()
+    return render_template(
+        "gantt/render.html", gantt=info, height=50 * 2 * (1 + len(info))
+    )
