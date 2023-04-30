@@ -7,3 +7,4 @@ dependencies:
   - pip:
       - pyyaml==6.0
       - workalendar==17.0.*
+      - flask==2.3.*

@@ -96,3 +96,22 @@ class CapacityTeam:
 
     def __repr__(self):
         return str(self)
+
+    def parse(data: dict) -> dict[str, "CapacityTeam"]:
+        """Parses the YAML data into Capacity
+
+        Args:
+            data (dict): The YAML data
+
+        Returns:
+            dict[str, CapacityTeam]: The capacity dictionary
+        """
+        if "capacity" not in data:
+            raise ValueError("Invalid YAML file")
+
+        capacity = {
+            team: CapacityTeam(team, **kwargs)
+            for team, kwargs in data["capacity"].items()
+        }
+
+        return capacity

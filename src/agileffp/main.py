@@ -5,28 +5,6 @@ from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.utils import read_yaml_file
 
 
-def parse_yaml_file(data: dict):
-    """Parses the YAML data into Capacity and Tasks
-
-    Args:
-        data (dict): The YAML data
-
-    Returns:
-        dict[str, CapacityTeam]: The capacity dictionary
-        list[Task]: The list of tasks
-    """
-    if "capacity" not in data or "tasks" not in data:
-        raise ValueError("Invalid YAML file")
-
-    capacity = {
-        team: CapacityTeam(team, **kwargs) for team, kwargs in data["capacity"].items()
-    }
-
-    tasks = [Task(**kwargs) for kwargs in data["tasks"]]
-
-    return capacity, tasks
-
-
 def main():
     parser = argparse.ArgumentParser(
         description="Generate a Gantt chart according to YAML information."
@@ -42,7 +20,8 @@ def main():
     args = parser.parse_args()
 
     data = read_yaml_file(args.file_path)
-    capacity, tasks = parse_yaml_file(data)
+    capacity = CapacityTeam.parse(data)
+    tasks = Task.parse(data)
 
     chart = Gantt(tasks)
     chart.build(capacity)

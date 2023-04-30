@@ -56,3 +56,17 @@ class Task:
 
     def __repr__(self):
         return str(self)
+
+    def parse(data: dict) -> list["Task"]:
+        """Parses the YAML data into Tasks
+
+        Args:
+            data (dict): The YAML data
+
+        Returns:
+            list[Task]: The tasks list
+        """
+        if "tasks" not in data:
+            raise ValueError("Invalid YAML file")
+
+        return [Task(**kwargs) for kwargs in data["tasks"]]
