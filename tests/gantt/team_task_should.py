@@ -1,7 +1,7 @@
 from datetime import date
 import pytest
-from src.agileffp.gantt.capacity_team import CapacityTeam
-from src.agileffp.gantt.team_task import TeamTask
+from agileffp.gantt.capacity_team import CapacityTeam
+from agileffp.gantt.team_task import TeamTask
 
 
 @pytest.fixture

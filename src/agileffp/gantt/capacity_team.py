@@ -1,7 +1,7 @@
 from datetime import date, timedelta
-from src.agileffp.utils import dayrange
+from agileffp.utils import dayrange
 
-from src.agileffp.seville_calendar import Seville
+from agileffp.seville_calendar import Seville
 
 
 class CapacityTeam:

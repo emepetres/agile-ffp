@@ -1,8 +1,8 @@
 import argparse
-from src.agileffp.gantt.gantt import Gantt
-from src.agileffp.gantt.task import Task
-from src.agileffp.gantt.capacity_team import CapacityTeam
-from src.agileffp.utils import read_yaml_file
+from agileffp.gantt.gantt import Gantt
+from agileffp.gantt.task import Task
+from agileffp.gantt.capacity_team import CapacityTeam
+from agileffp.utils import read_yaml_file
 
 
 def parse_yaml_file(data: dict):

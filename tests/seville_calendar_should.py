@@ -1,7 +1,7 @@
 from datetime import date
 import pytest
 
-from src.agileffp.seville_calendar import Seville
+from agileffp.seville_calendar import Seville
 
 
 @pytest.fixture

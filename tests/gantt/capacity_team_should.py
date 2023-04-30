@@ -2,7 +2,7 @@ import pytest
 from datetime import date
 
 
-from src.agileffp.gantt.capacity_team import CapacityTeam
+from agileffp.gantt.capacity_team import CapacityTeam
 
 
 @pytest.fixture

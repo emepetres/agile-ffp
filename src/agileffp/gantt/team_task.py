@@ -1,4 +1,4 @@
-from src.agileffp.gantt.capacity_team import CapacityTeam
+from agileffp.gantt.capacity_team import CapacityTeam
 
 
 class TeamTask:

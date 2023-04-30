@@ -1,6 +1,6 @@
-from src.agileffp.seville_calendar import Seville
-from src.agileffp.gantt.team_task import TeamTask
-from src.agileffp.gantt.capacity_team import CapacityTeam
+from agileffp.seville_calendar import Seville
+from agileffp.gantt.team_task import TeamTask
+from agileffp.gantt.capacity_team import CapacityTeam
 
 
 class Task:
