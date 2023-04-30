@@ -34,13 +34,14 @@
         null,
         daysToMilliseconds({{t.days}}),
         0,
-        null,
+        "{{t.depends_on}}",
       ],
       {%endfor%}
     ]);
 
     var options = {
-      //height: 275,
+      height: {{height}},
+      criticalPathEnabled: false,
     };
 
     var chart = new google.visualization.Gantt(

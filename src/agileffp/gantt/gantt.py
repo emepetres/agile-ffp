@@ -33,6 +33,7 @@ class DependencyNode:
             "name": self.task.name,
             "init": str(self.task.init),
             "days": int((self.task.end - self.task.init).days),
+            "depends_on": ",".join([n.task.name for n in self.parent_nodes]),
         }
 
 
