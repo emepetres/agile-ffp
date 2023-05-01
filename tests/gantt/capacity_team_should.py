@@ -80,6 +80,7 @@ def assert_timeline(capacity):
     assert tl[0] == {
         "team": "team1",
         "task": "task1",
+        "max": 2,
         "start": "2023-01-02",
         "end": "2023-01-09",
     }
@@ -93,12 +94,14 @@ def assert_max_effort_sequential_timeline(capacity):
     assert tl[0] == {
         "team": "team1",
         "task": "task1",
+        "max": 2,
         "start": "2023-01-02",
         "end": "2023-01-09",
     }
     assert tl[1] == {
         "team": "team1",
         "task": "task2",
+        "max": 2,
         "start": "2023-01-10",
         "end": "2023-01-12",
     }
@@ -112,12 +115,14 @@ def assert_half_effort_overlapped_timeline(capacity):
     assert tl[0] == {
         "team": "team1",
         "task": "task1",
+        "max": 1,
         "start": "2023-01-02",
         "end": "2023-01-16",
     }
     assert tl[1] == {
         "team": "team1",
         "task": "task2",
+        "max": 1,
         "start": "2023-01-02",
         "end": "2023-01-23",
     }

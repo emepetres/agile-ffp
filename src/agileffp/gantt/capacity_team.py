@@ -89,6 +89,7 @@ class CapacityTeam:
             {
                 "team": self.team,
                 "task": task,
+                "max": max_capacity,
                 "start": str(init_date),
                 "end": str(end_date),
             }

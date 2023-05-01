@@ -103,11 +103,12 @@
 
     dataTable.addColumn({ type: 'string', id: 'Team' });
     dataTable.addColumn({ type: 'string', id: 'Task' });
+    dataTable.addColumn({ type: 'string', role: 'tooltip' });
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
     dataTable.addRows([
       {%for tl in timeline%}
-      [ "{{tl.team}}", "{{tl.task}}", new Date("{{tl.start}}"), new Date("{{tl.end}}") ],
+      [ "{{tl.team}}", "{{tl.task}}", "Max: {{tl.max}}", new Date("{{tl.start}}"), new Date("{{tl.end}}") ],
       {%endfor%}
     ]);
 
