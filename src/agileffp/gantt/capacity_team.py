@@ -26,6 +26,7 @@ class CapacityTeam:
             self.ends = date(year, 12, 31)
 
         self.cal = Seville()
+        self.timeline = []
         self._build_capacity_calendar()
 
     def _build_capacity_calendar(self):
@@ -50,7 +51,9 @@ class CapacityTeam:
 
         raise ValueError("No available day")
 
-    def assign_effort(self, effort: int, max_capacity: int = None) -> tuple[date, date]:
+    def assign_effort(
+        self, task: str, effort: int, max_capacity: int = None
+    ) -> tuple[date, date]:
         """Assigns effort to team's capacity.
 
         Args:
@@ -81,6 +84,16 @@ class CapacityTeam:
             if assigned == effort:
                 end_date = self.starts + timedelta(days=i)
                 break
+
+        self.timeline.append(
+            {
+                "team": self.team,
+                "task": task,
+                "max": max_capacity,
+                "start": str(init_date),
+                "end": str(end_date),
+            }
+        )
 
         return (
             init_date,
@@ -130,3 +143,6 @@ class CapacityTeam:
         }
 
         return capacity
+
+    def to_timeline(self) -> list[dict[str, any]]:
+        return self.timeline

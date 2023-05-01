@@ -36,33 +36,93 @@ def assert_full_capacity_at_unassigned_workday(capacity):
 def assert_no_capacity_at_assigned_workday(capacity):
     workday = date(2023, 1, 4)
     assert capacity.capacity_at(workday) == 2
-    capacity.assign_effort(10)
+    capacity.assign_effort("task1", 10)
     assert capacity.capacity_at(workday) == 0
 
 
 def assert_capacity_on_partially_assigned_workday(capacity):
     workday = date(2023, 1, 4)
     assert capacity.capacity_at(workday) == 2
-    capacity.assign_effort(10, max_capacity=1)
+    capacity.assign_effort("task1", 10, max_capacity=1)
     assert capacity.capacity_at(workday) == 1
 
 
 def assert_max_effort_init_end_dates(capacity):
-    init, end, days = capacity.assign_effort(10)
+    init, end, days = capacity.assign_effort("task1", 10)
     assert init == date(2023, 1, 2)
     assert end == date(2023, 1, 9)
     assert days == 5
 
 
-def assert_mid_effort_init_end_dates(capacity):
-    init, end, days = capacity.assign_effort(10, 1)
+def assert_half_effort_init_end_dates(capacity):
+    init, end, days = capacity.assign_effort("task1", 10, 1)
     assert init == date(2023, 1, 2)
     assert end == date(2023, 1, 16)
     assert days == 10
 
 
 def assert_half_effort_on_vacation_months(summer_capacity):
-    init, end, days = summer_capacity.assign_effort(10)
+    init, end, days = summer_capacity.assign_effort("task1", 10)
     assert init == date(2023, 6, 1)
     assert end == date(2023, 6, 15)
     assert days == 10
+
+
+def assert_timeline_empty_if_no_assigned(capacity):
+    tl = capacity.to_timeline()
+    assert len(tl) == 0
+
+
+def assert_timeline(capacity):
+    capacity.assign_effort("task1", 10)
+    tl = capacity.to_timeline()
+    assert len(tl) == 1
+    assert tl[0] == {
+        "team": "team1",
+        "task": "task1",
+        "max": 2,
+        "start": "2023-01-02",
+        "end": "2023-01-09",
+    }
+
+
+def assert_max_effort_sequential_timeline(capacity):
+    capacity.assign_effort("task1", 10)
+    capacity.assign_effort("task2", 5)
+    tl = capacity.to_timeline()
+    assert len(tl) == 2
+    assert tl[0] == {
+        "team": "team1",
+        "task": "task1",
+        "max": 2,
+        "start": "2023-01-02",
+        "end": "2023-01-09",
+    }
+    assert tl[1] == {
+        "team": "team1",
+        "task": "task2",
+        "max": 2,
+        "start": "2023-01-10",
+        "end": "2023-01-12",
+    }
+
+
+def assert_half_effort_overlapped_timeline(capacity):
+    capacity.assign_effort("task1", 10, 1)
+    capacity.assign_effort("task2", 15, 1)
+    tl = capacity.to_timeline()
+    assert len(tl) == 2
+    assert tl[0] == {
+        "team": "team1",
+        "task": "task1",
+        "max": 1,
+        "start": "2023-01-02",
+        "end": "2023-01-16",
+    }
+    assert tl[1] == {
+        "team": "team1",
+        "task": "task2",
+        "max": 1,
+        "start": "2023-01-02",
+        "end": "2023-01-23",
+    }

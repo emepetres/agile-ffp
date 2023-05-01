@@ -104,14 +104,14 @@ def assert_to_list(sequential2, capacity):
                 "init": "2023-01-02",
                 "end": "2023-01-09",
                 "days": 7,
-                "depends_on": ["sample_task1"],
+                "depends_on": "sample_task1",
             },
             {
                 "name": "team2",
                 "init": "2023-01-02",
                 "end": "2023-01-09",
                 "days": 7,
-                "depends_on": ["sample_task1"],
+                "depends_on": "sample_task1",
             },
         ],
     }
@@ -127,14 +127,14 @@ def assert_to_list(sequential2, capacity):
                 "init": "2023-01-10",
                 "end": "2023-01-16",
                 "days": 6,
-                "depends_on": ["sample_task2"],
+                "depends_on": "sample_task2",
             },
             {
                 "name": "team2",
                 "init": "2023-01-09",
                 "end": "2023-01-13",
                 "days": 4,
-                "depends_on": ["sample_task2"],
+                "depends_on": "sample_task2",
             },
         ],
     }

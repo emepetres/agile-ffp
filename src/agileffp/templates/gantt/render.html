@@ -6,14 +6,14 @@
   src="https://www.gstatic.com/charts/loader.js"
 ></script>
 <script type="text/javascript">
-  google.charts.load("current", { packages: ["gantt"] });
+  google.charts.load("current", { packages: ["gantt", "timeline"] });
   google.charts.setOnLoadCallback(drawChart);
 
   function daysToMilliseconds(days) {
     return days * 24 * 60 * 60 * 1000;
   }
 
-  function drawChart() {
+  function drawGanttChart() {
     var data = new google.visualization.DataTable();
     data.addColumn("string", "Task ID");
     data.addColumn("string", "Task Name");
@@ -95,6 +95,30 @@
 
     chart.draw(data, options);
   }
+
+  function drawTimelineChart() {
+    var container = document.getElementById('timeline');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+
+    dataTable.addColumn({ type: 'string', id: 'Team' });
+    dataTable.addColumn({ type: 'string', id: 'Task' });
+    dataTable.addColumn({ type: 'string', role: 'tooltip' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    dataTable.addRows([
+      {%for tl in timeline%}
+      [ "{{tl.team}}", "{{tl.task}}", "Max: {{tl.max}}", new Date("{{tl.start}}"), new Date("{{tl.end}}") ],
+      {%endfor%}
+    ]);
+
+    chart.draw(dataTable);
+  }
+
+  function drawChart() {
+    drawGanttChart();
+    drawTimelineChart();
+  }
 </script>
 {% endblock %}
 <!---->
@@ -105,4 +129,6 @@
 {% block content %}
 <div id="chart_div"></div>
 <a id="export" href="#" download="gantt.svg">Export</a>
+<p>-----------------</p>
+<div id="timeline"></div>
 {% endblock %}

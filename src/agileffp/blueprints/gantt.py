@@ -55,6 +55,11 @@ def render_chart(filename):
     chart = Gantt(tasks)
     chart.build(capacity)
     info = chart.to_list()
+
+    timeline = [tl for c in capacity.values() for tl in c.to_timeline()]
     return render_template(
-        "gantt/render.html", gantt=info, height=50 * 2 * (1 + len(info))
+        "gantt/render.html",
+        gantt=info,
+        height=50 * 2 * (1 + len(info)),
+        timeline=timeline,
     )
