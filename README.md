@@ -11,7 +11,11 @@ Build agile charts for firm fixed price projects, to compute estimated milestone
 
 ## Usage
 
+CLI:
 `python -m src.agileffp.main -f sample.yml`
+
+SERVER:
+`cd src && python -m flask --app agileffp run --debug`
 
 ### Sample yml file
 
