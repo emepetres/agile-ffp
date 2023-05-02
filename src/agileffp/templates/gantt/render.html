@@ -53,7 +53,7 @@
     ]);
 
     var options = {
-      height: {{height}},
+      height: {{gantt_height}},
       gantt: {
             criticalPathEnabled: false,
             arrow: {
@@ -98,6 +98,10 @@
   }
 
   function drawTimelineChart() {
+    var options = {
+      height: {{timeline_height}},
+    };
+
     var container = document.getElementById('timeline');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
@@ -113,7 +117,7 @@
       {%endfor%}
     ]);
 
-    chart.draw(dataTable);
+    chart.draw(dataTable, options);;
   }
 
   function drawChart() {
