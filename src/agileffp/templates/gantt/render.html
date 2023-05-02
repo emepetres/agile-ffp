@@ -109,7 +109,7 @@
     dataTable.addColumn({ type: 'date', id: 'End' });
     dataTable.addRows([
       {%for tl in timeline%}
-      [ "{{tl.team}}", "{{tl.task}}", "Max: {{tl.max}}", new Date("{{tl.start}}"), new Date("{{tl.end}}") ],
+      [ "{{tl.team}}", "{{tl.task}}", "<b>{{tl.task}}</b><br>Max: {{tl.max}}", new Date("{{tl.start}}"), new Date("{{tl.end}}") ],
       {%endfor%}
     ]);
 
