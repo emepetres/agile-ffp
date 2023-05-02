@@ -16,6 +16,7 @@ CLI:
 
 SERVER:
 `cd src && python -m flask --app agileffp run --debug`
+Then go to _localhost:5000/gantt_
 
 ### Sample yml file
 
