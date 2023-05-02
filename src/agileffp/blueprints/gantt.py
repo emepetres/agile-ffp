@@ -60,6 +60,6 @@ def render_chart(filename):
     return render_template(
         "gantt/render.html",
         gantt=info,
-        height=50 * 2 * (1 + len(info)),
+        height=50 * (1 + len(info)),
         timeline=timeline,
     )
