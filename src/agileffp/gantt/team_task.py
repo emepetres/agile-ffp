@@ -1,3 +1,4 @@
+from datetime import date
 from agileffp.gantt.capacity_team import CapacityTeam
 
 
@@ -13,7 +14,7 @@ class TeamTask:
             self.max_capacity = estimate["max_capacity"]
         self.init, self.end, self.days = None, None, None
 
-    def assign_capacity(self, capacity: CapacityTeam) -> None:
+    def assign_capacity(self, capacity: CapacityTeam, after: date = None) -> None:
         """Assigns capacity to the task
 
         Args:
@@ -25,7 +26,7 @@ class TeamTask:
             )
 
         self.init, self.end, self.days = capacity.assign_effort(
-            self.name, self.effort, self.max_capacity
+            self.name, self.effort, max_capacity=self.max_capacity, after=after
         )
 
     def __str__(self):

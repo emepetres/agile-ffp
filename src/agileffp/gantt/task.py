@@ -1,3 +1,4 @@
+from datetime import date
 from agileffp.seville_calendar import Seville
 from agileffp.gantt.team_task import TeamTask
 from agileffp.gantt.capacity_team import CapacityTeam
@@ -30,7 +31,9 @@ class Task:
             team: TeamTask(name, team, effort) for team, effort in estimate.items()
         }
 
-    def assign_capacity(self, capacity: dict[str, CapacityTeam]) -> None:
+    def assign_capacity(
+        self, capacity: dict[str, CapacityTeam], start_after: date = None
+    ) -> None:
         """Assigns capacity to each team in the task
 
         Args:
@@ -44,7 +47,7 @@ class Task:
             )
 
         for team, team_task in self.teams_tasks.items():
-            team_task.assign_capacity(capacity[team])
+            team_task.assign_capacity(capacity[team], after=start_after)
             if self.init is None or team_task.init < self.init:
                 self.init = team_task.init
             if self.end is None or team_task.end > self.end:
