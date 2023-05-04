@@ -44,15 +44,16 @@ class CapacityTeam:
         else:
             return self.members / 2
 
-    def _next_available_day(self) -> date:
-        for i, c in enumerate(self.capacity):
+    def _next_available_day(self, after: date = None) -> date:
+        start = (after - self.starts).days + 1 if after else 0
+        for i, c in enumerate(self.capacity[start:], start=start):
             if c > 0:
                 return i
 
         raise ValueError("No available day")
 
     def assign_effort(
-        self, task: str, effort: int, max_capacity: int = None
+        self, task: str, effort: int, max_capacity: int = None, after: date = None
     ) -> tuple[date, date]:
         """Assigns effort to team's capacity.
 
@@ -75,7 +76,7 @@ class CapacityTeam:
             raise ValueError("effort must be greater than 0")
 
         assigned = 0
-        init_day_idx = self._next_available_day()
+        init_day_idx = self._next_available_day(after=after)
         init_date = self.starts + timedelta(days=init_day_idx)
         end_date = init_date
         for i in range(init_day_idx, len(self.capacity)):

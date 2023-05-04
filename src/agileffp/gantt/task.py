@@ -47,7 +47,7 @@ class Task:
             )
 
         for team, team_task in self.teams_tasks.items():
-            team_task.assign_capacity(capacity[team])
+            team_task.assign_capacity(capacity[team], after=start_after)
             if self.init is None or team_task.init < self.init:
                 self.init = team_task.init
             if self.end is None or team_task.end > self.end:
