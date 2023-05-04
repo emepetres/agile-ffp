@@ -21,7 +21,7 @@ def task3():
 
 @pytest.fixture
 def wrong_task():
-    return Task("wrong_task", {"team1": 10, "team3": 13})
+    return Task("wrong_task", {"team1": 10, "wrong_team": 13})
 
 
 @pytest.fixture

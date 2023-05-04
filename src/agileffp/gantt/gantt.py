@@ -1,3 +1,4 @@
+from datetime import date
 from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.gantt.task import Task
 
@@ -10,10 +11,19 @@ class DependencyNode:
         self.next_nodes = []
 
     def dependencies_satisfied(self) -> bool:
-        for node in self.parent_nodes:
-            if not node.processed:
+        for parent in self.parent_nodes:
+            if not parent.processed:
                 return False
         return True
+
+    def start_after(self) -> date:
+        start_after: date = None
+        for parent in self.parent_nodes:
+            if parent.processed and (
+                start_after is None or parent.task.end > start_after
+            ):
+                start_after = parent.task.end
+        return start_after
 
     def __str__(self):
         return str(self.task)
@@ -80,9 +90,9 @@ class Gantt:
         if not ready:
             return
 
-        for root in ready:
-            root.task.assign_capacity(capacity)
-            root.processed = True
+        for node in ready:
+            node.task.assign_capacity(capacity, start_after=node.start_after())
+            node.processed = True
 
         self.build(capacity)
 

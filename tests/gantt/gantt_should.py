@@ -67,9 +67,9 @@ def assert_duration_according_to_capacity(sequential2, capacity):
     assert task1.init == date(2023, 1, 2)
     assert task1.end == date(2023, 1, 9)
     assert task1.days == 5
-    assert task2.init == date(2023, 1, 9)
+    assert task2.init == date(2023, 1, 10)
     assert task2.end == date(2023, 1, 16)
-    assert task2.days == 6
+    assert task2.days == 5
 
 
 def assert_duration_according_to_priority(two_children_with_priority, capacity):
@@ -80,12 +80,12 @@ def assert_duration_according_to_priority(two_children_with_priority, capacity):
     assert task1.init == date(2023, 1, 2)
     assert task1.end == date(2023, 1, 9)
     assert task1.days == 5
-    assert task2.init == date(2023, 1, 9)
+    assert task2.init == date(2023, 1, 10)
     assert task2.end == date(2023, 1, 23)
-    assert task2.days == 11
-    assert task3.init == date(2023, 1, 13)
+    assert task2.days == 10
+    assert task3.init == date(2023, 1, 16)
     assert task3.end == date(2023, 1, 30)
-    assert task3.days == 12
+    assert task3.days == 11
 
 
 def assert_to_list(sequential2, capacity):
@@ -117,9 +117,9 @@ def assert_to_list(sequential2, capacity):
     }
     assert d[1] == {
         "name": "sample_task2",
-        "init": "2023-01-09",
+        "init": "2023-01-10",
         "end": "2023-01-16",
-        "days": 7,
+        "days": 6,
         "depends_on": "sample_task1",
         "teams": [
             {
@@ -131,9 +131,9 @@ def assert_to_list(sequential2, capacity):
             },
             {
                 "name": "team2",
-                "init": "2023-01-09",
-                "end": "2023-01-13",
-                "days": 4,
+                "init": "2023-01-10",
+                "end": "2023-01-16",
+                "days": 6,
                 "depends_on": "sample_task2",
             },
         ],
