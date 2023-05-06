@@ -92,3 +92,11 @@ def assert_compute_estimation(milestones_yml, estimation):
 
     assert milestones["milestone1"].estimated == {"team1": 10, "team2": 13}
     assert milestones["milestone2"].estimated == {"team1": 18, "team3": 90}
+
+
+def assert_round_estimation(estimation):
+    data = {"milestones": [{"name": "milestone1", "tasks": [1.1], "priority": 1}]}
+    milestones = Milestone.parse(data)
+    Milestone.compute(milestones.values(), estimation)
+
+    assert milestones["milestone1"].estimated == {"team1": 6, "team2": 7}

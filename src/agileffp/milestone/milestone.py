@@ -21,6 +21,8 @@ class Milestone:
         for t in self.tasks:
             for k, v in estimation[t].computed_effort.items():
                 self.estimated[k] = self.estimated.get(k, 0) + v
+        for k, v in self.estimated.items():
+            self.estimated[k] = round(v)
 
     def parse(data: dict) -> dict[str, "Milestone"]:
         """Parses a dictionary into a list of milestones
