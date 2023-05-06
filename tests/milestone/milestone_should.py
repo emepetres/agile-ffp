@@ -32,4 +32,4 @@ def assert_parse_list(milestones_yml):
     assert m2.name == "milestone2"
     assert m2.priority == 99
     assert m2.tasks == [2.1, 2.2]
-    assert m2.depends_on == [m1]
+    assert m2.depends_on == ["milestone1"]
