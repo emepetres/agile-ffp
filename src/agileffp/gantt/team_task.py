@@ -6,7 +6,7 @@ class TeamTask:
     def __init__(self, name: str, team: str, estimate: int | dict[str, int]):
         self.name = name
         self.team = team
-        if isinstance(estimate, int):
+        if isinstance(estimate, int | float):
             self.effort = estimate
             self.max_capacity = None
         else:

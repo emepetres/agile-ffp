@@ -1,4 +1,5 @@
 from datetime import date
+from agileffp.milestone.milestone import Milestone
 from agileffp.seville_calendar import Seville
 from agileffp.gantt.team_task import TeamTask
 from agileffp.gantt.capacity_team import CapacityTeam
@@ -73,3 +74,17 @@ class Task:
             raise ValueError("Invalid YAML file")
 
         return [Task(**kwargs) for kwargs in data["tasks"]]
+
+    def from_milestones(milestones: list[Milestone]) -> list["Task"]:
+        """Creates a list of tasks from a list of milestones
+
+        Args:
+            milestones (list[Milestone]): The milestones
+
+        Returns:
+            list[Task]: The tasks
+        """
+        tasks = []
+        for m in milestones:
+            tasks.append(Task(m.name, m.estimated, m.depends_on, m.priority))
+        return tasks

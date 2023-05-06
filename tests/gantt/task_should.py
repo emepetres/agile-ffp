@@ -2,6 +2,8 @@ from datetime import date
 import pytest
 from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.gantt.task import Task
+from agileffp.milestone.estimation import parse_estimation
+from agileffp.milestone.milestone import Milestone
 
 
 @pytest.fixture
@@ -33,6 +35,62 @@ def capacity():
     }
 
 
+@pytest.fixture
+def milestones():
+    milestones = Milestone.parse(
+        {
+            "milestones": [
+                {"name": "milestone1", "tasks": [1.1, 1.2], "priority": 1},
+                {
+                    "name": "milestone2",
+                    "tasks": [2.1, 2.2],
+                    "depends_on": ["milestone1"],
+                },
+            ]
+        }
+    )
+    estimation = parse_estimation(
+        {
+            "estimation": [
+                {
+                    "name": "epic1",
+                    "totals": {"team1": 10, "team2": 13},
+                    "tasks": [
+                        {
+                            "name": "task1",
+                            "ref": 1.1,
+                            "estimated": {"team1": 5, "team2": 6},
+                        },
+                        {
+                            "name": "task2",
+                            "ref": 1.2,
+                            "estimated": {"team1": 4, "team2": 5},
+                        },
+                    ],
+                },
+                {
+                    "name": "epic2",
+                    "totals": {"team1": 18, "team3": 90},
+                    "tasks": [
+                        {
+                            "name": "task1",
+                            "ref": 2.1,
+                            "estimated": {"team1": 7, "team3": 40},
+                        },
+                        {
+                            "name": "task2",
+                            "ref": 2.2,
+                            "estimated": {"team1": 6, "team3": 40},
+                        },
+                    ],
+                },
+            ]
+        }
+    )
+    Milestone.compute(milestones.values(), estimation)
+    return milestones
+
+
 def assert_teams_must_match_when_assigning_capacity(wrong_task, capacity):
     with pytest.raises(ValueError):
         wrong_task.assign_capacity(capacity)
@@ -58,3 +116,18 @@ def assert_force_init_date(task1, task3, capacity):
     assert task3.init == date(2023, 1, 10)
     assert task3.end == date(2023, 1, 16)
     assert task3.days == 5
+
+
+def assert_from_milestones(milestones):
+    tasks = Task.from_milestones(milestones.values())
+    assert len(tasks) == 2
+
+    dt = {t.name: t for t in tasks}
+    assert dt["milestone1"].priority == 1
+    assert dt["milestone1"].depends_on == []
+    assert dt["milestone1"].teams_tasks["team1"].effort == 10
+    assert dt["milestone1"].teams_tasks["team2"].effort == 13
+    assert dt["milestone2"].priority == 99
+    assert dt["milestone2"].depends_on == ["milestone1"]
+    assert dt["milestone2"].teams_tasks["team1"].effort == 18
+    assert dt["milestone2"].teams_tasks["team3"].effort == 90
