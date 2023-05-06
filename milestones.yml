@@ -1,0 +1,66 @@
+milestones:
+  - name: Base
+    tasks: [1.1, 1.2, 1.5, 1.6]
+  - name: Visor movimientos dentarios
+    tasks: [2.6, 3.1]
+    depends_on: [Base]
+    priority: 20
+  - name: IPR
+    tasks: [7.7]
+    depends_on: [Visor movimientos dentarios]
+    priority: 40
+  - name: App móvil v1
+    tasks: [13.4]
+    depends_on: [Visor movimientos dentarios]
+    priority: 60
+  - name: App móvil v2
+    tasks: [13.5]
+    depends_on: ["App móvil v1"]
+  - name: Raices
+    tasks: [2.1, 2.2, 2.3, 2.4, 11.1]
+    depends_on: [Base]
+    priority: 80
+  - name: Attaches y etiquetas
+    tasks: [3.2, 3.3, 3.4, 3.5, 10.2, 10.3]
+    depends_on: [Visor movimientos dentarios, Raices]
+  - name: Orientación dientes y raices
+    tasks: [2.5]
+    depends_on: [Raices]
+  - name: Exportar tratamiento
+    tasks: [3.5]
+    depends_on: [Attaches y etiquetas]
+  - name: SaaS Independiente
+    tasks: [12.1, 12.2, 12.3, 12.4, 12.5, 12.6]
+    depends_on: [Exportar tratamiento]
+  - name: Extensiones SaaS
+    tasks: [5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9]
+    depends_on: [Base]
+  - name: Meshmixer
+    tasks: [4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9]
+    depends_on: [Base]
+  - name: Extensiones 3D
+    tasks: [6.1, 6.2, 6.3, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6]
+  - name: Datos de entrenamiento
+    tasks: [9.2]
+  - name: "[AI] Movimientos dentarios"
+    tasks: [10.1]
+    depends_on: [Datos de entrenamiento]
+  - name: "[AI] Detección de dientes"
+    tasks: [9.3]
+    depends_on: [Datos de entrenamiento]
+  - name: "[AI] Orientación dientes y raices"
+    tasks: [9.4]
+    depends_on: [Datos de entrenamiento]
+    priority: 20
+  - name: "[AI] Posición Arcadas"
+    tasks: [9.1]
+    depends_on: [Base]
+  - name: "[AI] Raices automáticas"
+    tasks: [9.5]
+    depends_on: [Base]
+  - name: "[AI] Meshmixer"
+    tasks: [8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8]
+    depends_on: [Base]
+  - name: "[AI] DICOM"
+    tasks: [11.2, 11.3]
+    depends_on: [Visor movimientos dentarios]
