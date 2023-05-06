@@ -8,7 +8,12 @@ def milestones_yml():
     return {
         "milestones": [
             {"name": "milestone1", "tasks": [1.1, 1.2], "priority": 1},
-            {"name": "milestone2", "tasks": [2.1, 2.2], "depends_on": ["milestone1"]},
+            {
+                "name": "milestone2",
+                "tasks": [2.1, 2.2],
+                "depends_on": ["milestone1"],
+                "max_capacity": {"team1": 1},
+            },
         ]
     }
 
@@ -70,12 +75,15 @@ def assert_parse_list(milestones_yml):
     assert m1.name == "milestone1"
     assert m1.priority == 1
     assert m1.tasks == [1.1, 1.2]
+    assert m1.depends_on == []
+    assert m1.max_capacity == {}
 
     m2 = milestones["milestone2"]
     assert m2.name == "milestone2"
     assert m2.priority == 99
     assert m2.tasks == [2.1, 2.2]
     assert m2.depends_on == ["milestone1"]
+    assert m2.max_capacity == {"team1": 1}
 
 
 def assert_compute_estimation(milestones_yml, estimation):

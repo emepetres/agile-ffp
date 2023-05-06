@@ -86,5 +86,13 @@ class Task:
         """
         tasks = []
         for m in milestones:
-            tasks.append(Task(m.name, m.estimated, m.depends_on, m.priority))
+            t = Task(m.name, m.estimated, m.depends_on, m.priority)
+            if m.max_capacity:
+                for team, max in m.max_capacity.items():
+                    t.teams_tasks[team].effort = {
+                        "effort": t.teams_tasks[team].effort,
+                        "max": max,
+                    }
+            tasks.append(t)
+
         return tasks
