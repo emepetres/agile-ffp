@@ -1,6 +1,6 @@
 import pytest
 from agileffp.milestone.milestone import Milestone
-from agileffp.milestone.milestone import EstimationTask
+from agileffp.milestone.milestone import EstimatedTask
 
 
 @pytest.fixture
@@ -15,7 +15,7 @@ def milestones_yml():
 
 @pytest.fixture
 def estimation():
-    return EstimationTask.parse(
+    return EstimatedTask.parse(
         {
             "estimation": [
                 {
@@ -25,12 +25,12 @@ def estimation():
                         {
                             "name": "task1",
                             "ref": 1.1,
-                            "effort": {"team1": 5, "team2": 6},
+                            "estimated": {"team1": 5, "team2": 6},
                         },
                         {
                             "name": "task2",
                             "ref": 1.2,
-                            "effort": {"team1": 4, "team2": 5},
+                            "estimated": {"team1": 4, "team2": 5},
                         },
                     ],
                 },
@@ -41,12 +41,12 @@ def estimation():
                         {
                             "name": "task1",
                             "ref": 2.1,
-                            "effort": {"team1": 7, "team3": 40},
+                            "estimated": {"team1": 7, "team3": 40},
                         },
                         {
                             "name": "task2",
                             "ref": 2.2,
-                            "effort": {"team1": 6, "team3": 40},
+                            "estimated": {"team1": 6, "team3": 40},
                         },
                     ],
                 },

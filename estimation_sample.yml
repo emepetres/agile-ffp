@@ -7,21 +7,21 @@ estimation:
     tasks:
       - name: Interfaz de usuario
         ref: 1.1
-        effort:
+        estimated:
           web: 13
           3d: 3
       - name: Sincronización Automática
         ref: 1.2
-        effort:
+        estimated:
           3d: 26
       - name: Controles de visualización
         ref: 1.5
-        effort:
+        estimated:
           web: 17
           3d: 18
       - name: Formato optimizado
         ref: 1.6
-        effort:
+        estimated:
           web: 4
           3d: 7
   - name: Web App
@@ -32,56 +32,56 @@ estimation:
     tasks:
       - name: Tarjeta de crédito
         ref: 2.1
-        effort:
+        estimated:
           web: 3
           3d: 5
       - name: Inicio de sesión
         ref: 2.2
-        effort:
+        estimated:
           web: 2
           3d: 8
       - name: Registro de usuario
         ref: 2.3
-        effort:
+        estimated:
           web: 2
           3d: 13
       - name: Recuperar contraseña
         ref: 2.4
-        effort:
+        estimated:
           web: 8
           3d: 8
       - name: Landing page
         ref: 2.5
-        effort:
+        estimated:
           web: 3
           3d: 8
       - name: Página de precios
         ref: 2.6
-        effort:
+        estimated:
           3d: 5
       - name: Página de contacto
         ref: 3.1
-        effort:
+        estimated:
           web: 30
           3d: 21
       - name: Página de ayuda
         ref: 3.2
-        effort:
+        estimated:
           web: 8
           3d: 16
       - name: Página de términos y condiciones
         ref: 3.3
-        effort:
+        estimated:
           web: 5
           3d: 13
       - name: Página de política de privacidad
         ref: 3.4
-        effort:
+        estimated:
           web: 5
           3d: 5
       - name: Integración con redes sociales
         ref: 3.5
-        effort:
+        estimated:
           web: 4
           3d: 7
   - name: Extensiones Web
@@ -92,40 +92,40 @@ estimation:
     tasks:
       - name: Información general y específica
         ref: 5.1
-        effort:
+        estimated:
           web: 3
       - name: Ficheros de recursos
         ref: 5.2
-        effort:
+        estimated:
           web: 8
       - name: Menú flotante lateral con datos del caso
         ref: 5.3
-        effort:
+        estimated:
           web: 5
           3d: 5
       - name: Informe de cliente
         ref: 5.4
-        effort:
+        estimated:
           web: 10
       - name: Informe de plan de pagos
         ref: 5.5
-        effort:
+        estimated:
           web: 10
       - name: Reportar bug
         ref: 5.6
-        effort:
+        estimated:
           web: 8
       - name: Configuración de usuario
         ref: 5.7
-        effort:
+        estimated:
           web: 3
       - name: Versiones
         ref: 5.8
-        effort:
+        estimated:
           web: 13
       - name: Perfiles
         ref: 5.9
-        effort:
+        estimated:
           web: 8
   - name: Web App IA
     totals:
@@ -135,45 +135,45 @@ estimation:
     tasks:
       - name: Tarjeta de crédito
         ref: 9.1
-        effort:
+        estimated:
           3d: 13
       - name: Inicio de sesión
         ref: 9.2
-        effort:
+        estimated:
           ia: 20
       - name: Registro de usuario
         ref: 9.3
-        effort:
+        estimated:
           ia: 40
       - name: Recuperar contraseña
         ref: 9.4
-        effort:
+        estimated:
           ia: 40
       - name: Landing page
         ref: 9.5
-        effort:
+        estimated:
           3d: 13
       - name: Página de precios
         ref: 9.6
-        effort:
+        estimated:
           web: 11
           3d: 13
       - name: Página de contacto
         ref: 10.1
-        effort:
+        estimated:
           web: 3
           ia: 100
       - name: Página de ayuda
         ref: 10.2
-        effort:
+        estimated:
           web: 2
           ia: 100
       - name: Página de términos y condiciones
         ref: 10.3
-        effort:
+        estimated:
           3d: 13
       - name: Página de política de privacidad
         ref: 10.4
-        effort:
+        estimated:
           web: 9
           3d: 13

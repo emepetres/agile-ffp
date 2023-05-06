@@ -7,21 +7,21 @@ estimation:
     tasks:
       - name: Interfaz de usuario
         ref: 1.1
-        effort:
+        estimated:
           web: 13
           3d: 3
       - name: Sincronización Automática
         ref: 1.2
-        effort:
+        estimated:
           3d: 26
       - name: Controles de visualización
         ref: 1.5
-        effort:
+        estimated:
           web: 17
           3d: 18
       - name: Formato optimizado
         ref: 1.6
-        effort:
+        estimated:
           web: 4
           3d: 7
   - name: Maestro Manual
@@ -32,56 +32,56 @@ estimation:
     tasks:
       - name: Posicionamiento de arcadas
         ref: 2.1
-        effort:
+        estimated:
           web: 3
           3d: 5
       - name: Oclusograma entre arcadas
         ref: 2.2
-        effort:
+        estimated:
           web: 2
           3d: 8
       - name: Delimitación y clasificación manual de dientes
         ref: 2.3
-        effort:
+        estimated:
           web: 2
           3d: 13
       - name: Raíces simuladas
         ref: 2.4
-        effort:
+        estimated:
           web: 8
           3d: 8
       - name: Orientación de dientes
         ref: 2.5
-        effort:
+        estimated:
           web: 3
           3d: 8
       - name: Deformar encía real
         ref: 2.6
-        effort:
+        estimated:
           3d: 5
       - name: Movimientos dentarios
         ref: 3.1
-        effort:
+        estimated:
           web: 30
           3d: 21
       - name: Attaches
         ref: 3.2
-        effort:
+        estimated:
           web: 8
           3d: 16
       - name: Etiquetas
         ref: 3.3
-        effort:
+        estimated:
           web: 5
           3d: 13
       - name: Aditamientos
         ref: 3.4
-        effort:
+        estimated:
           web: 5
           3d: 5
       - name: Exportar tratamiento en STLs
         ref: 3.5
-        effort:
+        estimated:
           web: 4
           3d: 7
   - name: Meshmixer Manual
@@ -92,47 +92,47 @@ estimation:
     tasks:
       - name: Pantalla de corrección de malla
         ref: 4.1
-        effort:
+        estimated:
           web: 3
           3d: 1
       - name: Herramienta de inspección
         ref: 4.2
-        effort:
+        estimated:
           web: 4
           3d: 16
       - name: Herramienta de selección
         ref: 4.3
-        effort:
+        estimated:
           web: 10
           3d: 15
       - name: Herramienta de suavizado
         ref: 4.4
-        effort:
+        estimated:
           web: 3
           3d: 5
       - name: Herramienta de expandir
         ref: 4.5
-        effort:
+        estimated:
           web: 3
           3d: 5
       - name: Herramienta de hundir
         ref: 4.6
-        effort:
+        estimated:
           web: 2
           3d: 1
       - name: Herramienta de extruir
         ref: 4.7
-        effort:
+        estimated:
           web: 4
           3d: 13
       - name: Herramienta de ahuecado
         ref: 4.8
-        effort:
+        estimated:
           web: 2
           3d: 13
       - name: Herramienta de cortar con plano
         ref: 4.9
-        effort:
+        estimated:
           web: 2
           3d: 8
   - name: Extensiones SaaS
@@ -143,40 +143,40 @@ estimation:
     tasks:
       - name: Información general y específica
         ref: 5.1
-        effort:
+        estimated:
           web: 3
       - name: Ficheros de recursos
         ref: 5.2
-        effort:
+        estimated:
           web: 8
       - name: Menú flotante lateral con datos del caso
         ref: 5.3
-        effort:
+        estimated:
           web: 5
           3d: 5
       - name: Informe de diagnóstico
         ref: 5.4
-        effort:
+        estimated:
           web: 10
       - name: Informe de plan de tratamiento
         ref: 5.5
-        effort:
+        estimated:
           web: 10
       - name: Reportar bug
         ref: 5.6
-        effort:
+        estimated:
           web: 8
       - name: Configuración de usuario
         ref: 5.7
-        effort:
+        estimated:
           web: 3
       - name: Versiones
         ref: 5.8
-        effort:
+        estimated:
           web: 13
       - name: Perfiles
         ref: 5.9
-        effort:
+        estimated:
           web: 8
   - name: Extensiones 3D
     totals:
@@ -186,52 +186,52 @@ estimation:
     tasks:
       - name: Superposición intraoral y extraoral
         ref: 6.1
-        effort:
+        estimated:
           web: 8
           3d: 20
       - name: Línea media, horizontal
         ref: 6.2
-        effort:
+        estimated:
           web: 3
           3d: 8
       - name: Oclusograma entre dientes
         ref: 6.3
-        effort:
+        estimated:
           web: 3
           3d: 8
       - name: Pónticos desde la galería
         ref: 7.1
-        effort:
+        estimated:
           web: 10
           3d: 17
       - name: Pónticos copiando dientes
         ref: 7.2
-        effort:
+        estimated:
           web: 1
           3d: 3
       - name: Salto virtual
         ref: 7.3
-        effort:
+        estimated:
           web: 3
           3d: 5
       - name: Seguimiento de movimientos dentarios
         ref: 7.4
-        effort:
+        estimated:
           web: 20
           3d: 13
       - name: Medios pónticos
         ref: 7.5
-        effort:
+        estimated:
           web: 3
           3d: 2
       - name: Movimientos de sobrecorrección
         ref: 7.6
-        effort:
+        estimated:
           web: 8
           3d: 3
       - name: IPR
         ref: 7.7
-        effort:
+        estimated:
           web: 8
           3d: 8
   - name: Meshmixer IA
@@ -241,35 +241,35 @@ estimation:
     tasks:
       - name: Reducción de polígonos
         ref: 8.1
-        effort:
+        estimated:
           3d: 8
       - name: Corrección de malla
         ref: 8.2
-        effort:
+        estimated:
           3d: 8
       - name: Suavizado
         ref: 8.3
-        effort:
+        estimated:
           ia: 40
       - name: Rellenar agujeros
         ref: 8.4
-        effort:
+        estimated:
           ia: 40
       - name: Eliminar imperfecciones
         ref: 8.5
-        effort:
+        estimated:
           ia: 40
       - name: Generar zócalo hueco
         ref: 8.6
-        effort:
+        estimated:
           3d: 13
       - name: Extruir extremos
         ref: 8.7
-        effort:
+        estimated:
           3d: 8
       - name: Integración de las herramientas
         ref: 8.8
-        effort:
+        estimated:
           3d: 13
   - name: Maestro IA
     totals:
@@ -279,46 +279,46 @@ estimation:
     tasks:
       - name: Posición arcadas
         ref: 9.1
-        effort:
+        estimated:
           3d: 13
       - name: Gestión de datos de entrenamiento
         ref: 9.2
-        effort:
+        estimated:
           ia: 20
       - name: Detección y clasificación de dientes
         ref: 9.3
-        effort:
+        estimated:
           ia: 40
       - name: Orientación dientes y raices
         ref: 9.4
-        effort:
+        estimated:
           ia: 40
       - name: Raices simuladas
         ref: 9.5
-        effort:
+        estimated:
           3d: 13
       - name: Integración de las herramientas de preparación
         ref: 9.6
-        effort:
+        estimated:
           web: 11
           3d: 13
       - name: Movimientos dentarios
         ref: 10.1
-        effort:
+        estimated:
           web: 3
           ia: 100
       - name: Attaches
         ref: 10.2
-        effort:
+        estimated:
           web: 2
           ia: 100
       - name: Etiquetas
         ref: 10.3
-        effort:
+        estimated:
           3d: 13
       - name: Integración de las herramientas de tratamiento
         ref: 10.4
-        effort:
+        estimated:
           web: 9
           3d: 13
   - name: Extensiones DICOM
@@ -329,22 +329,22 @@ estimation:
     tasks:
       - name: Cargar raices desde DICOM
         ref: 11.1
-        effort:
+        estimated:
           web: 8
           3d: 20
       - name: Detección de raíces en Dicom
         ref: 11.2
-        effort:
+        estimated:
           web: 3
           ia: 100
       - name: Detección de huesos en Dicom
         ref: 11.3
-        effort:
+        estimated:
           web: 3
           3d: 13
       - name: Integración de las herramientas DICOM
         ref: 11.4
-        effort:
+        estimated:
           web: 8
           3d: 13
   - name: SaaS Independiente
@@ -354,27 +354,27 @@ estimation:
     tasks:
       - name: Gestión de casos
         ref: 12.1
-        effort:
+        estimated:
           web: 31
       - name: Gestión de clínicas
         ref: 12.2
-        effort:
+        estimated:
           web: 14
       - name: Gestión de dentistas
         ref: 12.3
-        effort:
+        estimated:
           web: 9
       - name: Gestión de usuarios
         ref: 12.4
-        effort:
+        estimated:
           web: 18
       - name: Facturación
         ref: 12.5
-        effort:
+        estimated:
           web: 26
       - name: Sistema multitenant
         ref: 12.6
-        effort:
+        estimated:
           web: 25
   - name: Sensor de presión
     totals:
@@ -386,24 +386,24 @@ estimation:
     tasks:
       - name: Pantalla de seguimiento de casos sin ortodoncia
         ref: 13.1
-        effort:
+        estimated:
           web: 3
       - name: Adaptación de seguimiento de tratamiento
         ref: 13.2
-        effort:
+        estimated:
           web: 17
           3d: 42
       - name: Calendario de tomas de presión y fotografías
         ref: 13.3
-        effort:
+        estimated:
           web: 8
       - name: Aplicación móvil v1 (abrebocas)
         ref: 13.4
-        effort:
+        estimated:
           movil: 38
           diseño: 13
       - name: Aplicación móvil v1 (sensor presión)
         ref: 13.5
-        effort:
+        estimated:
           movil: 33
           diseño: 2

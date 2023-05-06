@@ -1,4 +1,4 @@
-from agileffp.milestone.estimation import EstimationTask
+from agileffp.milestone.estimation import EstimatedTask
 
 
 class Milestone:
@@ -10,7 +10,7 @@ class Milestone:
         self.priority = priority
         self.depends_on = depends_on
 
-    def build(self, estimation: list[EstimationTask]):
+    def build(self, estimation: list[EstimatedTask]):
         pass
 
     def parse(data: dict) -> dict[str, "Milestone"]:

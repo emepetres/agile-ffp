@@ -1,41 +1,48 @@
-class EstimationTask:
-    def __init__(self, epic: str, totals: dict, name: str, ref: float, effort: dict):
+class EstimatedEpic:
+    def __init__(self, name: str, totals: dict[str, int], tasks: list):
+        self.name = name
+        self.totals = totals
+        self.tasks = [EstimatedTask(name, totals, **t) for t in tasks]
+        self._compute_tasks_effort()
+
+    def _compute_tasks_effort(self):
+        raw_totals = {}
+        for t in self.tasks:
+            for k, v in t.estimated.items():
+                raw_totals[k] = raw_totals.get(k, 0) + v
+
+        for t in self.tasks:
+            for k, v in t.estimated.items():
+                t.computed_effort[k] = (self.totals.get(k, 0) * v) / raw_totals.get(
+                    k, 0
+                )
+
+
+class EstimatedTask:
+    def __init__(self, epic: str, totals: dict, name: str, ref: float, estimated: dict):
         self.epic_name = epic
         self.totals = totals
         self.name = name
         self.ref = ref
-        self.effort = effort
+        self.estimated = estimated
+        self.computed_effort = {}
 
-    def parse(data: dict) -> dict[str, "EstimationTask"]:
-        """Parses a dictionary into a dict of epic estimations
 
-        Raises:
-            ValueError: If the dictionary doesn't have the 'estimation' key
-        Args:
-            data (dict): The dictionary to parse
-        Returns:
-            list[EstimationTask]: A list with the estimated tasks
-        """
-        if "estimation" not in data:
-            raise ValueError("Missing 'estimation' key")
+def parse_estimation(data: dict) -> dict[float, "EstimatedTask"]:
+    """Parses a dictionary into a dict of estimated tasks
 
-        epics_tasks = [
-            EstimationTask._parse_epic(e["name"], e["totals"], e["tasks"])
-            for e in data["estimation"]
-        ]
+    Raises:
+        ValueError: If the dictionary doesn't have the 'estimation' key
+    Args:
+        data (dict): The dictionary to parse
+    Returns:
+        dict[float, EstimatedTask]: A dictionary with the estimated tasks
+    """
+    if "estimation" not in data:
+        raise ValueError("Missing 'estimation' key")
 
-        return [t for tasks in epics_tasks for t in tasks]
+    epics = [
+        EstimatedEpic(e["name"], e["totals"], e["tasks"]) for e in data["estimation"]
+    ]
 
-    def _parse_epic(
-        name: str, totals: dict[str, int], tasks: list
-    ) -> list["EstimationTask"]:
-        """Parses an epic
-
-        Args:
-            name (str): The name of the epic
-            global (dict[str, int]): The global estimation
-            tasks (): The tasks of the epic
-        Returns:
-            list[EstimationTask]: A list of estimated tasks
-        """
-        return [EstimationTask(name, totals, **t) for t in tasks]
+    return {t.ref: t for epic in epics for t in epic.tasks}
