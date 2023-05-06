@@ -1,5 +1,5 @@
 import pytest
-from agileffp.milestone.estimation import Estimation
+from agileffp.milestone.estimation import EstimationTask
 
 
 @pytest.fixture
@@ -8,18 +8,18 @@ def estimation_yml():
         "estimation": [
             {
                 "name": "epic1",
-                "global": {"team1": 10, "team2": 13},
+                "totals": {"team1": 10, "team2": 13},
                 "tasks": [
-                    {"name": "task1", "id": 1.1, "effort": {"team1": 5, "team2": 6}},
-                    {"name": "task2", "id": 1.2, "effort": {"team1": 4, "team2": 5}},
+                    {"name": "task1", "ref": 1.1, "effort": {"team1": 5, "team2": 6}},
+                    {"name": "task2", "ref": 1.2, "effort": {"team1": 4, "team2": 5}},
                 ],
             },
             {
                 "name": "epic2",
-                "global": {"team1": 18, "team3": 90},
+                "totals": {"team1": 18, "team3": 90},
                 "tasks": [
-                    {"name": "task1", "id": 2.1, "effort": {"team1": 7, "team3": 40}},
-                    {"name": "task2", "id": 2.2, "effort": {"team1": 6, "team3": 40}},
+                    {"name": "task1", "ref": 2.1, "effort": {"team1": 7, "team3": 40}},
+                    {"name": "task2", "ref": 2.2, "effort": {"team1": 6, "team3": 40}},
                 ],
             },
         ]
@@ -29,15 +29,15 @@ def estimation_yml():
 def assert_parse_format():
     data = {"wrong": [{"name": "epic1"}]}
     with pytest.raises(ValueError):
-        Estimation.parse(data)
+        EstimationTask.parse(data)
 
 
 def assert_parse_list(estimation_yml):
-    estimation = Estimation.parse(estimation_yml)
-    assert len(estimation) == 2
+    estimation = EstimationTask.parse(estimation_yml)
+    assert len(estimation) == 4
 
-    e1 = estimation["epic1"]
-    assert e1.name == "epic1"
-
-    e2 = estimation["epic2"]
-    assert e2.name == "epic2"
+    task_ids = [t.ref for t in estimation]
+    assert 1.1 in task_ids
+    assert 1.2 in task_ids
+    assert 2.1 in task_ids
+    assert 2.2 in task_ids

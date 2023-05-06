@@ -1,179 +1,179 @@
 estimation:
   - name: Base
-    global:
+    totals:
       3d: 71
       web: 43
       management: 18
     tasks:
       - name: Interfaz de usuario
-        id: 1.1
+        ref: 1.1
         effort:
           web: 13
           3d: 3
       - name: Sincronización Automática
-        id: 1.2
+        ref: 1.2
         effort:
           3d: 26
       - name: Controles de visualización
-        id: 1.5
+        ref: 1.5
         effort:
           web: 17
           3d: 18
       - name: Formato optimizado
-        id: 1.6
+        ref: 1.6
         effort:
           web: 4
           3d: 7
   - name: Web App
-    global:
+    totals:
       3d: 135
       web: 85
       management: 33
     tasks:
       - name: Tarjeta de crédito
-        id: 2.1
+        ref: 2.1
         effort:
           web: 3
           3d: 5
       - name: Inicio de sesión
-        id: 2.2
+        ref: 2.2
         effort:
           web: 2
           3d: 8
       - name: Registro de usuario
-        id: 2.3
+        ref: 2.3
         effort:
           web: 2
           3d: 13
       - name: Recuperar contraseña
-        id: 2.4
+        ref: 2.4
         effort:
           web: 8
           3d: 8
       - name: Landing page
-        id: 2.5
+        ref: 2.5
         effort:
           web: 3
           3d: 8
       - name: Página de precios
-        id: 2.6
+        ref: 2.6
         effort:
           3d: 5
       - name: Página de contacto
-        id: 3.1
+        ref: 3.1
         effort:
           web: 30
           3d: 21
       - name: Página de ayuda
-        id: 3.2
+        ref: 3.2
         effort:
           web: 8
           3d: 16
       - name: Página de términos y condiciones
-        id: 3.3
+        ref: 3.3
         effort:
           web: 5
           3d: 13
       - name: Página de política de privacidad
-        id: 3.4
+        ref: 3.4
         effort:
           web: 5
           3d: 5
       - name: Integración con redes sociales
-        id: 3.5
+        ref: 3.5
         effort:
           web: 4
           3d: 7
   - name: Extensiones Web
-    global:
+    totals:
       3d: 12
       web: 84
       management: 15
     tasks:
       - name: Información general y específica
-        id: 5.1
+        ref: 5.1
         effort:
           web: 3
       - name: Ficheros de recursos
-        id: 5.2
+        ref: 5.2
         effort:
           web: 8
       - name: Menú flotante lateral con datos del caso
-        id: 5.3
+        ref: 5.3
         effort:
           web: 5
           3d: 5
       - name: Informe de cliente
-        id: 5.4
+        ref: 5.4
         effort:
           web: 10
       - name: Informe de plan de pagos
-        id: 5.5
+        ref: 5.5
         effort:
           web: 10
       - name: Reportar bug
-        id: 5.6
+        ref: 5.6
         effort:
           web: 8
       - name: Configuración de usuario
-        id: 5.7
+        ref: 5.7
         effort:
           web: 3
       - name: Versiones
-        id: 5.8
+        ref: 5.8
         effort:
           web: 13
       - name: Perfiles
-        id: 5.9
+        ref: 5.9
         effort:
           web: 8
   - name: Web App IA
-    global:
+    totals:
       3d: 444
       web: 32
       management: 72
     tasks:
       - name: Tarjeta de crédito
-        id: 9.1
+        ref: 9.1
         effort:
           3d: 13
       - name: Inicio de sesión
-        id: 9.2
+        ref: 9.2
         effort:
           ia: 20
       - name: Registro de usuario
-        id: 9.3
+        ref: 9.3
         effort:
           ia: 40
       - name: Recuperar contraseña
-        id: 9.4
+        ref: 9.4
         effort:
           ia: 40
       - name: Landing page
-        id: 9.5
+        ref: 9.5
         effort:
           3d: 13
       - name: Página de precios
-        id: 9.6
+        ref: 9.6
         effort:
           web: 11
           3d: 13
       - name: Página de contacto
-        id: 10.1
+        ref: 10.1
         effort:
           web: 3
           ia: 100
       - name: Página de ayuda
-        id: 10.2
+        ref: 10.2
         effort:
           web: 2
           ia: 100
       - name: Página de términos y condiciones
-        id: 10.3
+        ref: 10.3
         effort:
           3d: 13
       - name: Página de política de privacidad
-        id: 10.4
+        ref: 10.4
         effort:
           web: 9
           3d: 13

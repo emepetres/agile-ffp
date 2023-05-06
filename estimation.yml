@@ -1,383 +1,383 @@
 estimation:
   - name: Base
-    global:
+    totals:
       3d: 71
       web: 43
       management: 18
     tasks:
       - name: Interfaz de usuario
-        id: 1.1
+        ref: 1.1
         effort:
           web: 13
           3d: 3
       - name: Sincronización Automática
-        id: 1.2
+        ref: 1.2
         effort:
           3d: 26
       - name: Controles de visualización
-        id: 1.5
+        ref: 1.5
         effort:
           web: 17
           3d: 18
       - name: Formato optimizado
-        id: 1.6
+        ref: 1.6
         effort:
           web: 4
           3d: 7
   - name: Maestro Manual
-    global:
+    totals:
       3d: 135
       web: 85
       management: 33
     tasks:
       - name: Posicionamiento de arcadas
-        id: 2.1
+        ref: 2.1
         effort:
           web: 3
           3d: 5
       - name: Oclusograma entre arcadas
-        id: 2.2
+        ref: 2.2
         effort:
           web: 2
           3d: 8
       - name: Delimitación y clasificación manual de dientes
-        id: 2.3
+        ref: 2.3
         effort:
           web: 2
           3d: 13
       - name: Raíces simuladas
-        id: 2.4
+        ref: 2.4
         effort:
           web: 8
           3d: 8
       - name: Orientación de dientes
-        id: 2.5
+        ref: 2.5
         effort:
           web: 3
           3d: 8
       - name: Deformar encía real
-        id: 2.6
+        ref: 2.6
         effort:
           3d: 5
       - name: Movimientos dentarios
-        id: 3.1
+        ref: 3.1
         effort:
           web: 30
           3d: 21
       - name: Attaches
-        id: 3.2
+        ref: 3.2
         effort:
           web: 8
           3d: 16
       - name: Etiquetas
-        id: 3.3
+        ref: 3.3
         effort:
           web: 5
           3d: 13
       - name: Aditamientos
-        id: 3.4
+        ref: 3.4
         effort:
           web: 5
           3d: 5
       - name: Exportar tratamiento en STLs
-        id: 3.5
+        ref: 3.5
         effort:
           web: 4
           3d: 7
   - name: Meshmixer Manual
-    global:
+    totals:
       3d: 96
       web: 41
       management: 21
     tasks:
       - name: Pantalla de corrección de malla
-        id: 4.1
+        ref: 4.1
         effort:
           web: 3
           3d: 1
       - name: Herramienta de inspección
-        id: 4.2
+        ref: 4.2
         effort:
           web: 4
           3d: 16
       - name: Herramienta de selección
-        id: 4.3
+        ref: 4.3
         effort:
           web: 10
           3d: 15
       - name: Herramienta de suavizado
-        id: 4.4
+        ref: 4.4
         effort:
           web: 3
           3d: 5
       - name: Herramienta de expandir
-        id: 4.5
+        ref: 4.5
         effort:
           web: 3
           3d: 5
       - name: Herramienta de hundir
-        id: 4.6
+        ref: 4.6
         effort:
           web: 2
           3d: 1
       - name: Herramienta de extruir
-        id: 4.7
+        ref: 4.7
         effort:
           web: 4
           3d: 13
       - name: Herramienta de ahuecado
-        id: 4.8
+        ref: 4.8
         effort:
           web: 2
           3d: 13
       - name: Herramienta de cortar con plano
-        id: 4.9
+        ref: 4.9
         effort:
           web: 2
           3d: 8
   - name: Extensiones SaaS
-    global:
+    totals:
       3d: 12
       web: 84
       management: 15
     tasks:
       - name: Información general y específica
-        id: 5.1
+        ref: 5.1
         effort:
           web: 3
       - name: Ficheros de recursos
-        id: 5.2
+        ref: 5.2
         effort:
           web: 8
       - name: Menú flotante lateral con datos del caso
-        id: 5.3
+        ref: 5.3
         effort:
           web: 5
           3d: 5
       - name: Informe de diagnóstico
-        id: 5.4
+        ref: 5.4
         effort:
           web: 10
       - name: Informe de plan de tratamiento
-        id: 5.5
+        ref: 5.5
         effort:
           web: 10
       - name: Reportar bug
-        id: 5.6
+        ref: 5.6
         effort:
           web: 8
       - name: Configuración de usuario
-        id: 5.7
+        ref: 5.7
         effort:
           web: 3
       - name: Versiones
-        id: 5.8
+        ref: 5.8
         effort:
           web: 13
       - name: Perfiles
-        id: 5.9
+        ref: 5.9
         effort:
           web: 8
   - name: Extensiones 3D
-    global:
+    totals:
       3d: 109
       web: 83
       management: 29
     tasks:
       - name: Superposición intraoral y extraoral
-        id: 6.1
+        ref: 6.1
         effort:
           web: 8
           3d: 20
       - name: Línea media, horizontal
-        id: 6.2
+        ref: 6.2
         effort:
           web: 3
           3d: 8
       - name: Oclusograma entre dientes
-        id: 6.3
+        ref: 6.3
         effort:
           web: 3
           3d: 8
       - name: Pónticos desde la galería
-        id: 7.1
+        ref: 7.1
         effort:
           web: 10
           3d: 17
       - name: Pónticos copiando dientes
-        id: 7.2
+        ref: 7.2
         effort:
           web: 1
           3d: 3
       - name: Salto virtual
-        id: 7.3
+        ref: 7.3
         effort:
           web: 3
           3d: 5
       - name: Seguimiento de movimientos dentarios
-        id: 7.4
+        ref: 7.4
         effort:
           web: 20
           3d: 13
       - name: Medios pónticos
-        id: 7.5
+        ref: 7.5
         effort:
           web: 3
           3d: 2
       - name: Movimientos de sobrecorrección
-        id: 7.6
+        ref: 7.6
         effort:
           web: 8
           3d: 3
       - name: IPR
-        id: 7.7
+        ref: 7.7
         effort:
           web: 8
           3d: 8
   - name: Meshmixer IA
-    global:
+    totals:
       3d: 210
       management: 32
     tasks:
       - name: Reducción de polígonos
-        id: 8.1
+        ref: 8.1
         effort:
           3d: 8
       - name: Corrección de malla
-        id: 8.2
+        ref: 8.2
         effort:
           3d: 8
       - name: Suavizado
-        id: 8.3
+        ref: 8.3
         effort:
           ia: 40
       - name: Rellenar agujeros
-        id: 8.4
+        ref: 8.4
         effort:
           ia: 40
       - name: Eliminar imperfecciones
-        id: 8.5
+        ref: 8.5
         effort:
           ia: 40
       - name: Generar zócalo hueco
-        id: 8.6
+        ref: 8.6
         effort:
           3d: 13
       - name: Extruir extremos
-        id: 8.7
+        ref: 8.7
         effort:
           3d: 8
       - name: Integración de las herramientas
-        id: 8.8
+        ref: 8.8
         effort:
           3d: 13
   - name: Maestro IA
-    global:
+    totals:
       3d: 444
       web: 32
       management: 72
     tasks:
       - name: Posición arcadas
-        id: 9.1
+        ref: 9.1
         effort:
           3d: 13
       - name: Gestión de datos de entrenamiento
-        id: 9.2
+        ref: 9.2
         effort:
           ia: 20
       - name: Detección y clasificación de dientes
-        id: 9.3
+        ref: 9.3
         effort:
           ia: 40
       - name: Orientación dientes y raices
-        id: 9.4
+        ref: 9.4
         effort:
           ia: 40
       - name: Raices simuladas
-        id: 9.5
+        ref: 9.5
         effort:
           3d: 13
       - name: Integración de las herramientas de preparación
-        id: 9.6
+        ref: 9.6
         effort:
           web: 11
           3d: 13
       - name: Movimientos dentarios
-        id: 10.1
+        ref: 10.1
         effort:
           web: 3
           ia: 100
       - name: Attaches
-        id: 10.2
+        ref: 10.2
         effort:
           web: 2
           ia: 100
       - name: Etiquetas
-        id: 10.3
+        ref: 10.3
         effort:
           3d: 13
       - name: Integración de las herramientas de tratamiento
-        id: 10.4
+        ref: 10.4
         effort:
           web: 9
           3d: 13
   - name: Extensiones DICOM
-    global:
+    totals:
       3d: 180
       web: 28
       management: 32
     tasks:
       - name: Cargar raices desde DICOM
-        id: 11.1
+        ref: 11.1
         effort:
           web: 8
           3d: 20
       - name: Detección de raíces en Dicom
-        id: 11.2
+        ref: 11.2
         effort:
           web: 3
           ia: 100
       - name: Detección de huesos en Dicom
-        id: 11.3
+        ref: 11.3
         effort:
           web: 3
           3d: 13
       - name: Integración de las herramientas DICOM
-        id: 11.4
+        ref: 11.4
         effort:
           web: 8
           3d: 13
   - name: SaaS Independiente
-    global:
+    totals:
       web: 150
       management: 23
     tasks:
       - name: Gestión de casos
-        id: 12.1
+        ref: 12.1
         effort:
           web: 31
       - name: Gestión de clínicas
-        id: 12.2
+        ref: 12.2
         effort:
           web: 14
       - name: Gestión de dentistas
-        id: 12.3
+        ref: 12.3
         effort:
           web: 9
       - name: Gestión de usuarios
-        id: 12.4
+        ref: 12.4
         effort:
           web: 18
       - name: Facturación
-        id: 12.5
+        ref: 12.5
         effort:
           web: 26
       - name: Sistema multitenant
-        id: 12.6
+        ref: 12.6
         effort:
           web: 25
   - name: Sensor de presión
-    global:
+    totals:
       3d: 52
       web: 35
       management: 25
@@ -385,25 +385,25 @@ estimation:
       movil: 123
     tasks:
       - name: Pantalla de seguimiento de casos sin ortodoncia
-        id: 13.1
+        ref: 13.1
         effort:
           web: 3
       - name: Adaptación de seguimiento de tratamiento
-        id: 13.2
+        ref: 13.2
         effort:
           web: 17
           3d: 42
       - name: Calendario de tomas de presión y fotografías
-        id: 13.3
+        ref: 13.3
         effort:
           web: 8
       - name: Aplicación móvil v1 (abrebocas)
-        id: 13.4
+        ref: 13.4
         effort:
           movil: 38
           diseño: 13
       - name: Aplicación móvil v1 (sensor presión)
-        id: 13.5
+        ref: 13.5
         effort:
           movil: 33
           diseño: 2

@@ -1,3 +1,6 @@
+from agileffp.milestone.estimation import EstimationTask
+
+
 class Milestone:
     def __init__(
         self, name: str, tasks: list[float], priority: int = 99, depends_on: list = []
@@ -6,6 +9,9 @@ class Milestone:
         self.tasks = tasks
         self.priority = priority
         self.depends_on = depends_on
+
+    def build(self, estimation: list[EstimationTask]):
+        pass
 
     def parse(data: dict) -> dict[str, "Milestone"]:
         """Parses a dictionary into a list of milestones
