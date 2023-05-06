@@ -1,0 +1,13 @@
+capacity:
+  3d:
+    members: 2
+    starts: 2023-04-17
+    ends: 2025-12-31
+  web:
+    members: 2
+    starts: 2023-05-15
+    ends: 2025-12-31
+  ia:
+    members: 1
+    starts: 2023-05-02
+    ends: 2025-12-31

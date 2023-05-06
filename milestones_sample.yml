@@ -1,0 +1,41 @@
+milestones:
+  - name: Base
+    tasks: [1.1, 1.2, 1.5, 1.6]
+  - name: Precios
+    tasks: [2.6, 3.1]
+    depends_on: [Base]
+    priority: 20
+  - name: Usuarios
+    tasks: [2.1, 2.2, 2.3, 2.4]
+    depends_on: [Base]
+    priority: 80
+  - name: Pantallas Web
+    tasks: [3.2, 3.3, 3.4, 3.5, 10.2, 10.3]
+    depends_on: [Precios, Usuarios]
+  - name: Landing Page
+    tasks: [2.5]
+    depends_on: [Usuarios]
+  - name: Integración con redes sociales
+    tasks: [3.5]
+    depends_on: [Pantallas Web]
+  - name: Extensiones Web
+    tasks: [5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9]
+    depends_on: [Base]
+  - name: "[AI] Inicio de sesión"
+    tasks: [9.2]
+  - name: "[AI] Página de contacto"
+    tasks: [10.1]
+    depends_on: ["[AI] Inicio de sesión"]
+  - name: "[AI] Registro de usuario"
+    tasks: [9.3]
+    depends_on: ["[AI] Inicio de sesión"]
+  - name: "[AI] Recuperar contraseña"
+    tasks: [9.4]
+    depends_on: ["[AI] Inicio de sesión"]
+    priority: 20
+  - name: "[AI] Tarjeta de crédito"
+    tasks: [9.1]
+    depends_on: [Base]
+  - name: "[AI] Landing page"
+    tasks: [9.5]
+    depends_on: [Base]
