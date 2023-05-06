@@ -54,14 +54,14 @@ def assert_read_sequential_tasks(sequential2):
     assert gantt is not None
     assert len(gantt.nodes) == 2
 
-    task1 = gantt.nodes["sample_task1"]
-    task2 = gantt.nodes["sample_task2"]
-    assert task1.task.name == "sample_task1"
-    assert task1.parent_nodes == []
-    assert task1.next_nodes == [task2]
-    assert task2.task.name == "sample_task2"
-    assert task2.parent_nodes == [task1]
-    assert task2.next_nodes == []
+    node1 = gantt.nodes["sample_task1"]
+    node2 = gantt.nodes["sample_task2"]
+    assert node1.task.name == "sample_task1"
+    assert node1.parent_nodes == []
+    assert node1.next_nodes == [node2]
+    assert node2.task.name == "sample_task2"
+    assert node2.parent_nodes == [node1]
+    assert node2.next_nodes == []
 
 
 def assert_read_children_tasks(two_children_with_priority):
@@ -69,18 +69,18 @@ def assert_read_children_tasks(two_children_with_priority):
     assert gantt is not None
     assert len(gantt.nodes) == 3
 
-    task1 = gantt.nodes["sample_task1"]
-    task2 = gantt.nodes["sample_task2"]
-    task3 = gantt.nodes["sample_task3"]
-    assert task1.task.name == "sample_task1"
-    assert task1.parent_nodes == []
-    assert sorted(task1.next_nodes) == sorted([task2, task3])
-    assert task2.task.name == "sample_task2"
-    assert task2.parent_nodes == [task1]
-    assert task2.next_nodes == []
-    assert task3.task.name == "sample_task3"
-    assert task3.parent_nodes == [task1]
-    assert task3.next_nodes == []
+    node1 = gantt.nodes["sample_task1"]
+    node2 = gantt.nodes["sample_task2"]
+    node3 = gantt.nodes["sample_task3"]
+    assert node1.task.name == "sample_task1"
+    assert node1.parent_nodes == []
+    assert sorted(node1.next_nodes) == sorted([node2, node3])
+    assert node2.task.name == "sample_task2"
+    assert node2.parent_nodes == [node1]
+    assert node2.next_nodes == []
+    assert node3.task.name == "sample_task3"
+    assert node3.parent_nodes == [node1]
+    assert node3.next_nodes == []
 
 
 def assert_dependencies_must_match(wrong_tasks_dependencies):
