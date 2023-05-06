@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: CLI",
+            "type": "python",
+            "request": "launch",
+            "args": ["-f", "../sample.yml"],
+            "console": "integratedTerminal",
+            "module": "agileffp.main",
+            "cwd":"${workspaceFolder}/src"
+        },
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "args": [
+                "--app",
+                "agileffp",
+                "run",
+                "--debug"
+            ],
+            "jinja": true,
+            "justMyCode": true,
+            "cwd":"${workspaceFolder}/src"
+        }
+    ]
+}
