@@ -31,6 +31,9 @@ class DependencyNode:
     def __repr__(self):
         return str(self)
 
+    def __lt__(self, other):
+        return self.task.name < other.task.name
+
     def to_csv(self):
         return (
             f"{self.task.name}"
