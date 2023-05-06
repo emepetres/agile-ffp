@@ -11,6 +11,7 @@ class CapacityTeam:
         members: int,
         starts: date,
         ends: date = None,
+        exceptions: dict = None,
         vacation_months=[6, 12],
     ) -> None:
         """If ends is None, it is set as the end of current year, or the same year as
