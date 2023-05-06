@@ -16,7 +16,9 @@ def capacity_with_exceptions():
         "team1",
         2,
         date(2023, 1, 1),
-        exceptions={"members": 1, "starts": "2023-01-01", "ends": "2023-01-31"},
+        exceptions=[
+            {"members": 1, "starts": date(2023, 1, 1), "ends": date(2023, 1, 31)}
+        ],
     )
 
 
@@ -140,4 +142,6 @@ def assert_half_effort_overlapped_timeline(capacity):
 
 def assert_capacity_exception(capacity_with_exceptions):
     assert capacity_with_exceptions.capacity_at(date(2023, 1, 4)) == 1
+    assert capacity_with_exceptions.capacity_at(date(2023, 1, 8)) == 0
+    assert capacity_with_exceptions.capacity_at(date(2023, 1, 31)) == 1
     assert capacity_with_exceptions.capacity_at(date(2023, 2, 1)) == 2
