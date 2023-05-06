@@ -11,7 +11,6 @@ from flask import (
 from werkzeug.utils import secure_filename
 from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.gantt.gantt import Gantt
-from agileffp.gantt.task import Task
 
 from agileffp.utils import read_yaml_file
 
@@ -51,8 +50,7 @@ def upload_file():
 def render_chart(filename):
     data = read_yaml_file(os.path.join(current_app.config["UPLOAD_FOLDER"], filename))
     capacity = CapacityTeam.parse(data)
-    tasks = Task.parse(data)
-    chart = Gantt(tasks)
+    chart = Gantt.from_dict(data)
     chart.build(capacity)
     info = chart.to_list()
 

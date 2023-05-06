@@ -60,6 +60,32 @@ def estimation():
     )
 
 
+@pytest.fixture
+def estimation2():
+    return parse_estimation(
+        {
+            "estimation": [
+                {
+                    "name": "epic1",
+                    "totals": {"team1": 10, "team2": 13},
+                    "tasks": [
+                        {
+                            "name": "task1",
+                            "ref": 1.1,
+                            "estimated": {"team1": 5, "team2": 6},
+                        },
+                        {
+                            "name": "task2",
+                            "ref": 1.2,
+                            "estimated": {"team1": 4, "team2": 5},
+                        },
+                    ],
+                },
+            ]
+        }
+    )
+
+
 def assert_invalid_parse_format():
     data = {"wrong": [{"name": "milestone1", "tasks": [1.1, 1.2], "priority": 1}]}
 

@@ -303,7 +303,8 @@ estimation:
           3d: 8
   - name: Meshmixer IA
     totals:
-      3d: 210
+      3d: 65
+      ia: 145
       management: 32
     tasks:
       - name: Reducción de polígonos
@@ -340,7 +341,8 @@ estimation:
           3d: 13
   - name: Maestro IA
     totals:
-      3d: 444
+      3d: 80
+      ia: 365
       web: 32
       management: 72
     tasks:
@@ -390,7 +392,8 @@ estimation:
           3d: 13
   - name: Extensiones DICOM
     totals:
-      3d: 180
+      3d: 59
+      ia: 124
       web: 28
       management: 32
     tasks:

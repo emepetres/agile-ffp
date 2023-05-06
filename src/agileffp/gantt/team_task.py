@@ -40,6 +40,8 @@ class TeamTask:
             "name": self.team,
             "init": str(self.init),
             "end": str(self.end),
-            "days": int((self.end - self.init).days),
+            "days": int((self.end - self.init).days)
+            if self.init and self.end
+            else None,
             "depends_on": self.name,
         }

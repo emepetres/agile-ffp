@@ -171,7 +171,8 @@ estimation:
           web: 8
   - name: Web App IA
     totals:
-      3d: 444
+      3d: 80
+      ia: 365
       web: 32
       management: 72
     tasks:

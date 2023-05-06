@@ -1,6 +1,8 @@
 from datetime import date
 from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.gantt.task import Task
+from agileffp.milestone.estimation import parse_estimation
+from agileffp.milestone.milestone import Milestone
 
 
 class DependencyNode:
@@ -46,7 +48,9 @@ class DependencyNode:
             "name": self.task.name,
             "init": str(self.task.init),
             "end": str(self.task.end),
-            "days": int((self.task.end - self.task.init).days),
+            "days": int((self.task.end - self.task.init).days)
+            if self.task.end and self.task.init
+            else None,
             "depends_on": ",".join([n.task.name for n in self.parent_nodes]),
             "teams": [t.to_dict() for _, t in self.task.teams_tasks.items()],
         }
@@ -118,3 +122,14 @@ class Gantt:
     def to_list(self) -> list[dict]:
         tasks = [node.to_dict() for node in self.nodes.values()]
         return sorted(tasks, key=lambda task: task["init"])
+
+    def from_dict(data: dict) -> "Gantt":
+        if "tasks" in data:
+            tasks = Task.parse(data)
+        else:
+            estimation = parse_estimation(data)
+            milestones = Milestone.parse(data)
+            Milestone.compute(milestones.values(), estimation)
+            tasks = Task.from_milestones(milestones.values())
+
+        return Gantt(tasks)

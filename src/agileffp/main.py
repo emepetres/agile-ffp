@@ -1,6 +1,5 @@
 import argparse
 from agileffp.gantt.gantt import Gantt
-from agileffp.gantt.task import Task
 from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.utils import read_yaml_file
 
@@ -21,9 +20,7 @@ def main():
 
     data = read_yaml_file(args.file_path)
     capacity = CapacityTeam.parse(data)
-    tasks = Task.parse(data)
-
-    chart = Gantt(tasks)
+    chart = Gantt.from_dict(data)
     chart.build(capacity)
 
     print(chart)

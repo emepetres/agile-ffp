@@ -1,5 +1,5 @@
 import pytest
-from agileffp.milestone.estimation import EstimatedTask, parse_estimation
+from agileffp.milestone.estimation import parse_estimation
 
 
 @pytest.fixture
@@ -45,7 +45,7 @@ def estimation_yml():
 def assert_parse_format():
     data = {"wrong": [{"name": "epic1"}]}
     with pytest.raises(ValueError):
-        EstimatedTask.parse(data)
+        parse_estimation(data)
 
 
 def assert_parse_list(estimation_yml):
