@@ -5,7 +5,7 @@
             "name": "Python: CLI",
             "type": "python",
             "request": "launch",
-            "args": ["-f", "../sample.yml"],
+            "args": ["-f", "../milestones_sample.yml"],
             "console": "integratedTerminal",
             "module": "agileffp.main",
             "cwd":"${workspaceFolder}/src"
