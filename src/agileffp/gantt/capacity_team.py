@@ -11,6 +11,7 @@ class CapacityTeam:
         members: int,
         starts: date,
         ends: date = None,
+        exceptions: list[dict] = [],
         vacation_months=[6, 12],
     ) -> None:
         """If ends is None, it is set as the end of current year, or the same year as
@@ -28,12 +29,21 @@ class CapacityTeam:
         self.cal = Seville()
         self.timeline = []
         self._build_capacity_calendar()
+        self._correct_capacity_with_exceptions(exceptions)
 
     def _build_capacity_calendar(self):
         self.capacity = [
             self._get_max_capacity(d)
             for d in dayrange(self.starts, self.ends + timedelta(days=1))
         ]
+
+    def _correct_capacity_with_exceptions(self, exceptions: list[dict]):
+        for e in exceptions:
+            start = (e["starts"] - self.starts).days
+            end = (e["ends"] - self.starts).days + 1
+            for i, c in enumerate(self.capacity[start:end], start=start):
+                if c > 0:
+                    self.capacity[i] = e["members"]
 
     def _get_max_capacity(self, date: date) -> int:
         if not self.cal.is_working_day(date):

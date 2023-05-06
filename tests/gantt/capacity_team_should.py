@@ -11,6 +11,18 @@ def capacity():
 
 
 @pytest.fixture
+def capacity_with_exceptions():
+    return CapacityTeam(
+        "team1",
+        2,
+        date(2023, 1, 1),
+        exceptions=[
+            {"members": 1, "starts": date(2023, 1, 1), "ends": date(2023, 1, 31)}
+        ],
+    )
+
+
+@pytest.fixture
 def summer_capacity():
     return CapacityTeam("team1", 2, date(2023, 6, 1))
 
@@ -126,3 +138,10 @@ def assert_half_effort_overlapped_timeline(capacity):
         "start": "2023-01-02",
         "end": "2023-01-23",
     }
+
+
+def assert_capacity_exception(capacity_with_exceptions):
+    assert capacity_with_exceptions.capacity_at(date(2023, 1, 4)) == 1
+    assert capacity_with_exceptions.capacity_at(date(2023, 1, 8)) == 0
+    assert capacity_with_exceptions.capacity_at(date(2023, 1, 31)) == 1
+    assert capacity_with_exceptions.capacity_at(date(2023, 2, 1)) == 2

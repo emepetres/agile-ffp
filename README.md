@@ -2,17 +2,10 @@
 
 Build agile charts for firm fixed price projects, to compute estimated milestones deadlines.
 
-## Features
-
-- [x] CLI tool to create Gantt from yaml
-- [x] Support priority between tasks
-- [x] Support for vacations low capacity
-- [x] Export to CSV
-
 ## Usage
 
 CLI:
-`python -m src.agileffp.main -f sample.yml`
+`python -m src.agileffp.main -f milestones_sample.yml`
 
 SERVER:
 `cd src && python -m flask --app agileffp run --debug`
@@ -20,7 +13,7 @@ Then go to _localhost:5000/gantt_
 
 ### Sample yml file
 
-This sample represents the espected schema of the yaml file
+This sample represents the espected schema of the yaml file to define gantt tasks
 
 ```yaml
 capacity:
@@ -34,6 +27,10 @@ capacity:
     members: 2
     starts: 2023-05-15
     ends: 2025-12-31
+    exceptions:
+      - members: 1
+        starts: 2023-05-15
+        ends: 2023-06-03
   ...
 
 tasks:
