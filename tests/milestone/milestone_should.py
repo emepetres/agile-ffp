@@ -1,6 +1,6 @@
 import pytest
 from agileffp.milestone.milestone import Milestone
-from agileffp.milestone.milestone import EstimatedTask
+from agileffp.milestone.estimation import parse_estimation
 
 
 @pytest.fixture
@@ -15,7 +15,7 @@ def milestones_yml():
 
 @pytest.fixture
 def estimation():
-    return EstimatedTask.parse(
+    return parse_estimation(
         {
             "estimation": [
                 {
@@ -55,7 +55,7 @@ def estimation():
     )
 
 
-def assert_parse_format():
+def assert_invalid_parse_format():
     data = {"wrong": [{"name": "milestone1", "tasks": [1.1, 1.2], "priority": 1}]}
 
     with pytest.raises(SyntaxError):
@@ -78,6 +78,9 @@ def assert_parse_list(milestones_yml):
     assert m2.depends_on == ["milestone1"]
 
 
-def assert_build_with_estimation(milestones_yml, estimation):
+def assert_compute_estimation(milestones_yml, estimation):
     milestones = Milestone.parse(milestones_yml)
-    milestones.build(estimation)
+    Milestone.compute(milestones.values(), estimation)
+
+    assert milestones["milestone1"].estimated == {"team1": 10, "team2": 13}
+    assert milestones["milestone2"].estimated == {"team1": 18, "team3": 90}

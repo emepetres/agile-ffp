@@ -9,8 +9,9 @@ class Milestone:
         self.tasks = tasks
         self.priority = priority
         self.depends_on = depends_on
+        self.estimated = {}
 
-    def build(self, estimation: list[EstimatedTask]):
+    def _compute_estimation(self, estimation: list[EstimatedTask]):
         pass
 
     def parse(data: dict) -> dict[str, "Milestone"]:
@@ -27,3 +28,12 @@ class Milestone:
             raise SyntaxError("Missing 'milestones' key")
 
         return {m.name: m for m in [Milestone(**m) for m in data["milestones"]]}
+
+    def compute(milestones: list["Milestone"], estimation: dict[float, EstimatedTask]):
+        """Computes the milestones estimations
+
+        Args:
+            milestones (list[&quot;Milestone&quot;]): The milestones to compute
+            estimation (dict[float, EstimatedTask]): The estimation to use
+        """
+        pass
