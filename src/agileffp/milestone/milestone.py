@@ -12,7 +12,10 @@ class Milestone:
         self.estimated = {}
 
     def _compute_estimation(self, estimation: list[EstimatedTask]):
-        pass
+        for t in self.tasks:
+            for k, v in estimation[t].computed_effort.items():
+                self.estimated[k] = self.estimated.get(k, 0) + v
+
 
     def parse(data: dict) -> dict[str, "Milestone"]:
         """Parses a dictionary into a list of milestones
@@ -36,4 +39,5 @@ class Milestone:
             milestones (list[&quot;Milestone&quot;]): The milestones to compute
             estimation (dict[float, EstimatedTask]): The estimation to use
         """
-        pass
+        for m in milestones:
+            m._compute_estimation(estimation)
