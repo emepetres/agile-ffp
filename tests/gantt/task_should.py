@@ -8,17 +8,17 @@ from agileffp.milestone.milestone import Milestone
 
 @pytest.fixture
 def task1():
-    return Task("sample_task1", {"team1": 10, "team2": 13})
+    return Task("sample_task1", {"team1": 10, "team2": 13}, start_all_together=False)
 
 
 @pytest.fixture
 def task2():
-    return Task("sample_task2", {"team1": 10, "team2": 13})
+    return Task("sample_task2", {"team1": 10, "team2": 13}, start_all_together=False)
 
 
 @pytest.fixture
 def task3():
-    return Task("sample_task3", {"team3": 10})
+    return Task("sample_task3", {"team3": 10}, start_all_together=False)
 
 
 @pytest.fixture

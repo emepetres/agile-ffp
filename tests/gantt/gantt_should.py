@@ -21,12 +21,14 @@ def two_children_with_priority():
             {"team1": 10, "team2": 13},
             depends_on=["sample_task1"],
             priority=3,
+            start_all_together=False,
         ),
         Task(
             "sample_task2",
             {"team1": 20, "team2": 13},
             depends_on=["sample_task1"],
             priority=2,
+            start_all_together=False,
         ),
         Task("sample_task1", {"team1": 10, "team2": 13}),
     ]

@@ -12,7 +12,7 @@ class Task:
         estimate: dict[str, int | dict[str, int]],
         depends_on: list = [],
         priority: int = 99,
-        start_all_together: bool = False,
+        start_all_together: bool = True,
     ):
         """Creates a task
 
