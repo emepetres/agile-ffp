@@ -33,6 +33,30 @@ def two_children_with_priority():
 
 
 @pytest.fixture
+def mixed_priority():
+    return [
+        Task("sample_task1", {"team1": 10}),
+        Task(
+            "sample_task2",
+            {"team1": 20},
+            depends_on=["sample_task1"],
+            priority=2,
+        ),
+        Task(
+            "sample_task3",
+            {"team1": 10},
+            depends_on=["sample_task2"],
+            priority=3,
+        ),
+        Task(
+            "sample_task4",
+            {"team1": 10},
+            depends_on=["sample_task1"],
+        ),
+    ]
+
+
+@pytest.fixture
 def wrong_tasks_dependencies():
     return [
         Task("sample_task2", {"team1": 10, "team2": 13}, depends_on=["sample_task1"]),
@@ -116,6 +140,18 @@ def assert_duration_according_to_priority(two_children_with_priority, capacity):
     assert task3.init == date(2023, 1, 16)
     assert task3.end == date(2023, 1, 30)
     assert task3.days == 11
+
+
+def assert_priority_evaluation(mixed_priority, capacity):
+    gantt = Gantt(mixed_priority)
+    gantt.build(capacity)
+    task1 = gantt.nodes["sample_task1"].task
+    task2 = gantt.nodes["sample_task2"].task
+    task3 = gantt.nodes["sample_task3"].task
+    task4 = gantt.nodes["sample_task4"].task
+    assert task1.init < task2.init
+    assert task2.init < task3.init
+    assert task3.init < task4.init
 
 
 def assert_to_list(sequential2, capacity):
