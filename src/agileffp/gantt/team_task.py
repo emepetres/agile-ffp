@@ -29,6 +29,9 @@ class TeamTask:
             self.name, self.effort, max_capacity=self.max_capacity, after=after
         )
 
+    def next_available_day(self, capacity: CapacityTeam, after: date = None) -> date:
+        return capacity.next_available_day(after=after)
+
     def __str__(self):
         return f"[{self.team}]{self.name} ({self.init} - {self.end}) - {self.days}"
 

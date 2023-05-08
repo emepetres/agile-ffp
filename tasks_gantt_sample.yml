@@ -21,6 +21,7 @@ tasks:
     estimate:
       research: 25
       web: 30
+    start_all_together: false
   - name: maestro
     estimate:
       research: 100

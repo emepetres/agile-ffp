@@ -54,13 +54,16 @@ class CapacityTeam:
         else:
             return self.members / 2
 
-    def _next_available_day(self, after: date = None) -> date:
+    def _next_available_day(self, after: date = None) -> int:
         start = (after - self.starts).days + 1 if after else 0
         for i, c in enumerate(self.capacity[start:], start=start):
             if c > 0:
                 return i
 
         raise ValueError("No available day")
+
+    def next_available_day(self, after: date = None) -> date:
+        return self.starts + timedelta(days=self._next_available_day(after=after))
 
     def assign_effort(
         self, task: str, effort: int, max_capacity: int = None, after: date = None

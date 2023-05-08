@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 from agileffp.milestone.milestone import Milestone
 from agileffp.seville_calendar import Seville
 from agileffp.gantt.team_task import TeamTask
@@ -12,6 +12,7 @@ class Task:
         estimate: dict[str, int | dict[str, int]],
         depends_on: list = [],
         priority: int = 99,
+        start_all_together: bool = True,
     ):
         """Creates a task
 
@@ -25,6 +26,7 @@ class Task:
         self.name = name
         self.depends_on = depends_on
         self.priority = priority
+        self.start_all_together = start_all_together
         self.init, self.end, self.days = None, None, None
         self.cal = Seville()
 
@@ -47,6 +49,11 @@ class Task:
                 f"Teams {unavailable_teams} don't appear on the capacity teams list"
             )
 
+        if self.start_all_together:
+            start_after = self._next_common_available_day(
+                capacity, start_after
+            ) - timedelta(days=1)
+
         for team, team_task in self.teams_tasks.items():
             team_task.assign_capacity(capacity[team], after=start_after)
             if self.init is None or team_task.init < self.init:
@@ -54,6 +61,19 @@ class Task:
             if self.end is None or team_task.end > self.end:
                 self.end = team_task.end
         self.days = self.cal.get_working_days_delta(self.init, self.end) + 1
+
+    def _next_common_available_day(
+        self, capacity: dict[str, CapacityTeam], start_after: date = None
+    ):
+        """Returns the next available day for all the teams in the task"""
+        day: date = None
+        for team, team_task in self.teams_tasks.items():
+            _next_available_day = team_task.next_available_day(
+                capacity[team], after=start_after
+            )
+            if day is None or day < _next_available_day:
+                day = _next_available_day
+        return day
 
     def __str__(self):
         return f"{self.name} ({self.init} - {self.end}) - {self.days}"
@@ -86,7 +106,9 @@ class Task:
         """
         tasks = []
         for m in milestones:
-            t = Task(m.name, m.estimated, m.depends_on, m.priority)
+            t = Task(
+                m.name, m.estimated, m.depends_on, m.priority, m.start_all_together
+            )
             if m.max_capacity:
                 for team, max in m.max_capacity.items():
                     t.teams_tasks[team].effort = {

@@ -8,17 +8,17 @@ from agileffp.milestone.milestone import Milestone
 
 @pytest.fixture
 def task1():
-    return Task("sample_task1", {"team1": 10, "team2": 13})
+    return Task("sample_task1", {"team1": 10, "team2": 13}, start_all_together=False)
 
 
 @pytest.fixture
 def task2():
-    return Task("sample_task2", {"team1": 10, "team2": 13})
+    return Task("sample_task2", {"team1": 10, "team2": 13}, start_all_together=False)
 
 
 @pytest.fixture
 def task3():
-    return Task("sample_task3", {"team3": 10})
+    return Task("sample_task3", {"team3": 10}, start_all_together=False)
 
 
 @pytest.fixture
@@ -117,6 +117,18 @@ def assert_force_init_date(task1, task3, capacity):
     assert task3.init == date(2023, 1, 10)
     assert task3.end == date(2023, 1, 16)
     assert task3.days == 5
+
+
+def assert_start_all_together(task1, task2, capacity):
+    task1.assign_capacity(capacity)
+    assert task1.init == date(2023, 1, 2)
+    assert task1.end == date(2023, 1, 9)
+    assert task1.days == 5
+    task2.start_all_together = True
+    task2.assign_capacity(capacity)
+    assert task2.init == date(2023, 1, 10)
+    assert task2.end == date(2023, 1, 16)
+    assert task2.days == 5
 
 
 def assert_from_milestones(milestones):

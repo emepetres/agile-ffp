@@ -9,6 +9,7 @@ class DependencyNode:
     def __init__(self, task: Task):
         self.task = task
         self.processed = False
+        self.processed_order = -1
         self.parent_nodes = []
         self.next_nodes = []
 
@@ -59,6 +60,7 @@ class DependencyNode:
 class Gantt:
     def __init__(self, tasks: list[Task]):
         self.nodes = {t.name: DependencyNode(t) for t in tasks}
+        self.next_node_process_idx = 0
         self._compute_dependencies()
 
     def _compute_dependencies(self) -> None:
@@ -81,7 +83,7 @@ class Gantt:
             [
                 n
                 for n in self.nodes.values()
-                if n.dependencies_satisfied() and not n.processed
+                if not n.processed and n.dependencies_satisfied()
             ],
             key=lambda node: node.task.priority,
         )
@@ -100,6 +102,8 @@ class Gantt:
         node = ready[0]
         node.task.assign_capacity(capacity, start_after=node.start_after())
         node.processed = True
+        node.processed_order = self.next_node_process_idx
+        self.next_node_process_idx += 1
 
         self.build(capacity)
 
@@ -120,8 +124,9 @@ class Gantt:
             f.write(s)
 
     def to_list(self) -> list[dict]:
-        tasks = [node.to_dict() for node in self.nodes.values()]
-        return sorted(tasks, key=lambda task: task["init"])
+        sorted_nodes = sorted(self.nodes.values(), key=lambda n: n.processed_order)
+        tasks = [node.to_dict() for node in sorted_nodes]
+        return tasks
 
     def from_dict(data: dict) -> "Gantt":
         if "tasks" in data:
