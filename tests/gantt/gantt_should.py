@@ -35,22 +35,22 @@ def two_children_with_priority():
 @pytest.fixture
 def mixed_priority():
     return [
-        Task("sample_task1", {"team1": 10, "team2": 13}),
+        Task("sample_task1", {"team1": 10}),
         Task(
             "sample_task2",
-            {"team1": 20, "team2": 13},
+            {"team1": 20},
             depends_on=["sample_task1"],
             priority=2,
         ),
         Task(
             "sample_task3",
-            {"team1": 10, "team2": 13},
+            {"team1": 10},
             depends_on=["sample_task2"],
             priority=3,
         ),
         Task(
             "sample_task4",
-            {"team1": 10, "team2": 13},
+            {"team1": 10},
             depends_on=["sample_task1"],
         ),
     ]
