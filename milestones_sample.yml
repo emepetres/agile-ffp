@@ -1,6 +1,7 @@
 milestones:
   - name: Base
     tasks: [1.1, 1.2, 1.5, 1.6]
+    start_all_together: false
   - name: Precios
     tasks: [2.6, 3.1]
     depends_on: [Base]

@@ -9,12 +9,14 @@ class Milestone:
         priority: int = 99,
         depends_on: list = [],
         max_capacity: dict[str, int] = {},
+        start_all_together: bool = True,
     ):
         self.name = name
         self.tasks = tasks
         self.priority = priority
         self.depends_on = depends_on
         self.max_capacity = max_capacity
+        self.start_all_together = start_all_together
         self.estimated = {}
 
     def _compute_estimation(self, estimation: list[EstimatedTask]):

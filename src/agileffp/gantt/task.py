@@ -106,7 +106,9 @@ class Task:
         """
         tasks = []
         for m in milestones:
-            t = Task(m.name, m.estimated, m.depends_on, m.priority)
+            t = Task(
+                m.name, m.estimated, m.depends_on, m.priority, m.start_all_together
+            )
             if m.max_capacity:
                 for team, max in m.max_capacity.items():
                     t.teams_tasks[team].effort = {
