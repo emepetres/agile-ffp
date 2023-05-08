@@ -97,9 +97,9 @@ class Gantt:
         if not ready:
             return
 
-        for node in ready:
-            node.task.assign_capacity(capacity, start_after=node.start_after())
-            node.processed = True
+        node = ready[0]
+        node.task.assign_capacity(capacity, start_after=node.start_after())
+        node.processed = True
 
         self.build(capacity)
 
