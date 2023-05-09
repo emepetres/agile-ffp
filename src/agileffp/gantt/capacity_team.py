@@ -12,6 +12,7 @@ class CapacityTeam:
         starts: date,
         ends: date = None,
         exceptions: list[dict] = [],
+        price: int = 0,
         vacation_months=[6, 12],
         max_gap: int = 4,
     ) -> None:

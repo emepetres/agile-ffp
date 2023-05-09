@@ -29,9 +29,9 @@ def wrong_task():
 @pytest.fixture
 def capacity():
     return {
-        "team1": CapacityTeam("team1", 2, date(2023, 1, 1)),
-        "team2": CapacityTeam("team2", 3, date(2023, 1, 1)),
-        "team3": CapacityTeam("team3", 2, date(2023, 1, 1)),
+        "team1": CapacityTeam("team1", 2, date(2023, 1, 1), price=520),
+        "team2": CapacityTeam("team2", 3, date(2023, 1, 1), price=480),
+        "team3": CapacityTeam("team3", 2, date(2023, 1, 1), price=520),
     }
 
 
@@ -144,3 +144,8 @@ def assert_from_milestones(milestones):
     assert dt["milestone2"].depends_on == ["milestone1"]
     assert dt["milestone2"].teams_tasks["team1"].effort == {"effort": 18, "max": 1}
     assert dt["milestone2"].teams_tasks["team3"].effort == 90
+
+
+def assert_price(task1, capacity):
+    task1.assign_capacity(capacity)
+    assert task1.price == 11440
