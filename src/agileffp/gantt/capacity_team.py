@@ -12,6 +12,7 @@ class CapacityTeam:
         starts: date,
         ends: date = None,
         exceptions: list[dict] = [],
+        price: int = 0,
         vacation_months=[6, 12],
         max_gap: int = 4,
     ) -> None:
@@ -21,6 +22,7 @@ class CapacityTeam:
         self.members = members
         self.starts = starts
         self.ends = ends
+        self.price = price
         self.vacation_months = vacation_months
         self.max_gap = max_gap
         if self.ends is None:

@@ -28,6 +28,7 @@ class Task:
         self.priority = priority
         self.start_all_together = start_all_together
         self.init, self.end, self.days = None, None, None
+        self.price = 0
         self.cal = Seville()
 
         self.teams_tasks = {
@@ -60,6 +61,7 @@ class Task:
                 self.init = team_task.init
             if self.end is None or team_task.end > self.end:
                 self.end = team_task.end
+            self.price += capacity[team].price * team_task.effort
         self.days = self.cal.get_working_days_delta(self.init, self.end) + 1
 
     def _next_common_available_day(

@@ -17,7 +17,11 @@ def capacity_with_exceptions():
         2,
         date(2023, 1, 1),
         exceptions=[
-            {"members": 1, "starts": date(2023, 1, 1), "ends": date(2023, 1, 31)}
+            {
+                "members": 1,
+                "starts": date(2023, 1, 1),
+                "ends": date(2023, 1, 31),
+            }
         ],
     )
 
