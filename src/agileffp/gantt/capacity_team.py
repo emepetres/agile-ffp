@@ -22,6 +22,7 @@ class CapacityTeam:
         self.members = members
         self.starts = starts
         self.ends = ends
+        self.price = price
         self.vacation_months = vacation_months
         self.max_gap = max_gap
         if self.ends is None:
