@@ -227,10 +227,20 @@ capacity:
     members: 2
     starts: 2023-04-17
     ends: 2025-12-31
+    price: 520
+  management:
+    members: 1
+    starts: 2023-04-17
+    ends: 2030-12-31
+    exceptions:
+      - members: 2
+        starts: 2023-04-17
+        ends: 2023-05-15
   web:
     members: 2
     starts: 2023-05-15
     ends: 2025-12-31
+    price: 520
   ia:
     members: 3
     starts: 2023-05-02
@@ -239,3 +249,4 @@ capacity:
       - members: 1
         starts: 2023-05-02
         ends: 2023-06-03
+    price: 560
