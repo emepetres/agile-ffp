@@ -145,3 +145,14 @@ def assert_capacity_exception(capacity_with_exceptions):
     assert capacity_with_exceptions.capacity_at(date(2023, 1, 8)) == 0
     assert capacity_with_exceptions.capacity_at(date(2023, 1, 31)) == 1
     assert capacity_with_exceptions.capacity_at(date(2023, 2, 1)) == 2
+
+
+def assert_max_gap(capacity):
+    capacity.max_gap = 4
+    capacity.assign_effort("task1", 10, after=date(2023, 1, 6))
+    capacity.assign_effort("task2", 20)
+    assert capacity.capacity_at(date(2023, 1, 4)) == 2
+    assert capacity.capacity_at(date(2023, 1, 11)) == 0
+    assert capacity.capacity_at(date(2023, 1, 18)) == 0
+    assert capacity.timeline[0]["start"] == "2023-01-09"
+    assert capacity.timeline[1]["start"] == "2023-01-16"
