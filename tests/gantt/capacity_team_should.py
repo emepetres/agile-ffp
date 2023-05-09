@@ -154,6 +154,7 @@ def assert_capacity_exception(capacity_with_exceptions):
 def assert_max_gap(capacity):
     capacity.max_gap = 4
     capacity.assign_effort("task1", 10, after=date(2023, 1, 6))
+    assert capacity.next_available_day(20, 2) == date(2023, 1, 16)
     capacity.assign_effort("task2", 20)
     assert capacity.capacity_at(date(2023, 1, 4)) == 2
     assert capacity.capacity_at(date(2023, 1, 11)) == 0
