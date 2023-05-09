@@ -54,6 +54,7 @@ class DependencyNode:
             else None,
             "depends_on": ",".join([n.task.name for n in self.parent_nodes]),
             "teams": [t.to_dict() for _, t in self.task.teams_tasks.items()],
+            "price": self.task.price,
         }
 
 

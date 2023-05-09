@@ -120,9 +120,77 @@
     chart.draw(dataTable, options);;
   }
 
+  function drawTasksList() {
+    var container = document.getElementById('tasks_list');
+    var tbl = document.createElement('table');
+
+    addHeader = function (tr, text) {
+      td = tr.insertCell();
+      td.style.textAlign = 'center';
+      td.style.fontWeight = 'bold';
+      td.innerHTML = text;
+    };
+
+    addCell = function (tr, text) {
+      td = tr.insertCell();
+      td.style.borderTop = '1px solid black';
+      td.style.padding = '5px';
+      td.style.textAlign = 'right';
+      td.innerHTML = text;
+    };
+
+    // header
+    tr = tbl.insertRow();
+    addHeader(tr, "Hito");
+    addHeader(tr, "Inicio");
+    addHeader(tr, "Fin");
+    addHeader(tr, "Precio");
+
+    {%for t in gantt%}
+      tr = tbl.insertRow();
+      addCell(tr, '{{t.name}}');
+      addCell(tr, '{{t.init}}');
+      addCell(tr, '{{t.end}}');
+      addCell(tr, '{{t.price}}€');
+    {%endfor%}
+
+    container.appendChild(tbl);
+  }
+
   function drawChart() {
     drawGanttChart();
     drawTimelineChart();
+    drawTasksList();
+  }
+
+  function tasksToCSV() {
+      var csv_data = [];
+      var container = document.getElementById('tasks_list');
+      var rows = container.getElementsByTagName('tr');
+      for (var i = 0; i < rows.length; i++) {
+          var cols = rows[i].querySelectorAll('td,th');
+          var csvrow = [];
+          for (var j = 0; j < cols.length; j++) {
+              csvrow.push(cols[j].innerHTML);
+          }
+          csv_data.push(csvrow.join(","));
+      }
+      csv_data = csv_data.join('\n');
+
+      // Call this function to download csv file
+      downloadCSVFile(csv_data);
+  }
+
+  function downloadCSVFile(csv_data) {
+      CSVFile = new Blob([csv_data], { type: "text/csv" });
+      var temp_link = document.createElement('a');
+      temp_link.download = "milestones.csv";
+      var url = window.URL.createObjectURL(CSVFile);
+      temp_link.href = url;
+      temp_link.style.display = "none";
+      document.body.appendChild(temp_link);
+      temp_link.click();
+      document.body.removeChild(temp_link);
   }
 </script>
 {% endblock %}
@@ -136,4 +204,8 @@
 <a id="export" href="#" download="gantt.svg">Export</a>
 <p>-----------------</p>
 <div id="timeline"></div>
+<p>-----------------</p>
+<div id="tasks_list"></div>
+<br /><br />
+<button type="button" onclick="tasksToCSV()">download CSV</button>
 {% endblock %}
