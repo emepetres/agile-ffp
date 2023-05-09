@@ -13,6 +13,7 @@ class CapacityTeam:
         ends: date = None,
         exceptions: list[dict] = [],
         vacation_months=[6, 12],
+        max_gap: int = 4,
     ) -> None:
         """If ends is None, it is set as the end of current year, or the same year as
         starts occurs above current year."""
@@ -21,6 +22,7 @@ class CapacityTeam:
         self.starts = starts
         self.ends = ends
         self.vacation_months = vacation_months
+        self.max_gap = max_gap
         if self.ends is None:
             current_year = date.today().year
             year = current_year if current_year >= starts.year else starts.year
@@ -54,8 +56,9 @@ class CapacityTeam:
         else:
             return self.members / 2
 
-    def _next_available_day(self, after: date = None) -> int:
-        start = (after - self.starts).days + 1 if after else 0
+    def _next_available_day(self, after: date = None, start: int = None) -> int:
+        if start is None:
+            start = (after - self.starts).days + 1 if after else 0
         for i, c in enumerate(self.capacity[start:], start=start):
             if c > 0:
                 return i
@@ -89,16 +92,19 @@ class CapacityTeam:
             raise ValueError("effort must be greater than 0")
 
         assigned = 0
-        init_day_idx = self._next_available_day(after=after)
-        init_date = self.starts + timedelta(days=init_day_idx)
-        end_date = init_date
+        init_day_idx = self._get_init_date_according_to_max_gap(
+            self._next_available_day(after=after), max_capacity, effort
+        )
         for i in range(init_day_idx, len(self.capacity)):
-            assigned += self._reserve_effort_at(i, min(max_capacity, effort - assigned))
+            assigned += CapacityTeam._reserve_effort_at(
+                self.capacity, i, min(max_capacity, effort - assigned)
+            )
 
             if assigned == effort:
                 end_date = self.starts + timedelta(days=i)
                 break
 
+        init_date = self.starts + timedelta(days=init_day_idx)
         self.timeline.append(
             {
                 "team": self.team,
@@ -115,6 +121,26 @@ class CapacityTeam:
             self.cal.get_working_days_delta(init_date, end_date) + 1,
         )
 
+    def _get_init_date_according_to_max_gap(
+        self, init_idx: int, max_capacity: int, effort: int
+    ) -> int:
+        assignation, assigned, gap = 0, 0, 0
+        capacity_copy = self.capacity.copy()
+        for i in range(init_idx, len(self.capacity)):
+            assignation = CapacityTeam._reserve_effort_at(
+                capacity_copy, i, min(max_capacity, effort - assigned)
+            )
+            assigned += assignation
+            gap = 0 if assignation != 0 else gap + 1
+
+            if gap > self.max_gap:
+                return self._get_init_date_according_to_max_gap(
+                    self._next_available_day(start=i), max_capacity, effort
+                )
+
+            if assigned == effort:
+                return init_idx
+
     def capacity_at(self, date: date) -> int:
         if date < self.starts or date > self.ends:
             return 0
@@ -122,14 +148,14 @@ class CapacityTeam:
         idx = (date - self.starts).days
         return self.capacity[idx]
 
-    def _reserve_effort_at(self, idx: int, capacity: int) -> int:
-        capacity_available = self.capacity[idx]
+    def _reserve_effort_at(capacity: list[int], idx: int, effort: int) -> int:
+        capacity_available = capacity[idx]
 
         if capacity_available == 0:
             return 0
 
-        assignable = min(capacity_available, capacity)
-        self.capacity[idx] -= assignable
+        assignable = min(capacity_available, effort)
+        capacity[idx] -= assignable
 
         return assignable
 
