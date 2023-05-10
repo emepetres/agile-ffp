@@ -152,3 +152,18 @@ def assert_from_milestones(milestones):
 def assert_price(task1, capacity):
     task1.assign_capacity(capacity)
     assert task1.price == 11440
+
+
+def assert_common_available_day():
+    c = {
+        "team1": CapacityTeam("team1", 2, date(2023, 5, 8)),
+        "team2": CapacityTeam("team2", 2, date(2023, 5, 8)),
+    }
+    t1 = Task("t1", {"team1": 10})
+    t2 = Task("t2", {"team2": 10})
+    t1.assign_capacity(c)
+    t2.assign_capacity(c, start_after=date(2023, 5, 12))
+    t3 = Task("t3", {"team1": 10, "team2": 10})
+    t3.assign_capacity(c)
+    assert t3.init == date(2023, 5, 22)
+    assert t3.days == 5
