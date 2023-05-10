@@ -1,5 +1,10 @@
 class EstimatedEpic:
-    def __init__(self, name: str, totals: dict[str, int], tasks: list):
+    def __init__(
+        self,
+        name: str,
+        totals: dict[str, int],
+        tasks: list,
+    ):
         self.name = name
         self.totals = totals
         self.tasks = [EstimatedTask(name, totals, **t) for t in tasks]
@@ -15,6 +20,23 @@ class EstimatedEpic:
             for k, v in t.estimated.items():
                 t.computed_effort[k] = (self.totals.get(k, 0) * v) / raw_totals.get(
                     k, 0
+                )
+
+        # compute teams that appear in totals but not in tasks
+        # (for example, a management team)
+        other_teams = [
+            team for team in self.totals.keys() if team not in raw_totals.keys()
+        ]
+        tasks_teams_total = 0
+        for k, v in self.totals.items():
+            if k not in other_teams:
+                tasks_teams_total += v
+
+        for t in self.tasks:
+            for team in other_teams:
+                task_raw_totals = sum(t.computed_effort.values())
+                t.computed_effort[team] = (
+                    task_raw_totals * self.totals[team] / tasks_teams_total
                 )
 
 

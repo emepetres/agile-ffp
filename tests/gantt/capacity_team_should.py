@@ -161,3 +161,13 @@ def assert_max_gap(capacity):
     assert capacity.capacity_at(date(2023, 1, 18)) == 0
     assert capacity.timeline[0]["start"] == "2023-01-09"
     assert capacity.timeline[1]["start"] == "2023-01-16"
+
+
+def assert_exclude_from_gantt(capacity):
+    capacity.gantt = False
+    init, end, days = capacity.assign_effort("task1", 10)
+    assert init is None
+    assert end is None
+    assert days is None
+    assert capacity.next_available_day(None, None, return_index=True) == 0
+    assert capacity.to_timeline() == []
