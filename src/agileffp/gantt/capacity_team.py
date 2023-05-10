@@ -15,6 +15,7 @@ class CapacityTeam:
         price: int = 0,
         vacation_months=[6, 12],
         max_gap: int = 4,
+        gantt: bool = True,
     ) -> None:
         """If ends is None, it is set as the end of current year, or the same year as
         starts occurs above current year."""
@@ -25,6 +26,7 @@ class CapacityTeam:
         self.price = price
         self.vacation_months = vacation_months
         self.max_gap = max_gap
+        self.gantt = gantt
         if self.ends is None:
             current_year = date.today().year
             year = current_year if current_year >= starts.year else starts.year
@@ -94,6 +96,9 @@ class CapacityTeam:
         after: date = None,
         return_index: bool = False,
     ) -> int | date:
+        if not self.gantt:
+            return 0 if return_index else self.starts
+
         day_id = self._get_init_date_according_to_max_gap(
             self._next_available_day(after=after), max_capacity, effort
         )
@@ -101,7 +106,7 @@ class CapacityTeam:
 
     def assign_effort(
         self, task: str, effort: int, max_capacity: int = None, after: date = None
-    ) -> tuple[date, date]:
+    ) -> tuple[date, date, int]:
         """Assigns effort to team's capacity.
 
         Args:
@@ -113,6 +118,9 @@ class CapacityTeam:
             end_date: latest date when effort was assigned
             days: working days between init_date and end_date
         """
+        if not self.gantt:
+            return None, None, None
+
         if max_capacity is None:
             max_capacity = self.members
 

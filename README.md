@@ -31,6 +31,15 @@ capacity:
       - members: 1
         starts: 2023-05-15
         ends: 2023-06-03
+  team3:
+    members: 2
+    starts: 2023-05-15
+    ends: 2025-12-31
+    exceptions:
+      - members: 1
+        starts: 2023-05-15
+        ends: 2023-06-03
+    gantt: false
   ...
 
 tasks:

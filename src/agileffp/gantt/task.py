@@ -57,9 +57,9 @@ class Task:
 
         for team, team_task in self.teams_tasks.items():
             team_task.assign_capacity(capacity[team], after=start_after)
-            if self.init is None or team_task.init < self.init:
+            if self.init is None or (team_task.init and team_task.init < self.init):
                 self.init = team_task.init
-            if self.end is None or team_task.end > self.end:
+            if self.end is None or (team_task.end and team_task.end > self.end):
                 self.end = team_task.end
             self.price += capacity[team].price * team_task.effort
         self.days = self.cal.get_working_days_delta(self.init, self.end) + 1

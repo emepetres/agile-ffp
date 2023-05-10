@@ -236,6 +236,7 @@ capacity:
       - members: 2
         starts: 2023-04-17
         ends: 2023-05-15
+    gantt: false
   web:
     members: 2
     starts: 2023-05-15
