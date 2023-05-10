@@ -60,5 +60,5 @@ def render_chart(filename):
         gantt=info,
         gantt_height=10 + 45 * len(info),
         timeline=timeline_tasks,
-        timeline_height=45 * (len(capacity)),
+        timeline_height=55 * (len(capacity)),
     )
