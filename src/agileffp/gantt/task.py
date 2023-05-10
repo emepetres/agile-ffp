@@ -13,6 +13,7 @@ class Task:
         depends_on: list = [],
         priority: int = 99,
         start_all_together: bool = True,
+        description: str = "",
     ):
         """Creates a task
 
@@ -27,6 +28,7 @@ class Task:
         self.depends_on = depends_on
         self.priority = priority
         self.start_all_together = start_all_together
+        self.description = description
         self.init, self.end, self.days = None, None, None
         self.price = 0
         self.cal = Seville()
@@ -109,7 +111,12 @@ class Task:
         tasks = []
         for m in milestones:
             t = Task(
-                m.name, m.estimated, m.depends_on, m.priority, m.start_all_together
+                m.name,
+                m.estimated,
+                m.depends_on,
+                m.priority,
+                m.start_all_together,
+                description=", ".join([str(v) for v in m.tasks]),
             )
             if m.max_capacity:
                 for team, max in m.max_capacity.items():
