@@ -145,6 +145,7 @@
     addHeader(tr, "Inicio");
     addHeader(tr, "Fin");
     addHeader(tr, "Precio");
+    addHeader(tr, "Tareas");
 
     {%for t in gantt%}
       tr = tbl.insertRow();
@@ -152,6 +153,7 @@
       addCell(tr, '{{t.init}}');
       addCell(tr, '{{t.end}}');
       addCell(tr, '{{t.price}}€');
+      addCell(tr, '{{t.desc}}');
     {%endfor%}
 
     container.appendChild(tbl);
