@@ -168,6 +168,7 @@ def assert_to_list(sequential2, capacity):
         "days": 7,
         "depends_on": "",
         "price": 0,
+        "desc": "",
         "teams": [
             {
                 "name": "team1",
@@ -192,6 +193,7 @@ def assert_to_list(sequential2, capacity):
         "days": 6,
         "depends_on": "sample_task1",
         "price": 0,
+        "desc": "",
         "teams": [
             {
                 "name": "team1",
