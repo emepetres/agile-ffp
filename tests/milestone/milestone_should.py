@@ -25,7 +25,7 @@ def estimation():
             "estimation": [
                 {
                     "name": "epic1",
-                    "totals": {"team1": 10, "team2": 13},
+                    "totals": {"team1": 10, "team2": 13, "management": 4},
                     "tasks": [
                         {
                             "name": "task1",
@@ -41,7 +41,7 @@ def estimation():
                 },
                 {
                     "name": "epic2",
-                    "totals": {"team1": 18, "team3": 90},
+                    "totals": {"team1": 18, "team3": 90, "management": 17},
                     "tasks": [
                         {
                             "name": "task1",
@@ -52,32 +52,6 @@ def estimation():
                             "name": "task2",
                             "ref": 2.2,
                             "estimated": {"team1": 6, "team3": 40},
-                        },
-                    ],
-                },
-            ]
-        }
-    )
-
-
-@pytest.fixture
-def estimation2():
-    return parse_estimation(
-        {
-            "estimation": [
-                {
-                    "name": "epic1",
-                    "totals": {"team1": 10, "team2": 13},
-                    "tasks": [
-                        {
-                            "name": "task1",
-                            "ref": 1.1,
-                            "estimated": {"team1": 5, "team2": 6},
-                        },
-                        {
-                            "name": "task2",
-                            "ref": 1.2,
-                            "estimated": {"team1": 4, "team2": 5},
                         },
                     ],
                 },
@@ -116,8 +90,16 @@ def assert_compute_estimation(milestones_yml, estimation):
     milestones = Milestone.parse(milestones_yml)
     Milestone.compute(milestones.values(), estimation)
 
-    assert milestones["milestone1"].estimated == {"team1": 10, "team2": 13}
-    assert milestones["milestone2"].estimated == {"team1": 18, "team3": 90}
+    assert milestones["milestone1"].estimated == {
+        "team1": 10,
+        "team2": 13,
+        "management": 4,
+    }
+    assert milestones["milestone2"].estimated == {
+        "team1": 18,
+        "team3": 90,
+        "management": 17,
+    }
 
 
 def assert_round_estimation(estimation):
@@ -125,4 +107,8 @@ def assert_round_estimation(estimation):
     milestones = Milestone.parse(data)
     Milestone.compute(milestones.values(), estimation)
 
-    assert milestones["milestone1"].estimated == {"team1": 6, "team2": 7}
+    assert milestones["milestone1"].estimated == {
+        "team1": 6,
+        "team2": 7,
+        "management": 2,
+    }
