@@ -70,14 +70,20 @@ class Task:
         self, capacity: dict[str, CapacityTeam], start_after: date = None
     ):
         """Returns the next available day for all the teams in the task"""
-        day: date = None
-        for team, team_task in self.teams_tasks.items():
-            _next_available_day = team_task.next_available_day(
-                capacity[team], after=start_after
-            )
-            if day is None or day < _next_available_day:
-                day = _next_available_day
-        return day
+        current_common_day = None
+        while True:
+            day: date = None
+            for team, team_task in self.teams_tasks.items():
+                _next_available_day = team_task.next_available_day(
+                    capacity[team], after=start_after
+                )
+                if day is None or day < _next_available_day:
+                    day = _next_available_day
+            if current_common_day == day:
+                return day
+            else:
+                current_common_day = day
+                start_after = day + timedelta(days=-1)
 
     def __str__(self):
         return f"{self.name} ({self.init} - {self.end}) - {self.days}"
