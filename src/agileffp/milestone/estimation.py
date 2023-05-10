@@ -11,6 +11,7 @@ class EstimatedEpic:
         self.tasks = [EstimatedTask(name, totals, **t) for t in tasks]
         self.management_team = management_team
         self._compute_tasks_effort()
+        self._add_management_effort()
 
     def _compute_tasks_effort(self):
         raw_totals = {}
@@ -24,6 +25,7 @@ class EstimatedEpic:
                     k, 0
                 )
 
+    def _add_management_effort(self):
         total_except_management = 0
         for k, v in self.totals.items():
             if k != self.management_team:
