@@ -5,14 +5,14 @@ class Milestone:
     def __init__(
         self,
         name: str,
-        tasks: list[float],
+        tasks: list[str],
         priority: int = 99,
         depends_on: list = [],
         max_capacity: dict[str, int] = {},
         start_all_together: bool = True,
     ):
         self.name = name
-        self.tasks = tasks
+        self.tasks = [str(t) for t in tasks]
         self.priority = priority
         self.depends_on = depends_on
         self.max_capacity = max_capacity
@@ -41,7 +41,7 @@ class Milestone:
 
         return {m.name: m for m in [Milestone(**m) for m in data["milestones"]]}
 
-    def compute(milestones: list["Milestone"], estimation: dict[float, EstimatedTask]):
+    def compute(milestones: list["Milestone"], estimation: dict[str, EstimatedTask]):
         """Computes the milestones estimations
 
         Args:

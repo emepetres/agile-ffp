@@ -53,14 +53,14 @@ def assert_parse_list(estimation_yml):
     assert len(estimation) == 4
 
     task_ids = [t.ref for t in estimation.values()]
-    assert 1.1 in task_ids
-    assert 1.2 in task_ids
-    assert 2.1 in task_ids
-    assert 2.2 in task_ids
+    assert "1.1" in task_ids
+    assert "1.2" in task_ids
+    assert "2.1" in task_ids
+    assert "2.2" in task_ids
 
 
 def assert_computed_effort(estimation_yml):
     estimation = parse_estimation(estimation_yml)
 
-    assert estimation[1.1].computed_effort["team1"] == pytest.approx(5.55, 0.01)
-    assert estimation[1.1].computed_effort["team2"] == pytest.approx(7.09, 0.01)
+    assert estimation["1.1"].computed_effort["team1"] == pytest.approx(5.55, 0.01)
+    assert estimation["1.1"].computed_effort["team2"] == pytest.approx(7.09, 0.01)
