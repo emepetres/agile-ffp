@@ -41,7 +41,9 @@ class EstimatedEpic:
 
 
 class EstimatedTask:
-    def __init__(self, epic: str, totals: dict, name: str, ref: str | float, estimated: dict):
+    def __init__(
+        self, epic: str, totals: dict, name: str, ref: str | float, estimated: dict
+    ):
         self.epic_name = epic
         self.totals = totals
         self.name = name
