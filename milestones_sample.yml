@@ -13,6 +13,7 @@ milestones:
   - name: Pantallas Web
     tasks: [3.2, 3.3, 3.4, 3.5, 10.2, 10.3]
     depends_on: [Precios, Usuarios]
+    max_capacity: {"web": 1}
   - name: Landing Page
     tasks: [2.5]
     depends_on: [Usuarios]

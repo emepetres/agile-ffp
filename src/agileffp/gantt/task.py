@@ -126,10 +126,7 @@ class Task:
             )
             if m.max_capacity:
                 for team, max in m.max_capacity.items():
-                    t.teams_tasks[team].effort = {
-                        "effort": t.teams_tasks[team].effort,
-                        "max": max,
-                    }
+                    t.teams_tasks[team].max_capacity = max
             tasks.append(t)
 
         return tasks

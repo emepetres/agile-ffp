@@ -144,7 +144,8 @@ def assert_from_milestones(milestones):
 
     assert dt["milestone2"].priority == 99
     assert dt["milestone2"].depends_on == ["milestone1"]
-    assert dt["milestone2"].teams_tasks["team1"].effort == {"effort": 18, "max": 1}
+    assert dt["milestone2"].teams_tasks["team1"].effort == 18
+    assert dt["milestone2"].teams_tasks["team1"].max_capacity == 1
     assert dt["milestone2"].teams_tasks["team3"].effort == 90
     assert dt["milestone2"].description == "2.1, 2.2"
 
