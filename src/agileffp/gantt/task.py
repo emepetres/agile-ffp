@@ -12,6 +12,7 @@ class Task:
         estimate: dict[str, int | dict[str, int]],
         depends_on: list = [],
         priority: int = 99,
+        execute_together: bool = True,
         start_all_together: bool = True,
         description: str = "",
     ):
@@ -27,6 +28,7 @@ class Task:
         self.name = name
         self.depends_on = depends_on
         self.priority = priority
+        self.execute_together = execute_together
         self.start_all_together = start_all_together
         self.description = description
         self.init, self.end, self.days = None, None, None

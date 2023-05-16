@@ -8,17 +8,29 @@ from agileffp.milestone.milestone import Milestone
 
 @pytest.fixture
 def task1():
-    return Task("sample_task1", {"team1": 10, "team2": 13}, start_all_together=False)
+    return Task(
+        "sample_task1",
+        {"team1": 10, "team2": 13},
+        start_all_together=False,
+        execute_together=False,
+    )
 
 
 @pytest.fixture
 def task2():
-    return Task("sample_task2", {"team1": 10, "team2": 13}, start_all_together=False)
+    return Task(
+        "sample_task2",
+        {"team1": 10, "team2": 13},
+        start_all_together=False,
+        execute_together=False,
+    )
 
 
 @pytest.fixture
 def task3():
-    return Task("sample_task3", {"team3": 10}, start_all_together=False)
+    return Task(
+        "sample_task3", {"team3": 10}, start_all_together=False, execute_together=False
+    )
 
 
 @pytest.fixture
@@ -165,6 +177,21 @@ def assert_common_available_day():
     t1.assign_capacity(c)
     t2.assign_capacity(c, start_after=date(2023, 5, 12))
     t3 = Task("t3", {"team1": 10, "team2": 10})
+    t3.assign_capacity(c)
+    assert t3.init == date(2023, 5, 22)
+    assert t3.days == 5
+
+
+def assert_execute_together():
+    c = {
+        "team1": CapacityTeam("team1", 2, date(2023, 5, 8)),
+        "team2": CapacityTeam("team2", 2, date(2023, 5, 8)),
+    }
+    t1 = Task("t1", {"team1": 10}, start_all_together=False)
+    t2 = Task("t2", {"team2": 10}, start_all_together=False)
+    t1.assign_capacity(c)
+    t2.assign_capacity(c, start_after=date(2023, 5, 12))
+    t3 = Task("t3", {"team1": 10, "team2": 10}, start_all_together=False)
     t3.assign_capacity(c)
     assert t3.init == date(2023, 5, 22)
     assert t3.days == 5
