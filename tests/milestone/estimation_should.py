@@ -1,4 +1,6 @@
+from datetime import date
 import pytest
+from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.milestone.estimation import parse_estimation
 
 
@@ -42,6 +44,15 @@ def estimation_yml():
     }
 
 
+@pytest.fixture
+def capacity():
+    return {
+        "team1": CapacityTeam("team1", 2, date(2023, 1, 1), price=520),
+        "team2": CapacityTeam("team2", 3, date(2023, 1, 1), price=480),
+        "team3": CapacityTeam("team3", 2, date(2023, 1, 1), price=520),
+    }
+
+
 def assert_parse_format():
     data = {"wrong": [{"name": "epic1"}]}
     with pytest.raises(ValueError):
@@ -64,3 +75,14 @@ def assert_computed_effort(estimation_yml):
 
     assert estimation["1.1"].computed_effort["team1"] == pytest.approx(5.55, 0.01)
     assert estimation["1.1"].computed_effort["team2"] == pytest.approx(7.09, 0.01)
+
+
+def assert_computed_price(estimation_yml, capacity):
+    estimation = parse_estimation(estimation_yml)
+    for task in estimation.values():
+        task.compute_price(capacity.values())
+
+    assert estimation["1.1"].price == 6293
+    assert estimation["1.2"].price == 5147
+    assert estimation["2.1"].price == 28440
+    assert estimation["2.2"].price == 27720

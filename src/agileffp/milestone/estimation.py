@@ -1,3 +1,7 @@
+from typing import List
+from agileffp.gantt.capacity_team import CapacityTeam
+
+
 class EstimatedEpic:
     def __init__(
         self,
@@ -50,6 +54,12 @@ class EstimatedTask:
         self.ref = str(ref)
         self.estimated = estimated
         self.computed_effort = {}
+        self.price = 0
+
+    def compute_price(self, capacity: List[CapacityTeam]):
+        for team in capacity:
+            self.price += team.price * self.computed_effort.get(team.team, 0)
+        self.price = round(self.price)
 
 
 def parse_estimation(data: dict) -> dict[float, "EstimatedTask"]:
