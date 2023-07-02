@@ -24,9 +24,11 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    from agileffp.blueprints import landing
     from agileffp.blueprints import gantt
     from agileffp.blueprints import estimation
 
+    app.register_blueprint(landing.bp)
     app.register_blueprint(gantt.bp)
     app.register_blueprint(estimation.bp)
 
