@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: CLI",
+            "name": "CLI",
             "type": "python",
             "request": "launch",
             "args": ["-f", "../milestones_sample.yml"],
@@ -11,19 +11,22 @@
             "cwd":"${workspaceFolder}/src"
         },
         {
-            "name": "Python: Flask",
-            "type": "python",
-            "request": "launch",
-            "module": "flask",
-            "args": [
-                "--app",
-                "agileffp",
-                "run",
-                "--debug"
-            ],
-            "jinja": true,
-            "justMyCode": true,
-            "cwd":"${workspaceFolder}/src"
+          "name": "Flask",
+          "type": "python",
+          "request": "launch",
+          "module": "flask",
+          "args": ["--app", "agileffp", "run", "--debug"],
+          "jinja": true,
+          "justMyCode": true,
+          "cwd": "${workspaceFolder}/src"
+        },
+        {
+          "name": "DevOps",
+          "type": "python",
+          "request": "launch",
+          "module": "agileffp.devops.connect",
+          "console": "integratedTerminal",
+          "cwd": "${workspaceFolder}/src"
         }
     ]
 }

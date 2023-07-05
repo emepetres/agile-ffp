@@ -1,3 +1,4 @@
 pyyaml==6.0
 workalendar==17.0.*
 flask==2.3.*
+azure-devops==7.1
