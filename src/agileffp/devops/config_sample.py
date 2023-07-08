@@ -1,2 +1,7 @@
-PAT = "PAT_PASSWORD"  # Personal Access Token
-ORG_URL = "https://dev.azure.com/<organization>"
+PAT = "<personal_access_token>"
+
+SERVER = "dev.azure.com"
+ORGANIZATION = "<organization>"
+PROJECT = "<project>"
+
+QUERY_ID = "<query_id>"
