@@ -1,0 +1,350 @@
+{
+  "queryType": "flat",
+  "queryResultType": "workItem",
+  "asOf": "2023-07-09T19:14:37.363Z",
+  "columns": [
+    {
+      "referenceName": "System.Parent",
+      "name": "Parent",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.Parent"
+    },
+    {
+      "referenceName": "System.Id",
+      "name": "ID",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.Id"
+    },
+    {
+      "referenceName": "System.Title",
+      "name": "Title",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.Title"
+    },
+    {
+      "referenceName": "System.AssignedTo",
+      "name": "Assigned To",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.AssignedTo"
+    },
+    {
+      "referenceName": "System.State",
+      "name": "State",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.State"
+    },
+    {
+      "referenceName": "Microsoft.VSTS.Scheduling.Effort",
+      "name": "Effort",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/Microsoft.VSTS.Scheduling.Effort"
+    },
+    {
+      "referenceName": "System.Tags",
+      "name": "Tags",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.Tags"
+    },
+    {
+      "referenceName": "System.AreaPath",
+      "name": "Area Path",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.AreaPath"
+    },
+    {
+      "referenceName": "System.IterationPath",
+      "name": "Iteration Path",
+      "url": "https://dev.azure.com/acme/_apis/wit/fields/System.IterationPath"
+    }
+  ],
+  "workItems": [
+    {
+      "id": 165571,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165571"
+    },
+    {
+      "id": 165651,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165651"
+    },
+    {
+      "id": 165652,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165652"
+    },
+    {
+      "id": 165654,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165654"
+    },
+    {
+      "id": 165655,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165655"
+    },
+    {
+      "id": 165656,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165656"
+    },
+    {
+      "id": 165657,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165657"
+    },
+    {
+      "id": 165658,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165658"
+    },
+    {
+      "id": 165691,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165691"
+    },
+    {
+      "id": 165726,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165726"
+    },
+    {
+      "id": 165743,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165743"
+    },
+    {
+      "id": 165746,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165746"
+    },
+    {
+      "id": 165794,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165794"
+    },
+    {
+      "id": 165796,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165796"
+    },
+    {
+      "id": 167057,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167057"
+    },
+    {
+      "id": 167262,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167262"
+    },
+    {
+      "id": 167264,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167264"
+    },
+    {
+      "id": 167265,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167265"
+    },
+    {
+      "id": 167266,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167266"
+    },
+    {
+      "id": 167270,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167270"
+    },
+    {
+      "id": 167272,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167272"
+    },
+    {
+      "id": 167278,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167278"
+    },
+    {
+      "id": 167280,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167280"
+    },
+    {
+      "id": 167281,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167281"
+    },
+    {
+      "id": 167284,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167284"
+    },
+    {
+      "id": 167286,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167286"
+    },
+    {
+      "id": 167288,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167288"
+    },
+    {
+      "id": 167292,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167292"
+    },
+    {
+      "id": 167295,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167295"
+    },
+    {
+      "id": 167298,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167298"
+    },
+    {
+      "id": 167299,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167299"
+    },
+    {
+      "id": 167303,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167303"
+    },
+    {
+      "id": 167304,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167304"
+    },
+    {
+      "id": 167305,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167305"
+    },
+    {
+      "id": 167306,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167306"
+    },
+    {
+      "id": 167344,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167344"
+    },
+    {
+      "id": 167383,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167383"
+    },
+    {
+      "id": 167388,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167388"
+    },
+    {
+      "id": 167394,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167394"
+    },
+    {
+      "id": 167405,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/167405"
+    },
+    {
+      "id": 168139,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168139"
+    },
+    {
+      "id": 168153,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168153"
+    },
+    {
+      "id": 168155,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168155"
+    },
+    {
+      "id": 168202,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168202"
+    },
+    {
+      "id": 168205,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168205"
+    },
+    {
+      "id": 168227,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168227"
+    },
+    {
+      "id": 168229,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168229"
+    },
+    {
+      "id": 168246,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168246"
+    },
+    {
+      "id": 168248,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168248"
+    },
+    {
+      "id": 168251,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168251"
+    },
+    {
+      "id": 168294,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168294"
+    },
+    {
+      "id": 168351,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168351"
+    },
+    {
+      "id": 168490,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168490"
+    },
+    {
+      "id": 168492,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168492"
+    },
+    {
+      "id": 168495,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168495"
+    },
+    {
+      "id": 168889,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168889"
+    },
+    {
+      "id": 168950,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168950"
+    },
+    {
+      "id": 168975,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975"
+    },
+    {
+      "id": 168981,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168981"
+    },
+    {
+      "id": 168985,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168985"
+    },
+    {
+      "id": 169078,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169078"
+    },
+    {
+      "id": 169087,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169087"
+    },
+    {
+      "id": 169207,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169207"
+    },
+    {
+      "id": 169271,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169271"
+    },
+    {
+      "id": 169272,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169272"
+    },
+    {
+      "id": 169273,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169273"
+    },
+    {
+      "id": 169317,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169317"
+    },
+    {
+      "id": 169319,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169319"
+    },
+    {
+      "id": 169320,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169320"
+    },
+    {
+      "id": 169321,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169321"
+    },
+    {
+      "id": 169546,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169546"
+    },
+    {
+      "id": 169775,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169775"
+    },
+    {
+      "id": 169856,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169856"
+    },
+    {
+      "id": 169860,
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169860"
+    }
+  ]
+}

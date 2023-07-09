@@ -1,0 +1,2636 @@
+{
+  "count": 34,
+  "value": [
+    {
+      "id": 1,
+      "workItemId": 168975,
+      "rev": 1,
+      "revisedBy": {
+        "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+        "name": "Antonio Fulanito Benganito <antonio@acme.com>",
+        "displayName": "Antonio Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "uniqueName": "antonio@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+        "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+      },
+      "revisedDate": "2023-06-13T11:57:06.947Z",
+      "fields": {
+        "System.Id": {
+          "newValue": 168975
+        },
+        "System.AreaId": {
+          "newValue": 141633
+        },
+        "System.NodeName": {
+          "newValue": "Gines"
+        },
+        "System.AreaLevel1": {
+          "newValue": "Gines"
+        },
+        "System.Rev": {
+          "newValue": 1
+        },
+        "System.AuthorizedDate": {
+          "newValue": "2023-06-13T11:54:07.583Z"
+        },
+        "System.RevisedDate": {
+          "newValue": "2023-06-13T11:57:06.947Z"
+        },
+        "System.IterationId": {
+          "newValue": 142694
+        },
+        "System.IterationLevel1": {
+          "newValue": "Gines"
+        },
+        "System.IterationLevel2": {
+          "newValue": "3D"
+        },
+        "System.IterationLevel3": {
+          "newValue": "Sprint 12"
+        },
+        "System.WorkItemType": {
+          "newValue": "Product Backlog Item"
+        },
+        "System.State": {
+          "newValue": "New"
+        },
+        "System.Reason": {
+          "newValue": "New backlog item"
+        },
+        "System.AssignedTo": {},
+        "System.CreatedDate": {
+          "newValue": "2023-06-13T11:54:07.583Z"
+        },
+        "System.CreatedBy": {
+          "newValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "System.ChangedDate": {
+          "newValue": "2023-06-13T11:54:07.583Z"
+        },
+        "System.ChangedBy": {
+          "newValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "System.AuthorizedAs": {
+          "newValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "System.PersonId": {
+          "newValue": 21257114
+        },
+        "System.Watermark": {
+          "newValue": 1011294
+        },
+        "System.IsDeleted": {
+          "newValue": false
+        },
+        "System.CommentCount": {
+          "newValue": 1
+        },
+        "System.TeamProject": {
+          "newValue": "Gines"
+        },
+        "System.AreaPath": {
+          "newValue": "Gines"
+        },
+        "System.IterationPath": {
+          "newValue": "Gines\\3D\\Sprint 12"
+        },
+        "System.BoardColumnDone": {
+          "newValue": false
+        },
+        "Microsoft.VSTS.Common.Priority": {
+          "newValue": 2
+        },
+        "Microsoft.VSTS.Common.ValueArea": {
+          "newValue": "Business"
+        },
+        "WEF_074AE9F3108D4C65993E6BEEA1D86824_System.ExtensionMarker": {
+          "newValue": true
+        },
+        "WEF_074AE9F3108D4C65993E6BEEA1D86824_Kanban.Column.Done": {
+          "newValue": false
+        },
+        "WEF_F10BD31DDF194FA7B15351E3F028EBD9_Kanban.Column.Done": {
+          "newValue": false
+        },
+        "WEF_22C2BBA295614D779A28B8CD0DA94944_Kanban.Column": {
+          "newValue": "New"
+        },
+        "WEF_22C2BBA295614D779A28B8CD0DA94944_Kanban.Column.Done": {
+          "newValue": false
+        },
+        "WEF_D96794364361494ABA00132745C4DEB4_Kanban.Column": {
+          "newValue": "New"
+        },
+        "WEF_D96794364361494ABA00132745C4DEB4_Kanban.Column.Done": {
+          "newValue": false
+        },
+        "WEF_27D37A568BC84A79804B57CD0E4B83D1_Kanban.Column": {
+          "newValue": "New"
+        },
+        "WEF_27D37A568BC84A79804B57CD0E4B83D1_Kanban.Column.Done": {
+          "newValue": false
+        },
+        "System.History": {
+          "newValue": "Copied from <a href=\"x-mvwit:workitem/168889\">Product Backlog Item 168889</a>"
+        },
+        "System.BoardColumn": {
+          "newValue": "New"
+        },
+        "Microsoft.VSTS.Common.StateChangeDate": {
+          "newValue": "2023-06-13T11:54:07.583Z"
+        },
+        "WEF_074AE9F3108D4C65993E6BEEA1D86824_Kanban.Column": {
+          "newValue": "New"
+        },
+        "WEF_F10BD31DDF194FA7B15351E3F028EBD9_Kanban.Column": {
+          "newValue": "New"
+        },
+        "System.Title": {
+          "newValue": "[3D] Mejora Visual de modelos: Postprocessing"
+        },
+        "System.Description": {
+          "newValue": "<div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">visualización, me gustaría que revisáramos la iluminación y los efectos visuales aplicados a mis modelos. Me gustaría lograr una iluminación más realista, que destaque los detalles y proporcione sombras adecuadas para mejorar la apariencia general de los objetos en el entorno 3D. Además, consideremos la posibilidad de implementar efectos visuales más sofisticados, como reflejos y refracciones, para hacer que los modelos se vean aún más impresionantes.</span><br> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image><br></span> </div>"
+        },
+        "Microsoft.VSTS.Common.BacklogPriority": {
+          "newValue": 999685268.0
+        },
+        "WEF_D96794364361494ABA00132745C4DEB4_System.ExtensionMarker": {
+          "newValue": true
+        },
+        "WEF_27D37A568BC84A79804B57CD0E4B83D1_System.ExtensionMarker": {
+          "newValue": true
+        },
+        "WEF_F10BD31DDF194FA7B15351E3F028EBD9_System.ExtensionMarker": {
+          "newValue": true
+        },
+        "WEF_22C2BBA295614D779A28B8CD0DA94944_System.ExtensionMarker": {
+          "newValue": true
+        },
+        "System.Tags": {
+          "newValue": "[Visor]; ToRefineEstimation"
+        },
+        "System.Parent": {
+          "newValue": 165687
+        }
+      },
+      "relations": {
+        "added": [
+          {
+            "rel": "System.LinkTypes.Related",
+            "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168889",
+            "attributes": {
+              "isLocked": false,
+              "name": "Related"
+            }
+          },
+          {
+            "rel": "System.LinkTypes.Hierarchy-Reverse",
+            "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165687",
+            "attributes": {
+              "isLocked": false,
+              "name": "Parent"
+            }
+          }
+        ]
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/1"
+    },
+    {
+      "id": 2,
+      "workItemId": 168975,
+      "rev": 2,
+      "revisedBy": {
+        "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+        "name": "Antonio Fulanito Benganito <antonio@acme.com>",
+        "displayName": "Antonio Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "uniqueName": "antonio@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+        "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+      },
+      "revisedDate": "2023-06-13T12:06:02.797Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 1,
+          "newValue": 2
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T11:54:07.583Z",
+          "newValue": "2023-06-13T11:57:06.947Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T11:57:06.947Z",
+          "newValue": "2023-06-13T12:06:02.797Z"
+        },
+        "System.IterationId": {
+          "oldValue": 142694,
+          "newValue": 142623
+        },
+        "System.IterationPath": {
+          "oldValue": "Gines\\3D\\Sprint 12"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T11:54:07.583Z",
+          "newValue": "2023-06-13T11:57:06.947Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1011294,
+          "newValue": 1011313
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/2"
+    },
+    {
+      "id": 3,
+      "workItemId": 168975,
+      "rev": 3,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-13T12:07:04.923Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 2,
+          "newValue": 3
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T11:57:06.947Z",
+          "newValue": "2023-06-13T12:06:02.797Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T12:06:02.797Z",
+          "newValue": "2023-06-13T12:07:04.923Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T11:57:06.947Z",
+          "newValue": "2023-06-13T12:06:02.797Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          },
+          "newValue": {
+            "displayName": "Microsoft.VisualStudio.Services.TFS",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/00000002-0000-8888-8000-000000000000",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+              }
+            },
+            "id": "00000002-0000-8888-8000-000000000000",
+            "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+            "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 21257114,
+          "newValue": 47399
+        },
+        "System.Watermark": {
+          "oldValue": 1011313,
+          "newValue": 1011338
+        },
+        "WEF_22C2BBA295614D779A28B8CD0DA94944_System.ExtensionMarker": {
+          "oldValue": true,
+          "newValue": false
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/3"
+    },
+    {
+      "id": 4,
+      "workItemId": 168975,
+      "rev": 4,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-13T12:07:39.013Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 3,
+          "newValue": 4
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T12:06:02.797Z",
+          "newValue": "2023-06-13T12:07:04.923Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T12:07:04.923Z",
+          "newValue": "2023-06-13T12:07:39.013Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T12:06:02.797Z",
+          "newValue": "2023-06-13T12:07:04.923Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1011338,
+          "newValue": 1011345
+        },
+        "WEF_F10BD31DDF194FA7B15351E3F028EBD9_System.ExtensionMarker": {
+          "oldValue": true,
+          "newValue": false
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/4"
+    },
+    {
+      "id": 5,
+      "workItemId": 168975,
+      "rev": 5,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-13T12:13:08.87Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 4,
+          "newValue": 5
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T12:07:04.923Z",
+          "newValue": "2023-06-13T12:07:39.013Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T12:07:39.013Z",
+          "newValue": "2023-06-13T12:13:08.87Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T12:07:04.923Z",
+          "newValue": "2023-06-13T12:07:39.013Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1011345,
+          "newValue": 1011352
+        },
+        "WEF_27D37A568BC84A79804B57CD0E4B83D1_System.ExtensionMarker": {
+          "oldValue": true,
+          "newValue": false
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/5"
+    },
+    {
+      "id": 6,
+      "workItemId": 168975,
+      "rev": 6,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-13T12:13:44.18Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 5,
+          "newValue": 6
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T12:07:39.013Z",
+          "newValue": "2023-06-13T12:13:08.87Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T12:13:08.87Z",
+          "newValue": "2023-06-13T12:13:44.18Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T12:07:39.013Z",
+          "newValue": "2023-06-13T12:13:08.87Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1011352,
+          "newValue": 1011358
+        },
+        "WEF_22C2BBA295614D779A28B8CD0DA94944_System.ExtensionMarker": {
+          "oldValue": false,
+          "newValue": true
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/6"
+    },
+    {
+      "id": 7,
+      "workItemId": 168975,
+      "rev": 7,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-13T12:14:01.073Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 6,
+          "newValue": 7
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T12:13:08.87Z",
+          "newValue": "2023-06-13T12:13:44.18Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T12:13:44.18Z",
+          "newValue": "2023-06-13T12:14:01.073Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T12:13:08.87Z",
+          "newValue": "2023-06-13T12:13:44.18Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1011358,
+          "newValue": 1011369
+        },
+        "WEF_F10BD31DDF194FA7B15351E3F028EBD9_System.ExtensionMarker": {
+          "oldValue": false,
+          "newValue": true
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/7"
+    },
+    {
+      "id": 8,
+      "workItemId": 168975,
+      "rev": 8,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-13T12:14:49.613Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 7,
+          "newValue": 8
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T12:13:44.18Z",
+          "newValue": "2023-06-13T12:14:01.073Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T12:14:01.073Z",
+          "newValue": "2023-06-13T12:14:49.613Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T12:13:44.18Z",
+          "newValue": "2023-06-13T12:14:01.073Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1011369,
+          "newValue": 1011374
+        },
+        "WEF_27D37A568BC84A79804B57CD0E4B83D1_System.ExtensionMarker": {
+          "oldValue": false,
+          "newValue": true
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/8"
+    },
+    {
+      "id": 9,
+      "workItemId": 168975,
+      "rev": 9,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-14T17:11:33.9Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 8,
+          "newValue": 9
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T12:14:01.073Z",
+          "newValue": "2023-06-13T12:14:49.613Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-13T12:14:49.613Z",
+          "newValue": "2023-06-14T17:11:33.9Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T12:14:01.073Z",
+          "newValue": "2023-06-13T12:14:49.613Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1011374,
+          "newValue": 1011381
+        },
+        "WEF_5DFA4599156E4182BC682FC67F5DB8C4_Kanban.Column": {
+          "newValue": "New"
+        },
+        "WEF_5DFA4599156E4182BC682FC67F5DB8C4_Kanban.Column.Done": {
+          "newValue": false
+        },
+        "WEF_5DFA4599156E4182BC682FC67F5DB8C4_System.ExtensionMarker": {
+          "newValue": true
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/9"
+    },
+    {
+      "id": 10,
+      "workItemId": 168975,
+      "rev": 10,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-14T17:43:23.19Z",
+      "fields": {
+        "System.AreaId": {
+          "oldValue": 141633,
+          "newValue": 142710
+        },
+        "System.NodeName": {
+          "oldValue": "Gines",
+          "newValue": "3D"
+        },
+        "System.AreaLevel2": {
+          "newValue": "Ortodoncias"
+        },
+        "System.AreaLevel3": {
+          "newValue": "3D"
+        },
+        "System.Rev": {
+          "oldValue": 9,
+          "newValue": 10
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-13T12:14:49.613Z",
+          "newValue": "2023-06-14T17:11:33.9Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-14T17:11:33.9Z",
+          "newValue": "2023-06-14T17:43:23.19Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-13T12:14:49.613Z",
+          "newValue": "2023-06-14T17:11:33.9Z"
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Microsoft.VisualStudio.Services.TFS",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/00000002-0000-8888-8000-000000000000",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+              }
+            },
+            "id": "00000002-0000-8888-8000-000000000000",
+            "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+            "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 47399,
+          "newValue": 38242777
+        },
+        "System.Watermark": {
+          "oldValue": 1011381,
+          "newValue": 1012037
+        },
+        "System.AreaPath": {
+          "oldValue": "Gines",
+          "newValue": "Gines\\Ortodoncias\\3D"
+        },
+        "WEF_22C2BBA295614D779A28B8CD0DA94944_System.ExtensionMarker": {
+          "oldValue": true,
+          "newValue": false
+        },
+        "WEF_5DFA4599156E4182BC682FC67F5DB8C4_System.ExtensionMarker": {
+          "oldValue": true,
+          "newValue": false
+        },
+        "WEF_D96794364361494ABA00132745C4DEB4_System.ExtensionMarker": {
+          "oldValue": true,
+          "newValue": false
+        },
+        "WEF_27D37A568BC84A79804B57CD0E4B83D1_System.ExtensionMarker": {
+          "oldValue": true,
+          "newValue": false
+        },
+        "System.Parent": {
+          "oldValue": 165687,
+          "newValue": 165567
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/10"
+    },
+    {
+      "id": 11,
+      "workItemId": 168975,
+      "rev": 10,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-14T17:43:22.897Z",
+      "relations": {
+        "added": [
+          {
+            "rel": "System.LinkTypes.Hierarchy-Reverse",
+            "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165567",
+            "attributes": {
+              "isLocked": false,
+              "name": "Parent"
+            }
+          }
+        ],
+        "removed": [
+          {
+            "rel": "System.LinkTypes.Hierarchy-Reverse",
+            "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/165687",
+            "attributes": {
+              "isLocked": false,
+              "name": "Parent"
+            }
+          }
+        ]
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/11"
+    },
+    {
+      "id": 12,
+      "workItemId": 168975,
+      "rev": 11,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-14T17:43:30.543Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 10,
+          "newValue": 11
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-14T17:11:33.9Z",
+          "newValue": "2023-06-14T17:43:23.19Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-14T17:43:23.19Z",
+          "newValue": "2023-06-14T17:43:30.543Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-14T17:11:33.9Z",
+          "newValue": "2023-06-14T17:43:23.19Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1012037,
+          "newValue": 1012077
+        },
+        "Microsoft.VSTS.Common.BacklogPriority": {
+          "oldValue": 999685268.0,
+          "newValue": 999686921.0
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/12"
+    },
+    {
+      "id": 13,
+      "workItemId": 168975,
+      "rev": 12,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-19T14:36:44.387Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 11,
+          "newValue": 12
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-14T17:43:23.19Z",
+          "newValue": "2023-06-14T17:43:30.543Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-14T17:43:30.543Z",
+          "newValue": "2023-06-19T14:36:44.387Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-14T17:43:23.19Z",
+          "newValue": "2023-06-14T17:43:30.543Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1012077,
+          "newValue": 1012078
+        },
+        "Microsoft.VSTS.Common.BacklogPriority": {
+          "oldValue": 999686921.0,
+          "newValue": 1220448624.0
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/13"
+    },
+    {
+      "id": 14,
+      "workItemId": 168975,
+      "rev": 13,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-19T15:55:05.603Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 12,
+          "newValue": 13
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-14T17:43:30.543Z",
+          "newValue": "2023-06-19T14:36:44.387Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-19T14:36:44.387Z",
+          "newValue": "2023-06-19T15:55:05.603Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-14T17:43:30.543Z",
+          "newValue": "2023-06-19T14:36:44.387Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1012078,
+          "newValue": 1013304
+        },
+        "Microsoft.VSTS.Common.BacklogPriority": {
+          "oldValue": 1220448624.0,
+          "newValue": 999730164.0
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/14"
+    },
+    {
+      "id": 15,
+      "workItemId": 168975,
+      "rev": 14,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-20T07:33:36.16Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 13,
+          "newValue": 14
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-19T14:36:44.387Z",
+          "newValue": "2023-06-19T15:55:05.603Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-19T15:55:05.603Z",
+          "newValue": "2023-06-20T07:33:36.16Z"
+        },
+        "System.IterationId": {
+          "oldValue": 142623,
+          "newValue": 142720
+        },
+        "System.IterationLevel1": {
+          "newValue": "Gines"
+        },
+        "System.IterationLevel2": {
+          "newValue": "SaaS"
+        },
+        "System.IterationLevel3": {
+          "newValue": "Iteration 13"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-19T14:36:44.387Z",
+          "newValue": "2023-06-19T15:55:05.603Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1013304,
+          "newValue": 1013364
+        },
+        "System.IterationPath": {
+          "newValue": "Gines\\SaaS\\Iteration 13"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/15"
+    },
+    {
+      "id": 16,
+      "workItemId": 168975,
+      "rev": 15,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-06-20T15:52:24.4Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 14,
+          "newValue": 15
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-19T15:55:05.603Z",
+          "newValue": "2023-06-20T07:33:36.16Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-20T07:33:36.16Z",
+          "newValue": "2023-06-20T15:52:24.4Z"
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          },
+          "newValue": {
+            "displayName": "Microsoft.VisualStudio.Services.TFS",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/00000002-0000-8888-8000-000000000000",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+              }
+            },
+            "id": "00000002-0000-8888-8000-000000000000",
+            "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+            "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 38242777,
+          "newValue": 47399
+        },
+        "System.Watermark": {
+          "oldValue": 1013364,
+          "newValue": 1013541
+        },
+        "WEF_A4C827B51F0544B4A2E0FEE612F8EEC8_System.ExtensionMarker": {
+          "newValue": true
+        },
+        "WEF_A4C827B51F0544B4A2E0FEE612F8EEC8_Kanban.Column.Done": {
+          "newValue": false
+        },
+        "WEF_A4C827B51F0544B4A2E0FEE612F8EEC8_Kanban.Column": {
+          "newValue": "New"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/16"
+    },
+    {
+      "id": 17,
+      "workItemId": 168975,
+      "rev": 16,
+      "revisedBy": {
+        "id": "2292d032-88af-6c94-935f-bad8c80b57b9",
+        "name": "Marcelino Benganito <marcelino@tia.com>",
+        "displayName": "Marcelino Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/2292d032-88af-6c94-935f-bad8c80b57b9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+          }
+        },
+        "uniqueName": "marcelino@tia.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5",
+        "descriptor": "aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+      },
+      "revisedDate": "2023-06-21T12:24:31.54Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 15,
+          "newValue": 16
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-20T07:33:36.16Z",
+          "newValue": "2023-06-20T15:52:24.4Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-20T15:52:24.4Z",
+          "newValue": "2023-06-21T12:24:31.54Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-19T15:55:05.603Z",
+          "newValue": "2023-06-20T15:52:24.4Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          },
+          "newValue": {
+            "displayName": "Marcelino Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/2292d032-88af-6c94-935f-bad8c80b57b9",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+              }
+            },
+            "id": "2292d032-88af-6c94-935f-bad8c80b57b9",
+            "uniqueName": "marcelino@tia.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5",
+            "descriptor": "aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Microsoft.VisualStudio.Services.TFS",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/00000002-0000-8888-8000-000000000000",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+              }
+            },
+            "id": "00000002-0000-8888-8000-000000000000",
+            "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+            "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          },
+          "newValue": {
+            "displayName": "Marcelino Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/2292d032-88af-6c94-935f-bad8c80b57b9",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+              }
+            },
+            "id": "2292d032-88af-6c94-935f-bad8c80b57b9",
+            "uniqueName": "marcelino@tia.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5",
+            "descriptor": "aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 47399,
+          "newValue": 38774046
+        },
+        "System.Watermark": {
+          "oldValue": 1013541,
+          "newValue": 1013971
+        },
+        "System.Description": {
+          "oldValue": "<div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">visualización, me gustaría que revisáramos la iluminación y los efectos visuales aplicados a mis modelos. Me gustaría lograr una iluminación más realista, que destaque los detalles y proporcione sombras adecuadas para mejorar la apariencia general de los objetos en el entorno 3D. Además, consideremos la posibilidad de implementar efectos visuales más sofisticados, como reflejos y refracciones, para hacer que los modelos se vean aún más impresionantes.</span><br> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image><br></span> </div>",
+          "newValue": "<div><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image><br></span> </div>"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/17"
+    },
+    {
+      "id": 18,
+      "workItemId": 168975,
+      "rev": 17,
+      "revisedBy": {
+        "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+        "name": "Manuel Fulanito Benganito <minolo@acme.com>",
+        "displayName": "Manuel Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "uniqueName": "minolo@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+        "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+      },
+      "revisedDate": "2023-06-21T12:37:29.03Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 16,
+          "newValue": 17
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-20T15:52:24.4Z",
+          "newValue": "2023-06-21T12:24:31.54Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-21T12:24:31.54Z",
+          "newValue": "2023-06-21T12:37:29.03Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-20T15:52:24.4Z",
+          "newValue": "2023-06-21T12:24:31.54Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Marcelino Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/2292d032-88af-6c94-935f-bad8c80b57b9",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+              }
+            },
+            "id": "2292d032-88af-6c94-935f-bad8c80b57b9",
+            "uniqueName": "marcelino@tia.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5",
+            "descriptor": "aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+          },
+          "newValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Marcelino Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/2292d032-88af-6c94-935f-bad8c80b57b9",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+              }
+            },
+            "id": "2292d032-88af-6c94-935f-bad8c80b57b9",
+            "uniqueName": "marcelino@tia.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5",
+            "descriptor": "aad.MjI5MmQwMzItODhhZi03Yzk0LTkzNWYtYmFkOGM4MGI1N2I5"
+          },
+          "newValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 38774046,
+          "newValue": 33392730
+        },
+        "System.Watermark": {
+          "oldValue": 1013971,
+          "newValue": 1014427
+        },
+        "System.Description": {
+          "oldValue": "<div><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image><br></span> </div>",
+          "newValue": "<div><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/5e0ef431-953e-4395-8486-c8db8abe7f4c?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div>"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/18"
+    },
+    {
+      "id": 19,
+      "workItemId": 168975,
+      "rev": 18,
+      "revisedBy": {
+        "id": "f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+        "name": "Gabriel Fulanito Benganito <gabriel@acme.com>",
+        "displayName": "Gabriel Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+          }
+        },
+        "uniqueName": "gabriel@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5",
+        "descriptor": "aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+      },
+      "revisedDate": "2023-06-21T12:42:03Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 17,
+          "newValue": 18
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-21T12:24:31.54Z",
+          "newValue": "2023-06-21T12:37:29.03Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-21T12:37:29.03Z",
+          "newValue": "2023-06-21T12:42:03Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-21T12:24:31.54Z",
+          "newValue": "2023-06-21T12:37:29.03Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          },
+          "newValue": {
+            "displayName": "Gabriel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+              }
+            },
+            "id": "f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "uniqueName": "gabriel@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5",
+            "descriptor": "aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          },
+          "newValue": {
+            "displayName": "Gabriel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+              }
+            },
+            "id": "f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "uniqueName": "gabriel@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5",
+            "descriptor": "aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 33392730,
+          "newValue": 35151555
+        },
+        "System.Watermark": {
+          "oldValue": 1014427,
+          "newValue": 1014456
+        },
+        "System.Description": {
+          "oldValue": "<div><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/5e0ef431-953e-4395-8486-c8db8abe7f4c?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div>",
+          "newValue": "<div><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol><ul><li>Se intentarán las siguientes técnicas para mejorar el aspecto visual: </li><ul><li>Suavizado de malla en el exporter </li><li>Ambient oclussion </li><li>Tone mapping </li> </ul> </ul> </div><div><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia: aspecto ideal</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image style=\"width:634px;height:394px;\" width=634 height=394><br></span> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\">Visor actual: aspecto mínimo</span><br> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/0f25ab0f-c080-4ae7-af5e-ba477c5c82a2?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div>"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/19"
+    },
+    {
+      "id": 20,
+      "workItemId": 168975,
+      "rev": 19,
+      "revisedBy": {
+        "id": "f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+        "name": "Gabriel Fulanito Benganito <gabriel@acme.com>",
+        "displayName": "Gabriel Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+          }
+        },
+        "uniqueName": "gabriel@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5",
+        "descriptor": "aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+      },
+      "revisedDate": "2023-06-21T12:51:59.523Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 18,
+          "newValue": 19
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-21T12:37:29.03Z",
+          "newValue": "2023-06-21T12:42:03Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-21T12:42:03Z",
+          "newValue": "2023-06-21T12:51:59.523Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-21T12:37:29.03Z",
+          "newValue": "2023-06-21T12:42:03Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1014456,
+          "newValue": 1014458
+        },
+        "Microsoft.VSTS.Scheduling.Effort": {
+          "newValue": 5.0
+        },
+        "System.Description": {
+          "oldValue": "<div><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol><ul><li>Se intentarán las siguientes técnicas para mejorar el aspecto visual: </li><ul><li>Suavizado de malla en el exporter </li><li>Ambient oclussion </li><li>Tone mapping </li> </ul> </ul> </div><div><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia: aspecto ideal</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image style=\"width:634px;height:394px;\" width=634 height=394><br></span> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\">Visor actual: aspecto mínimo</span><br> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/0f25ab0f-c080-4ae7-af5e-ba477c5c82a2?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div>",
+          "newValue": "<div><font color=\"#374151\" face=\"Söhne, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\"><span style=\"font-size:16px;\"><ul style=\"box-sizing:border-box;padding:0px 0px 0px 40px;font-size:14px;\"><li style=\"box-sizing:border-box;\">Se intentarán las siguientes técnicas para mejorar el aspecto visual: </li><ul style=\"box-sizing:border-box;padding:0px 0px 0px 40px;\"><li style=\"box-sizing:border-box;\"><span style=\"\">Ambient oclussion</span><br> </li><li style=\"box-sizing:border-box;\">Tone mapping </li> </ul><li><span style=\"display:inline !important;\">Para ambient oclussion y tone mapping es necesario hacer funcionar las capas del render path</span> </li><li><span style=\"display:inline !important;\">En otra tarea haremos suavizado de malla en el importer</span> </li> </ul></span></font><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol> </div><div><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia: aspecto ideal</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image style=\"width:634px;height:394px;\" width=634 height=394><br></span> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\">Visor actual: aspecto mínimo</span><br> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/0f25ab0f-c080-4ae7-af5e-ba477c5c82a2?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div>"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/20"
+    },
+    {
+      "id": 21,
+      "workItemId": 168975,
+      "rev": 20,
+      "revisedBy": {
+        "id": "f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+        "name": "Gabriel Fulanito Benganito <gabriel@acme.com>",
+        "displayName": "Gabriel Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+          }
+        },
+        "uniqueName": "gabriel@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5",
+        "descriptor": "aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+      },
+      "revisedDate": "2023-06-21T13:00:20.257Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 19,
+          "newValue": 20
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-21T12:42:03Z",
+          "newValue": "2023-06-21T12:51:59.523Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-21T12:51:59.523Z",
+          "newValue": "2023-06-21T13:00:20.257Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-21T12:42:03Z",
+          "newValue": "2023-06-21T12:51:59.523Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1014458,
+          "newValue": 1014464
+        },
+        "System.Description": {
+          "oldValue": "<div><font color=\"#374151\" face=\"Söhne, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\"><span style=\"font-size:16px;\"><ul style=\"box-sizing:border-box;padding:0px 0px 0px 40px;font-size:14px;\"><li style=\"box-sizing:border-box;\">Se intentarán las siguientes técnicas para mejorar el aspecto visual: </li><ul style=\"box-sizing:border-box;padding:0px 0px 0px 40px;\"><li style=\"box-sizing:border-box;\"><span style=\"\">Ambient oclussion</span><br> </li><li style=\"box-sizing:border-box;\">Tone mapping </li> </ul><li><span style=\"display:inline !important;\">Para ambient oclussion y tone mapping es necesario hacer funcionar las capas del render path</span> </li><li><span style=\"display:inline !important;\">En otra tarea haremos suavizado de malla en el importer</span> </li> </ul></span></font><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol> </div><div><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia: aspecto ideal</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image style=\"width:634px;height:394px;\" width=634 height=394><br></span> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\">Visor actual: aspecto mínimo</span><br> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/0f25ab0f-c080-4ae7-af5e-ba477c5c82a2?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div>",
+          "newValue": "<div><font color=\"#374151\" face=\"Söhne, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\"><span style=\"font-size:16px;\"><ul style=\"box-sizing:border-box;padding:0px 0px 0px 40px;font-size:14px;\"><li style=\"box-sizing:border-box;\">Se intentarán las siguientes técnicas para mejorar el aspecto visual: </li><ul style=\"box-sizing:border-box;padding:0px 0px 0px 40px;\"><li style=\"box-sizing:border-box;\"><span>Ambient oclussion</span><br> </li><li style=\"box-sizing:border-box;\">Tone mapping </li> </ul><li><span style=\"display:inline !important;\">Para ambient oclussion y tone mapping es necesario hacer funcionar las capas del render path</span> </li><li><span style=\"\">En otra tarea haremos suavizado de malla:</span><br> </li><ul><li><span style=\"\">Con blender, 3D Studio o similar el caso bonito de Marcelino (38 modelos): 5</span> </li><li><span style=\"\">En el importer: hacer historias de meshmixer????</span> </li> </ul> </ul></span></font><ol style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;list-style:decimal;margin:1.25em 0px;padding:0px 0px 0px 1rem;counter-reset:item 0;display:flex;flex-direction:column;color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);\"><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Iluminación y sombreado: Añadir iluminación adecuada a un modelo 3D puede mejorar su apariencia visual y proporcionar una sensación de profundidad. El sombreado permite simular cómo la luz interactúa con los objetos en el modelo, lo que puede hacer que los detalles sean más visibles y realistas. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Texturizado: Aplicar texturas a un modelo 3D puede mejorar su apariencia al proporcionar detalles realistas, como el aspecto de la superficie de los objetos. Las texturas pueden incluir colores, patrones, imágenes o cualquier otro elemento que agregue información visual a las superficies del modelo. </p> </li><li style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;padding-left:0.375em;\"><p style=\"border:0px solid rgb(217, 217, 227);box-sizing:border-box;margin:0px;\">Renderizado: El renderizado es el proceso de generar una imagen o animación a partir de un modelo 3D. Se utilizan algoritmos de renderizado para calcular la apariencia final del modelo, teniendo en cuenta factores como la iluminación, las texturas, el sombreado y las propiedades ópticas de los materiales. </p> </li> </ol> </div><div><br> </div><div> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\">Idem a competencia: aspecto ideal</span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/3f9075aa-5f65-4b08-8cb3-419570d6c36b?fileName=image.png\" alt=Image style=\"width:634px;height:394px;\" width=634 height=394><br></span> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\">Visor actual: aspecto mínimo</span><br> </div><div><span style=\"background-color:rgb(247, 247, 248);color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;\"><img src=\"https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/attachments/0f25ab0f-c080-4ae7-af5e-ba477c5c82a2?fileName=image.png\" alt=Image><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div><div><span style=\"color:rgb(55, 65, 81);font-family:Söhne, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Ubuntu, Cantarell, &quot;Noto Sans&quot;, sans-serif, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-size:16px;background-color:rgb(247, 247, 248);display:inline !important;\"><br></span> </div>"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/21"
+    },
+    {
+      "id": 22,
+      "workItemId": 168975,
+      "rev": 21,
+      "revisedBy": {
+        "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+        "name": "Manuel Fulanito Benganito <minolo@acme.com>",
+        "displayName": "Manuel Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "uniqueName": "minolo@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+        "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+      },
+      "revisedDate": "2023-06-21T13:04:12.027Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 20,
+          "newValue": 21
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-21T12:51:59.523Z",
+          "newValue": "2023-06-21T13:00:20.257Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-21T13:00:20.257Z",
+          "newValue": "2023-06-21T13:04:12.027Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-21T12:51:59.523Z",
+          "newValue": "2023-06-21T13:00:20.257Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Gabriel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+              }
+            },
+            "id": "f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "uniqueName": "gabriel@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5",
+            "descriptor": "aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+          },
+          "newValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Gabriel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+              }
+            },
+            "id": "f97399ad-40e1-68e6-a16a-d6cbe22e0009",
+            "uniqueName": "gabriel@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5",
+            "descriptor": "aad.Zjk3Mzk5YWQtNDBlMS03OGU2LWExNmEtZDZjYmUyMmUwMDA5"
+          },
+          "newValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 35151555,
+          "newValue": 33392730
+        },
+        "System.Watermark": {
+          "oldValue": 1014464,
+          "newValue": 1014468
+        },
+        "System.Tags": {
+          "oldValue": "[Visor]; ToRefineEstimation",
+          "newValue": "[Visor]; estimation-changed"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/22"
+    },
+    {
+      "id": 23,
+      "workItemId": 168975,
+      "rev": 22,
+      "revisedBy": {
+        "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+        "name": "Manuel Fulanito Benganito <minolo@acme.com>",
+        "displayName": "Manuel Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "uniqueName": "minolo@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+        "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+      },
+      "revisedDate": "2023-06-27T12:02:39.27Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 21,
+          "newValue": 22
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-21T13:00:20.257Z",
+          "newValue": "2023-06-21T13:04:12.027Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-21T13:04:12.027Z",
+          "newValue": "2023-06-27T12:02:39.27Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-21T13:00:20.257Z",
+          "newValue": "2023-06-21T13:04:12.027Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1014468,
+          "newValue": 1014470
+        },
+        "System.Title": {
+          "oldValue": "[3D] Mejora Visual de modelos: Postprocessing",
+          "newValue": "[3D] Mejora Visual de modelos: detalles"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/23"
+    },
+    {
+      "id": 24,
+      "workItemId": 168975,
+      "rev": 22,
+      "revisedBy": {
+        "id": "75d4f29c-512f-494b-8fdf-e19ac915eba5",
+        "name": "Javier Rodriguez Benganito <jrodriguez@acme.com>",
+        "displayName": "Javier Rodriguez Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/75d4f29c-512f-494b-8fdf-e19ac915eba5",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+          }
+        },
+        "uniqueName": "jrodriguez@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2",
+        "descriptor": "aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+      },
+      "revisedDate": "2023-06-22T08:25:05.69Z",
+      "relations": {
+        "added": [
+          {
+            "rel": "System.LinkTypes.Hierarchy-Forward",
+            "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169315",
+            "attributes": {
+              "isLocked": false,
+              "name": "Child"
+            }
+          }
+        ]
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/24"
+    },
+    {
+      "id": 25,
+      "workItemId": 168975,
+      "rev": 22,
+      "revisedBy": {
+        "id": "75d4f29c-512f-494b-8fdf-e19ac915eba5",
+        "name": "Javier Rodriguez Benganito <jrodriguez@acme.com>",
+        "displayName": "Javier Rodriguez Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/75d4f29c-512f-494b-8fdf-e19ac915eba5",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+          }
+        },
+        "uniqueName": "jrodriguez@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2",
+        "descriptor": "aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+      },
+      "revisedDate": "2023-06-22T08:27:42.933Z",
+      "relations": {
+        "added": [
+          {
+            "rel": "System.LinkTypes.Hierarchy-Forward",
+            "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/169316",
+            "attributes": {
+              "isLocked": false,
+              "name": "Child"
+            }
+          }
+        ]
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/25"
+    },
+    {
+      "id": 26,
+      "workItemId": 168975,
+      "rev": 23,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-07-03T10:08:28.743Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 22,
+          "newValue": 23
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-21T13:04:12.027Z",
+          "newValue": "2023-06-27T12:02:39.27Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-06-27T12:02:39.27Z",
+          "newValue": "2023-07-03T10:08:28.743Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-21T13:04:12.027Z",
+          "newValue": "2023-06-27T12:02:39.27Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 33392730,
+          "newValue": 38242777
+        },
+        "System.Watermark": {
+          "oldValue": 1014470,
+          "newValue": 1016420
+        },
+        "System.Tags": {
+          "oldValue": "[Visor]; estimation-changed",
+          "newValue": "[Visor]"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/26"
+    },
+    {
+      "id": 27,
+      "workItemId": 168975,
+      "rev": 24,
+      "revisedBy": {
+        "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+        "name": "Antonio Fulanito Benganito <antonio@acme.com>",
+        "displayName": "Antonio Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "uniqueName": "antonio@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+        "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+      },
+      "revisedDate": "2023-07-04T10:09:48.55Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 23,
+          "newValue": 24
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-06-27T12:02:39.27Z",
+          "newValue": "2023-07-03T10:08:28.743Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-03T10:08:28.743Z",
+          "newValue": "2023-07-04T10:09:48.55Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-06-27T12:02:39.27Z",
+          "newValue": "2023-07-03T10:08:28.743Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          },
+          "newValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          },
+          "newValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 38242777,
+          "newValue": 21257114
+        },
+        "System.Watermark": {
+          "oldValue": 1016420,
+          "newValue": 1017819
+        },
+        "System.Tags": {
+          "oldValue": "[Visor]",
+          "newValue": "[Visor]; Paralellized"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/27"
+    },
+    {
+      "id": 28,
+      "workItemId": 168975,
+      "rev": 25,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-07-04T10:09:54.42Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 24,
+          "newValue": 25
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-07-03T10:08:28.743Z",
+          "newValue": "2023-07-04T10:09:48.55Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-04T10:09:48.55Z",
+          "newValue": "2023-07-04T10:09:54.42Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-07-03T10:08:28.743Z",
+          "newValue": "2023-07-04T10:09:48.55Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Antonio Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+              }
+            },
+            "id": "87270860-c2d5-4d53-a77a-8a15e1fb4680",
+            "uniqueName": "antonio@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx",
+            "descriptor": "aad.Njc0MThlZTMtZWY3MS03NDA5LTk2MzctNWQ1YjlkNTRiN2Mx"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 21257114,
+          "newValue": 38242777
+        },
+        "System.Watermark": {
+          "oldValue": 1017819,
+          "newValue": 1018527
+        },
+        "Microsoft.VSTS.Common.BacklogPriority": {
+          "oldValue": 999730164.0,
+          "newValue": 1000139352.0
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/28"
+    },
+    {
+      "id": 29,
+      "workItemId": 168975,
+      "rev": 26,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-07-04T10:10:16.493Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 25,
+          "newValue": 26
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-07-04T10:09:48.55Z",
+          "newValue": "2023-07-04T10:09:54.42Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-04T10:09:54.42Z",
+          "newValue": "2023-07-04T10:10:16.493Z"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-07-04T10:09:48.55Z",
+          "newValue": "2023-07-04T10:09:54.42Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1018527,
+          "newValue": 1018528
+        },
+        "Microsoft.VSTS.Common.BacklogPriority": {
+          "oldValue": 1000139352.0,
+          "newValue": 999725391.0
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/29"
+    },
+    {
+      "id": 30,
+      "workItemId": 168975,
+      "rev": 27,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-07-04T10:17:33.877Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 26,
+          "newValue": 27
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-07-04T10:09:54.42Z",
+          "newValue": "2023-07-04T10:10:16.493Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-04T10:10:16.493Z",
+          "newValue": "2023-07-04T10:17:33.877Z"
+        },
+        "System.AssignedTo": {
+          "newValue": {
+            "displayName": "Javier Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+              }
+            },
+            "id": "6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "uniqueName": "javier@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm",
+            "descriptor": "aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+          }
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-07-04T10:09:54.42Z",
+          "newValue": "2023-07-04T10:10:16.493Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1018528,
+          "newValue": 1018530
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/30"
+    },
+    {
+      "id": 31,
+      "workItemId": 168975,
+      "rev": 28,
+      "revisedBy": {
+        "id": "75d4f29c-512f-494b-8fdf-e19ac915eba5",
+        "name": "Javier Rodriguez Benganito <jrodriguez@acme.com>",
+        "displayName": "Javier Rodriguez Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/75d4f29c-512f-494b-8fdf-e19ac915eba5",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+          }
+        },
+        "uniqueName": "jrodriguez@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2",
+        "descriptor": "aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+      },
+      "revisedDate": "2023-07-04T12:05:38.007Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 27,
+          "newValue": 28
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-07-04T10:10:16.493Z",
+          "newValue": "2023-07-04T10:17:33.877Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-04T10:17:33.877Z",
+          "newValue": "2023-07-04T12:05:38.007Z"
+        },
+        "System.State": {
+          "oldValue": "New",
+          "newValue": "Approved"
+        },
+        "System.Reason": {
+          "oldValue": "New backlog item",
+          "newValue": "Approved by the Product Owner"
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-07-04T10:10:16.493Z",
+          "newValue": "2023-07-04T10:17:33.877Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          },
+          "newValue": {
+            "displayName": "Javier Rodriguez Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+              }
+            },
+            "id": "75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "uniqueName": "jrodriguez@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2",
+            "descriptor": "aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          },
+          "newValue": {
+            "displayName": "Javier Rodriguez Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+              }
+            },
+            "id": "75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "uniqueName": "jrodriguez@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2",
+            "descriptor": "aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 38242777,
+          "newValue": 21167450
+        },
+        "System.Watermark": {
+          "oldValue": 1018530,
+          "newValue": 1018585
+        },
+        "System.BoardColumn": {
+          "oldValue": "New",
+          "newValue": "Approved"
+        },
+        "Microsoft.VSTS.Common.StateChangeDate": {
+          "oldValue": "2023-06-13T11:54:07.583Z",
+          "newValue": "2023-07-04T10:17:33.877Z"
+        },
+        "WEF_074AE9F3108D4C65993E6BEEA1D86824_Kanban.Column": {
+          "oldValue": "New",
+          "newValue": "Approved"
+        },
+        "WEF_F10BD31DDF194FA7B15351E3F028EBD9_Kanban.Column": {
+          "oldValue": "New",
+          "newValue": "Approved"
+        },
+        "WEF_A4C827B51F0544B4A2E0FEE612F8EEC8_Kanban.Column": {
+          "oldValue": "New",
+          "newValue": "Approved"
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/31"
+    },
+    {
+      "id": 32,
+      "workItemId": 168975,
+      "rev": 29,
+      "revisedBy": {
+        "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+        "name": "Manuel Fulanito Benganito <minolo@acme.com>",
+        "displayName": "Manuel Fulanito Benganito",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "uniqueName": "minolo@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+        "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+      },
+      "revisedDate": "2023-07-05T08:09:35.1Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 28,
+          "newValue": 29
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-07-04T10:17:33.877Z",
+          "newValue": "2023-07-04T12:05:38.007Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-04T12:05:38.007Z",
+          "newValue": "2023-07-05T08:09:35.1Z"
+        },
+        "System.AssignedTo": {
+          "oldValue": {
+            "displayName": "Javier Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+              }
+            },
+            "id": "6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "uniqueName": "javier@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm",
+            "descriptor": "aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+          },
+          "newValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-07-04T10:17:33.877Z",
+          "newValue": "2023-07-04T12:05:38.007Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Javier Rodriguez Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+              }
+            },
+            "id": "75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "uniqueName": "jrodriguez@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2",
+            "descriptor": "aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+          },
+          "newValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Javier Rodriguez Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+              }
+            },
+            "id": "75d4f29c-512f-494b-8fdf-e19ac915eba5",
+            "uniqueName": "jrodriguez@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2",
+            "descriptor": "aad.MzBjM2UzNTAtMGM3NC03NzgzLWFmMzItNTlhOGQxMDFlYTE2"
+          },
+          "newValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 21167450,
+          "newValue": 33392730
+        },
+        "System.Watermark": {
+          "oldValue": 1018585,
+          "newValue": 1018734
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/32"
+    },
+    {
+      "id": 33,
+      "workItemId": 168975,
+      "rev": 30,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "2023-07-05T08:10:27.21Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 29,
+          "newValue": 30
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-07-04T12:05:38.007Z",
+          "newValue": "2023-07-05T08:09:35.1Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-05T08:09:35.1Z",
+          "newValue": "2023-07-05T08:10:27.21Z"
+        },
+        "System.AssignedTo": {
+          "oldValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          },
+          "newValue": {
+            "displayName": "Javier Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+              }
+            },
+            "id": "6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "uniqueName": "javier@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm",
+            "descriptor": "aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+          }
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-07-04T12:05:38.007Z",
+          "newValue": "2023-07-05T08:09:35.1Z"
+        },
+        "System.ChangedBy": {
+          "oldValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.AuthorizedAs": {
+          "oldValue": {
+            "displayName": "Manuel Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/654923d5-c146-6a2d-906e-ed89822168a2",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+              }
+            },
+            "id": "654923d5-c146-6a2d-906e-ed89822168a2",
+            "uniqueName": "minolo@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy",
+            "descriptor": "aad.NjU0OTIzZDUtYzE0Ni03YTJkLTkwNmUtZWQ4OTgyMjE2OGEy"
+          },
+          "newValue": {
+            "displayName": "Javier Carnero",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+              }
+            },
+            "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+            "uniqueName": "jcarnero@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+            "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "System.PersonId": {
+          "oldValue": 33392730,
+          "newValue": 38242777
+        },
+        "System.Watermark": {
+          "oldValue": 1018734,
+          "newValue": 1018992
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/33"
+    },
+    {
+      "id": 34,
+      "workItemId": 168975,
+      "rev": 31,
+      "revisedBy": {
+        "id": "bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "name": "Javier Carnero <jcarnero@acme.com>",
+        "displayName": "Javier Carnero",
+        "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/bc2b7aa3-eb58-6229-8432-6260c4f5943f",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+          }
+        },
+        "uniqueName": "jcarnero@acme.com",
+        "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm",
+        "descriptor": "aad.YmMyYjdhYTMtZWI1OC03MjI5LTg0MzItNjI2MGM0ZjU5NDNm"
+      },
+      "revisedDate": "9999-01-01T00:00:00Z",
+      "fields": {
+        "System.Rev": {
+          "oldValue": 30,
+          "newValue": 31
+        },
+        "System.AuthorizedDate": {
+          "oldValue": "2023-07-05T08:09:35.1Z",
+          "newValue": "2023-07-05T08:10:27.21Z"
+        },
+        "System.RevisedDate": {
+          "oldValue": "2023-07-05T08:10:27.21Z",
+          "newValue": "9999-01-01T00:00:00Z"
+        },
+        "System.AssignedTo": {
+          "oldValue": {
+            "displayName": "Javier Fulanito Benganito",
+            "url": "https://spsprodeus24.vssps.visualstudio.com/A03fda1b0-beae-4349-a672-45e912480c5d/_apis/Identities/6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "_links": {
+              "avatar": {
+                "href": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+              }
+            },
+            "id": "6fd789af-da9d-4cda-b733-6cb198a515c6",
+            "uniqueName": "javier@acme.com",
+            "imageUrl": "https://dev.azure.com/acme/_apis/GraphProfile/MemberAvatars/aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm",
+            "descriptor": "aad.MGVlNmJiY2QtNTBmOC03ZTc2LWFhZTktYTFlMDk2ODYzZWFm"
+          }
+        },
+        "System.ChangedDate": {
+          "oldValue": "2023-07-05T08:09:35.1Z",
+          "newValue": "2023-07-05T08:10:27.21Z"
+        },
+        "System.Watermark": {
+          "oldValue": 1018992,
+          "newValue": 1018993
+        }
+      },
+      "url": "https://dev.azure.com/acme/4b5209c5-0a90-4a6e-acef-1eaa20630758/_apis/wit/workItems/168975/updates/34"
+    }
+  ]
+}

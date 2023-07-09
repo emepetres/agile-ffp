@@ -19,10 +19,6 @@ class AzureWitStates:
     def compute_work_items_states(self, data: dict) -> pd.DataFrame:
         raise NotImplementedError()
 
-    def _get_wit_ids_list(data: dict) -> list:
-        """Returns a list of work items ids from a query result."""
-        return [wit["id"] for wit in data["workItems"]]
-
     def get_wit_state_updates(self, data: dict) -> pd.DataFrame:
         """Writes work items state updates in a time-series format table."""
         parsed_updates = []
@@ -30,13 +26,17 @@ class AzureWitStates:
         for wit_id in wit_list:
             wit_updates = self.api.get_work_item_updates(wit_id)
             for update in wit_updates["value"]:
-                update_data = AzureWitStates.parse_state_update(update)
+                update_data = AzureWitStates._parse_state_update(update)
                 if update_data:
                     parsed_updates.append(update_data)
         df = pd.DataFrame(parsed_updates, columns=["id", "date", "state"])
         return df
 
-    def parse_state_update(update: dict) -> list:
+    def _get_wit_ids_list(data: dict) -> list:
+        """Returns a list of work items ids from a query result."""
+        return [wit["id"] for wit in data["workItems"]]
+
+    def _parse_state_update(update: dict) -> list:
         """Parses a work item state update."""
         if "fields" in update and "System.State" in update["fields"]:
             return [
