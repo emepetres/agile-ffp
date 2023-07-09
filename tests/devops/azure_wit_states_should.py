@@ -6,27 +6,9 @@ from devops.api_mock import AzureDevOpsApiMock
 
 
 @pytest.fixture
-def api_mock_empty():
-    return AzureDevOpsApiMock(AzureDevOpsApiMock.MockBehaviour.EMPTY)
-
-
-@pytest.fixture
-def api_mock_simple():
-    return AzureDevOpsApiMock(AzureDevOpsApiMock.MockBehaviour.SIMPLE)
-
-
-@pytest.fixture
 def api_mock():
-    return AzureDevOpsApiMock(AzureDevOpsApiMock.MockBehaviour.COMPLEX)
+    return AzureDevOpsApiMock()
 
-
-@pytest.fixture
-def wit_states_empty(api_mock_empty):
-    return AzureWitStates(api_mock_empty)
-
-@pytest.fixture
-def wit_states_simple(api_mock_simple):
-    return AzureWitStates(api_mock_simple)
 
 @pytest.fixture
 def wit_states(api_mock):
@@ -53,3 +35,20 @@ def assert_states_are_parsed(api_mock, wit_states):
     wit_list["workItems"] = [wit_list["workItems"][0]]
     df = wit_states.get_wit_state_updates(wit_list)
     assert len(df) == 2
+
+
+def assert_states_are_registered(wit_states):
+    df = wit_states.compute_states_from_query()
+    assert len(df.columns) == 3
+    assert len(df) == 74
+
+
+def assert_states_dates_are_always_forward(wit_states):
+    df = wit_states.compute_states_from_query()
+    for _, row in df.iterrows():
+        latest = None
+        for col in df.columns:
+            if col != "ids":
+                if latest is not None and row[col] is not None:
+                    assert latest <= row[col]
+                    latest = row[col]

@@ -1,6 +1,5 @@
 import pandas as pd
 from dateutil import parser
-from agileffp.devops import config
 from agileffp.devops.api import AzureDevOpsApi
 
 
@@ -12,12 +11,32 @@ class AzureWitStates:
         # # )
 
     def compute_states_from_query(self) -> pd.DataFrame:
-        data = self.api.get_work_items_from_query(config.QUERY_ID)
-        states = self.compute_work_items_states(data)
+        wit_list = self.api.get_work_items_from_query("123")
+        df = self.get_wit_state_updates(wit_list)
+        states = self.compute_work_items_states(df)
         return states
 
-    def compute_work_items_states(self, data: dict) -> pd.DataFrame:
-        raise NotImplementedError()
+    def compute_work_items_states(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Computes work items states from a time-series format table."""
+        # first flat the ts table creating a column per state
+        flat_states = {}
+        for _, row in df.iterrows():
+            if row["id"] not in flat_states:
+                flat_states[row["id"]] = {}
+            flat_states[row["id"]][row["state"]] = row["date"]
+        data = {"ids": []}
+        # then define the columns and rows of the new table
+        process_states = df["state"].unique()  # TODO: sort by devops process
+        for state in process_states:
+            data[state] = []
+        for wit_id, state_changes in flat_states.items():
+            data["ids"].append(wit_id)
+            for state in process_states:
+                if state in state_changes:
+                    data[state].append(state_changes[state])
+                else:
+                    data[state].append(None)
+        return pd.DataFrame(data)
 
     def get_wit_state_updates(self, data: dict) -> pd.DataFrame:
         """Writes work items state updates in a time-series format table."""
