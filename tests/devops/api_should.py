@@ -1,4 +1,4 @@
-from agileffp.devops.azure_query_results import _toBase64
+from agileffp.devops.api import _toBase64
 
 
 def assert_string_to_base64():

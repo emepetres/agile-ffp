@@ -18,4 +18,4 @@ testpaths = ["tests"]
 python_files = "*_should.py"
 python_classes = "*Should"
 python_functions = "assert_*"
-pythonpath = "src"
+pythonpath = ["src","tests"]
