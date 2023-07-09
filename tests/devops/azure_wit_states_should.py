@@ -245,8 +245,21 @@ def assert_parse_state_update(update):
     assert log == [168975, parser.parse("2023-06-13T11:57:06.947Z"), "New"]
 
 
-def assert_states_table_colums(empty_query_result):
-    df = get_wit_state_updates(empty_query_result)
+@pytest.fixture
+def wit_state_updates_mock(updates):
+    def mock(pat: str, server: str, org: str, project: str, wit_id: str) -> dict:
+        return updates
+
+    return mock
+
+
+def assert_states_table_colums(empty_query_result, wit_state_updates_mock):
+    df = get_wit_state_updates(empty_query_result, wit_state_updates_mock)
     columns = df.columns.tolist()
     assert len(columns) == 3
     assert columns == ["id", "date", "state"]
+
+
+def assert_states_are_parsed(query_result, wit_state_updates_mock):
+    df = get_wit_state_updates(query_result, wit_state_updates_mock)
+    assert len(df) == 6

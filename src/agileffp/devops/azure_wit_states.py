@@ -1,8 +1,8 @@
+from typing import Callable
 import pandas as pd
 from dateutil import parser
 from agileffp.devops import config
 from agileffp.devops.azure_query_results import (
-    get_work_item_updates,
     get_work_items_from_query,
 )
 
@@ -24,18 +24,21 @@ def _get_wit_ids_list(data: dict) -> list:
     return [wit["id"] for wit in data["workItems"]]
 
 
-def get_wit_state_updates(data: dict) -> pd.DataFrame:
+def get_wit_state_updates(
+    data: dict, wit_getter: Callable[[str, str, str, str, str], dict]
+) -> pd.DataFrame:
     """Writes work items state updates in a time-series format table."""
-    df = pd.DataFrame(columns=["id", "date", "state"])
+    parsed_updates = []
     wit_list = _get_wit_ids_list(data)
     for wit_id in wit_list:
-        wit_updates = get_work_item_updates(
+        wit_updates = wit_getter(
             config.PAT, config.SERVER, config.ORGANIZATION, config.PROJECT, wit_id
         )
         for update in wit_updates["value"]:
             update_data = parse_state_update(update)
             if update_data:
-                df = df.append(update_data, ignore_index=True)
+                parsed_updates.append(update_data)
+    df = pd.DataFrame(parsed_updates, columns=["id", "date", "state"])
     return df
 
 
