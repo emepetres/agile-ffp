@@ -1,3 +1,4 @@
+from typing import List
 import pandas as pd
 from dateutil import parser
 from agileffp.devops.api import AzureDevOpsApi
@@ -26,7 +27,7 @@ class AzureWitStates:
             flat_states[row["id"]][row["state"]] = row["date"]
         data = {"ids": []}
         # then define the columns and rows of the new table
-        process_states = df["state"].unique()  # TODO: sort by devops process
+        process_states = self.get_wit_states_sorted()
         for state in process_states:
             data[state] = []
         for wit_id, state_changes in flat_states.items():
@@ -69,3 +70,9 @@ class AzureWitStates:
     def get_wit_metadata(data: dict) -> pd.DataFrame:
         """Transforms work items metadata into a pandas DataFrame."""
         raise NotImplementedError()
+
+    def get_wit_states_sorted(self) -> List:
+        """Returns a list of work items states sorted by devops process."""
+        data = self.api.get_wit_states("abc", "pbi")
+        sorted_data = sorted(data["value"], key=lambda x: x["order"])
+        return [state["name"] for state in sorted_data]

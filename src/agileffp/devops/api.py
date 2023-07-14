@@ -41,6 +41,11 @@ class AzureDevOpsApi:
             f"/_apis/wit/workItems/{wit_id}/updates?api-version=7.1-preview.3",
         )
 
+    def get_wit_states(self, process_id: str, wit_type_ref: str) -> dict:
+        return self._get_from_azure(
+            f"/_apis/work/processes/{process_id}/workItemTypes/{wit_type_ref}/states?api-version=7.1-preview.1",
+        )
+
 
 def _toBase64(s: str) -> str:
     bytes = s.encode("utf-8")

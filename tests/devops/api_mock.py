@@ -22,3 +22,7 @@ class AzureDevOpsApiMock(AzureDevOpsApi):
         for update in data["value"]:
             update["workItemId"] = wit_id
         return data
+
+    def get_wit_states(self, process_id: str, wit_type_ref: str) -> dict:
+        data = AzureDevOpsApiMock._get_mock_data("item_states.json")
+        return data

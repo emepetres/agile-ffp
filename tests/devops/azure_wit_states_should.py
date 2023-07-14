@@ -43,6 +43,12 @@ def assert_states_are_registered(wit_states):
     assert len(df) == 74
 
 
+def assert_states_are_sorted(wit_states):
+    states = wit_states.get_wit_states_sorted()
+    assert len(states) == 5
+    assert states == ["New", "Approved", "Committed", "Done", "Removed"]
+
+
 def assert_states_dates_are_always_forward(wit_states):
     df = wit_states.compute_states_from_query()
     for _, row in df.iterrows():
