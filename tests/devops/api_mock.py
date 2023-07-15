@@ -4,7 +4,9 @@ from agileffp.devops.api import AzureDevOpsApi
 
 class AzureDevOpsApiMock(AzureDevOpsApi):
     def __init__(self):
-        AzureDevOpsApi.__init__(self, "none", "dev.azure.com", "acme", "gines")
+        AzureDevOpsApi.__init__(
+            self, "none", "dev.azure.com", "acme", "gines", "123", "pbi"
+        )
 
     def _get_mock_data(json_file: str) -> dict:
         with open(f"tests/devops/mock_data/{json_file}", "r") as f:
@@ -23,6 +25,6 @@ class AzureDevOpsApiMock(AzureDevOpsApi):
             update["workItemId"] = wit_id
         return data
 
-    def get_wit_states(self, process_id: str, wit_type_ref: str) -> dict:
+    def get_wit_states(self) -> dict:
         data = AzureDevOpsApiMock._get_mock_data("item_states.json")
         return data

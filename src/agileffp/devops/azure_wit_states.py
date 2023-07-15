@@ -7,17 +7,14 @@ from agileffp.devops.api import AzureDevOpsApi
 class AzureWitStates:
     def __init__(self, api: AzureDevOpsApi):
         self.api = api
-        # # AzureDevOpsApi(
-        # #     config.PAT, config.SERVER, config.ORGANIZATION, config.PROJECT
-        # # )
 
-    def compute_states_from_query(self) -> pd.DataFrame:
-        wit_list = self.api.get_work_items_from_query("123")
-        df = self.get_wit_state_updates(wit_list)
-        states = self.compute_work_items_states(df)
+    def compute_states_from_query(self, query_id: str) -> pd.DataFrame:
+        wit_list = self.api.get_work_items_from_query(query_id)
+        df = self._get_wit_state_updates(wit_list)
+        states = self._compute_work_items_states(df)
         return states
 
-    def compute_work_items_states(self, df: pd.DataFrame) -> pd.DataFrame:
+    def _compute_work_items_states(self, df: pd.DataFrame) -> pd.DataFrame:
         """Computes work items states from a time-series format table."""
         # first flat the ts table creating a column per state
         flat_states = {}
@@ -27,7 +24,7 @@ class AzureWitStates:
             flat_states[row["id"]][row["state"]] = row["date"]
         data = {"ids": []}
         # then define the columns and rows of the new table
-        process_states = self.get_wit_states_sorted()
+        process_states = self._get_wit_states_sorted()
         for state in process_states:
             data[state] = []
         for wit_id, state_changes in flat_states.items():
@@ -39,7 +36,7 @@ class AzureWitStates:
                     data[state].append(None)
         return pd.DataFrame(data)
 
-    def get_wit_state_updates(self, data: dict) -> pd.DataFrame:
+    def _get_wit_state_updates(self, data: dict) -> pd.DataFrame:
         """Writes work items state updates in a time-series format table."""
         parsed_updates = []
         wit_list = AzureWitStates._get_wit_ids_list(data)
@@ -67,12 +64,12 @@ class AzureWitStates:
         else:
             return []
 
-    def get_wit_metadata(data: dict) -> pd.DataFrame:
+    def _get_wit_metadata(data: dict) -> pd.DataFrame:
         """Transforms work items metadata into a pandas DataFrame."""
         raise NotImplementedError()
 
-    def get_wit_states_sorted(self) -> List:
+    def _get_wit_states_sorted(self) -> List:
         """Returns a list of work items states sorted by devops process."""
-        data = self.api.get_wit_states("abc", "pbi")
+        data = self.api.get_wit_states()
         sorted_data = sorted(data["value"], key=lambda x: x["order"])
         return [state["name"] for state in sorted_data]

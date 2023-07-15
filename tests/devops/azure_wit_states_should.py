@@ -19,12 +19,12 @@ def assert_parse_state_update(api_mock):
     update = api_mock.get_work_item_updates("123")["value"][0]
     log = AzureWitStates._parse_state_update(update)
     assert len(log) == 3
-    assert log == [168975, parser.parse("2023-06-13T11:57:06.947Z"), "New"]
+    assert log == ["123", parser.parse("2023-06-13T11:57:06.947Z"), "New"]
 
 
 def assert_states_table_colums(api_mock, wit_states):
     wit_list = api_mock.get_work_items_from_query("123")
-    df = wit_states.get_wit_state_updates(wit_list)
+    df = wit_states._get_wit_state_updates(wit_list)
     columns = df.columns.tolist()
     assert len(columns) == 3
     assert columns == ["id", "date", "state"]
@@ -33,24 +33,24 @@ def assert_states_table_colums(api_mock, wit_states):
 def assert_states_are_parsed(api_mock, wit_states):
     wit_list = api_mock.get_work_items_from_query("123")
     wit_list["workItems"] = [wit_list["workItems"][0]]
-    df = wit_states.get_wit_state_updates(wit_list)
+    df = wit_states._get_wit_state_updates(wit_list)
     assert len(df) == 2
 
 
-def assert_states_are_registered(wit_states):
-    df = wit_states.compute_states_from_query()
-    assert len(df.columns) == 3
-    assert len(df) == 74
-
-
 def assert_states_are_sorted(wit_states):
-    states = wit_states.get_wit_states_sorted()
+    states = wit_states._get_wit_states_sorted()
     assert len(states) == 5
     assert states == ["New", "Approved", "Committed", "Done", "Removed"]
 
 
+def assert_states_are_registered(wit_states):
+    df = wit_states.compute_states_from_query("123")
+    assert len(df.columns) == 6
+    assert len(df) == 74
+
+
 def assert_states_dates_are_always_forward(wit_states):
-    df = wit_states.compute_states_from_query()
+    df = wit_states.compute_states_from_query("123")
     for _, row in df.iterrows():
         latest = None
         for col in df.columns:

@@ -24,7 +24,7 @@
           "name": "DevOps",
           "type": "python",
           "request": "launch",
-          "module": "agileffp.devops.connect",
+          "module": "agileffp.devops.download_states",
           "console": "integratedTerminal",
           "cwd": "${workspaceFolder}/src"
         }
