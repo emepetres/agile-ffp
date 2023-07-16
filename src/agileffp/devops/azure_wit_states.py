@@ -1,4 +1,3 @@
-from typing import List
 import pandas as pd
 from dateutil import parser
 from agileffp.devops.api import AzureDevOpsApi
@@ -7,8 +6,15 @@ from agileffp.devops.api import AzureDevOpsApi
 class AzureWitStates:
     def __init__(self, api: AzureDevOpsApi):
         self.api = api
+        self.initialized = False
+
+    def initialize(self):
+        if not self.initialized:
+            self._read_process_states()
+            self.initialized = True
 
     def compute_states_from_query(self, query_id: str) -> pd.DataFrame:
+        self.initialize()
         wit_list = self.api.get_work_items_from_query(query_id)
         df = self._get_wit_state_updates(wit_list)
         states = self._compute_work_items_states(df)
@@ -19,17 +25,27 @@ class AzureWitStates:
         # first flat the ts table creating a column per state
         flat_states = {}
         for _, row in df.iterrows():
-            if row["id"] not in flat_states:
-                flat_states[row["id"]] = {}
-            flat_states[row["id"]][row["state"]] = row["date"]
-        data = {"ids": []}
+            wid = row["id"]
+            if wid not in flat_states:
+                flat_states[wid] = {}
+            state = row["state"]
+            if state not in flat_states[wid]:
+                flat_states[wid][state] = row["date"]
+            else:
+                current_date = flat_states[wid][state]
+                new_date = row["date"]
+                if (self._is_ending_state(state) and new_date > current_date) or (
+                    not self._is_ending_state(state) and new_date < current_date
+                ):
+                    flat_states[wid][state] = row["date"]
+        data = {"id": []}
+
         # then define the columns and rows of the new table
-        process_states = self._get_wit_states_sorted()
-        for state in process_states:
+        for state in self.states_list:
             data[state] = []
         for wit_id, state_changes in flat_states.items():
-            data["ids"].append(wit_id)
-            for state in process_states:
+            data["id"].append(wit_id)
+            for state in self.states_list:
                 if state in state_changes:
                     data[state].append(state_changes[state])
                 else:
@@ -58,7 +74,7 @@ class AzureWitStates:
         if "fields" in update and "System.State" in update["fields"]:
             return [
                 update["workItemId"],
-                parser.parse(update["revisedDate"]),
+                parser.parse(update["fields"]["System.ChangedDate"]["newValue"]),
                 update["fields"]["System.State"]["newValue"],
             ]
         else:
@@ -68,8 +84,34 @@ class AzureWitStates:
         """Transforms work items metadata into a pandas DataFrame."""
         raise NotImplementedError()
 
-    def _get_wit_states_sorted(self) -> List:
-        """Returns a list of work items states sorted by devops process."""
+    def _read_process_states(self):
+        """Creates a list of work items states sorted by devops process.
+
+        Also separate these process states into categories."""
         data = self.api.get_wit_states()
         sorted_data = sorted(data["value"], key=lambda x: x["order"])
-        return [state["name"] for state in sorted_data]
+        self.states_list = [state["name"] for state in sorted_data]
+        self.proposed_states = [
+            state["name"]
+            for state in sorted_data
+            if state["stateCategory"] == "Proposed"
+        ]
+        self.in_progress_states = [
+            state["name"]
+            for state in sorted_data
+            if state["stateCategory"] == "InProgress"
+        ]
+        self.done_states = [
+            state["name"]
+            for state in sorted_data
+            if state["stateCategory"] == "Completed"
+        ]
+        self.removed_states = [
+            state["name"]
+            for state in sorted_data
+            if state["stateCategory"] == "Removed"
+        ]
+
+    def _is_ending_state(self, state: str) -> bool:
+        """Checks if a state is an ending state."""
+        return state in self.done_states or state in self.removed_states

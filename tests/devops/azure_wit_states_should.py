@@ -19,7 +19,7 @@ def assert_parse_state_update(api_mock):
     update = api_mock.get_work_item_updates("123")["value"][0]
     log = AzureWitStates._parse_state_update(update)
     assert len(log) == 3
-    assert log == ["123", parser.parse("2023-06-13T11:57:06.947Z"), "New"]
+    assert log == ["123", parser.parse("2023-06-13T11:54:07.583Z"), "New"]
 
 
 def assert_states_table_colums(api_mock, wit_states):
@@ -38,9 +38,17 @@ def assert_states_are_parsed(api_mock, wit_states):
 
 
 def assert_states_are_sorted(wit_states):
-    states = wit_states._get_wit_states_sorted()
-    assert len(states) == 5
-    assert states == ["New", "Approved", "Committed", "Done", "Removed"]
+    wit_states._read_process_states()
+    assert len(wit_states.states_list) == 5
+    assert wit_states.states_list == ["New", "Approved", "Committed", "Done", "Removed"]
+
+
+def assert_states_are_categorized(wit_states):
+    wit_states._read_process_states()
+    assert wit_states.proposed_states == ["New", "Approved"]
+    assert wit_states.in_progress_states == ["Committed"]
+    assert wit_states.done_states == ["Done"]
+    assert wit_states.removed_states == ["Removed"]
 
 
 def assert_states_are_registered(wit_states):
@@ -58,3 +66,7 @@ def assert_states_dates_are_always_forward(wit_states):
                 if latest is not None and row[col] is not None:
                     assert latest <= row[col]
                     latest = row[col]
+
+
+# TODO: Test to check states date when a work item has gone backwards in the process flow
+# For this test, create mock data from item 165571
