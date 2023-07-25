@@ -2,55 +2,57 @@ from datetime import date
 import pytest
 from agileffp.gantt.gantt import Gantt
 from agileffp.gantt.capacity_team import CapacityTeam
-from agileffp.gantt.task import Task
+from agileffp.gantt.estimated_task import EstimatedTask
 
 
 @pytest.fixture
 def sequential2():
     return [
-        Task("sample_task2", {"team1": 10, "team2": 13}, depends_on=["sample_task1"]),
-        Task("sample_task1", {"team1": 10, "team2": 13}),
+        EstimatedTask(
+            "sample_task2", {"team1": 10, "team2": 13}, depends_on=["sample_task1"]
+        ),
+        EstimatedTask("sample_task1", {"team1": 10, "team2": 13}),
     ]
 
 
 @pytest.fixture
 def two_children_with_priority():
     return [
-        Task(
+        EstimatedTask(
             "sample_task3",
             {"team1": 10, "team2": 13},
             depends_on=["sample_task1"],
             priority=3,
             start_all_together=False,
         ),
-        Task(
+        EstimatedTask(
             "sample_task2",
             {"team1": 20, "team2": 13},
             depends_on=["sample_task1"],
             priority=2,
             start_all_together=False,
         ),
-        Task("sample_task1", {"team1": 10, "team2": 13}),
+        EstimatedTask("sample_task1", {"team1": 10, "team2": 13}),
     ]
 
 
 @pytest.fixture
 def mixed_priority():
     return [
-        Task("sample_task1", {"team1": 10}),
-        Task(
+        EstimatedTask("sample_task1", {"team1": 10}),
+        EstimatedTask(
             "sample_task2",
             {"team1": 20},
             depends_on=["sample_task1"],
             priority=2,
         ),
-        Task(
+        EstimatedTask(
             "sample_task3",
             {"team1": 10},
             depends_on=["sample_task2"],
             priority=3,
         ),
-        Task(
+        EstimatedTask(
             "sample_task4",
             {"team1": 10},
             depends_on=["sample_task1"],
@@ -61,9 +63,13 @@ def mixed_priority():
 @pytest.fixture
 def wrong_tasks_dependencies():
     return [
-        Task("sample_task2", {"team1": 10, "team2": 13}, depends_on=["sample_task1"]),
-        Task("sample_task1", {"team1": 10, "team2": 13}),
-        Task("wrong_task", {"team1": 10, "team3": 13}, depends_on=["sample_task22"]),
+        EstimatedTask(
+            "sample_task2", {"team1": 10, "team2": 13}, depends_on=["sample_task1"]
+        ),
+        EstimatedTask("sample_task1", {"team1": 10, "team2": 13}),
+        EstimatedTask(
+            "wrong_task", {"team1": 10, "team3": 13}, depends_on=["sample_task22"]
+        ),
     ]
 
 

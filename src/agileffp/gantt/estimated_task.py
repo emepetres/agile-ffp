@@ -5,7 +5,7 @@ from agileffp.gantt.team_task import TeamTask
 from agileffp.gantt.capacity_team import CapacityTeam
 
 
-class Task:
+class EstimatedTask:
     def __init__(
         self,
         name: str,
@@ -91,7 +91,7 @@ class Task:
     def __repr__(self):
         return str(self)
 
-    def parse(data: dict) -> list["Task"]:
+    def parse(data: dict) -> list["EstimatedTask"]:
         """Parses the YAML data into Tasks
 
         Args:
@@ -103,9 +103,9 @@ class Task:
         if "tasks" not in data:
             raise ValueError("Invalid YAML file")
 
-        return [Task(**kwargs) for kwargs in data["tasks"]]
+        return [EstimatedTask(**kwargs) for kwargs in data["tasks"]]
 
-    def from_milestones(milestones: list[Milestone]) -> list["Task"]:
+    def from_milestones(milestones: list[Milestone]) -> list["EstimatedTask"]:
         """Creates a list of tasks from a list of milestones
 
         Args:
@@ -116,7 +116,7 @@ class Task:
         """
         tasks = []
         for m in milestones:
-            t = Task(
+            t = EstimatedTask(
                 m.name,
                 m.estimated,
                 m.depends_on,

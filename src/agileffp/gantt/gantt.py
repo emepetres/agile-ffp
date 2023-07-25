@@ -1,12 +1,12 @@
 from datetime import date
 from agileffp.gantt.capacity_team import CapacityTeam
-from agileffp.gantt.task import Task
+from agileffp.gantt.estimated_task import EstimatedTask
 from agileffp.milestone.estimation import parse_estimation
 from agileffp.milestone.milestone import Milestone
 
 
 class DependencyNode:
-    def __init__(self, task: Task):
+    def __init__(self, task: EstimatedTask):
         self.task = task
         self.processed = False
         self.processed_order = -1
@@ -60,7 +60,7 @@ class DependencyNode:
 
 
 class Gantt:
-    def __init__(self, tasks: list[Task]):
+    def __init__(self, tasks: list[EstimatedTask]):
         self.nodes = {t.name: DependencyNode(t) for t in tasks}
         self.next_node_process_idx = 0
         self._compute_dependencies()
@@ -132,11 +132,11 @@ class Gantt:
 
     def from_dict(data: dict) -> "Gantt":
         if "tasks" in data:
-            tasks = Task.parse(data)
+            tasks = EstimatedTask.parse(data)
         else:
             estimation = parse_estimation(data)
             milestones = Milestone.parse(data)
             Milestone.compute(milestones.values(), estimation)
-            tasks = Task.from_milestones(milestones.values())
+            tasks = EstimatedTask.from_milestones(milestones.values())
 
         return Gantt(tasks)

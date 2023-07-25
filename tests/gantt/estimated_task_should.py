@@ -1,29 +1,33 @@
 from datetime import date
 import pytest
 from agileffp.gantt.capacity_team import CapacityTeam
-from agileffp.gantt.task import Task
+from agileffp.gantt.estimated_task import EstimatedTask
 from agileffp.milestone.estimation import parse_estimation
 from agileffp.milestone.milestone import Milestone
 
 
 @pytest.fixture
 def task1():
-    return Task("sample_task1", {"team1": 10, "team2": 13}, start_all_together=False)
+    return EstimatedTask(
+        "sample_task1", {"team1": 10, "team2": 13}, start_all_together=False
+    )
 
 
 @pytest.fixture
 def task2():
-    return Task("sample_task2", {"team1": 10, "team2": 13}, start_all_together=False)
+    return EstimatedTask(
+        "sample_task2", {"team1": 10, "team2": 13}, start_all_together=False
+    )
 
 
 @pytest.fixture
 def task3():
-    return Task("sample_task3", {"team3": 10}, start_all_together=False)
+    return EstimatedTask("sample_task3", {"team3": 10}, start_all_together=False)
 
 
 @pytest.fixture
 def wrong_task():
-    return Task("wrong_task", {"team1": 10, "wrong_team": 13})
+    return EstimatedTask("wrong_task", {"team1": 10, "wrong_team": 13})
 
 
 @pytest.fixture
@@ -132,7 +136,7 @@ def assert_start_all_together(task1, task2, capacity):
 
 
 def assert_from_milestones(milestones):
-    tasks = Task.from_milestones(milestones.values())
+    tasks = EstimatedTask.from_milestones(milestones.values())
     assert len(tasks) == 2
 
     dt = {t.name: t for t in tasks}
@@ -160,11 +164,11 @@ def assert_common_available_day():
         "team1": CapacityTeam("team1", 2, date(2023, 5, 8)),
         "team2": CapacityTeam("team2", 2, date(2023, 5, 8)),
     }
-    t1 = Task("t1", {"team1": 10})
-    t2 = Task("t2", {"team2": 10})
+    t1 = EstimatedTask("t1", {"team1": 10})
+    t2 = EstimatedTask("t2", {"team2": 10})
     t1.assign_capacity(c)
     t2.assign_capacity(c, start_after=date(2023, 5, 12))
-    t3 = Task("t3", {"team1": 10, "team2": 10})
+    t3 = EstimatedTask("t3", {"team1": 10, "team2": 10})
     t3.assign_capacity(c)
     assert t3.init == date(2023, 5, 22)
     assert t3.days == 5
