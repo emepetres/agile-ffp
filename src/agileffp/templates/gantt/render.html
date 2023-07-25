@@ -37,6 +37,7 @@
         null,
         ////"{{t.depends_on}}",
       ],
+      {% if t.teams is not none %}
       ////{%for tt in t.teams%}
       ////[
       ////  "{{t.name}}{{tt.name}}",
@@ -49,6 +50,7 @@
       ////  "{{tt.depends_on}}",
       ////],
       ////{%endfor%}
+      {% endif %}
       {%endfor%}
     ]);
 
@@ -98,6 +100,7 @@
   }
 
   function drawTimelineChart() {
+    {% if timeline is not none %}
     var options = {
       height: {{timeline_height}},
     };
@@ -117,7 +120,8 @@
       {%endfor%}
     ]);
 
-    chart.draw(dataTable, options);;
+    chart.draw(dataTable, options);
+    {% endif %}
   }
 
   function drawTasksList() {
@@ -161,7 +165,9 @@
 
   function drawChart() {
     drawGanttChart();
+    {% if timeline is not none %}
     drawTimelineChart();
+    {% endif %}
     drawTasksList();
   }
 

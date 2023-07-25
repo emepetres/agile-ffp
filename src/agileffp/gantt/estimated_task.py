@@ -1,11 +1,12 @@
 from datetime import date, timedelta
+from agileffp.gantt.task import Task
 from agileffp.milestone.milestone import Milestone
-from agileffp.seville_calendar import Seville
 from agileffp.gantt.team_task import TeamTask
 from agileffp.gantt.capacity_team import CapacityTeam
+from agileffp.seville_calendar import Seville
 
 
-class EstimatedTask:
+class EstimatedTask(Task):
     def __init__(
         self,
         name: str,
@@ -15,22 +16,13 @@ class EstimatedTask:
         start_all_together: bool = True,
         description: str = "",
     ):
-        """Creates a task
+        super().__init__(name, None, None, 0, description)
 
-        Args:
-            name (str): The name of the task
-            teams_effort (dict[str, int | dict[str, int]]): A dictionary with the
-              effort for each team
-            depends_on (list[Task], optional): A list of tasks that this task
-            depends on. Defaults to None.
-        """
-        self.name = name
         self.depends_on = depends_on
-        self.priority = priority
         self.start_all_together = start_all_together
-        self.description = description
-        self.init, self.end, self.days = None, None, None
-        self.price = 0
+        self.priority = priority
+
+        self.days = None
         self.cal = Seville()
 
         self.teams_tasks = {
@@ -59,12 +51,12 @@ class EstimatedTask:
 
         for team, team_task in self.teams_tasks.items():
             team_task.assign_capacity(capacity[team], after=start_after)
-            if self.init is None or (team_task.init and team_task.init < self.init):
-                self.init = team_task.init
+            if self.start is None or (team_task.init and team_task.init < self.start):
+                self.start = team_task.init
             if self.end is None or (team_task.end and team_task.end > self.end):
                 self.end = team_task.end
             self.price += capacity[team].price * team_task.effort
-        self.days = self.cal.get_working_days_delta(self.init, self.end) + 1
+        self.days = self.cal.get_working_days_delta(self.start, self.end) + 1
 
     def _next_common_available_day(
         self, capacity: dict[str, CapacityTeam], start_after: date = None
@@ -84,12 +76,6 @@ class EstimatedTask:
             else:
                 current_common_day = day
                 start_after = day + timedelta(days=-1)
-
-    def __str__(self):
-        return f"{self.name} ({self.init} - {self.end}) - {self.days}"
-
-    def __repr__(self):
-        return str(self)
 
     def parse(data: dict) -> list["EstimatedTask"]:
         """Parses the YAML data into Tasks
@@ -130,3 +116,6 @@ class EstimatedTask:
             tasks.append(t)
 
         return tasks
+
+    def __str__(self):
+        return f"{super().__str__()} - {self.days}"

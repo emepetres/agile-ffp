@@ -1,15 +1,15 @@
 from datetime import date
 from agileffp.gantt.capacity_team import CapacityTeam
 from agileffp.gantt.estimated_task import EstimatedTask
+from agileffp.gantt.task import Task
 from agileffp.milestone.estimation import parse_estimation
 from agileffp.milestone.milestone import Milestone
 
 
 class DependencyNode:
-    def __init__(self, task: EstimatedTask):
+    def __init__(self, task: Task):
         self.task = task
         self.processed = False
-        self.processed_order = -1
         self.parent_nodes = []
         self.next_nodes = []
 
@@ -40,30 +40,62 @@ class DependencyNode:
     def to_csv(self):
         return (
             f"{self.task.name}"
-            + f",{self.task.init}"
-            + f",{int((self.task.end-self.task.init).days)}"
+            + f",{self.task.start}"
+            + f",{int((self.task.end-self.task.start).days)}"
         )
 
     def to_dict(self):
         return {
             "name": self.task.name,
-            "init": str(self.task.init),
+            "init": str(self.task.start),
             "end": str(self.task.end),
-            "days": int((self.task.end - self.task.init).days)
-            if self.task.end and self.task.init
+            "days": int((self.task.end - self.task.start).days)
+            if self.task.end and self.task.start
             else None,
             "depends_on": ",".join([n.task.name for n in self.parent_nodes]),
-            "teams": [t.to_dict() for _, t in self.task.teams_tasks.items()],
+            "teams": [t.to_dict() for _, t in self.task.teams_tasks.items()]
+            if issubclass(type(self.task), EstimatedTask)
+            else None,
             "price": self.task.price,
             "desc": self.task.description,
         }
 
 
 class Gantt:
-    def __init__(self, tasks: list[EstimatedTask]):
+    def __init__(self, tasks: list[Task]):
         self.nodes = {t.name: DependencyNode(t) for t in tasks}
-        self.next_node_process_idx = 0
+        self.tasks_assigned = not issubclass(type(tasks[0]), EstimatedTask)
+
+    def assign_capacity(self, capacity: dict[str, CapacityTeam]) -> None:
+        """Builds the gantt chart for the dependency graph
+
+        Args:
+            capacity (dict[str, CapacityTeam]): A dictionary with the capacity for each
+              team
+        """
+        if self.tasks_assigned:
+            return
+
         self._compute_dependencies()
+        self._build(capacity)
+
+    def _build(self, capacity: dict[str, CapacityTeam]) -> None:
+        """Builds the gantt chart for the dependency graph
+
+        Args:
+            capacity (dict[str, CapacityTeam]): A dictionary with the capacity for each
+              team
+        """
+        ready = self._get_ready_tasks()
+        if not ready:
+            self.tasks_assigned = True
+            return
+
+        node = ready[0]
+        node.task.assign_capacity(capacity, start_after=node.start_after())
+        node.processed = True
+
+        self._build(capacity)
 
     def _compute_dependencies(self) -> None:
         """Computes the dependency graph"""
@@ -83,31 +115,12 @@ class Gantt:
         """
         return sorted(
             [
-                n
-                for n in self.nodes.values()
-                if not n.processed and n.dependencies_satisfied()
+                task_node
+                for task_node in self.nodes.values()
+                if not task_node.processed and task_node.dependencies_satisfied()
             ],
             key=lambda node: node.task.priority,
         )
-
-    def build(self, capacity: dict[str, CapacityTeam]) -> None:
-        """Builds the gantt chart for the dependency graph
-
-        Args:
-            capacity (dict[str, CapacityTeam]): A dictionary with the capacity for each
-              team
-        """
-        ready = self._get_ready_tasks()
-        if not ready:
-            return
-
-        node = ready[0]
-        node.task.assign_capacity(capacity, start_after=node.start_after())
-        node.processed = True
-        node.processed_order = self.next_node_process_idx
-        self.next_node_process_idx += 1
-
-        self.build(capacity)
 
     def __str__(self):
         s = "Gantt: \n"
@@ -126,13 +139,16 @@ class Gantt:
             f.write(s)
 
     def to_list(self) -> list[dict]:
-        sorted_nodes = sorted(self.nodes.values(), key=lambda n: n.processed_order)
+        sorted_nodes = sorted(self.nodes.values(), key=lambda n: n.task.start)
         tasks = [node.to_dict() for node in sorted_nodes]
         return tasks
 
     def from_dict(data: dict) -> "Gantt":
         if "tasks" in data:
-            tasks = EstimatedTask.parse(data)
+            if "capacity" in data:
+                tasks = EstimatedTask.parse(data)
+            else:
+                tasks = Task.parse(data)
         else:
             estimation = parse_estimation(data)
             milestones = Milestone.parse(data)

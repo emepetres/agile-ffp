@@ -19,14 +19,16 @@ def main():
     args = parser.parse_args()
 
     data = read_yaml_file(args.file_path)
-    capacity = CapacityTeam.parse(data)
-    chart = Gantt.from_dict(data)
-    chart.build(capacity)
+    gantt = Gantt.from_dict(data)
 
-    print(chart)
+    if not gantt.tasks_assigned:
+        capacity = CapacityTeam.parse(data)
+        gantt.assign_capacity(capacity)
+
+    print(gantt)
 
     if args.output:
-        chart.to_csv(args.output)
+        gantt.to_csv(args.output)
 
 
 if __name__ == "__main__":

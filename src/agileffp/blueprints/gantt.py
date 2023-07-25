@@ -49,16 +49,22 @@ def upload_file():
 @bp.route("/chart/<filename>")
 def render_chart(filename):
     data = read_yaml_file(os.path.join(current_app.config["UPLOAD_FOLDER"], filename))
-    capacity = CapacityTeam.parse(data)
-    chart = Gantt.from_dict(data)
-    chart.build(capacity)
-    info = chart.to_list()
+    gantt = Gantt.from_dict(data)
+    print(gantt.tasks_assigned)
 
-    timeline_tasks = [tl for c in capacity.values() for tl in c.to_timeline()]
+    capacity = None
+    timeline_tasks = None
+    if not gantt.tasks_assigned:
+        capacity = CapacityTeam.parse(data)
+        gantt.assign_capacity(capacity)
+        timeline_tasks = [tl for c in capacity.values() for tl in c.to_timeline()]
+
+    info = gantt.to_list()
+
     return render_template(
         "gantt/render.html",
         gantt=info,
-        gantt_height=10 + 45 * len(info),
+        gantt_height=15 + 45 * len(info),
         timeline=timeline_tasks,
-        timeline_height=55 * (len(capacity)),
+        timeline_height=55 * (len(capacity) if capacity else 0),
     )

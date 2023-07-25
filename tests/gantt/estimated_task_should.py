@@ -103,34 +103,34 @@ def assert_teams_must_match_when_assigning_capacity(wrong_task, capacity):
 
 def assert_duration_according_to_capacity(task1, task2, capacity):
     task1.assign_capacity(capacity)
-    assert task1.init == date(2023, 1, 2)
+    assert task1.start == date(2023, 1, 2)
     assert task1.end == date(2023, 1, 9)
     assert task1.days == 5
     task2.assign_capacity(capacity)
-    assert task2.init == date(2023, 1, 9)
+    assert task2.start == date(2023, 1, 9)
     assert task2.end == date(2023, 1, 16)
     assert task2.days == 6
 
 
 def assert_force_init_date(task1, task3, capacity):
     task1.assign_capacity(capacity)
-    assert task1.init == date(2023, 1, 2)
+    assert task1.start == date(2023, 1, 2)
     assert task1.end == date(2023, 1, 9)
     assert task1.days == 5
     task3.assign_capacity(capacity, start_after=task1.end)
-    assert task3.init == date(2023, 1, 10)
+    assert task3.start == date(2023, 1, 10)
     assert task3.end == date(2023, 1, 16)
     assert task3.days == 5
 
 
 def assert_start_all_together(task1, task2, capacity):
     task1.assign_capacity(capacity)
-    assert task1.init == date(2023, 1, 2)
+    assert task1.start == date(2023, 1, 2)
     assert task1.end == date(2023, 1, 9)
     assert task1.days == 5
     task2.start_all_together = True
     task2.assign_capacity(capacity)
-    assert task2.init == date(2023, 1, 10)
+    assert task2.start == date(2023, 1, 10)
     assert task2.end == date(2023, 1, 16)
     assert task2.days == 5
 
@@ -170,5 +170,5 @@ def assert_common_available_day():
     t2.assign_capacity(c, start_after=date(2023, 5, 12))
     t3 = EstimatedTask("t3", {"team1": 10, "team2": 10})
     t3.assign_capacity(c)
-    assert t3.init == date(2023, 5, 22)
+    assert t3.start == date(2023, 5, 22)
     assert t3.days == 5

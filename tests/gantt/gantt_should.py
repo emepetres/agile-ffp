@@ -81,6 +81,32 @@ def capacity():
     }
 
 
+@pytest.fixture
+def assigned_tasks():
+    return {
+        "tasks": [
+            {
+                "name": "Visor",
+                "start": "17/04/2023",
+                "end": "28/07/2023",
+                "price": 195100,
+            },
+            {
+                "name": "SegDent",
+                "start": "19/06/2023",
+                "end": "01/09/2023",
+                "price": 35880,
+            },
+            {
+                "name": "IPRv1",
+                "start": "31/07/2023",
+                "end": "01/09/2023",
+                "price": 44102.5,
+            },
+        ]
+    }
+
+
 def assert_read_sequential_tasks(sequential2):
     gantt = Gantt(sequential2)
     assert gantt is not None
@@ -89,6 +115,8 @@ def assert_read_sequential_tasks(sequential2):
     node1 = gantt.nodes["sample_task1"]
     node2 = gantt.nodes["sample_task2"]
     assert node1.task.name == "sample_task1"
+
+    gantt._compute_dependencies()
     assert node1.parent_nodes == []
     assert node1.next_nodes == [node2]
     assert node2.task.name == "sample_task2"
@@ -104,6 +132,8 @@ def assert_read_children_tasks(two_children_with_priority):
     node1 = gantt.nodes["sample_task1"]
     node2 = gantt.nodes["sample_task2"]
     node3 = gantt.nodes["sample_task3"]
+
+    gantt._compute_dependencies()
     assert node1.task.name == "sample_task1"
     assert node1.parent_nodes == []
     assert sorted(node1.next_nodes) == sorted([node2, node3])
@@ -117,54 +147,55 @@ def assert_read_children_tasks(two_children_with_priority):
 
 def assert_dependencies_must_match(wrong_tasks_dependencies):
     with pytest.raises(ValueError):
-        Gantt(wrong_tasks_dependencies)
+        gantt = Gantt(wrong_tasks_dependencies)
+        gantt._compute_dependencies()
 
 
 def assert_duration_according_to_capacity(sequential2, capacity):
     gantt = Gantt(sequential2)
-    gantt.build(capacity)
+    gantt.assign_capacity(capacity)
     task1 = gantt.nodes["sample_task1"].task
     task2 = gantt.nodes["sample_task2"].task
-    assert task1.init == date(2023, 1, 2)
+    assert task1.start == date(2023, 1, 2)
     assert task1.end == date(2023, 1, 9)
     assert task1.days == 5
-    assert task2.init == date(2023, 1, 10)
+    assert task2.start == date(2023, 1, 10)
     assert task2.end == date(2023, 1, 16)
     assert task2.days == 5
 
 
 def assert_duration_according_to_priority(two_children_with_priority, capacity):
     gantt = Gantt(two_children_with_priority)
-    gantt.build(capacity)
+    gantt.assign_capacity(capacity)
     task1 = gantt.nodes["sample_task1"].task
     task2 = gantt.nodes["sample_task2"].task
     task3 = gantt.nodes["sample_task3"].task
-    assert task1.init == date(2023, 1, 2)
+    assert task1.start == date(2023, 1, 2)
     assert task1.end == date(2023, 1, 9)
     assert task1.days == 5
-    assert task2.init == date(2023, 1, 10)
+    assert task2.start == date(2023, 1, 10)
     assert task2.end == date(2023, 1, 23)
     assert task2.days == 10
-    assert task3.init == date(2023, 1, 16)
+    assert task3.start == date(2023, 1, 16)
     assert task3.end == date(2023, 1, 30)
     assert task3.days == 11
 
 
 def assert_priority_evaluation(mixed_priority, capacity):
     gantt = Gantt(mixed_priority)
-    gantt.build(capacity)
+    gantt.assign_capacity(capacity)
     task1 = gantt.nodes["sample_task1"].task
     task2 = gantt.nodes["sample_task2"].task
     task3 = gantt.nodes["sample_task3"].task
     task4 = gantt.nodes["sample_task4"].task
-    assert task1.init < task2.init
-    assert task2.init < task3.init
-    assert task3.init < task4.init
+    assert task1.start < task2.start
+    assert task2.start < task3.start
+    assert task3.start < task4.start
 
 
 def assert_to_list(sequential2, capacity):
     gantt = Gantt(sequential2)
-    gantt.build(capacity)
+    gantt.assign_capacity(capacity)
     d = gantt.to_list()
     assert len(d) == 2
     assert d[0] == {
@@ -217,3 +248,15 @@ def assert_to_list(sequential2, capacity):
             },
         ],
     }
+
+
+def assert_assigned_gantt(assigned_tasks):
+    gantt = Gantt.from_dict(assigned_tasks)
+    assert gantt.tasks_assigned is True
+    assert len(gantt.nodes) == 3
+    assert gantt.nodes["Visor"].task.start == date(2023, 4, 17)
+    assert gantt.nodes["Visor"].task.end == date(2023, 7, 28)
+    assert gantt.nodes["SegDent"].task.start == date(2023, 6, 19)
+    assert gantt.nodes["SegDent"].task.end == date(2023, 9, 1)
+    assert gantt.nodes["IPRv1"].task.start == date(2023, 7, 31)
+    assert gantt.nodes["IPRv1"].task.end == date(2023, 9, 1)
