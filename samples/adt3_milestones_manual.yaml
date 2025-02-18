@@ -1,0 +1,266 @@
+teams:
+  AI:
+    starts: 2024-11-20
+    members:
+      - Gabriel
+      - Iker
+    vacation_months:
+      - 7
+      - 8
+  3D:
+    starts: 2024-11-20
+    members:
+      - Marcos
+      - Collado
+    vacation_months:
+      - 7
+      - 8
+
+# jornadas_totales: (229-Mng:15) + ADTII:47 + ADTII3D:14 = 247
+total_dev_days: 247
+
+iterations:
+  - id: 11
+    start: 2024-11-20
+    end: 2024-12-03
+    capacity:
+      Gabriel: 9
+      Iker: 8
+    epics:
+      - Mejora arquitectura:
+          Gabriel: 1
+          effort: 3
+      - Habilitar trabajo paralelo:
+          Gabriel: 2
+          effort: 6
+      - PoC 2D Alta calidad:
+          Iker: 1
+          effort: 8
+  - id: 12
+    start: 2024-12-04
+    end: 2024-12-17
+    capacity:
+      Gabriel: 9
+      Iker: 9
+    epics:
+      - Mejora arquitectura:
+          Gabriel: 3
+          effort: 9
+      - PoC 2D Alta calidad:
+          Iker: 3
+          effort: 9
+  - id: christmas
+    start: 2024-12-18
+    end: 2025-01-14
+    capacity:
+      AI:
+        Gabriel: 9
+        Iker: 15
+    epics:
+      - Mejora arquitectura:
+          Gabriel: 3
+          effort: 7
+      - Habilitar trabajo paralelo:
+          Gabriel: 1
+          effort: 2
+      - Sistema etiquetas y coloreado:
+          Iker: 9
+          effort: 15
+  - id: 13
+    start: 2025-01-15
+    end: 2025-01-28
+    capacity:
+      AI:
+        Gabriel: 9
+        Iker: 9
+      3D:
+        Marcos: 4
+        Collado: 2
+    epics:
+      - Sistema etiquetas y coloreado:
+          Marcos: 3
+          Iker: 6
+          Collado: 1
+          effort: 4+9
+      - Plugins clasificación y arquitectura IFC:
+          Gabriel: 2
+          Marcos: 1
+          Collado: 1
+          effort: 2+9
+  - id: 14
+    start: 2025-01-29
+    end: 2025-02-11
+    capacity:
+      AI:
+        Gabriel: 8
+        Iker: 9
+      3D:
+        Marcos: 1
+    epics:
+      - Sistema etiquetas y coloreado:
+          Marcos: 1
+          effort: 1
+      - Plugins clasificación y arquitectura IFC:
+          Gabriel: 3
+          effort: 8
+      - Plugin NKSR:
+          Iker: 1
+          effort: 9
+  - id: 15
+    start: 2025-02-12
+    end: 2025-02-25
+    capacity:
+      AI:
+        Gabriel: 8
+        Iker: 3
+      3D:
+        Marcos: 5
+        Collado: 2
+    epics:
+      - Sistema etiquetas y coloreado:
+          Collado: 1
+          Marcos: 5
+          effort: 6
+      - Plugins clasificación y arquitectura IFC:
+          Gabriel: 4
+          Collado: 1
+          effort: 8+1
+  - id: 16
+    start: 2025-02-26
+    end: 2025-03-11
+    capacity:
+      AI:
+        Gabriel: 10
+  - id: 17
+    start: 2025-03-12
+    end: 2025-03-25
+    capacity:
+      AI:
+        Gabriel: 10
+
+epics:
+  - name: Mejora arquitectura
+    items:
+      AI: 7
+    iterations:
+      - id: 11
+        closed:
+          - Gabriel: 1
+        effort: 3
+      - id: 12
+        closed:
+          - Gabriel: 3
+        effort: 9
+      - id: christmas
+        closed:
+          - Gabriel: 3
+        effort: 7
+  - name: Habilitar trabajo paralelo
+    items:
+      AI: 3
+    iterations:
+      - id: 11
+        closed:
+          - Gabriel: 2
+        effort: 6
+      - id: christmas
+        closed:
+          - Gabriel: 1
+        effort: 2
+  - name: PoC 2D Alta calidad
+    items:
+      AI: 4
+    iterations:
+      - id: 11
+        closed:
+          - Iker: 1
+        effort: 8
+      - id: 12
+        closed:
+          - Iker: 3
+        effort: 9
+  - name: Sistema etiquetas y coloreado
+    items:
+      AI: 15
+      3D: 11
+    iterations:
+      - id: christmas
+        closed:
+          - Iker: 9
+        effort: 15
+      - id: 13
+        closed:
+          - Marcos: 3
+          - Iker: 6
+          - Collado: 1
+        effort: 13
+      - id: 14
+        closed:
+          - Marcos: 1
+        effort: 1
+      - id: 15
+        closed:
+          - Collado: 1
+          - Marcos: 5
+        effort: 6
+  - name: Plugins clasificación y arquitectura IFC
+    items:
+      AI: 28
+      3D: 3
+    iterations:
+      - id: 13
+        closed:
+          Gabriel: 2
+          Marcos: 1
+          Collado: 1
+        effort: 11
+      - id: 14
+        closed:
+          Gabriel: 3
+        effort: 8
+      - id: 15
+        closed:
+          Gabriel: 4
+          Collado: 1
+        effort: 9
+    estimate:
+      days:
+        AI: 46
+        3D: 16
+      devs:
+        - Gabriel
+        - Marcos
+        - Collado
+    priority: 30
+  - name: Plugin NKSR
+    items:
+      AI: 6
+    iterations:
+      - id: 14
+        closed:
+          - Iker: 1
+        effort: 9
+    estimate:
+      days:
+        AI: 12
+      devs:
+        - Iker
+    priority: 30
+  - name: Plugin defectos
+    items:
+      AI: 8
+    estimate:
+      AI:
+        effort: 16
+        max_capacity: 1
+    priority: 60
+    depends_on:
+      - Plugin NKSR
+  - name: Plugin materiales
+    estimate:
+      AI:
+        effort: 44
+        max_capacity: 1
+    priority: 60
+    depends_on:
+      - Plugin NKSR

@@ -1,64 +1,24 @@
-# agile-ffp
+# agileffp
 
 Build agile charts for firm fixed price projects, to compute estimated milestones deadlines.
 
-## Usage
+## Installation
 
-CLI:
-`python -m src.agileffp.main -f milestones_sample.yml`
+TODO e.g. pip install ...
 
-SERVER:
-`cd src && python -m flask --app agileffp run --debug`
-Then go to _localhost:5000/gantt_
+## Development
 
-### Sample yml file
+### Setup
 
-This sample represents the espected schema of the yaml file to define gantt tasks
+TODO e.g. devcontainer
 
-```yaml
-capacity:
-  team1:
-    members: 2
-    starts: 2023-04-17
-    vacation_months:
-      - 7
-      - 8
-  team2:
-    members: 2
-    starts: 2023-05-15
-    ends: 2025-12-31
-    exceptions:
-      - members: 1
-        starts: 2023-05-15
-        ends: 2023-06-03
-  team3:
-    members: 2
-    starts: 2023-05-15
-    ends: 2025-12-31
-    exceptions:
-      - members: 1
-        starts: 2023-05-15
-        ends: 2023-06-03
-    gantt: false
-  ...
+### Testing
 
-tasks:
-  - name: task1
-    estimate:
-      research: 25
-      web: 30
-  - name: task2
-    estimate:
-      research: 100
-      web: 100
-    depends_on:
-      - task1
-  - name: task2
-    estimate:
-      web:
-        effort: 50
-        max_capacity: 1
-    priority: 50 # [0 - 99]
-    depends_on:
-      - task1
-```
+Use devops CI for testing before pushing.
+
+For local testing, use your IDE integration with pytest, or just run run `pytest tests` in the root directory.
+If pylance doesn't recognize some imports, you may need to rerun `pip install -e .`
+
+### Deployment
+
+Use devops CI/CD pipeline to deploy the package.

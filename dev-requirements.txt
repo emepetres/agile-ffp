@@ -1,4 +1,0 @@
-pytest==7.3.*
-ruff
-black
-build

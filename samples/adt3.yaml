@@ -1,0 +1,182 @@
+teams:
+  - name: AI
+    days: 247 # jornadas_totales: (229-Mng:15) + ADTII:47 + ADTII3D:14 = 247
+    members:
+      - Gabriel
+      - Iker
+      - Silva
+  - name: 3D
+    days: 500
+    members:
+      - Marcos
+      - Collado
+
+iterations:
+  - name: 11
+    start: 2024-11-20
+    end: 2024-12-03
+    capacity:
+      Gabriel: 9
+      Iker: 8
+    closed:
+      Gabriel:
+        Mejora arquitectura: 1
+        Habilitar trabajo paralelo: 2
+      Iker:
+        PoC 2D Alta calidad: 1
+  - name: 12
+    start: 2024-12-04
+    end: 2024-12-17
+    capacity:
+      Gabriel: 9
+      Iker: 9
+    closed:
+      Gabriel:
+        Mejora arquitectura: 3
+      Iker:
+        PoC 2D Alta calidad: 3
+  - name: christmas
+    start: 2024-12-18
+    end: 2025-01-14
+    capacity:
+      Gabriel: 9
+      Iker: 15
+    closed:
+      Gabriel:
+        Mejora arquitectura: 3
+        Habilitar trabajo paralelo: 1
+      Iker:
+        Sistema etiquetas y coloreado: 9
+  - name: 13
+    start: 2025-01-15
+    end: 2025-01-28
+    capacity:
+      Gabriel: 9
+      Iker: 9
+      Marcos: 4
+      Collado: 2
+    closed:
+      Gabriel:
+        Plugins clasificación y arquitectura IFC: 2
+      Iker:
+        Sistema etiquetas y coloreado: 6
+      Marcos:
+        Sistema etiquetas y coloreado: 3
+        Plugins clasificación y arquitectura IFC: 1
+      Collado:
+        Sistema etiquetas y coloreado: 1
+        Plugins clasificación y arquitectura IFC: 1
+  - name: 14
+    start: 2025-01-29
+    end: 2025-02-11
+    capacity:
+      Gabriel: 8
+      Iker: 9
+      Marcos: 1
+    closed:
+      Gabriel:
+        Plugins clasificación y arquitectura IFC: 3
+      Iker:
+        Plugin NKSR: 1
+      Marcos:
+        Sistema etiquetas y coloreado: 1
+  - name: 15
+    start: 2025-02-12
+    end: 2025-02-25
+    capacity:
+      Gabriel: 8
+      Iker: 3
+      Marcos: 5
+      Collado: 2
+    closed:
+      Gabriel:
+        Plugins clasificación y arquitectura IFC: 4
+      Marcos:
+        Sistema etiquetas y coloreado: 5
+      Collado:
+        Sistema etiquetas y coloreado: 1
+        Plugins clasificación y arquitectura IFC: 1
+  - name: 16
+    start: 2025-02-26
+    end: 2025-03-11
+    capacity:
+      Gabriel: 10
+    closed:
+      Gabriel:
+        Plugins clasificación y arquitectura IFC: 4
+  - name: 17
+    start: 2025-03-12
+    end: 2025-03-25
+    capacity:
+      Gabriel: 10
+  - name: 18
+    start: 2025-03-26
+    end: 2025-04-08
+    capacity:
+      Gabriel: 10
+  - name: 19
+    start: 2025-04-09
+    end: 2025-04-22
+    capacity:
+      Gabriel: 7
+      Silva: 8
+  - name: 20
+    start: 2025-04-23
+    end: 2025-05-06
+    capacity:
+      Gabriel: 9
+      Silva: 9
+
+default_iteration:
+  index: 21
+  prefix: ""
+  days_interval: 15
+  capacity:
+    Gabriel: 9
+    Silva: 9
+
+epics:
+  - name: Mejora arquitectura
+    items:
+      AI: 7
+  - name: Habilitar trabajo paralelo
+    items:
+      AI: 3
+  - name: PoC 2D Alta calidad
+    items:
+      AI: 4
+  - name: Sistema etiquetas y coloreado
+    items:
+      AI: 15
+      3D: 11
+  - name: Plugins clasificación y arquitectura IFC
+    items:
+      AI: 29
+      3D: 3
+    planned:
+      Gabriel: 2.8
+      Marcos: 1
+    priority: 30
+  - name: Plugin NKSR
+    items:
+      AI: 6
+    planned:
+      Silva: 3.5
+    priority: 30
+  - name: Plugin defectos
+    items:
+      AI: 8
+    planned:
+      Silva: 2.75
+    priority: 60
+    depends_on:
+      - Plugin NKSR
+  - name: Plugin materiales
+    items:
+      AI: 22
+    planned:
+      Silva: 3
+      Gabriel: 3
+    priority: 60
+    depends_on:
+      - Plugin NKSR

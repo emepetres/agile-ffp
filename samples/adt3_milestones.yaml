@@ -1,0 +1,90 @@
+capacity:
+  AI:
+    members: 2
+    starts: 2024-12-01
+    vacation_months:
+      - 7
+      - 8
+  3D:
+    members: 1
+    starts: 2024-12-01
+    vacation_months:
+      - 7
+      - 8
+tasks:
+  - name: Mejora arquitectura
+    # items: 7
+    # vel: 2.7 (Gabriel)
+    estimate:
+      AI:
+        effort: 19
+        max_capacity: 1
+    priority: 10
+  - name: Habilitar trabajo paralelo
+    # items: 3
+    # vel: 2.7 (Gabriel)
+    estimate:
+      AI:
+        effort: 8
+        max_capacity: 1
+    priority: 10
+  - name: PoC 2D Alta calidad
+    # items: 4
+    # vel: 4.25 (Iker)
+    estimate:
+      AI:
+        effort: 17
+        max_capacity: 1
+    priority: 20
+  - name: Sistema etiquetas y coloreado
+    # items: 15,11
+    # vel: 1.6 (Iker)
+    estimate:
+      AI:
+        effort: 24
+        max_capacity: 1
+      3D:
+        effort: 11
+        max_capacity: 1
+    priority: 30
+  - name: Plugins clasificación y arquitectura IFC
+    # start_after: 2025-01-31
+    # items: 28,3
+    # vel: 2.8 (Gabriel)
+    estimate:
+      AI:
+        effort: 78
+        max_capacity: 1
+      3D:
+        effort: 3
+        max_capacity: 1
+    priority: 40
+  - name: Plugin NKSR
+    # start_after: 2025-02-28
+    # items: 6
+    # vel: 3.5 (Iker)
+    estimate:
+      AI:
+        effort: 21
+        max_capacity: 1
+    priority: 30
+  - name: Plugin defectos
+    # items: 8
+    # vel: 2.75 (Gabriel)
+    estimate:
+      AI:
+        effort: 22
+        max_capacity: 1
+    priority: 60
+    depends_on:
+      - Plugin NKSR
+  - name: Plugin materiales
+    # items: 22
+    # vel: 3 (Iker)
+    estimate:
+      AI:
+        effort: 66
+        max_capacity: 2
+    priority: 60
+    depends_on:
+      - Plugin NKSR
