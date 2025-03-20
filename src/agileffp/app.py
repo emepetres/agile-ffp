@@ -1,19 +1,11 @@
-from fasthtml.common import (
-    H2,
-    Container,
-    Div,
-    P,
-    Script,
-    Titled,
-    fast_app,
-    serve,
-)
+from fasthtml.common import Container, Div, Img, Script, Titled, fast_app, serve
 from monsterui.all import (
     DivHStacked,
     Theme,
 )
 
 from agileffp import yaml_editor
+from agileffp.roadmap import charts
 
 headers = (
     Theme.blue.headers(),
@@ -22,7 +14,7 @@ headers = (
 )
 
 charts_id = "main-content"
-app, rt = fast_app(hdrs=headers)
+app, rt = fast_app(hdrs=headers, static_path="static")
 yaml_editor.build_api(app, charts_id, prefix="/editor")
 
 
@@ -32,18 +24,18 @@ def index(session):
         "AgileFFP - by Javier Carnero",
         Container(
             DivHStacked(
-                # Left content (spans 2/3 width)
-                Div(
-                    id=charts_id,
-                )(
-                    H2("Main Content"),
-                    P("This content spans the first two columns"),
-                    cls="w-2/3",
-                ),
+                # Main content (spans all width)
+                charts.initialize(charts_id),
                 # Right content (spans 1/3 width)
-                yaml_editor.initialize(session, charts_id),
+                yaml_editor.initialize(session),
                 cls="gap-4",
             ),
+        ),
+        Img(
+            id="spinner",
+            cls="htmx-indicator fixed inset-0 m-auto",
+            src="images/loading-spinner.svg",
+            alt="Computing charts...",
         ),
     )
 

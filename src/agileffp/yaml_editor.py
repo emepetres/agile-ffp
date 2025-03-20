@@ -2,13 +2,23 @@ from enum import Enum
 from textwrap import dedent
 
 import yaml
-from fasthtml.common import APIRouter, Div, FormData, Input, P, Request
+from fasthtml.common import (
+    A,
+    APIRouter,
+    Code,
+    DialogX,
+    Div,
+    FormData,
+    Img,
+    Input,
+    P,
+    Pre,
+    Request,
+)
 from monsterui.all import (
     Button,
     ButtonT,
     DivHStacked,
-    Progress,
-    TextArea,
     TextT,
     UkIcon,
 )
@@ -22,6 +32,7 @@ class Endpoints(Enum):
     TOGGLE_EDITOR = "/toggle_editor"
     UPDATE_YAML = "/update_yaml"
     RESET = "/reset"
+    HELP = "/help"
 
     def with_prefix(self) -> str:
         if not _prefix:
@@ -31,11 +42,13 @@ class Endpoints(Enum):
 
 
 _prefix = None  # Endpoints URL prefix when building api
+_charts_target = None  # Target ID for the charts component
 
 
 def build_api(app, charts_target: str, prefix: str = None):
-    global _prefix
+    global _prefix, _charts_target
     _prefix = "/" + prefix.strip("/") if prefix else None
+    _charts_target = charts_target
 
     router: APIRouter = APIRouter(prefix=prefix)
 
@@ -49,7 +62,7 @@ def build_api(app, charts_target: str, prefix: str = None):
         session["yaml_content"] = yaml_content
         session["yaml_filename"] = file.filename if file else "-"
 
-        return render(session, charts_target)
+        return render(session)
 
     @router.put(Endpoints.UPLOAD_TEMPLATE.value)
     def load_template(session):
@@ -57,52 +70,76 @@ def build_api(app, charts_target: str, prefix: str = None):
         session["yaml_content"] = yaml_content
         session["yaml_filename"] = "template.yaml"
 
-        return render(session, charts_target)
+        return render(session)
 
     @router.post(Endpoints.UPDATE_YAML.value)
     async def update_yaml(request: Request, session):
         form: FormData = await request.form()
         session["yaml_content"] = form.get("yaml_content")
-        return render(session, charts_target)
+        # Only return the charts component since we don't want to update the editor
+        _, charts = render(session, update_editor=False)
+        return charts
 
     @router.put(Endpoints.TOGGLE_EDITOR.value)
     def toggle_editor(session):
         session["editor_hidden"] = not session["editor_hidden"]
-        return render(session, charts_target, update_charts=False)
+        return render(session, update_charts=False)
 
     @router.put(Endpoints.RESET.value)
     def reset(session):
-        initialize(session, charts_target)
-        return render(session, charts_target)
+        initialize(session)
+        return render(session)
+
+    @router.get(Endpoints.HELP.value)
+    def help():
+        hdr = Div(
+            P("Help Information"),
+            Button(UkIcon("x"),
+                   aria_label="Close",
+                   hx_get="#",
+                   hx_target="#help-dialog",
+                   hx_swap="delete",
+                   cls=(ButtonT.ghost, "h-9 w-9 p-0"),
+                   style="width: 2.25rem;"
+                   ),
+            cls="flex justify-between items-center px-4 py-1"
+        )
+        return DialogX(
+            P("Here is some helpful information about using the YAML editor."),
+            header=hdr,
+            open=True,
+            id='help-dialog'
+        )
 
     router.to_app(app)
 
 
-def initialize(session, charts_target: str):
+def initialize(session):
     session["yaml_filename"] = "No file loaded"
     session["yaml_content"] = None
     session["editor_hidden"] = False
 
-    return render(session, charts_target, update_charts=False)
+    return render(session, update_charts=False)
 
 
-def render(session, charts_target: str, update_charts: bool = True):
-    editor = _render_editor_hidden() if session["editor_hidden"] else _render_editor_visible(
-        session["yaml_filename"], session["yaml_content"])
+def render(session, update_editor: bool = True, update_charts: bool = True):
+    editor, charts = None, None
+    if update_editor:
+        editor = _render_editor_hidden() if session["editor_hidden"] else _render_editor_visible(
+            session["yaml_filename"], session["yaml_content"])
 
-    if not update_charts:
-        return editor
-
-    try:
-        yaml_data = yaml.safe_load(
-            session["yaml_content"]) if session["yaml_content"] else None
-        charts = render_charts(yaml_data, charts_target) if yaml_data else None
-    except yaml.YAMLError as e:
-        charts = Div(
-            f"Invalid YAML format: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=charts_target)
-    except Exception as e:
-        charts = Div(
-            f"Error processing YAML: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=charts_target)
+    if update_charts:
+        try:
+            yaml_data = yaml.safe_load(
+                session["yaml_content"]) if session["yaml_content"] else None
+            charts = render_charts(
+                yaml_data, _charts_target) if yaml_data else None
+        except yaml.YAMLError as e:
+            charts = Div(
+                f"Invalid YAML format: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=_charts_target)
+        except Exception as e:
+            charts = Div(
+                f"Error processing YAML: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=_charts_target)
 
     return editor, charts
 
@@ -117,10 +154,21 @@ def _render_editor_visible(filename: str, yaml_content: str):
                 # Sidebar toggle button
                 Div(
                     Button(UkIcon("chevron-right"), cls=ButtonT.ghost),
-                    cls="w-[50px] p-4 border-b border-border",
                     hx_put=Endpoints.TOGGLE_EDITOR.with_prefix(),
                     hx_target="#yaml-editor-container",
                     hx_swap="outerHTML",
+                    style="position: fixed; top: 0;"
+                ),
+                # Template button
+                Button(
+                    Img(src="images/template_icon.svg",
+                        cls="w-6 h-6 inline-block"),
+                    alt="Load template",
+                    cls=(ButtonT.primary, "mt-14"),
+                    hx_put=Endpoints.UPLOAD_TEMPLATE.with_prefix(),
+                    hx_target="#editor-container",
+                    hx_indicator="#spinner",
+                    style="width: auto !important"
                 ),
                 # File input with drag & drop zone
                 Div(
@@ -132,18 +180,11 @@ def _render_editor_visible(filename: str, yaml_content: str):
                         hx_put=Endpoints.UPLOAD.with_prefix(),
                         hx_trigger="change",
                         hx_target="#editor-container",
+                        hx_indicator="#spinner",
                         style="",
                     ),
-                    P("or drag files here", cls=TextT.muted),
-                    Progress(id="progress", cls="htmx-indicator hidden"),
-                    cls="mb-4",
-                ),
-                # Template button
-                Button(
-                    "Load Template YAML",
-                    cls=(ButtonT.primary, "mb-4"),
-                    hx_put=Endpoints.UPLOAD_TEMPLATE.with_prefix(),
-                    hx_target="#editor-container",
+                    P("or drag files here", cls=(TextT.muted, "text-center")),
+                    cls="mb-4 border border-blue-500 rounded mt-2 mr-2",
                 ),
             ),
             # Editor container
@@ -160,7 +201,6 @@ def _render_editor_hidden():
         # Sidebar toggle button
         Div(
             Button(UkIcon("chevron-left"), cls=ButtonT.ghost),
-            cls="p-4 border-b border-border",
             hx_put=Endpoints.TOGGLE_EDITOR.with_prefix(),
             hx_target="#yaml-editor-container",
             hx_swap="outerHTML",
@@ -171,22 +211,39 @@ def _render_editor_hidden():
 def _render_yaml_content(filename: str, yaml_content: str | None):
     if not yaml_content:
         yaml_content = "No content loaded"
-    return Div(id="editor-container", cls="space-y-4")(
-        P(f"File: {filename}", cls=[
-          TextT.success, "font-mono px-4 w-[400px]"]),
-        TextArea(
-            yaml_content,
-            id="yaml-editor",
-            name="yaml_content",
-            hx_post=Endpoints.UPDATE_YAML.with_prefix(),
-            hx_trigger="change, keyup delay:500ms changed",
-            hx_target="#editor-container",
-            hx_swap="outerHTML",
-            cls="language-yaml font-mono px-4 w-[400px]",
-            style="resize: none; height: calc(100vh - 250px); font-size: 14px;",
-            spellcheck="false",
-            wrap="soft",
+    return Div(
+        Div(
+            P(f"File: {filename}", cls=[
+                TextT.success, "font-mono px-4 w-[400px]"]),
+            A("Help?", cls=[
+                TextT.info, "font-mono px-4 w-[400px] text-right"],
+              hx_get=Endpoints.HELP.with_prefix(),
+              hx_target="#help-container",
+              ),
+            cls="flex justify-between",
         ),
+        Pre(
+            Code(yaml_content,
+                 contenteditable=True,
+                 id="yaml-editor",
+                 hx_post=Endpoints.UPDATE_YAML.with_prefix(),
+                 hx_target=f"#{_charts_target}",
+                 hx_trigger="change, keyup delay:0.5s",
+                 hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
+                 name="yaml_content",
+                 spellcheck="false",
+                 wrap="soft",
+                 cls="uk-codeblock"
+                 ),
+            cls=(
+                f'bg-gray-100 dark:bg-gray-800 {TextT.gray} p-0.4 rounded text-sm font-mono language-yaml'),
+            style="resize: none; font-size: 14px; height: calc(100vh - 150px);",
+        ),
+        Div(
+            id="help-container",
+        ),
+        id="editor-container",
+        cls="uk-codeblock space-y-4",
     )
 
 

@@ -10,6 +10,7 @@ rm -f dist.zip
 mkdir dist
 cp -r src/. dist/
 cp requirements.txt dist/
+cp -r static dist/
 cd dist && zip -r ../dist.zip .
 
 popd

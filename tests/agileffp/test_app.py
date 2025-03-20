@@ -12,4 +12,4 @@ def client():
 def test_index_route(client):
     response = client.get("/")
     assert response.status_code == 200
-    assert "AgileFFP - YAML Editor" in response.text
+    assert "AgileFFP - by Javier Carnero" in response.text
