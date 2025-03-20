@@ -2,6 +2,7 @@ from fasthtml.common import (
     H2,
     Container,
     Div,
+    Link,
     P,
     Script,
     Titled,
@@ -20,6 +21,13 @@ headers = (
     Theme.blue.headers(),
     Script(src="https://unpkg.com/htmx-ext-sse@2.2.1/sse.js"),
     Script(src="https://cdn.plot.ly/plotly-2.24.1.min.js"),
+    Link(rel="stylesheet",
+         href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css"),
+    Script(src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"),
+    Script(src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/yaml/yaml.min.js"),
+    Script(src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/fold/foldcode.min.js"),
+    Script(src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/fold/foldgutter.min.js"),
+    Link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/fold/foldgutter.min.css"),
 )
 
 charts_id = "main-content"

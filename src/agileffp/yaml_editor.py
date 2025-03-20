@@ -2,7 +2,7 @@ from enum import Enum
 from textwrap import dedent
 
 import yaml
-from fasthtml.common import APIRouter, Div, FormData, Input, P, Request
+from fasthtml.common import APIRouter, Div, FormData, Input, P, Request, Script
 from monsterui.all import (
     Button,
     ButtonT,
@@ -187,6 +187,20 @@ def _render_yaml_content(filename: str, yaml_content: str | None):
             spellcheck="false",
             wrap="soft",
         ),
+        Script(
+            """
+            var editor = CodeMirror.fromTextArea(document.getElementById('yaml-editor'), {
+                mode: 'yaml',
+                lineNumbers: true,
+                foldGutter: true,
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+                theme: 'default'
+            });
+            editor.on('change', function() {
+                document.getElementById('yaml-editor').value = editor.getValue();
+            });
+            """
+        )
     )
 
 
