@@ -1,0 +1,85 @@
+teams:
+  - name: IA
+    days: 35
+    members:
+      - Rodrigo
+  - name: 3D
+    days: 20
+    members:
+      - Sergio
+
+iterations:
+  - name: 1
+    start: 2025-03-19
+    end: 2025-04-01
+    capacity:
+      Sergio: 10
+      Rodrigo: 2
+  - name: 2
+    start: 2025-04-02
+    end: 2025-04-23
+    capacity:
+      Rodrigo: 14
+  - name: GWS
+    start: 2025-04-24
+    end: 2025-05-09
+    capacity:
+      Sergio: 10
+      Rodrigo: 10
+  - name: 4
+    start: 2025-05-12
+    end: 2025-05-22
+    capacity:
+      Rodrigo: 9
+
+default_iteration:
+  index: 5
+  prefix: "extra"
+  days_interval: 15
+  capacity:
+    Rodrigo: 10
+    Sergio: 10
+
+epics:
+  - name: Visor GS
+    items:
+      3D: 4
+    planned:
+      Sergio: 2.5
+    priority: 10
+  - name: Preprocesamiento
+    items:
+      IA: 4
+    planned:
+      Rodrigo: 2
+  - name: Generación GS
+    items:
+      IA: 5
+    planned:
+      Rodrigo: 2
+  - name: Etiquetas
+    items:
+      3D: 3
+    planned:
+      Sergio: 2
+    priority: 20
+    depends_on:
+      - Visor GS
+  - name: Nube de puntos
+    items:
+      3D: 2
+    planned:
+      Sergio: 2
+    priority: 90
+    depends_on:
+      - Visor GS
+  - name: Segmentación 2D
+    items:
+      IA: 3
+    planned:
+      Rodrigo: 2
+  - name: Segmentación 3D
+    items:
+      IA: 4
+    planned:
+      Rodrigo: 2.5
