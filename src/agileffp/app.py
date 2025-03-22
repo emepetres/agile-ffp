@@ -14,7 +14,6 @@ from monsterui.all import (
 )
 
 from agileffp import yaml_editor
-from agileffp.settings import app_settings
 
 headers = (
     Theme.blue.headers(),
@@ -50,8 +49,6 @@ def index(session):
 
 
 if __name__ == "__main__":
-    print("----Settings sample----")
-    print("MY_SAMPLE_VARIABLE", app_settings.MY_SAMPLE_VARIABLE)
-    print("OTHER_VARIABLE", app_settings.OTHER_VARIABLE)
+    print("----Development environment----")
 
-    serve(appname="agileffp.app", app="app")
+    serve(appname="agileffp.app", app="app", reload=True)
