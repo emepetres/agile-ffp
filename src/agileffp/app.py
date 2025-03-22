@@ -29,7 +29,7 @@ yaml_editor.build_api(app, charts_id, prefix="/editor")
 @rt("/")
 def index(session):
     return Titled(
-        "AgileFFP - YAML Editor",
+        "AgileFFP - by Javier Carnero",
         Container(
             DivHStacked(
                 # Left content (spans 2/3 width)
