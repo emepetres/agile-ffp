@@ -1,4 +1,4 @@
-from fasthtml.common import Container, Div, Img, Script, Titled, fast_app, serve
+from fasthtml.common import Container, Img, Script, Titled, fast_app, serve
 from monsterui.all import (
     DivHStacked,
     Theme,
