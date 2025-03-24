@@ -14,7 +14,6 @@ from monsterui.all import (
 )
 
 from agileffp import yaml_editor
-from agileffp.settings import app_settings
 
 headers = (
     Theme.blue.headers(),
@@ -30,7 +29,7 @@ yaml_editor.build_api(app, charts_id, prefix="/editor")
 @rt("/")
 def index(session):
     return Titled(
-        "AgileFFP - YAML Editor",
+        "AgileFFP - by Javier Carnero",
         Container(
             DivHStacked(
                 # Left content (spans 2/3 width)
@@ -50,8 +49,6 @@ def index(session):
 
 
 if __name__ == "__main__":
-    print("----Settings sample----")
-    print("MY_SAMPLE_VARIABLE", app_settings.MY_SAMPLE_VARIABLE)
-    print("OTHER_VARIABLE", app_settings.OTHER_VARIABLE)
+    print("----Development environment----")
 
-    serve(appname="agileffp.app", app="app")
+    serve(appname="agileffp.app", app="app", reload=True)
