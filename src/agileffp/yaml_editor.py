@@ -96,7 +96,7 @@ def build_api(app, charts_target: str, prefix: str = None):
             P("Help Information"),
             Button(UkIcon("x"),
                    aria_label="Close",
-                   hx_get="#",
+                   hx_get=Endpoints.HELP.with_prefix(),
                    hx_target="#help-dialog",
                    hx_swap="delete",
                    cls=(ButtonT.ghost, "h-9 w-9 p-0"),
