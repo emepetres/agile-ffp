@@ -1,9 +1,8 @@
-python-fasthtml==0.12.1
-MonsterUI==1.0.10
+python-fasthtml==0.12.4
+MonsterUI==1.0.11
 pydantic==2.10.6
 pydantic-settings==2.8.0
 python-dotenv==1.0.1
-workalendar==17.0.*
 plotly[express]==6.0.*
 pandas==2.2.*
 gunicorn==23.0.*

@@ -8,8 +8,8 @@
       "name": "Local Server",
       "type": "debugpy",
       "request": "launch",
-      "module": "agileffp.main",
-      "cwd": "${workspaceFolder}/src",
+      "module": "agileffp.app",
+      "cwd": "${workspaceFolder}",
       "args": []
     }
   ]
