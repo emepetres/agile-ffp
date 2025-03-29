@@ -80,8 +80,8 @@ def build_api(app, charts_target: str, prefix: str = None):
         _, charts = render(session, update_editor=False)
         return charts
 
-    @router.put(Endpoints.TOGGLE_EDITOR.value)
-    def toggle_editor(session):
+    @router.get(Endpoints.TOGGLE_EDITOR.value)
+    async def toggle_editor(request: Request, session):
         session["editor_hidden"] = not session["editor_hidden"]
         return render(session, update_charts=False)
 
@@ -154,7 +154,7 @@ def _render_editor_visible(filename: str, yaml_content: str):
                 # Sidebar toggle button
                 Div(
                     Button(UkIcon("chevron-right"), cls=ButtonT.ghost),
-                    hx_put=Endpoints.TOGGLE_EDITOR.with_prefix(),
+                    hx_get=Endpoints.TOGGLE_EDITOR.with_prefix(),
                     hx_target="#yaml-editor-container",
                     hx_swap="outerHTML",
                     style="position: fixed; top: 0;"
@@ -201,7 +201,7 @@ def _render_editor_hidden():
         # Sidebar toggle button
         Div(
             Button(UkIcon("chevron-left"), cls=ButtonT.ghost),
-            hx_put=Endpoints.TOGGLE_EDITOR.with_prefix(),
+            hx_get=Endpoints.TOGGLE_EDITOR.with_prefix(),
             hx_target="#yaml-editor-container",
             hx_swap="outerHTML",
         ),
