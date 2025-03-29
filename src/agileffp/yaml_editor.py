@@ -215,11 +215,15 @@ def _render_yaml_content(filename: str, yaml_content: str | None):
         Div(
             P(f"File: {filename}", cls=[
                 TextT.success, "font-mono px-4 w-[400px]"]),
-            A("Help?", cls=[
-                TextT.info, "font-mono px-4 w-[400px] text-right"],
-              hx_get=Endpoints.HELP.with_prefix(),
-              hx_target="#help-container",
-              ),
+            Div(
+                Button(UkIcon("save"), cls=[ButtonT.ghost, "h-6 w-6 p-0"]),
+                Button(UkIcon("trash"), cls=[ButtonT.ghost, "h-6 w-6 p-0"]),
+                A("Help?", cls=[TextT.info, "font-mono"],
+                  hx_get=Endpoints.HELP.with_prefix(),
+                  hx_target="#help-container",
+                  ),
+                cls="flex items-center gap-2 px-4"
+            ),
             cls="flex justify-between",
         ),
         Pre(
