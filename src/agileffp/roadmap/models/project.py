@@ -5,7 +5,7 @@ from agileffp.roadmap.models.epic import Epic
 from agileffp.roadmap.models.iteration import DefaultIteration, Iteration
 
 
-class Gantt(BaseModel):
+class Project(BaseModel):
     teams: list[Team]
     iterations: list[Iteration]
     default_iteration: DefaultIteration | None = None

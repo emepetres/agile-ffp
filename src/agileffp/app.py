@@ -1,4 +1,12 @@
-from fasthtml.common import Container, Img, Script, Titled, fast_app, serve
+from fasthtml.common import (
+    Container,
+    Img,
+    Script,
+    Titled,
+    fast_app,
+    serve,
+    setup_toasts,
+)
 from monsterui.all import (
     DivHStacked,
     Theme,
@@ -15,6 +23,7 @@ headers = (
 
 charts_id = "main-content"
 app, rt = fast_app(hdrs=headers, static_path="static")
+setup_toasts(app)
 yaml_editor.build_api(app, charts_id, prefix="/editor")
 
 

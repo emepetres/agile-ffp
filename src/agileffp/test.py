@@ -1,30 +1,33 @@
 # # from fasthtml.common import *
 
 # # app, rt = fast_app()
+# # setup_toasts(app)
 # # router = APIRouter()
+
+# # call_count = 0
 
 
 # # @router.get("/")
-# # def index(session):
-# #     session["test"] = session.get("test", "Hello, Default!")
+# # def index():
+# #     global call_count
+# #     call_count += 1
+# #     print(f"GET calls: {call_count}")
 # #     return Div(
-# #         P(f"Session test value: {session["test"]}"),
-# #         Div(A("Update session value", hx_put="/update_sync", hx_target="body")),
-# #         Div(A("Update session value (async)", hx_put="/update_async", hx_target="body"))
+# #         Div(A("GET toast test", hx_get="/test_toast", hx_swap="none")),
+# #         Div(A("PUT toast test", hx_put="/test_toast", hx_swap="none")),
 # #     )
 
 
-# # @ router.put("/update_sync")
-# # def update_sync(session):
-# #     session["test"] = "Hello, world sync update!"
-# #     return Div(A("Check session values", href="/"))
+# # @router.get("/test_toast")
+# # def get_test_toast(session):
+# #     add_toast(session, "GET test toast!", "success")
+# #     return
 
 
-# # @ router.put("/update_async")
-# # async def update_async(request, session):
-# #     form: FormData = await request.form()
-# #     session["test"] = "Hello, world async update!"
-# #     return Div(A("Check session values", href="/"))
+# # @router.put("/test_toast")
+# # def put_test_toast(session):
+# #     add_toast(session, "PUT test toast!", "success")
+# #     return
 
 
 # # router.to_app(app)

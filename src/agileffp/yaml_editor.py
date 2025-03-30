@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+from datetime import datetime
 from enum import Enum
 from textwrap import dedent
 
@@ -14,6 +16,9 @@ from fasthtml.common import (
     P,
     Pre,
     Request,
+    Titled,
+    add_toast,
+    database,
 )
 from monsterui.all import (
     Button,
@@ -33,6 +38,7 @@ class Endpoints(Enum):
     UPDATE_YAML = "/update_yaml"
     RESET = "/reset"
     HELP = "/help"
+    SAVE_YAML = "/save_yaml"
 
     def with_prefix(self) -> str:
         if not _prefix:
@@ -45,12 +51,27 @@ _prefix = None  # Endpoints URL prefix when building api
 _charts_target = None  # Target ID for the charts component
 
 
+@dataclass
+class YamlFile:
+    name: str
+    saved_at: str
+    content: str
+
+
+def init_db(app):
+    db = database('data/yaml_files.db')
+    yaml_files = db.create(YamlFile, pk=('name', 'saved_at'))
+    return db, yaml_files
+
+
 def build_api(app, charts_target: str, prefix: str = None):
     global _prefix, _charts_target
     _prefix = "/" + prefix.strip("/") if prefix else None
     _charts_target = charts_target
 
     router: APIRouter = APIRouter(prefix=prefix)
+
+    db, yaml_files = init_db(app)
 
     @router.put(Endpoints.UPLOAD.value)
     async def set_yaml(request: Request, session):
@@ -110,6 +131,27 @@ def build_api(app, charts_target: str, prefix: str = None):
             open=True,
             id='help-dialog'
         )
+
+    @router.put(Endpoints.SAVE_YAML.value)
+    async def save_yaml(request: Request, session):
+        if not session.get("yaml_content"):
+            add_toast(session, "No project to save", "error")
+            return
+
+        filename = session["yaml_filename"].rsplit(
+            '.', 1)[0]  # Remove extension
+        now = datetime.now().isoformat()
+
+        # Create YamlFile instance and insert using MiniDataAPI
+        yaml_file = YamlFile(
+            name=filename,
+            saved_at=now,
+            content=session["yaml_content"]
+        )
+        yaml_files.insert(yaml_file)
+
+        add_toast(session,"Project saved successfully!", "success")
+        return
 
     router.to_app(app)
 
@@ -216,8 +258,16 @@ def _render_yaml_content(filename: str, yaml_content: str | None):
             P(f"File: {filename}", cls=[
                 TextT.success, "font-mono px-4 w-[400px]"]),
             Div(
-                Button(UkIcon("save"), cls=[ButtonT.ghost, "h-6 w-6 p-0"]),
-                Button(UkIcon("trash"), cls=[ButtonT.ghost, "h-6 w-6 p-0"]),
+                Button(UkIcon("save"),
+                       cls=[ButtonT.ghost, "h-6 w-6 p-0"],
+                       hx_put=Endpoints.SAVE_YAML.with_prefix(),
+                       hx_target="this",
+                       hx_swap="none",
+                       hx_indicator="#spinner",
+                       aria_label="Save YAML"),
+                Button(UkIcon("trash"),
+                       cls=[ButtonT.ghost, "h-6 w-6 p-0"],
+                       aria_label="Delete YAML"),
                 A("Help?", cls=[TextT.info, "font-mono"],
                   hx_get=Endpoints.HELP.with_prefix(),
                   hx_target="#help-container",

@@ -2,10 +2,10 @@ from datetime import date
 
 import pytest
 
-from agileffp.roadmap.gantt import Gantt
 from agileffp.roadmap.models.developers_team import Team
 from agileffp.roadmap.models.epic import Epic
 from agileffp.roadmap.models.iteration import Iteration
+from agileffp.roadmap.models.project import Project
 
 
 @pytest.fixture
@@ -90,8 +90,8 @@ def sample_epics():
 
 
 def test_planned_effort_in_iterations(sample_teams, sample_iterations, sample_epics):
-    sample_gantt = Gantt(teams=sample_teams,
-                         iterations=sample_iterations, epics=sample_epics)
+    sample_gantt = Project(teams=sample_teams,
+                           iterations=sample_iterations, epics=sample_epics)
 
     iteration_1 = sample_gantt.iterations[0].to_dict(sample_teams)
     iteration_2 = sample_gantt.iterations[1].to_dict(sample_teams)

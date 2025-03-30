@@ -4,8 +4,8 @@ import plotly.express as px
 from fasthtml.common import FT, H2, NotStr, P, Table, Tbody, Td, Th, Thead, Tr
 from monsterui.all import Card, DivVStacked
 
-from agileffp.roadmap.gantt import Gantt
 from agileffp.roadmap.models.epic import Epic
+from agileffp.roadmap.models.project import Project
 
 
 def initialize(target: str):
@@ -21,7 +21,7 @@ def initialize(target: str):
 
 
 def render_charts(data: dict, target: str):
-    gantt = Gantt(**data)
+    gantt = Project(**data)
 
     # # timeline_tasks = (
     # #     [tl for c in capacity.values()
