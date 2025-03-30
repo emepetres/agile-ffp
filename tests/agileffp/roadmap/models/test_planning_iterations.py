@@ -5,7 +5,7 @@ import pytest
 from agileffp.roadmap.models.developers_team import Team
 from agileffp.roadmap.models.epic import Epic
 from agileffp.roadmap.models.iteration import Iteration
-from agileffp.roadmap.models.project import Project
+from agileffp.roadmap.models.planning import Planning
 
 
 @pytest.fixture
@@ -90,14 +90,14 @@ def sample_epics():
 
 
 def test_planned_effort_in_iterations(sample_teams, sample_iterations, sample_epics):
-    sample_gantt = Project(teams=sample_teams,
-                           iterations=sample_iterations, epics=sample_epics)
+    sample_planning = Planning(teams=sample_teams,
+                            iterations=sample_iterations, epics=sample_epics)
 
-    iteration_1 = sample_gantt.iterations[0].to_dict(sample_teams)
-    iteration_2 = sample_gantt.iterations[1].to_dict(sample_teams)
-    iteration_3 = sample_gantt.iterations[2].to_dict(sample_teams)
-    iteration_4 = sample_gantt.iterations[3].to_dict(sample_teams)
-    iteration_5 = sample_gantt.iterations[4].to_dict(sample_teams)
+    iteration_1 = sample_planning.iterations[0].to_dict(sample_teams)
+    iteration_2 = sample_planning.iterations[1].to_dict(sample_teams)
+    iteration_3 = sample_planning.iterations[2].to_dict(sample_teams)
+    iteration_4 = sample_planning.iterations[3].to_dict(sample_teams)
+    iteration_5 = sample_planning.iterations[4].to_dict(sample_teams)
 
     assert iteration_1["[Items] dev1"] == "Closed Epic: 3.0"
     assert iteration_1["[Items] dev2"] == "Closed Epic: 2.0"

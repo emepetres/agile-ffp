@@ -5,7 +5,7 @@ from fasthtml.common import FT, H2, NotStr, P, Table, Tbody, Td, Th, Thead, Tr
 from monsterui.all import Card, DivVStacked
 
 from agileffp.roadmap.models.epic import Epic
-from agileffp.roadmap.models.project import Project
+from agileffp.roadmap.models.planning import Planning
 
 
 def initialize(target: str):
@@ -21,18 +21,18 @@ def initialize(target: str):
 
 
 def render_charts(data: dict, target: str):
-    gantt = Project(**data)
+    planning = Planning(**data)
 
     # # timeline_tasks = (
     # #     [tl for c in capacity.values()
     # #      for tl in c.to_timeline()] if capacity else []
     # # )
 
-    epics = [epic.to_dict(gantt.teams) for epic in gantt.sorted_epics]
-    iterations = [it.to_dict(gantt.teams) for it in gantt.iterations]
+    epics = [epic.to_dict(planning.teams) for epic in planning.sorted_epics]
+    iterations = [it.to_dict(planning.teams) for it in planning.iterations]
 
     return DivVStacked(
-        Card(render_gantt_chart(gantt.sorted_epics)),
+        Card(render_planning_chart(planning.sorted_epics)),
         # Card(render_capacity_chart(timeline_tasks)) if capacity else None,
         Card(render_table(epics)),
         Card(render_table(iterations)),
@@ -42,7 +42,7 @@ def render_charts(data: dict, target: str):
     )
 
 
-def render_gantt_chart(epics: list[Epic]) -> FT:
+def render_planning_chart(epics: list[Epic]) -> FT:
     df = pd.DataFrame(
         [
             {
