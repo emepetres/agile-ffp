@@ -1,23 +1,11 @@
 
 import pandas as pd
 import plotly.express as px
-from fasthtml.common import FT, H2, NotStr, P, Table, Tbody, Td, Th, Thead, Tr
+from fasthtml.common import FT, NotStr, Table, Tbody, Td, Th, Thead, Tr
 from monsterui.all import Card, DivVStacked
 
 from agileffp.roadmap.models.epic import Epic
 from agileffp.roadmap.models.planning import Planning
-
-
-def initialize(target: str):
-    return DivVStacked(
-        Card(
-            H2("Welcome to AgileFFP"),
-            P("This is the main content area. Use the sidebar to load project information and generate charts."),
-        ),
-        id=target,
-        hx_swap_oob="true",
-        cls="container mt-8 mx-auto",
-    )
 
 
 def render_charts(data: dict, target: str):

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from datetime import datetime
 
+from apswutils.db import Database
 from fasthtml.common import (
     APIRouter,
     DialogX,
@@ -9,7 +9,6 @@ from fasthtml.common import (
     P,
     Request,
     add_toast,
-    database,
 )
 from monsterui.all import (
     Button,
@@ -28,19 +27,19 @@ class YamlFile:
     content: str
 
 
-def init_db(app):
-    db = database('data/yaml_files.db')
-    yaml_files = db.create(YamlFile, pk=('name', 'saved_at'))
-    return db, yaml_files
+# # def init_db(db: Database, app):
+# #     db = database('data/yaml_files.db')
+# #     yaml_files = db.create(YamlFile, pk=('name', 'saved_at'))
+# #     return db, yaml_files
 
 
-def build_api(app, charts_target: str, prefix: str = None):
+def build_api(app, db: Database, charts_target: str, prefix: str = None):
     config.CHARTS_TARGET = charts_target
     config.PREFIX = "/" + prefix.strip("/") if prefix else None
 
     router: APIRouter = APIRouter(prefix=config.PREFIX)
 
-    db, yaml_files = init_db(app)
+    # # init_db(db, app)
 
     @router.put(config.Endpoints.UPLOAD.value)
     async def set_yaml(request: Request, session):
@@ -107,17 +106,17 @@ def build_api(app, charts_target: str, prefix: str = None):
             add_toast(session, "No project to save", "error")
             return
 
-        filename = session["yaml_filename"].rsplit(
-            '.', 1)[0]  # Remove extension
-        now = datetime.now().isoformat()
+        # # filename = session["yaml_filename"].rsplit(
+        # #     '.', 1)[0]  # Remove extension
+        # # now = datetime.now().isoformat()
 
-        # Create YamlFile instance and insert using MiniDataAPI
-        yaml_file = YamlFile(
-            name=filename,
-            saved_at=now,
-            content=session["yaml_content"]
-        )
-        yaml_files.insert(yaml_file)
+        # # # Create YamlFile instance and insert using MiniDataAPI
+        # # yaml_file = YamlFile(
+        # #     name=filename,
+        # #     saved_at=now,
+        # #     content=session["yaml_content"]
+        # # )
+        # # yaml_files.insert(yaml_file)
 
         add_toast(session, "Project saved successfully!", "success")
         return

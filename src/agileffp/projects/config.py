@@ -1,6 +1,8 @@
 from enum import Enum
 
+RENDER_TARGET: str = None
 PREFIX: str = None
+PROJECTS_TABLE = None
 
 
 class Endpoints(Enum):
