@@ -5,7 +5,8 @@ import pytest
 from fasthtml.common import fast_app
 from starlette.testclient import TestClient
 
-from agileffp.yaml_editor import Endpoints, build_api
+from agileffp.yaml_editor.api import build_api
+from agileffp.yaml_editor.config import Endpoints
 
 
 @pytest.fixture
@@ -121,7 +122,7 @@ def test_set_yaml_preserves_order(client, ordered_yaml):
 
 
 def test_endpoints_prefix():
-    from agileffp.yaml_editor import Endpoints
+    from agileffp.yaml_editor.config import Endpoints
 
     app, _ = fast_app()
     build_api(app, None, prefix="/test")

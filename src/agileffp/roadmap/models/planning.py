@@ -1,3 +1,4 @@
+
 from pydantic import BaseModel
 
 from agileffp.roadmap.models.developers_team import Team
@@ -6,6 +7,8 @@ from agileffp.roadmap.models.iteration import DefaultIteration, Iteration
 
 
 class Planning(BaseModel):
+    # # project_name: str
+    # # project_version: datetime
     teams: list[Team]
     iterations: list[Iteration]
     default_iteration: DefaultIteration | None = None

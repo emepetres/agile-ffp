@@ -1,24 +1,14 @@
-from dataclasses import dataclass
-from datetime import datetime
-from enum import Enum
 from textwrap import dedent
 
 import yaml
 from fasthtml.common import (
     A,
-    APIRouter,
     Code,
-    DialogX,
     Div,
-    FormData,
     Img,
     Input,
     P,
     Pre,
-    Request,
-    Titled,
-    add_toast,
-    database,
 )
 from monsterui.all import (
     Button,
@@ -29,131 +19,7 @@ from monsterui.all import (
 )
 
 from agileffp.roadmap.charts import render_charts
-
-
-class Endpoints(Enum):
-    UPLOAD = "/upload"
-    UPLOAD_TEMPLATE = "/upload_template"
-    TOGGLE_EDITOR = "/toggle_editor"
-    UPDATE_YAML = "/update_yaml"
-    RESET = "/reset"
-    HELP = "/help"
-    SAVE_YAML = "/save_yaml"
-
-    def with_prefix(self) -> str:
-        if not _prefix:
-            return self.value
-
-        return f"{_prefix}{self.value}"
-
-
-_prefix = None  # Endpoints URL prefix when building api
-_charts_target = None  # Target ID for the charts component
-
-
-@dataclass
-class YamlFile:
-    name: str
-    saved_at: str
-    content: str
-
-
-def init_db(app):
-    db = database('data/yaml_files.db')
-    yaml_files = db.create(YamlFile, pk=('name', 'saved_at'))
-    return db, yaml_files
-
-
-def build_api(app, charts_target: str, prefix: str = None):
-    global _prefix, _charts_target
-    _prefix = "/" + prefix.strip("/") if prefix else None
-    _charts_target = charts_target
-
-    router: APIRouter = APIRouter(prefix=prefix)
-
-    db, yaml_files = init_db(app)
-
-    @router.put(Endpoints.UPLOAD.value)
-    async def set_yaml(request: Request, session):
-        # Get the uploaded file from the request
-        form: FormData = await request.form()
-        file = form.get("file")
-        yaml_content = file.file.read().decode("utf-8") if file else None
-
-        session["yaml_content"] = yaml_content
-        session["yaml_filename"] = file.filename if file else "-"
-
-        return render(session)
-
-    @router.put(Endpoints.UPLOAD_TEMPLATE.value)
-    def load_template(session):
-        yaml_content = get_default_template()
-        session["yaml_content"] = yaml_content
-        session["yaml_filename"] = "template.yaml"
-
-        return render(session)
-
-    @router.post(Endpoints.UPDATE_YAML.value)
-    async def update_yaml(request: Request, session):
-        form: FormData = await request.form()
-        session["yaml_content"] = form.get("yaml_content")
-        # Only return the charts component since we don't want to update the editor
-        _, charts = render(session, update_editor=False)
-        return charts
-
-    @router.get(Endpoints.TOGGLE_EDITOR.value)
-    async def toggle_editor(request: Request, session):
-        session["editor_hidden"] = not session["editor_hidden"]
-        return render(session, update_charts=False)
-
-    @router.put(Endpoints.RESET.value)
-    def reset(session):
-        initialize(session)
-        return render(session)
-
-    @router.get(Endpoints.HELP.value)
-    def help():
-        hdr = Div(
-            P("Help Information"),
-            Button(UkIcon("x"),
-                   aria_label="Close",
-                   hx_get=Endpoints.HELP.with_prefix(),
-                   hx_target="#help-dialog",
-                   hx_swap="delete",
-                   cls=(ButtonT.ghost, "h-9 w-9 p-0"),
-                   style="width: 2.25rem;"
-                   ),
-            cls="flex justify-between items-center px-4 py-1"
-        )
-        return DialogX(
-            P("Here is some helpful information about using the YAML editor."),
-            header=hdr,
-            open=True,
-            id='help-dialog'
-        )
-
-    @router.put(Endpoints.SAVE_YAML.value)
-    async def save_yaml(request: Request, session):
-        if not session.get("yaml_content"):
-            add_toast(session, "No project to save", "error")
-            return
-
-        filename = session["yaml_filename"].rsplit(
-            '.', 1)[0]  # Remove extension
-        now = datetime.now().isoformat()
-
-        # Create YamlFile instance and insert using MiniDataAPI
-        yaml_file = YamlFile(
-            name=filename,
-            saved_at=now,
-            content=session["yaml_content"]
-        )
-        yaml_files.insert(yaml_file)
-
-        add_toast(session,"Project saved successfully!", "success")
-        return
-
-    router.to_app(app)
+from agileffp.yaml_editor import config
 
 
 def initialize(session):
@@ -175,13 +41,13 @@ def render(session, update_editor: bool = True, update_charts: bool = True):
             yaml_data = yaml.safe_load(
                 session["yaml_content"]) if session["yaml_content"] else None
             charts = render_charts(
-                yaml_data, _charts_target) if yaml_data else None
+                yaml_data, config.CHARTS_TARGET) if yaml_data else None
         except yaml.YAMLError as e:
             charts = Div(
-                f"Invalid YAML format: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=_charts_target)
+                f"Invalid YAML format: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=config.CHARTS_TARGET)
         except Exception as e:
             charts = Div(
-                f"Error processing YAML: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=_charts_target)
+                f"Error processing YAML: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=config.CHARTS_TARGET)
 
     return editor, charts
 
@@ -196,7 +62,7 @@ def _render_editor_visible(filename: str, yaml_content: str):
                 # Sidebar toggle button
                 Div(
                     Button(UkIcon("chevron-right"), cls=ButtonT.ghost),
-                    hx_get=Endpoints.TOGGLE_EDITOR.with_prefix(),
+                    hx_get=config.Endpoints.TOGGLE_EDITOR.with_prefix(),
                     hx_target="#yaml-editor-container",
                     hx_swap="outerHTML",
                     style="position: fixed; top: 0;"
@@ -207,7 +73,7 @@ def _render_editor_visible(filename: str, yaml_content: str):
                         cls="w-6 h-6 inline-block"),
                     alt="Load template",
                     cls=(ButtonT.primary, "mt-14"),
-                    hx_put=Endpoints.UPLOAD_TEMPLATE.with_prefix(),
+                    hx_put=config.Endpoints.UPLOAD_TEMPLATE.with_prefix(),
                     hx_target="#editor-container",
                     hx_indicator="#spinner",
                     style="width: auto !important"
@@ -219,7 +85,7 @@ def _render_editor_visible(filename: str, yaml_content: str):
                         id="file",
                         name="file",
                         hx_encoding="multipart/form-data",
-                        hx_put=Endpoints.UPLOAD.with_prefix(),
+                        hx_put=config.Endpoints.UPLOAD.with_prefix(),
                         hx_trigger="change",
                         hx_target="#editor-container",
                         hx_indicator="#spinner",
@@ -243,7 +109,7 @@ def _render_editor_hidden():
         # Sidebar toggle button
         Div(
             Button(UkIcon("chevron-left"), cls=ButtonT.ghost),
-            hx_get=Endpoints.TOGGLE_EDITOR.with_prefix(),
+            hx_get=config.Endpoints.TOGGLE_EDITOR.with_prefix(),
             hx_target="#yaml-editor-container",
             hx_swap="outerHTML",
         ),
@@ -260,7 +126,7 @@ def _render_yaml_content(filename: str, yaml_content: str | None):
             Div(
                 Button(UkIcon("save"),
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
-                       hx_put=Endpoints.SAVE_YAML.with_prefix(),
+                       hx_put=config.Endpoints.SAVE_YAML.with_prefix(),
                        hx_target="this",
                        hx_swap="none",
                        hx_indicator="#spinner",
@@ -269,7 +135,7 @@ def _render_yaml_content(filename: str, yaml_content: str | None):
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
                        aria_label="Delete YAML"),
                 A("Help?", cls=[TextT.info, "font-mono"],
-                  hx_get=Endpoints.HELP.with_prefix(),
+                  hx_get=config.Endpoints.HELP.with_prefix(),
                   hx_target="#help-container",
                   ),
                 cls="flex items-center gap-2 px-4"
@@ -280,8 +146,8 @@ def _render_yaml_content(filename: str, yaml_content: str | None):
             Code(yaml_content,
                  contenteditable=True,
                  id="yaml-editor",
-                 hx_post=Endpoints.UPDATE_YAML.with_prefix(),
-                 hx_target=f"#{_charts_target}",
+                 hx_post=config.Endpoints.UPDATE_YAML.with_prefix(),
+                 hx_target=f"#{config.CHARTS_TARGET}",
                  hx_trigger="change, keyup delay:0.5s",
                  hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
                  name="yaml_content",
