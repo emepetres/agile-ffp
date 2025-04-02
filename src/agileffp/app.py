@@ -13,7 +13,6 @@ from fasthtml.common import (
     serve,
 )
 from monsterui.all import (
-    H1,
     ButtonT,
     DivCentered,
     DivHStacked,
@@ -33,17 +32,15 @@ headers = (
 
 charts_id = "main-content"
 
-# Azure AD Configuration
-# # config = Config('dev.env')
-# # oauth = OAuth(config)
-oauth = OAuth()
-oauth.register(
-    name='microsoft',
-    client_id=app_settings.MICROSOFT_CLIENT_ID,
-    client_secret=app_settings.MICROSOFT_CLIENT_SECRET,
-    server_metadata_url='https://login.microsoftonline.com/plain.onmicrosoft.com/v2.0/.well-known/openid-configuration',
-    client_kwargs={'scope': 'openid email profile'}
-)
+if not app_settings.DISABLE_AUTH:
+    oauth = OAuth()
+    oauth.register(
+        name='microsoft',
+        client_id=app_settings.MICROSOFT_CLIENT_ID,
+        client_secret=app_settings.MICROSOFT_CLIENT_SECRET,
+        server_metadata_url='https://login.microsoftonline.com/plain.onmicrosoft.com/v2.0/.well-known/openid-configuration',
+        client_kwargs={'scope': 'openid email profile'}
+    )
 
 # Auth beforeware
 login_redir = RedirectResponse('/login', status_code=303)
@@ -68,7 +65,11 @@ yaml_editor.build_api(app, charts_id, prefix="/editor")
 
 
 @rt("/login")
-def get():
+def get(session):
+    if app_settings.DISABLE_AUTH:
+        # Set the auth in session for beforeware
+        session['auth'] = "dev@plainconcepts.com"
+        return RedirectResponse('/', status_code=303)
     # Only redirect to auth if the user explicitly clicked the login button
     return Titled(
         "AgileFFP - Redirecting to Microsoft login",
