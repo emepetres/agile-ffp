@@ -22,6 +22,20 @@ jobs:
           app-name: agileffp
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: dist.zip
+          # Add app settings using JSON format
+          app-settings-json: |
+            [
+              {
+                "name": "MICROSOFT_CLIENT_ID",
+                "value": "${{ secrets.MICROSOFT_CLIENT_ID }}",
+                "slotSetting": false
+              },
+              {
+                "name": "MICROSOFT_CLIENT_SECRET",
+                "value": "${{ secrets.MICROSOFT_CLIENT_SECRET }}",
+                "slotSetting": false
+              }
+            ]
         continue-on-error: true
 
       - name: Display deployment logs
