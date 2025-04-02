@@ -15,6 +15,12 @@ iterations:
     capacity:
       Sergio: 10
       Rodrigo: 2
+    closed:
+      Sergio:
+        Visor GS: 3
+        Etiquetas: 1
+      Rodrigo:
+        Preprocesamiento: 1
   - name: 2
     start: 2025-04-02
     end: 2025-04-23
@@ -45,16 +51,16 @@ epics:
     items:
       3D: 4
     planned:
-      Sergio: 2.5
+      Sergio: 2
     priority: 10
   - name: Preprocesamiento
     items:
-      IA: 4
+      IA: 5
     planned:
       Rodrigo: 2
   - name: Generación GS
     items:
-      IA: 5
+      IA: 3
     planned:
       Rodrigo: 2
   - name: Etiquetas
@@ -75,11 +81,11 @@ epics:
       - Visor GS
   - name: Segmentación 2D
     items:
-      IA: 3
+      IA: 6
     planned:
       Rodrigo: 2
   - name: Segmentación 3D
     items:
-      IA: 4
+      IA: 3
     planned:
-      Rodrigo: 2.5
+      Rodrigo: 2
