@@ -1,3 +1,4 @@
+from apswutils.db import Database
 from authlib.integrations.starlette_client import OAuth
 from fasthtml.common import (
     A,
@@ -7,14 +8,6 @@ from fasthtml.common import (
     Img,
     P,
     RedirectResponse,
-    Script,
-    Titled,
-    fast_app,
-    serve,
-from apswutils.db import Database
-from fasthtml.common import (
-    Container,
-    Img,
     Script,
     Titled,
     database,
@@ -38,9 +31,9 @@ from agileffp.constants import (
 )
 from agileffp.projects.api import build_api as build_projects_api
 from agileffp.projects.api import render_projects
+from agileffp.settings import app_settings
 from agileffp.yaml_editor.api import build_api as build_editor_api
 from agileffp.yaml_editor.render import initialize as render_editor
-from agileffp.settings import app_settings
 
 headers = (
     Theme.blue.headers(),
@@ -77,10 +70,8 @@ beforeware = Beforeware(
           r'.*\.css', r'.*\.js', '/login', '/auth', '/auth/callback', '/']
 )
 
-app, rt = fast_app(hdrs=headers, static_path="static", before=beforeware)
-yaml_editor.build_api(app, charts_id, prefix="/editor")
 db: Database = database(DB_PATH)
-app, rt = fast_app(hdrs=headers, static_path="static")
+app, rt = fast_app(hdrs=headers, static_path="static", before=beforeware)
 setup_toasts(app)
 build_projects_api(app, db, CHARTS_CONTAINER_ID, prefix=PROJECTS_API_PREFIX)
 build_editor_api(app, db, CHARTS_CONTAINER_ID, prefix=EDITOR_API_PREFIX)

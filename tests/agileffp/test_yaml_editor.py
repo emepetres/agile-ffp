@@ -125,6 +125,6 @@ def test_endpoints_prefix():
     from agileffp.yaml_editor.config import Endpoints
 
     app, _ = fast_app()
-    build_api(app, None, prefix="/test")
+    build_api(app, None, None, prefix="/test")
 
     assert Endpoints.UPLOAD.with_prefix() == "/test" + Endpoints.UPLOAD.value
