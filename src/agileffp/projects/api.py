@@ -56,7 +56,7 @@ def build_api(app, db: Database, render_target: str, prefix: str = None):
             Button(
                 "Create",
                 hx_post=config.Endpoints.CREATE.with_prefix(),
-                hx_include="#new-project-dialog form",  # FIXME: This is not working
+                hx_include="#new-project-dialog",  # FIXME: This is not working
                 hx_target=f"#{config.RENDER_TARGET}",
                 hx_swap="innerHTML"
             ),
