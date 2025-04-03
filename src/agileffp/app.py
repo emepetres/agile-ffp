@@ -27,6 +27,7 @@ from agileffp.constants import (
     CHARTS_CONTAINER_ID,
     DB_PATH,
     EDITOR_API_PREFIX,
+    MAIN_CONTAINER_ID,
     PROJECTS_API_PREFIX,
 )
 from agileffp.projects.api import build_api as build_projects_api
@@ -73,7 +74,7 @@ beforeware = Beforeware(
 db: Database = database(DB_PATH)
 app, rt = fast_app(hdrs=headers, static_path="static", before=beforeware)
 setup_toasts(app)
-build_projects_api(app, db, CHARTS_CONTAINER_ID, prefix=PROJECTS_API_PREFIX)
+build_projects_api(app, db, MAIN_CONTAINER_ID, prefix=PROJECTS_API_PREFIX)
 build_editor_api(app, db, CHARTS_CONTAINER_ID, prefix=EDITOR_API_PREFIX)
 
 # Add login routes
@@ -182,13 +183,8 @@ def index(session, auth=None):
         Container(
             header,
             DivHStacked(
-                DivVStacked(
-                    render_projects(),
-                    id=CHARTS_CONTAINER_ID,
-                    hx_swap_oob="true",
-                    cls="container mt-8 mx-auto",
-                ),
-                render_editor(session),
+                render_projects(),
+                id=MAIN_CONTAINER_ID,
                 cls="gap-4",
             ),
         ),
@@ -199,6 +195,18 @@ def index(session, auth=None):
             alt="Computing charts...",
         ),
     )
+
+
+@rt(f"/{PROJECTS_API_PREFIX}/" + "{name}")
+def get_project(name: str, session):
+    return (
+        DivVStacked(
+            P(name),
+            id=CHARTS_CONTAINER_ID,
+            hx_swap_oob="true",
+            cls="container mt-8 mx-auto",
+        ),
+        render_editor(session))
 
 
 if __name__ == "__main__":

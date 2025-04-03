@@ -56,7 +56,7 @@ def build_api(app, db: Database, render_target: str, prefix: str = None):
             Button(
                 "Create",
                 hx_post=config.Endpoints.CREATE.with_prefix(),
-                hx_include="#new-project-dialog",  # FIXME: This is not working
+                hx_include="#new-project-dialog",
                 hx_target=f"#{config.RENDER_TARGET}",
                 hx_swap="innerHTML"
             ),
@@ -141,7 +141,9 @@ def render_projects():
                     cls="flex justify-between items-center"
                 ),
                 CardBody(P(project.description)),
-                cls="h-full"
+                cls="h-full",
+                hx_get=f"{config.Endpoints.GET.with_prefix()}{project.name}",  # FIXME: endpoint not working
+                hx_target=f"#{config.RENDER_TARGET}"
             )
             for project in project_list
         ],

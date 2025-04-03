@@ -10,6 +10,7 @@ class Endpoints(Enum):
     CREATE = "/create"
     DELETE = "/delete"
     NEW_PROJECT = "/new_project"
+    GET = "/"
 
     def with_prefix(self) -> str:
         if not PREFIX:
