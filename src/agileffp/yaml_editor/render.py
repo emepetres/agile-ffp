@@ -23,9 +23,9 @@ from agileffp.roadmap.charts import render_charts
 from agileffp.yaml_editor import config
 
 
-def initialize(session, name: str):
+def initialize(session, name: str, yaml_content: str):
     session["yaml_filename"] = "No file loaded"
-    session["yaml_content"] = None
+    session["yaml_content"] = yaml_content
     session["editor_hidden"] = False
 
     return (
@@ -34,7 +34,8 @@ def initialize(session, name: str):
             id=config.CHARTS_TARGET,
             cls="container mt-8 mx-auto",
         ),
-        render(session, update_charts=False))
+        render(session),
+    )
 
 
 def render(session, update_editor: bool = True, update_charts: bool = True):

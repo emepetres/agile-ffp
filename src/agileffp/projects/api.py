@@ -122,7 +122,8 @@ def build_api(app, db: Database, render_target: str, prefix: str = None):
 
     @router.get(config.Endpoints.GET.value + "{name}")
     def get_project(name: str, session):
-        return render_editor(session, name)
+        yaml_content = config.PROJECTS_TABLE[name].yaml_content
+        return render_editor(session, name, yaml_content)
 
     router.to_app(app)
 
