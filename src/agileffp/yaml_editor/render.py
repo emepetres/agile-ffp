@@ -14,6 +14,7 @@ from monsterui.all import (
     Button,
     ButtonT,
     DivHStacked,
+    DivVStacked,
     TextT,
     UkIcon,
 )
@@ -22,12 +23,18 @@ from agileffp.roadmap.charts import render_charts
 from agileffp.yaml_editor import config
 
 
-def initialize(session):
+def initialize(session, name: str):
     session["yaml_filename"] = "No file loaded"
     session["yaml_content"] = None
     session["editor_hidden"] = False
 
-    return render(session, update_charts=False)
+    return (
+        DivVStacked(
+            P(name),
+            id=config.CHARTS_TARGET,
+            cls="container mt-8 mx-auto",
+        ),
+        render(session, update_charts=False))
 
 
 def render(session, update_editor: bool = True, update_charts: bool = True):

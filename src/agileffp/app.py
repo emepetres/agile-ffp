@@ -6,6 +6,7 @@ from fasthtml.common import (
     Container,
     Div,
     Img,
+    Link,
     P,
     RedirectResponse,
     Script,
@@ -19,7 +20,6 @@ from monsterui.all import (
     ButtonT,
     DivCentered,
     DivHStacked,
-    DivVStacked,
     Theme,
 )
 
@@ -34,11 +34,10 @@ from agileffp.projects.api import build_api as build_projects_api
 from agileffp.projects.api import render_projects
 from agileffp.settings import app_settings
 from agileffp.yaml_editor.api import build_api as build_editor_api
-from agileffp.yaml_editor.render import initialize as render_editor
 
 headers = (
     Theme.blue.headers(),
-    # # Link(rel="icon", type="image/x-icon", href="/images/favicons/favicon.ico"),
+    Link(rel="icon", type="image/x-icon", href="/images/favicons/favicon.ico"),
     Script(src="https://unpkg.com/htmx-ext-sse@2.2.1/sse.js"),
     Script(src="https://cdn.plot.ly/plotly-2.24.1.min.js"),
 )
@@ -195,18 +194,6 @@ def index(session, auth=None):
             alt="Computing charts...",
         ),
     )
-
-
-@rt(f"/{PROJECTS_API_PREFIX}/" + "{name}")
-def get_project(name: str, session):
-    return (
-        DivVStacked(
-            P(name),
-            id=CHARTS_CONTAINER_ID,
-            hx_swap_oob="true",
-            cls="container mt-8 mx-auto",
-        ),
-        render_editor(session))
 
 
 if __name__ == "__main__":

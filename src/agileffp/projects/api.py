@@ -1,4 +1,3 @@
-
 from apswutils.db import Database
 from fasthtml.common import (
     APIRouter,
@@ -25,6 +24,7 @@ from monsterui.all import (
 
 from agileffp.projects import config
 from agileffp.projects.models.project import Project
+from agileffp.yaml_editor.render import initialize as render_editor
 
 
 def init_db(db: Database):
@@ -120,6 +120,10 @@ def build_api(app, db: Database, render_target: str, prefix: str = None):
         add_toast(request.session, "Project deleted successfully!", "success")
         return render_projects()
 
+    @router.get(config.Endpoints.GET.value + "{name}")
+    def get_project(name: str, session):
+        return render_editor(session, name)
+
     router.to_app(app)
 
 
@@ -142,7 +146,7 @@ def render_projects():
                 ),
                 CardBody(P(project.description)),
                 cls="h-full",
-                hx_get=f"{config.Endpoints.GET.with_prefix()}{project.name}",  # FIXME: endpoint not working
+                hx_get=f"{config.Endpoints.GET.with_prefix()}{project.name}",
                 hx_target=f"#{config.RENDER_TARGET}"
             )
             for project in project_list
