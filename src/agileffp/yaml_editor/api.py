@@ -49,7 +49,6 @@ def build_api(app, db: Database, charts_target: str, prefix: str = None):
         yaml_content = file.file.read().decode("utf-8") if file else None
 
         session["yaml_content"] = yaml_content
-        session["yaml_filename"] = file.filename if file else "-"
 
         return render(session)
 
@@ -57,7 +56,6 @@ def build_api(app, db: Database, charts_target: str, prefix: str = None):
     def load_template(session):
         yaml_content = get_default_template()
         session["yaml_content"] = yaml_content
-        session["yaml_filename"] = "template.yaml"
 
         return render(session)
 
@@ -106,17 +104,11 @@ def build_api(app, db: Database, charts_target: str, prefix: str = None):
             add_toast(session, "No project to save", "error")
             return
 
-        # # filename = session["yaml_filename"].rsplit(
-        # #     '.', 1)[0]  # Remove extension
         # # now = datetime.now().isoformat()
 
-        # # # Create YamlFile instance and insert using MiniDataAPI
-        # # yaml_file = YamlFile(
-        # #     name=filename,
-        # #     saved_at=now,
-        # #     content=session["yaml_content"]
-        # # )
-        # # yaml_files.insert(yaml_file)
+        project = config.PROJECTS_TABLE[session["project_name"]]  # FIXME: PROJECTS_TABLE is defined in projects/api.py
+        project.yaml_content = session["yaml_content"]
+        config.PROJECTS_TABLE.update(project)
 
         add_toast(session, "Project saved successfully!", "success")
         return

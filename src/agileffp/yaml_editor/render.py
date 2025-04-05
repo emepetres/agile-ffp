@@ -24,7 +24,7 @@ from agileffp.yaml_editor import config
 
 
 def initialize(session, name: str, yaml_content: str):
-    session["yaml_filename"] = "No file loaded"
+    session["project_name"] = name
     session["yaml_content"] = yaml_content
     session["editor_hidden"] = False
 
@@ -41,8 +41,8 @@ def initialize(session, name: str, yaml_content: str):
 def render(session, update_editor: bool = True, update_charts: bool = True):
     editor, charts = None, None
     if update_editor:
-        editor = _render_editor_hidden() if session["editor_hidden"] else _render_editor_visible(
-            session["yaml_filename"], session["yaml_content"])
+        editor = _render_editor_hidden(
+        ) if session["editor_hidden"] else _render_editor_visible(session["yaml_content"])
 
     if update_charts:
         try:
@@ -60,7 +60,7 @@ def render(session, update_editor: bool = True, update_charts: bool = True):
     return editor, charts
 
 
-def _render_editor_visible(filename: str, yaml_content: str):
+def _render_editor_visible(yaml_content: str):
     return (
         Div(
             id="yaml-editor-container",
@@ -104,7 +104,7 @@ def _render_editor_visible(filename: str, yaml_content: str):
                 ),
             ),
             # Editor container
-            _render_yaml_content(filename, yaml_content),
+            _render_yaml_content(yaml_content),
         ),
     )
 
@@ -124,13 +124,11 @@ def _render_editor_hidden():
     )
 
 
-def _render_yaml_content(filename: str, yaml_content: str | None):
+def _render_yaml_content(yaml_content: str | None):
     if not yaml_content:
         yaml_content = "No content loaded"
     return Div(
         Div(
-            P(f"File: {filename}", cls=[
-                TextT.success, "font-mono px-4 w-[400px]"]),
             Div(
                 Button(UkIcon("save"),
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
