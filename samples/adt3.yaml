@@ -109,6 +109,9 @@ iterations:
     end: 2025-03-25
     capacity:
       Gabriel: 10
+    closed:
+      Gabriel:
+        Plugins clasificación y arquitectura IFC: 8
   - name: 18
     start: 2025-03-26
     end: 2025-04-08
