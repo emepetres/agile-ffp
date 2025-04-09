@@ -31,6 +31,7 @@ def render_projects(projects: list[model.Project], render_target: str):
                         aria_label="Delete",
                         hx_delete=routes.Endpoints.DELETE.with_prefix(),
                         hx_vals=f'{{"name": "{project.name}"}}',
+                        hx_indicator="#spinner",
                         cls=(ButtonT.ghost, "h-9 w-9 p-0"),
                         style="width: 2.25rem;"
                     ),
@@ -39,7 +40,8 @@ def render_projects(projects: list[model.Project], render_target: str):
                 CardBody(P(project.description)),
                 cls="h-full",
                 hx_get=f"{routes.Endpoints.GET.with_prefix()}{project.name}",
-                hx_target=f"#{render_target}"
+                hx_target=f"#{render_target}",
+                hx_indicator="#spinner",
             )
             for project in projects
         ],
