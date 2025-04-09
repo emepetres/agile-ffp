@@ -1,4 +1,5 @@
 from apswutils.db import Database
+from fasthtml.common import NotFoundError
 from pydantic import BaseModel
 
 
@@ -17,7 +18,7 @@ _projects_table = None
 
 def init(db: Database):
     global _projects_table
-    _projects_table = db.create(Project, pk='name')
+    _projects_table = db.create(Project, pk='name', transform=True)
 
 
 def get_projects():
@@ -33,4 +34,16 @@ def delete_project(name: str):
 
 
 def get_project(name: str):
-    return _projects_table.get(name=name)
+    try:
+        return _projects_table[name]
+    except NotFoundError:
+        return None
+
+
+def update_project(name: str, yaml_content: str) -> bool:
+    project = get_project(name)
+    if project:
+        project.yaml_content = yaml_content
+        _projects_table.update(project)
+        return True
+    return False

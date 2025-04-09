@@ -5,7 +5,7 @@ from fasthtml.common import (
 )
 
 from agileffp.project import model, view
-from agileffp.yaml_editor.render import initialize as render_editor
+from agileffp.monitor import controller as monitor_controller
 
 _render_target = None
 index: callable = None
@@ -58,7 +58,12 @@ def init(router, endpoints, render_target: str):
     @router.get(endpoints.GET.value + "{name}")
     def get_project(name: str, session):
         yaml_content = model.get_project(name).yaml_content
-        return render_editor(session, name, yaml_content)
+        return monitor_controller.index(session, name, yaml_content)
 
     global index
     index = list_projects
+
+
+def update_project(name: str, yaml_content: str):
+    # # now = datetime.now().isoformat()
+    model.update_project(name, yaml_content)

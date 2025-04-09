@@ -1,6 +1,5 @@
 from textwrap import dedent
 
-import yaml
 from fasthtml.common import (
     A,
     Code,
@@ -14,53 +13,21 @@ from monsterui.all import (
     Button,
     ButtonT,
     DivHStacked,
-    DivVStacked,
     TextT,
     UkIcon,
 )
 
-from agileffp.roadmap.charts import render_charts
-from agileffp.yaml_editor import config
+from agileffp.monitor import routes
 
 
-def initialize(session, name: str, yaml_content: str):
-    session["project_name"] = name
-    session["yaml_content"] = yaml_content
-    session["editor_hidden"] = False
+def render(editor_hidden: bool, yaml_content: str, charts_target: str):
+    editor = _render_editor_hidden(
+    ) if editor_hidden else _render_editor_visible(yaml_content, charts_target)
 
-    return (
-        DivVStacked(
-            P(name),
-            id=config.CHARTS_TARGET,
-            cls="container mt-8 mx-auto",
-        ),
-        render(session),
-    )
+    return editor
 
 
-def render(session, update_editor: bool = True, update_charts: bool = True):
-    editor, charts = None, None
-    if update_editor:
-        editor = _render_editor_hidden(
-        ) if session["editor_hidden"] else _render_editor_visible(session["yaml_content"])
-
-    if update_charts:
-        try:
-            yaml_data = yaml.safe_load(
-                session["yaml_content"]) if session["yaml_content"] else None
-            charts = render_charts(
-                yaml_data, config.CHARTS_TARGET) if yaml_data else None
-        except yaml.YAMLError as e:
-            charts = Div(
-                f"Invalid YAML format: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=config.CHARTS_TARGET)
-        except Exception as e:
-            charts = Div(
-                f"Error processing YAML: {str(e)}", cls=TextT.error, hx_swap_oob=True, id=config.CHARTS_TARGET)
-
-    return editor, charts
-
-
-def _render_editor_visible(yaml_content: str):
+def _render_editor_visible(yaml_content: str, charts_target: str):
     return (
         Div(
             id="yaml-editor-container",
@@ -70,7 +37,7 @@ def _render_editor_visible(yaml_content: str):
                 # Sidebar toggle button
                 Div(
                     Button(UkIcon("chevron-right"), cls=ButtonT.ghost),
-                    hx_get=config.Endpoints.TOGGLE_EDITOR.with_prefix(),
+                    hx_get=routes.Endpoints.TOGGLE_EDITOR.with_prefix(),
                     hx_target="#yaml-editor-container",
                     hx_swap="outerHTML",
                     style="position: fixed; top: 0;"
@@ -81,7 +48,7 @@ def _render_editor_visible(yaml_content: str):
                         cls="w-6 h-6 inline-block"),
                     alt="Load template",
                     cls=(ButtonT.primary, "mt-14"),
-                    hx_put=config.Endpoints.UPLOAD_TEMPLATE.with_prefix(),
+                    hx_put=routes.Endpoints.UPLOAD_TEMPLATE.with_prefix(),
                     hx_target="#editor-container",
                     hx_indicator="#spinner",
                     style="width: auto !important"
@@ -93,7 +60,7 @@ def _render_editor_visible(yaml_content: str):
                         id="file",
                         name="file",
                         hx_encoding="multipart/form-data",
-                        hx_put=config.Endpoints.UPLOAD.with_prefix(),
+                        hx_put=routes.Endpoints.UPLOAD.with_prefix(),
                         hx_trigger="change",
                         hx_target="#editor-container",
                         hx_indicator="#spinner",
@@ -104,7 +71,7 @@ def _render_editor_visible(yaml_content: str):
                 ),
             ),
             # Editor container
-            _render_yaml_content(yaml_content),
+            _render_yaml_content(yaml_content, charts_target),
         ),
     )
 
@@ -117,14 +84,14 @@ def _render_editor_hidden():
         # Sidebar toggle button
         Div(
             Button(UkIcon("chevron-left"), cls=ButtonT.ghost),
-            hx_get=config.Endpoints.TOGGLE_EDITOR.with_prefix(),
+            hx_get=routes.Endpoints.TOGGLE_EDITOR.with_prefix(),
             hx_target="#yaml-editor-container",
             hx_swap="outerHTML",
         ),
     )
 
 
-def _render_yaml_content(yaml_content: str | None):
+def _render_yaml_content(yaml_content: str | None, charts_target: str):
     if not yaml_content:
         yaml_content = "No content loaded"
     return Div(
@@ -132,8 +99,9 @@ def _render_yaml_content(yaml_content: str | None):
             Div(
                 Button(UkIcon("save"),
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
-                       hx_put=config.Endpoints.SAVE_YAML.with_prefix(),
+                       hx_put=routes.Endpoints.SAVE_YAML.with_prefix(),
                        hx_target="this",
+                       hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
                        hx_swap="none",
                        hx_indicator="#spinner",
                        aria_label="Save YAML"),
@@ -141,7 +109,7 @@ def _render_yaml_content(yaml_content: str | None):
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
                        aria_label="Delete YAML"),
                 A("Help?", cls=[TextT.info, "font-mono"],
-                  hx_get=config.Endpoints.HELP.with_prefix(),
+                  hx_get=routes.Endpoints.HELP.with_prefix(),
                   hx_target="#help-container",
                   ),
                 cls="flex items-center gap-2 px-4"
@@ -152,8 +120,8 @@ def _render_yaml_content(yaml_content: str | None):
             Code(yaml_content,
                  contenteditable=True,
                  id="yaml-editor",
-                 hx_post=config.Endpoints.UPDATE_YAML.with_prefix(),
-                 hx_target=f"#{config.CHARTS_TARGET}",
+                 hx_post=routes.Endpoints.UPDATE_YAML.with_prefix(),
+                 hx_target=f"#{charts_target}",
                  hx_trigger="change, keyup delay:0.5s",
                  hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
                  name="yaml_content",

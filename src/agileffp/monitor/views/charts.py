@@ -8,7 +8,7 @@ from agileffp.roadmap.models.epic import Epic
 from agileffp.roadmap.models.planning import Planning
 
 
-def render_charts(data: dict, target: str):
+def render_charts(data: dict, target: str, swap: bool = True):
     planning = Planning(**data)
 
     # # timeline_tasks = (
@@ -26,7 +26,7 @@ def render_charts(data: dict, target: str):
         Card(render_table(iterations)),
         cls="container mt-8 mx-auto",
         id=target,
-        hx_swap_oob="true",
+        hx_swap_oob=swap,
     )
 
 

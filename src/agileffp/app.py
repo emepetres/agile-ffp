@@ -30,10 +30,10 @@ from agileffp.constants import (
     MAIN_CONTAINER_ID,
     PROJECTS_API_PREFIX,
 )
+from agileffp.monitor.routes import init as init_monitor_module
 from agileffp.project.controller import index as render_projects
 from agileffp.project.routes import init as init_project_module
 from agileffp.settings import app_settings
-from agileffp.yaml_editor.api import build_api as build_editor_api
 
 headers = (
     Theme.blue.headers(),
@@ -74,7 +74,7 @@ db: Database = database(DB_PATH)
 app, rt = fast_app(hdrs=headers, static_path="static", before=beforeware)
 setup_toasts(app)
 init_project_module(app, db, MAIN_CONTAINER_ID, prefix=PROJECTS_API_PREFIX)
-build_editor_api(app, db, CHARTS_CONTAINER_ID, prefix=EDITOR_API_PREFIX)
+init_monitor_module(app, CHARTS_CONTAINER_ID, prefix=EDITOR_API_PREFIX)
 
 # Add login routes
 
