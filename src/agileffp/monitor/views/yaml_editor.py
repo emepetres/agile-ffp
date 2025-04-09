@@ -104,7 +104,7 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
                   ),
                 cls="flex items-center gap-2 px-4"
             ),
-            cls="flex justify-between",
+            cls="flex justify-end",
         ),
         Pre(
             Code(yaml_content,
@@ -121,7 +121,7 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
                  ),
             cls=(
                 f'bg-gray-100 dark:bg-gray-800 {TextT.gray} p-0.4 rounded text-sm font-mono language-yaml'),
-            style="resize: none; font-size: 14px; height: calc(100vh - 150px);",
+            style="resize: none; font-size: 14px; height: calc(100vh - 75px);",
         ),
         Div(
             id="dialog-container",
