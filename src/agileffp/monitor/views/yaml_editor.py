@@ -4,7 +4,6 @@ from fasthtml.common import (
     A,
     Code,
     Div,
-    Img,
     Input,
     P,
     Pre,
@@ -41,17 +40,6 @@ def _render_editor_visible(yaml_content: str, charts_target: str):
                     hx_target="#yaml-editor-container",
                     hx_swap="outerHTML",
                     style="position: fixed; top: 0;"
-                ),
-                # Template button
-                Button(
-                    Img(src="images/template_icon.svg",
-                        cls="w-6 h-6 inline-block"),
-                    alt="Load template",
-                    cls=(ButtonT.primary, "mt-14"),
-                    hx_put=routes.Endpoints.UPLOAD_TEMPLATE.with_prefix(),
-                    hx_target="#editor-container",
-                    hx_indicator="#spinner",
-                    style="width: auto !important"
                 ),
                 # File input with drag & drop zone
                 Div(
@@ -114,6 +102,13 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
                        aria_label="Export YAML",
                        hx_ext="response-targets",
                        disabled=True),
+                Button(UkIcon("file-text"),
+                       cls=[ButtonT.ghost, "h-6 w-6 p-0"],
+                       hx_put=routes.Endpoints.UPLOAD_TEMPLATE.with_prefix(),
+                       hx_target="#editor-container",
+                       hx_indicator="#spinner",
+                       alt="Load template",
+                       aria_label="Load template"),
                 A("Help?", cls=[TextT.info, "font-mono"],
                   hx_get=routes.Endpoints.HELP.with_prefix(),
                   hx_target="#help-container",
