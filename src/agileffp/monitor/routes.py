@@ -17,6 +17,7 @@ class Endpoints(Enum):
     RESET = "/reset"
     HELP = "/help"
     SAVE_YAML = "/save_yaml"
+    EXPORT_YAML = "/export_yaml"
 
     def with_prefix(self) -> str:
         if not _prefix:

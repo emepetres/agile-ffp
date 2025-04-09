@@ -5,6 +5,7 @@ from fasthtml.common import (
     FormData,
     P,
     Request,
+    StreamingResponse,
     add_toast,
 )
 from monsterui.all import (
@@ -93,6 +94,28 @@ def init(router, endpoints, charts_target: str):
 
         add_toast(session, "Project saved successfully!", "success")
         return
+
+    @router.put(endpoints.EXPORT_YAML.value)
+    async def export_yaml(request: Request, session):
+        form: FormData = await request.form()
+        yaml_content = form.get("yaml_content")
+
+        if not yaml_content:
+            add_toast(session, "No yaml content to export", "error")
+            return
+
+        # Create an async generator to stream the content
+        async def content_generator():
+            yield yaml_content.encode()
+
+        return StreamingResponse(
+            content_generator(),
+            media_type="application/yaml",
+            headers={
+                "Content-Disposition": "attachment; filename=project.yaml",
+                "HX-Trigger": "fileDownload"
+            }
+        )
 
 
 def index(session, name, yaml_content):
