@@ -3,6 +3,7 @@ from textwrap import dedent
 from fasthtml.common import (
     A,
     Code,
+    DialogX,
     Div,
     Input,
     P,
@@ -40,22 +41,6 @@ def _render_editor_visible(yaml_content: str, charts_target: str):
                     hx_target="#yaml-editor-container",
                     hx_swap="outerHTML",
                     style="position: fixed; top: 0;"
-                ),
-                # File input with drag & drop zone
-                Div(
-                    Input(
-                        type="file",
-                        id="file",
-                        name="file",
-                        hx_encoding="multipart/form-data",
-                        hx_put=routes.Endpoints.UPLOAD.with_prefix(),
-                        hx_trigger="change",
-                        hx_target="#editor-container",
-                        hx_indicator="#spinner",
-                        style="",
-                    ),
-                    P("or drag files here", cls=(TextT.muted, "text-center")),
-                    cls="mb-4 border border-blue-500 rounded mt-2 mr-2",
                 ),
             ),
             # Editor container
@@ -95,23 +80,27 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
                        aria_label="Save YAML"),
                 Button(UkIcon("download"),  # FIXME: does nothing
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
-                       hx_put=routes.Endpoints.EXPORT_YAML.with_prefix(),
+                       hx_put=routes.Endpoints.DOWNLOAD_YAML.with_prefix(),
                        hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
                        hx_swap="none",
                        hx_indicator="#spinner",
-                       aria_label="Export YAML",
+                       aria_label="Download YAML",
                        hx_ext="response-targets",
                        disabled=True),
+                Button(UkIcon("upload"),
+                       cls=[ButtonT.ghost, "h-6 w-6 p-0"],
+                       hx_get=routes.Endpoints.UPLOAD_DIALOG.with_prefix(),
+                       hx_target="#dialog-container",
+                       aria_label="Upload YAML"),
                 Button(UkIcon("file-text"),
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
                        hx_put=routes.Endpoints.UPLOAD_TEMPLATE.with_prefix(),
                        hx_target="#editor-container",
                        hx_indicator="#spinner",
-                       alt="Load template",
                        aria_label="Load template"),
                 A("Help?", cls=[TextT.primary, "font-mono"],
                   hx_get=routes.Endpoints.HELP.with_prefix(),
-                  hx_target="#help-container",
+                  hx_target="#dialog-container",
                   ),
                 cls="flex items-center gap-2 px-4"
             ),
@@ -135,10 +124,67 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
             style="resize: none; font-size: 14px; height: calc(100vh - 150px);",
         ),
         Div(
-            id="help-container",
+            id="dialog-container",
         ),
         id="editor-container",
         cls="uk-codeblock space-y-4",
+    )
+
+
+def render_upload_dialog():
+    hdr = Div(
+        P("Upload a YAML file"),
+        Button(UkIcon("x"),
+               aria_label="Close",
+               hx_get=routes.Endpoints.HELP.with_prefix(),
+               hx_target="#upload-dialog",
+               hx_swap="delete",
+               cls=(ButtonT.ghost, "h-9 w-9 p-0"),
+               style="width: 2.25rem;"
+               ),
+        cls="flex justify-between items-center px-4 py-1"
+    )
+    return DialogX(
+        # File input with drag & drop zone
+        Div(
+            Input(
+                type="file",
+                id="file",
+                name="file",
+                hx_encoding="multipart/form-data",
+                hx_put=routes.Endpoints.UPLOAD.with_prefix(),
+                hx_trigger="change",
+                hx_target="#editor-container",
+                hx_indicator="#spinner",
+                style="",
+            ),
+            P("or drag files here", cls=(TextT.muted, "text-center")),
+            cls="mb-4 border border-blue-500 rounded mt-2 mr-2",
+        ),
+        header=hdr,
+        open=True,
+        id='upload-dialog'
+    )
+
+
+def render_help_dialog():
+    hdr = Div(
+        P("Help Information"),
+        Button(UkIcon("x"),
+               aria_label="Close",
+               hx_get=routes.Endpoints.HELP.with_prefix(),
+               hx_target="#help-dialog",
+               hx_swap="delete",
+               cls=(ButtonT.ghost, "h-9 w-9 p-0"),
+               style="width: 2.25rem;"
+               ),
+        cls="flex justify-between items-center px-4 py-1"
+    )
+    return DialogX(
+        P("Here is some helpful information about using the YAML editor."),
+        header=hdr,
+        open=True,
+        id='help-dialog'
     )
 
 

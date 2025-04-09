@@ -1,18 +1,13 @@
 import yaml
 from fasthtml.common import (
-    DialogX,
     Div,
     FormData,
-    P,
     Request,
     StreamingResponse,
     add_toast,
 )
 from monsterui.all import (
-    Button,
-    ButtonT,
     TextT,
-    UkIcon,
 )
 
 from agileffp.monitor.views import charts, yaml_editor
@@ -24,6 +19,10 @@ _charts_target = None
 def init(router, endpoints, charts_target: str):
     global _charts_target
     _charts_target = charts_target
+
+    @router.get(endpoints.UPLOAD_DIALOG.value)
+    def upload_dialog():
+        return yaml_editor.render_upload_dialog()
 
     @router.put(endpoints.UPLOAD.value)
     async def upload_yaml(request: Request, session):
@@ -55,31 +54,9 @@ def init(router, endpoints, charts_target: str):
         session["editor_hidden"] = not session["editor_hidden"]
         return yaml_editor.render(session["editor_hidden"], session["yaml_content"], _charts_target)
 
-    # # @router.put(endpoints.RESET.value)
-    # # def reset(session):
-    # #     initialize(session)
-    # #     return yaml_editor.render(session["editor_hidden"], session["yaml_content"], _charts_target), _try_render_charts(session)
-
     @router.get(endpoints.HELP.value)
     def help():
-        hdr = Div(
-            P("Help Information"),
-            Button(UkIcon("x"),
-                   aria_label="Close",
-                   hx_get=endpoints.HELP.with_prefix(),
-                   hx_target="#help-dialog",
-                   hx_swap="delete",
-                   cls=(ButtonT.ghost, "h-9 w-9 p-0"),
-                   style="width: 2.25rem;"
-                   ),
-            cls="flex justify-between items-center px-4 py-1"
-        )
-        return DialogX(
-            P("Here is some helpful information about using the YAML editor."),
-            header=hdr,
-            open=True,
-            id='help-dialog'
-        )
+        return yaml_editor.render_help_dialog()
 
     @router.put(endpoints.SAVE_YAML.value)
     async def save_yaml(request: Request, session):
@@ -95,7 +72,7 @@ def init(router, endpoints, charts_target: str):
         add_toast(session, "Project saved successfully!", "success")
         return
 
-    @router.put(endpoints.EXPORT_YAML.value)
+    @router.put(endpoints.DOWNLOAD_YAML.value)
     async def export_yaml(request: Request, session):
         form: FormData = await request.form()
         yaml_content = form.get("yaml_content")
