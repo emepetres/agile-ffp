@@ -137,9 +137,13 @@ def _try_render_charts(session, swap: bool = True):
             yaml_data, _charts_target, swap) if yaml_data else None
     except yaml.YAMLError as e:
         _charts = Div(
-            f"Invalid YAML format: {str(e)}", cls=TextT.error, hx_swap_oob=swap, id=_charts_target)
+            f"Invalid YAML format: {str(e)}", cls=TextT.error, id=_charts_target)
+        if swap:
+            _charts.hx_swap_oob = 'true'
     except Exception as e:
         _charts = Div(
-            f"Error processing YAML: {str(e)}", cls=TextT.error, hx_swap_oob=swap, id=_charts_target)
+            f"Error processing YAML: {str(e)}", cls=TextT.error, id=_charts_target)
+        if swap:
+            _charts.hx_swap_oob = 'true'
 
     return _charts

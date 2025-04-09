@@ -19,15 +19,20 @@ def render_charts(data: dict, target: str, swap: bool = True):
     epics = [epic.to_dict(planning.teams) for epic in planning.sorted_epics]
     iterations = [it.to_dict(planning.teams) for it in planning.iterations]
 
-    return DivVStacked(
+    _charts = DivVStacked(
         Card(render_planning_chart(planning.sorted_epics)),
         # Card(render_capacity_chart(timeline_tasks)) if capacity else None,
         Card(render_table(epics)),
         Card(render_table(iterations)),
         cls="container mt-8 mx-auto",
         id=target,
-        hx_swap_oob=swap,
     )
+
+    if swap:
+        _charts.hx_swap_oob = 'true'
+
+    return _charts
+
 
 
 def render_planning_chart(epics: list[Epic]) -> FT:
