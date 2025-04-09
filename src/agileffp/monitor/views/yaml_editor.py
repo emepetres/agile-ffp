@@ -109,7 +109,7 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
                        hx_indicator="#spinner",
                        alt="Load template",
                        aria_label="Load template"),
-                A("Help?", cls=[TextT.info, "font-mono"],
+                A("Help?", cls=[TextT.primary, "font-mono"],
                   hx_get=routes.Endpoints.HELP.with_prefix(),
                   hx_target="#help-container",
                   ),
