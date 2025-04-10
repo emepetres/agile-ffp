@@ -178,7 +178,7 @@ epics:
     priority: 30
   - name: Plugin defectos
     items:
-      AI: 8
+      AI: 6
     planned:
       Silva: 2.75
     priority: 60
