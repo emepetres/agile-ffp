@@ -117,6 +117,16 @@ iterations:
     end: 2025-04-08
     capacity:
       Gabriel: 10
+      Iker: 4
+      Silva: 2
+    closed:
+      Gabriel:
+        Plugins clasificación y arquitectura IFC: 4
+        Plugin defectos: 1
+      Iker:
+        Plugin NKSR: 2
+      Silva:
+        Plugin NKSR: 2
   - name: 19
     start: 2025-04-09
     end: 2025-04-22
