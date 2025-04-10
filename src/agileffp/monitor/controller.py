@@ -62,14 +62,18 @@ def init(router, endpoints, charts_target: str):
     async def save_yaml(request: Request, session):
         form: FormData = await request.form()
         session["yaml_content"] = form.get("yaml_content")
-        if not session.get("yaml_content"):
+        if not session["yaml_content"]:
             add_toast(session, "No yaml content to save", "error")
             return
 
-        project_controller.update_project(
+        success = project_controller.update_project(
             session["project_name"], session["yaml_content"])
 
-        add_toast(session, "Project saved successfully!", "success")
+        if success:
+            add_toast(
+                session, "Project saved successfully! New version created.", "success")
+        else:
+            add_toast(session, "Failed to save project", "error")
         return
 
     @router.put(endpoints.DOWNLOAD_YAML.value)
