@@ -121,7 +121,7 @@ iterations:
     start: 2025-04-09
     end: 2025-04-22
     capacity:
-      Gabriel: 7
+      Gabriel: 8
       Silva: 8
   - name: 20
     start: 2025-04-23
