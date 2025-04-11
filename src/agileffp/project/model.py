@@ -35,7 +35,8 @@ _yaml_versions_table = None
 def init(db: Database):
     global _projects_table, _yaml_versions_table
     _projects_table = db.create(Project, pk='name', transform=True)
-    _yaml_versions_table = db.create(YamlVersion, pk=['project_name', 'name'], transform=True)
+    _yaml_versions_table = db.create(
+        YamlVersion, pk=['project_name', 'name'], transform=True)
 
 
 def get_projects():
@@ -50,7 +51,8 @@ def delete_project(name: str):
     _projects_table.delete(name=name)
     # Delete all versions associated with this project
     for version in get_yaml_versions(name):
-        _yaml_versions_table.delete(id=version.id)
+        _yaml_versions_table.delete(
+            project_name=version.project_name, name=version.name)
 
 
 def get_project(name: str):
@@ -66,27 +68,42 @@ def get_project(name: str):
 
 
 def update_project(name: str, yaml_content: str) -> bool:
+    """Update project and create a version with auto-generated name"""
+    return update_project_content(name, yaml_content) and \
+        create_yaml_version(
+            name, f"Version-{uuid.uuid4().hex[:8]}", yaml_content) is not None
+
+
+def update_project_content(name: str, yaml_content: str) -> bool:
+    """Update only the project's yaml_content without creating a version"""
     project = get_project(name)
     if project:
         # Store the current version in the project for backward compatibility
         project.yaml_content = yaml_content
         _projects_table.update(project)
-
-        # Create a new version with random name and current datetime
-        create_yaml_version(
-            name, f"Version-{uuid.uuid4().hex[:8]}", yaml_content)
         return True
     return False
 
 
-def create_yaml_version(project_name: str, name: str, yaml_content: str):
-    version = YamlVersion(project_name, name, datetime.now(), yaml_content)
+def create_yaml_version(project_name: str, name: str, yaml_content: str, date: datetime = None) -> YamlVersion:
+    """Create a new version with provided name and date (or current date)"""
+    if date is None:
+        date = datetime.now()
+
+    version = YamlVersion(project_name, name, date, yaml_content)
     _yaml_versions_table.insert(version)
     return version
 
 
 def get_yaml_versions(project_name: str):
     return [v for v in _yaml_versions_table() if v.project_name == project_name]
+
+
+def get_yaml_version(project_name: str, version_name: str):
+    try:
+        return _yaml_versions_table[project_name, version_name]
+    except NotFoundError:
+        return None
 
 
 def get_latest_yaml_version(project_name: str):

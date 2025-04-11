@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from fasthtml.common import (
     FormData,
     Request,
@@ -72,3 +74,16 @@ def init(router, endpoints, render_target: str):
 def update_project(name: str, yaml_content: str):
     # Create a new version with the updated content
     return model.update_project(name, yaml_content)
+
+
+def save_project_version(name: str, yaml_content: str, version_name: str, version_date: datetime):
+    project = model.get_project(name)
+    if not project:
+        return False
+
+    # Update the project's current yaml_content
+    project.yaml_content = yaml_content
+    model.update_project_content(name, yaml_content)
+
+    # Create a new version with the provided name and date
+    return model.create_yaml_version(name, version_name, yaml_content, version_date) is not None

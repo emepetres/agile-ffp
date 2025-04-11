@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import yaml
 from fasthtml.common import (
     Div,
@@ -23,6 +25,12 @@ def init(router, endpoints, charts_target: str):
     @router.get(endpoints.UPLOAD_DIALOG.value)
     def upload_dialog():
         return yaml_editor.render_upload_dialog()
+
+    @router.get(endpoints.SAVE_VERSION_DIALOG.value)
+    async def save_version_dialog(request: Request):
+        form: FormData = await request.form()
+        yaml_content = form.get("yaml_content", "")
+        return yaml_editor.render_save_version_dialog(yaml_content)
 
     @router.put(endpoints.UPLOAD.value)
     async def upload_yaml(request: Request, session):
@@ -58,22 +66,45 @@ def init(router, endpoints, charts_target: str):
     def help():
         return yaml_editor.render_help_dialog()
 
-    @router.put(endpoints.SAVE_YAML.value)
+    @router.post(endpoints.SAVE_YAML.value)
     async def save_yaml(request: Request, session):
         form: FormData = await request.form()
-        session["yaml_content"] = form.get("yaml_content")
-        if not session["yaml_content"]:
+        yaml_content = form.get("yaml_content")
+        version_name = form.get("version_name")
+        version_date_str = form.get("version_date")
+
+        if not yaml_content:
             add_toast(session, "No yaml content to save", "error")
             return
 
-        success = project_controller.update_project(
-            session["project_name"], session["yaml_content"])
+        if not version_name:
+            version_name = f"Version-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
 
-        if success:
+        try:
+            # Parse the date string
+            if version_date_str:
+                version_date = datetime.strptime(
+                    version_date_str, "%Y-%m-%d %H:%M:%S")
+            else:
+                version_date = datetime.now()
+
+            # Update session yaml content
+            session["yaml_content"] = yaml_content
+
+            # Call the project controller to save with version info
+            success = project_controller.save_project_version(
+                session["project_name"], yaml_content, version_name, version_date)
+
+            if success:
+                add_toast(
+                    session, f"Project saved as version '{version_name}'", "success")
+            else:
+                add_toast(session, "Failed to save project version", "error")
+
+        except ValueError:
             add_toast(
-                session, "Project saved successfully! New version created.", "success")
-        else:
-            add_toast(session, "Failed to save project", "error")
+                session, "Invalid date format. Please use YYYY-MM-DD HH:MM:SS", "error")
+
         return
 
     @router.put(endpoints.DOWNLOAD_YAML.value)

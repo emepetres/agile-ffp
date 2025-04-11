@@ -1,3 +1,4 @@
+from datetime import datetime
 from textwrap import dedent
 
 from fasthtml.common import (
@@ -5,7 +6,9 @@ from fasthtml.common import (
     Code,
     DialogX,
     Div,
+    Form,
     Input,
+    Label,
     P,
     Pre,
 )
@@ -72,10 +75,8 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
             Div(
                 Button(UkIcon("save"),
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
-                       hx_put=routes.Endpoints.SAVE_YAML.with_prefix(),
-                       hx_target="this",
-                       hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
-                       hx_swap="none",
+                       hx_get=routes.Endpoints.SAVE_VERSION_DIALOG.with_prefix(),
+                       hx_target="#dialog-container",
                        hx_indicator="#spinner",
                        aria_label="Save YAML"),
                 Button(UkIcon("download"),  # FIXME: does nothing
@@ -164,6 +165,68 @@ def render_upload_dialog():
         header=hdr,
         open=True,
         id='upload-dialog'
+    )
+
+
+def render_save_version_dialog(yaml_content: str):
+    current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    hdr = Div(
+        P("Save Version"),
+        Button(UkIcon("x"),
+               aria_label="Close",
+               hx_get=routes.Endpoints.SAVE_VERSION_DIALOG.with_prefix(),
+               hx_target="#save-version-dialog",
+               hx_swap="delete",
+               cls=(ButtonT.ghost, "h-9 w-9 p-0"),
+               style="width: 2.25rem;"
+               ),
+        cls="flex justify-between items-center px-4 py-1"
+    )
+
+    return DialogX(
+        Form(
+            Div(
+                Label("Version Name", for_="version_name"),
+                Input(
+                    type="text",
+                    id="version_name",
+                    name="version_name",
+                    value=f"Version-{datetime.now().strftime('%Y%m%d-%H%M%S')}",
+                    placeholder="Enter version name",
+                    cls="w-full px-2 py-1 rounded border mb-4",
+                    required=True
+                ),
+                cls="mb-4"
+            ),
+            Div(
+                Label("Date", for_="version_date"),
+                Input(
+                    type="text",
+                    id="version_date",
+                    name="version_date",
+                    value=current_date,
+                    placeholder="YYYY-MM-DD HH:MM:SS",
+                    cls="w-full px-2 py-1 rounded border mb-4",
+                    required=True
+                ),
+                cls="mb-4"
+            ),
+            Div(
+                Button("Save",
+                       type="submit",
+                       cls=ButtonT.primary,
+                       hx_post=routes.Endpoints.SAVE_YAML.with_prefix(),
+                       hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
+                       hx_target="#save-version-dialog",
+                       hx_swap="delete"),
+                cls="flex justify-between"
+            ),
+            hx_encoding="multipart/form-data",
+        ),
+        header=hdr,
+        open=True,
+        id='save-version-dialog'
     )
 
 

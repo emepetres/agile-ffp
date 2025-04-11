@@ -10,19 +10,19 @@ _prefix: str = None
 
 
 class Endpoints(Enum):
-    TOGGLE_EDITOR = "/toggle_editor"
-    UPLOAD_DIALOG = "/upload_dialog"
-    UPLOAD = "/upload"
-    UPLOAD_TEMPLATE = "/upload_template"
-    DOWNLOAD_YAML = "/download_yaml"
-    UPDATE_YAML = "/update_yaml"
-    SAVE_YAML = "/save_yaml"
-    HELP = "/help"
+    TOGGLE_EDITOR = "toggle_editor"
+    UPLOAD_DIALOG = "upload_dialog"
+    SAVE_VERSION_DIALOG = "save_version_dialog"
+    UPLOAD = "upload"
+    UPLOAD_TEMPLATE = "load_template"
+    UPDATE_YAML = "update_yaml"
+    SAVE_YAML = "save_yaml"
+    DOWNLOAD_YAML = "download_yaml"
+    HELP = "help"
 
     def with_prefix(self) -> str:
         if not _prefix:
             return self.value
-
         return f"{_prefix}{self.value}"
 
 
