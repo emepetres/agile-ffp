@@ -33,7 +33,7 @@ def init(router, endpoints, charts_target: str):
         return yaml_editor.render_save_version_dialog(yaml_content)
 
     @router.put(endpoints.UPLOAD.value)
-    async def upload_yaml(request: Request, session):
+    async def upload_yaml(request: Request):
         version = "dirty"
         prev_version = None
         next_version = None
@@ -41,7 +41,7 @@ def init(router, endpoints, charts_target: str):
         file = form.get("file")
         yaml_content = file.file.read().decode("utf-8") if file else None
 
-        return (yaml_editor.render(session["editor_hidden"], version, yaml_content, prev_version, next_version, _charts_target), _try_render_charts(yaml_content))
+        return (yaml_editor.render(False, version, yaml_content, prev_version, next_version, _charts_target), _try_render_charts(yaml_content))
 
     @router.put(endpoints.UPLOAD_TEMPLATE.value)
     def load_template():
@@ -57,9 +57,11 @@ def init(router, endpoints, charts_target: str):
         form: FormData = await request.form()
         yaml_content = form.get("yaml_content")
 
-        # TODO: we should update the version to "dirty", without refreshing content
+        version = "dirty"
+        prev_version = None
+        next_version = None
 
-        return _try_render_charts(yaml_content)
+        return (yaml_editor.render_controls(version, prev_version, next_version), _try_render_charts(yaml_content))
 
     @router.get(endpoints.TOGGLE_EDITOR.value)
     async def toggle_editor(hide: bool, version: str, request: Request):
@@ -92,15 +94,15 @@ def init(router, endpoints, charts_target: str):
     async def save_yaml(request: Request, session):
         form: FormData = await request.form()
         yaml_content = form.get("yaml_content")
-        version_name = form.get("version_name")
+        new_version = form.get("version_name")
         version_date_str = form.get("version_date")
 
         if not yaml_content:
             add_toast(session, "No yaml content to save", "error")
             return
 
-        if not version_name:
-            version_name = f"Version-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+        if not new_version:
+            new_version = f"Version-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
 
         try:
             # Parse the date string
@@ -110,24 +112,30 @@ def init(router, endpoints, charts_target: str):
             else:
                 version_date = datetime.now()
 
-            # Update session yaml content
-            session["current_version_name"] = version_name
+            project_name = request.headers.get("hx-current-url").split("/")[-1]
 
             # Call the project controller to save with version info
             success = project_controller.save_project_version(
-                session["project_name"], yaml_content, version_name, version_date)
+                project_name, yaml_content, new_version, version_date)
 
             if success:
                 add_toast(
-                    session, f"Project saved as version '{version_name}'", "success")
+                    session, f"Project saved as version '{new_version}'", "success")
             else:
                 add_toast(session, "Failed to save project version", "error")
 
         except ValueError:
             add_toast(
                 session, "Invalid date format. Please use YYYY-MM-DD HH:MM:SS", "error")
+            new_version = None
 
-        return
+        if new_version is None:
+            return
+
+        version, _, prev_version, next_version = project_controller.get_project_context(
+            project_name, new_version)
+
+        return yaml_editor.render_controls(version, prev_version, next_version)
 
     @router.put(endpoints.DOWNLOAD_YAML.value)
     async def export_yaml(request: Request, session):
