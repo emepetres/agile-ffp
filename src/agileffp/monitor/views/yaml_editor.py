@@ -32,6 +32,9 @@ def render(editor_hidden: bool, version: str, yaml_content: str, prev_version: s
 
 
 def _render_editor_visible(version: str, yaml_content: str, prev_version: str, next_version: str, charts_target: str):
+    if not yaml_content:
+        yaml_content = "No content loaded"
+
     return (
         Div(
             id="yaml-editor-container",
@@ -47,33 +50,21 @@ def _render_editor_visible(version: str, yaml_content: str, prev_version: str, n
                     style="position: fixed; top: 0;"
                 ),
             ),
-            # Editor container
-            _render_yaml_content(version, yaml_content,
-                                 prev_version, next_version, charts_target),
-        ),
+            Div(
+                render_controls(version, prev_version, next_version, swap=False),
+                render_source_editor(yaml_content, charts_target, swap=False),
+                Div(
+                    id="dialog-container",
+                ),
+                id="editor-container",
+                cls="uk-codeblock space-y-4",
+            )
+        )
     )
 
 
-def _render_editor_hidden(version: str):
-    return Div(
-        id="yaml-editor-container",
-        cls="w-[50px] border-l border-border uk-animation-slide-left-medium fixed top-0 right-0 h-screen",
-    )(
-        # Sidebar toggle button
-        Div(
-            Button(UkIcon("chevron-left"), cls=ButtonT.ghost),
-            hx_get=f"{routes.Endpoints.TOGGLE_EDITOR.with_prefix()}?hide=false&version={version}",
-            hx_target="#yaml-editor-container",
-            hx_swap="outerHTML",
-        ),
-    )
-
-
-def _render_yaml_content(version: str, yaml_content: str | None, prev_version: str, next_version: str, charts_target: str):
-    if not yaml_content:
-        yaml_content = "No content loaded"
-
-    return Div(
+def render_controls(version: str, prev_version: str, next_version: str, swap: bool = True):
+    controls = Div(
         Div(
             Div(
                 Button(UkIcon("save"),
@@ -122,7 +113,7 @@ def _render_yaml_content(version: str, yaml_content: str | None, prev_version: s
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
                        hx_get=routes.Endpoints.VERSION.with_prefix() +
                        f"?version={prev_version}",
-                       hx_target="#editor-container",
+                       hx_target="#yaml-editor-container",
                        hx_indicator="#spinner",
                        disabled=prev_version is None,
                        aria_label="Previous Version"),
@@ -130,7 +121,7 @@ def _render_yaml_content(version: str, yaml_content: str | None, prev_version: s
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
                        hx_get=routes.Endpoints.VERSION.with_prefix() +
                        f"?version={next_version}",
-                       hx_target="#editor-container",
+                       hx_target="#yaml-editor-container",
                        hx_indicator="#spinner",
                        disabled=next_version is None,
                        aria_label="Next Version"),
@@ -140,28 +131,53 @@ def _render_yaml_content(version: str, yaml_content: str | None, prev_version: s
             id="version-navigation",
             cls="flex items-center justify-center gap-2 py-2 border-t border-b border-gray-200 dark:border-gray-700",
         ),
-        Pre(
-            Code(yaml_content,
-                 contenteditable=True,
-                 id="yaml-editor",
-                 hx_post=routes.Endpoints.UPDATE_YAML.with_prefix(),
-                 hx_target=f"#{charts_target}",
-                 hx_trigger="change, keyup delay:0.5s",
-                 hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
-                 name="yaml_content",
-                 spellcheck="false",
-                 wrap="soft",
-                 cls="uk-codeblock"
-                 ),
-            cls=(
-                f'bg-gray-100 dark:bg-gray-800 {TextT.gray} p-0.4 rounded text-sm font-mono language-yaml'),
-            style="resize: none; font-size: 14px; height: calc(100vh - 105px);",
-        ),
+        id="editor-controls-container",
+    )
+
+    if swap:
+        controls.hx_swap_oob = "true"
+
+    return controls
+
+
+def render_source_editor(yaml_content: str, charts_target: str, swap: bool = True):
+    editor = Pre(
+        Code(yaml_content,
+             contenteditable=True,
+             id="yaml-editor",
+             hx_post=routes.Endpoints.UPDATE_YAML.with_prefix(),
+             hx_target=f"#{charts_target}",
+             hx_trigger="change, keyup delay:0.5s",
+             hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
+             name="yaml_content",
+             spellcheck="false",
+             wrap="soft",
+             cls="uk-codeblock"
+             ),
+        cls=(
+            f'bg-gray-100 dark:bg-gray-800 {TextT.gray} p-0.4 rounded text-sm font-mono language-yaml'),
+        style="resize: none; font-size: 14px; height: calc(100vh - 105px);",
+        id="editor-source-container",
+    )
+
+    if swap:
+        editor.hx_swap_oob = "true"
+
+    return editor
+
+
+def _render_editor_hidden(version: str):
+    return Div(
+        id="yaml-editor-container",
+        cls="w-[50px] border-l border-border uk-animation-slide-left-medium fixed top-0 right-0 h-screen",
+    )(
+        # Sidebar toggle button
         Div(
-            id="dialog-container",
+            Button(UkIcon("chevron-left"), cls=ButtonT.ghost),
+            hx_get=f"{routes.Endpoints.TOGGLE_EDITOR.with_prefix()}?hide=false&version={version}",
+            hx_target="#yaml-editor-container",
+            hx_swap="outerHTML",
         ),
-        id="editor-container",
-        cls="uk-codeblock space-y-4",
     )
 
 

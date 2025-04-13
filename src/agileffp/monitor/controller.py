@@ -68,7 +68,6 @@ def init(router, endpoints, charts_target: str):
             version, yaml_content, prev_version, next_version = project_controller.get_project_context(
                 project_name, version)
         else:
-            version = ""
             prev_version = None
             next_version = None
             yaml_content = None
