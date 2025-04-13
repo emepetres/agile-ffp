@@ -11,6 +11,7 @@ from fasthtml.common import (
     Label,
     P,
     Pre,
+    Span,
 )
 from monsterui.all import (
     Button,
@@ -23,14 +24,14 @@ from monsterui.all import (
 from agileffp.monitor import routes
 
 
-def render(editor_hidden: bool, yaml_content: str, charts_target: str):
-    editor = _render_editor_hidden(
-    ) if editor_hidden else _render_editor_visible(yaml_content, charts_target)
+def render(editor_hidden: bool, version: str, yaml_content: str, prev_version: str, next_version: str, charts_target: str):
+    editor = _render_editor_hidden(version) if editor_hidden else _render_editor_visible(
+        version, yaml_content, prev_version, next_version, charts_target)
 
     return editor
 
 
-def _render_editor_visible(yaml_content: str, charts_target: str):
+def _render_editor_visible(version: str, yaml_content: str, prev_version: str, next_version: str, charts_target: str):
     return (
         Div(
             id="yaml-editor-container",
@@ -40,19 +41,20 @@ def _render_editor_visible(yaml_content: str, charts_target: str):
                 # Sidebar toggle button
                 Div(
                     Button(UkIcon("chevron-right"), cls=ButtonT.ghost),
-                    hx_get=routes.Endpoints.TOGGLE_EDITOR.with_prefix(),
+                    hx_get=f"{routes.Endpoints.TOGGLE_EDITOR.with_prefix()}?hide=true&version={version}",
                     hx_target="#yaml-editor-container",
                     hx_swap="outerHTML",
                     style="position: fixed; top: 0;"
                 ),
             ),
             # Editor container
-            _render_yaml_content(yaml_content, charts_target),
+            _render_yaml_content(version, yaml_content,
+                                 prev_version, next_version, charts_target),
         ),
     )
 
 
-def _render_editor_hidden():
+def _render_editor_hidden(version: str):
     return Div(
         id="yaml-editor-container",
         cls="w-[50px] border-l border-border uk-animation-slide-left-medium fixed top-0 right-0 h-screen",
@@ -60,16 +62,17 @@ def _render_editor_hidden():
         # Sidebar toggle button
         Div(
             Button(UkIcon("chevron-left"), cls=ButtonT.ghost),
-            hx_get=routes.Endpoints.TOGGLE_EDITOR.with_prefix(),
+            hx_get=f"{routes.Endpoints.TOGGLE_EDITOR.with_prefix()}?hide=false&version={version}",
             hx_target="#yaml-editor-container",
             hx_swap="outerHTML",
         ),
     )
 
 
-def _render_yaml_content(yaml_content: str | None, charts_target: str):
+def _render_yaml_content(version: str, yaml_content: str | None, prev_version: str, next_version: str, charts_target: str):
     if not yaml_content:
         yaml_content = "No content loaded"
+
     return Div(
         Div(
             Div(
@@ -107,6 +110,36 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
             ),
             cls="flex justify-end",
         ),
+        # Version navigation
+        Div(
+            Div(
+                Span(
+                    version,
+                    cls=[TextT.secondary,
+                         "font-mono text-sm truncate max-w-[250px]"],
+                ),
+                Button(UkIcon("chevron-left"),
+                       cls=[ButtonT.ghost, "h-6 w-6 p-0"],
+                       hx_get=routes.Endpoints.VERSION.with_prefix() +
+                       f"?version={prev_version}",
+                       hx_target="#editor-container",
+                       hx_indicator="#spinner",
+                       disabled=prev_version is None,
+                       aria_label="Previous Version"),
+                Button(UkIcon("chevron-right"),
+                       cls=[ButtonT.ghost, "h-6 w-6 p-0"],
+                       hx_get=routes.Endpoints.VERSION.with_prefix() +
+                       f"?version={next_version}",
+                       hx_target="#editor-container",
+                       hx_indicator="#spinner",
+                       disabled=next_version is None,
+                       aria_label="Next Version"),
+                id="version-navigation",
+                cls="flex items-center justify-center gap-2",
+            ),
+            id="version-navigation",
+            cls="flex items-center justify-center gap-2 py-2 border-t border-b border-gray-200 dark:border-gray-700",
+        ),
         Pre(
             Code(yaml_content,
                  contenteditable=True,
@@ -122,7 +155,7 @@ def _render_yaml_content(yaml_content: str | None, charts_target: str):
                  ),
             cls=(
                 f'bg-gray-100 dark:bg-gray-800 {TextT.gray} p-0.4 rounded text-sm font-mono language-yaml'),
-            style="resize: none; font-size: 14px; height: calc(100vh - 75px);",
+            style="resize: none; font-size: 14px; height: calc(100vh - 105px);",
         ),
         Div(
             id="dialog-container",

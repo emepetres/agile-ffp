@@ -19,6 +19,7 @@ class Endpoints(Enum):
     SAVE_YAML = "save_yaml"
     DOWNLOAD_YAML = "download_yaml"
     HELP = "help"
+    VERSION = "version"
 
     def with_prefix(self) -> str:
         if not _prefix:

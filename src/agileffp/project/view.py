@@ -40,6 +40,7 @@ def render_projects(projects: list[model.Project], render_target: str):
                 CardBody(P(project.description)),
                 cls="h-full",
                 hx_get=f"{routes.Endpoints.GET.with_prefix()}{project.name}",
+                hx_push_url="true",
                 hx_target=f"#{render_target}",
                 hx_indicator="#spinner",
             )

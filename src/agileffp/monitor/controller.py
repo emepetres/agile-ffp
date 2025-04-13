@@ -34,37 +34,60 @@ def init(router, endpoints, charts_target: str):
 
     @router.put(endpoints.UPLOAD.value)
     async def upload_yaml(request: Request, session):
-        # Get the uploaded file from the request
+        version = "dirty"
+        prev_version = None
+        next_version = None
         form: FormData = await request.form()
         file = form.get("file")
         yaml_content = file.file.read().decode("utf-8") if file else None
 
-        session["yaml_content"] = yaml_content
-
-        return yaml_editor.render(session["editor_hidden"], yaml_content, _charts_target), _try_render_charts(session)
+        return (yaml_editor.render(session["editor_hidden"], version, yaml_content, prev_version, next_version, _charts_target), _try_render_charts(yaml_content))
 
     @router.put(endpoints.UPLOAD_TEMPLATE.value)
-    def load_template(session):
+    def load_template():
+        version = "dirty"
+        prev_version = None
+        next_version = None
         yaml_content = yaml_editor.get_default_template()
-        session["yaml_content"] = yaml_content
 
-        return yaml_editor.render(session["editor_hidden"], yaml_content, _charts_target), _try_render_charts(session)
+        return (yaml_editor.render(False, version, yaml_content, prev_version, next_version, _charts_target), _try_render_charts(yaml_content))
 
     @router.post(endpoints.UPDATE_YAML.value)
-    async def update_yaml(request: Request, session):
+    async def update_yaml(request: Request):
         form: FormData = await request.form()
-        session["yaml_content"] = form.get("yaml_content")
-        # we don't want to update the editor
-        return _try_render_charts(session)
+        yaml_content = form.get("yaml_content")
+
+        # TODO: we should update the version to "dirty", without refreshing content
+
+        return _try_render_charts(yaml_content)
 
     @router.get(endpoints.TOGGLE_EDITOR.value)
-    async def toggle_editor(request: Request, session):
-        session["editor_hidden"] = not session["editor_hidden"]
-        return yaml_editor.render(session["editor_hidden"], session["yaml_content"], _charts_target)
+    async def toggle_editor(hide: bool, version: str, request: Request):
+        if not hide:
+            project_name = request.headers.get("hx-current-url").split("/")[-1]
+            version, yaml_content, prev_version, next_version = project_controller.get_project_context(
+                project_name, version)
+        else:
+            version = ""
+            prev_version = None
+            next_version = None
+            yaml_content = None
+
+        return yaml_editor.render(hide, version, yaml_content, prev_version, next_version, _charts_target)
 
     @router.get(endpoints.HELP.value)
     def help():
         return yaml_editor.render_help_dialog()
+
+    @router.get(endpoints.VERSION.value)
+    def version(version: str, request: Request):
+        project_name = request.headers.get("hx-current-url").split("/")[-1]
+        version, yaml_content, prev_version, next_version = project_controller.get_project_context(
+            project_name, version)
+        return (
+            yaml_editor.render(False, version, yaml_content,
+                               prev_version, next_version, _charts_target),
+            _try_render_charts(yaml_content))
 
     @router.post(endpoints.SAVE_YAML.value)
     async def save_yaml(request: Request, session):
@@ -89,7 +112,7 @@ def init(router, endpoints, charts_target: str):
                 version_date = datetime.now()
 
             # Update session yaml content
-            session["yaml_content"] = yaml_content
+            session["current_version_name"] = version_name
 
             # Call the project controller to save with version info
             success = project_controller.save_project_version(
@@ -130,23 +153,19 @@ def init(router, endpoints, charts_target: str):
         )
 
 
-def index(session, name, yaml_content):
-    session["project_name"] = name
-    session["yaml_content"] = yaml_content
-    session["editor_hidden"] = False
-
+def index(name: str):
+    version, yaml_content, prev_version, next_version = project_controller.get_project_context(
+        name)
     return (
-        _try_render_charts(session, swap=False),
-        yaml_editor.render(session["editor_hidden"], yaml_content, _charts_target))
+        _try_render_charts(yaml_content, swap=False),
+        yaml_editor.render(False, version, yaml_content, prev_version, next_version, _charts_target))
 
 
-def _try_render_charts(session, swap: bool = True):
+def _try_render_charts(yaml_content: str, swap: bool = True):
     _charts = None
     try:
-        yaml_data = yaml.safe_load(
-            session["yaml_content"]) if session["yaml_content"] else None
-        _charts = charts.render_charts(
-            yaml_data, _charts_target, swap) if yaml_data else None
+        yaml_data = yaml.safe_load(yaml_content) if yaml_content else None
+        _charts = charts.render_charts(yaml_data, _charts_target, swap)
     except yaml.YAMLError as e:
         _charts = Div(
             f"Invalid YAML format: {str(e)}", cls=TextT.error, id=_charts_target)

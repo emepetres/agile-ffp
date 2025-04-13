@@ -64,11 +64,15 @@ def init(router, endpoints, render_target: str):
             add_toast(session, f"Project {name} not found", "error")
             return list_projects()
 
-        yaml_content = project.yaml_content
-        return monitor_controller.index(session, name, yaml_content)
+        return monitor_controller.index(name)
 
     global index
     index = list_projects
+
+
+def get_project_context(name: str, version: str = None):
+    version, yaml_content, prev_version, next_version = model.get_yaml_version_context(name, version)
+    return version, yaml_content, prev_version, next_version
 
 
 def update_project(name: str, yaml_content: str):
@@ -80,10 +84,6 @@ def save_project_version(name: str, yaml_content: str, version_name: str, versio
     project = model.get_project(name)
     if not project:
         return False
-
-    # Update the project's current yaml_content
-    project.yaml_content = yaml_content
-    model.update_project_content(name, yaml_content)
 
     # Create a new version with the provided name and date
     return model.create_yaml_version(name, version_name, yaml_content, version_date) is not None

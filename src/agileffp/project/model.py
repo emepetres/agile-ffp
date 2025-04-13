@@ -21,11 +21,10 @@ class YamlVersion(BaseModel):
 class Project(BaseModel):
     name: str
     description: str
-    yaml_content: str
 
     # needed for db persistence
-    def __init__(self, name: str, description: str, yaml_content: str = "") -> None:
-        super().__init__(name=name, description=description, yaml_content=yaml_content)
+    def __init__(self, name: str, description: str) -> None:
+        super().__init__(name=name, description=description)
 
 
 _projects_table = None
@@ -43,26 +42,21 @@ def get_projects():
     return _projects_table()
 
 
-def create_project(name: str, description: str, yaml_content: str = ""):
-    _projects_table.insert(Project(name, description, yaml_content))
+def create_project(name: str, description: str):
+    _projects_table.insert(Project(name, description))
 
 
 def delete_project(name: str):
     _projects_table.delete(name=name)
     # Delete all versions associated with this project
-    for version in get_yaml_versions(name):
+    for version in _get_yaml_versions(name):
         _yaml_versions_table.delete(
             project_name=version.project_name, name=version.name)
 
 
 def get_project(name: str):
     try:
-        project = _projects_table[name]
-        # Get the latest version if it exists
-        latest_version = get_latest_yaml_version(name)
-        if latest_version:
-            project.yaml_content = latest_version.yaml_content
-        return project
+        return _projects_table[name]
     except NotFoundError:
         return None
 
@@ -95,19 +89,31 @@ def create_yaml_version(project_name: str, name: str, yaml_content: str, date: d
     return version
 
 
-def get_yaml_versions(project_name: str):
-    return [v for v in _yaml_versions_table() if v.project_name == project_name]
+def get_yaml_version_context(project_name: str, version_name: str = None):
+    versions = _get_yaml_versions(project_name)
+    if not versions:
+        return None, None, None, None
+
+    vnames = [v.name for v in versions]
+    version_index = len(versions) - 1
+    if version_name:
+        version_index = vnames.index(version_name)
+
+    version = versions[version_index].name
+    yaml_content = versions[version_index].yaml_content
+    prev_version = versions[version_index - 1].name if version_index > 0 else None
+    next_version = versions[version_index +
+                            1].name if version_index < len(versions) - 1 else None
+
+    return version, yaml_content, prev_version, next_version
 
 
-def get_yaml_version(project_name: str, version_name: str):
+def _get_yaml_versions(project_name: str):
+    return _yaml_versions_table("project_name=?", (project_name,), order_by="date")
+
+
+def _get_yaml_version(project_name: str, version_name: str):
     try:
         return _yaml_versions_table[project_name, version_name]
     except NotFoundError:
         return None
-
-
-def get_latest_yaml_version(project_name: str):
-    versions = get_yaml_versions(project_name)
-    if not versions:
-        return None
-    return max(versions, key=lambda v: v.date)
