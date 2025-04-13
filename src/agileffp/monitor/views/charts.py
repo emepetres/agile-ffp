@@ -9,6 +9,17 @@ from agileffp.roadmap.models.planning import Planning
 
 
 def render_charts(data: dict, target: str, swap: bool = True):
+    _charts = DivVStacked(
+        cls="container mt-8 mx-auto",
+        id=target,
+    )
+
+    if swap:
+        _charts.hx_swap_oob = 'true'
+
+    if data is None:
+        return _charts
+
     planning = Planning(**data)
 
     # # timeline_tasks = (
@@ -19,17 +30,12 @@ def render_charts(data: dict, target: str, swap: bool = True):
     epics = [epic.to_dict(planning.teams) for epic in planning.sorted_epics]
     iterations = [it.to_dict(planning.teams) for it in planning.iterations]
 
-    _charts = DivVStacked(
+    _charts = _charts(
         Card(render_planning_chart(planning.sorted_epics)),
         # Card(render_capacity_chart(timeline_tasks)) if capacity else None,
         Card(render_table(epics)),
         Card(render_table(iterations)),
-        cls="container mt-8 mx-auto",
-        id=target,
     )
-
-    if swap:
-        _charts.hx_swap_oob = 'true'
 
     return _charts
 
