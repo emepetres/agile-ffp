@@ -43,7 +43,7 @@ def init(router, endpoints, render_target: str):
 
         return list_projects()
 
-    @router.delete(endpoints.DELETE.value)
+    @router.post(endpoints.DELETE.value)
     async def delete_project(request: Request):
         form: FormData = await request.form()
         name = form.get("name")
@@ -87,3 +87,7 @@ def save_project_version(name: str, yaml_content: str, version_name: str, versio
 
     # Create a new version with the provided name and date
     return model.create_yaml_version(name, version_name, yaml_content, version_date) is not None
+
+
+def delete_project_version(project_name: str, version: str) -> bool:
+    return model.delete_yaml_version(project_name, version)

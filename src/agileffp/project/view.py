@@ -29,8 +29,8 @@ def render_projects(projects: list[model.Project], render_target: str):
                     Button(
                         UkIcon("trash"),
                         aria_label="Delete",
-                        hx_delete=routes.Endpoints.DELETE.with_prefix(),
-                        hx_vals=f'{{"name": "{project.name}"}}',
+                        hx_post=routes.Endpoints.DELETE.with_prefix(),
+                        hx_vals=f'js:{{name: "{project.name}"}}',
                         hx_indicator="#spinner",
                         cls=(ButtonT.ghost, "h-9 w-9 p-0"),
                         style="width: 2.25rem;"

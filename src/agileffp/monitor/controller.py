@@ -26,12 +26,6 @@ def init(router, endpoints, charts_target: str):
     def upload_dialog():
         return yaml_editor.render_upload_dialog()
 
-    @router.get(endpoints.SAVE_VERSION_DIALOG.value)
-    async def save_version_dialog(request: Request):
-        form: FormData = await request.form()
-        yaml_content = form.get("yaml_content", "")
-        return yaml_editor.render_save_version_dialog(yaml_content)
-
     @router.put(endpoints.UPLOAD.value)
     async def upload_yaml(request: Request):
         version = "dirty"
@@ -63,34 +57,13 @@ def init(router, endpoints, charts_target: str):
 
         return (yaml_editor.render_controls(version, prev_version, next_version), _try_render_charts(yaml_content))
 
-    @router.get(endpoints.TOGGLE_EDITOR.value)
-    async def toggle_editor(hide: bool, version: str, request: Request):
-        if not hide:
-            project_name = request.headers.get("hx-current-url").split("/")[-1]
-            version, yaml_content, prev_version, next_version = project_controller.get_project_context(
-                project_name, version)
-        else:
-            prev_version = None
-            next_version = None
-            yaml_content = None
+    @router.get(endpoints.SAVE_VERSION_DIALOG.value)
+    async def save_version_dialog(request: Request):
+        form: FormData = await request.form()
+        yaml_content = form.get("yaml_content", "")
+        return yaml_editor.render_save_version_dialog(yaml_content)
 
-        return yaml_editor.render(hide, version, yaml_content, prev_version, next_version, _charts_target)
-
-    @router.get(endpoints.HELP.value)
-    def help():
-        return yaml_editor.render_help_dialog()
-
-    @router.get(endpoints.VERSION.value)
-    def version(version: str, request: Request):
-        project_name = request.headers.get("hx-current-url").split("/")[-1]
-        version, yaml_content, prev_version, next_version = project_controller.get_project_context(
-            project_name, version)
-        return (
-            yaml_editor.render(False, version, yaml_content,
-                               prev_version, next_version, _charts_target),
-            _try_render_charts(yaml_content))
-
-    @router.post(endpoints.SAVE_YAML.value)
+    @router.post(endpoints.SAVE_VERSION.value)
     async def save_yaml(request: Request, session):
         form: FormData = await request.form()
         yaml_content = form.get("yaml_content")
@@ -137,6 +110,30 @@ def init(router, endpoints, charts_target: str):
 
         return yaml_editor.render_controls(version, prev_version, next_version)
 
+    @router.post(endpoints.DELETE_VERSION.value)
+    async def delete_version(request: Request, session):
+        form: FormData = await request.form()
+        version_name = form.get("version")
+        project_name = request.headers.get("hx-current-url").split("/")[-1]
+
+        if not project_controller.delete_project_version(project_name, version_name):
+            add_toast(
+                session, f"Failed to delete version '{version_name}'", "error")
+        else:
+            add_toast(session, f"Version '{version_name}' deleted", "success")
+
+        return get_version(None, request)
+
+    @router.get(endpoints.VERSION.value)
+    def get_version(version: str, request: Request):
+        project_name = request.headers.get("hx-current-url").split("/")[-1]
+        version, yaml_content, prev_version, next_version = project_controller.get_project_context(
+            project_name, version)
+        return (
+            yaml_editor.render(False, version, yaml_content,
+                               prev_version, next_version, _charts_target),
+            _try_render_charts(yaml_content))
+
     @router.put(endpoints.DOWNLOAD_YAML.value)
     async def export_yaml(request: Request, session):
         form: FormData = await request.form()
@@ -158,6 +155,23 @@ def init(router, endpoints, charts_target: str):
                 "HX-Trigger": "fileDownload"
             }
         )
+
+    @router.get(endpoints.HELP.value)
+    def help():
+        return yaml_editor.render_help_dialog()
+
+    @router.get(endpoints.TOGGLE_EDITOR.value)
+    async def toggle_editor(hide: bool, version: str, request: Request):
+        if not hide:
+            project_name = request.headers.get("hx-current-url").split("/")[-1]
+            version, yaml_content, prev_version, next_version = project_controller.get_project_context(
+                project_name, version)
+        else:
+            prev_version = None
+            next_version = None
+            yaml_content = None
+
+        return yaml_editor.render(hide, version, yaml_content, prev_version, next_version, _charts_target)
 
 
 def index(name: str):

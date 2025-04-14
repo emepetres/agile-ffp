@@ -47,11 +47,10 @@ def create_project(name: str, description: str):
 
 
 def delete_project(name: str):
-    _projects_table.delete(name=name)
     # Delete all versions associated with this project
     for version in _get_yaml_versions(name):
-        _yaml_versions_table.delete(
-            project_name=version.project_name, name=version.name)
+        delete_yaml_version(name, version.name)
+    _projects_table.delete(name)
 
 
 def get_project(name: str):
@@ -112,8 +111,9 @@ def _get_yaml_versions(project_name: str):
     return _yaml_versions_table("project_name=?", (project_name,), order_by="date")
 
 
-def _get_yaml_version(project_name: str, version_name: str):
+def delete_yaml_version(project_name: str, version_name: str) -> bool:
     try:
-        return _yaml_versions_table[project_name, version_name]
+        _yaml_versions_table.delete([project_name, version_name])
     except NotFoundError:
-        return None
+        return False
+    return True

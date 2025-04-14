@@ -98,10 +98,10 @@ def render_controls(version: str, prev_version: str, next_version: str, swap: bo
                   hx_get=routes.Endpoints.HELP.with_prefix(),
                   hx_target="#dialog-container",
                   ),
-                cls="flex items-center gap-2 px-4"
+                cls="flex gap-2 px-4"
             ),
             cls="flex justify-end",
-            style="margin: 1em;"
+            style="margin: 1em; margin-bottom: 0;"
         ),
         # Version navigation
         Div(
@@ -117,16 +117,27 @@ def render_controls(version: str, prev_version: str, next_version: str, swap: bo
                        hx_target="#yaml-editor-container",
                        hx_indicator="#spinner",
                        disabled=prev_version is None,
-                       aria_label="Previous Version"),
+                       aria_label="Previous Version",
+                       style="margin-bottom: 0;"),
                 Button(UkIcon("chevron-right"),
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
-                       hx_get=routes.Endpoints.VERSION.with_prefix() +
-                       f"?version={next_version}",
+                       hx_get=f"{routes.Endpoints.VERSION.with_prefix()}?version={next_version}",
                        hx_target="#yaml-editor-container",
                        hx_indicator="#spinner",
                        disabled=next_version is None,
-                       aria_label="Next Version"),
-                cls="flex items-center gap-2",
+                       aria_label="Next Version",
+                       style="margin-bottom: 0;"),
+                Button(UkIcon("trash"),
+                       cls=[ButtonT.ghost, "h-6 w-6 p-0"],
+                       hx_post=routes.Endpoints.DELETE_VERSION.with_prefix(),
+                       hx_vals=f'js:{{version: "{version}"}}',
+                       hx_confirm="Are you sure you wish to delete this version?",
+                       hx_target="#yaml-editor-container",
+                       hx_indicator="#spinner",
+                       disabled=version is None or version == "dirty",
+                       aria_label="Delete version",
+                       style="margin-bottom: 0;"),
+                cls="flex gap-2"
             ),
             id="version-navigation",
             cls="flex gap-2 justify-end pr-4",
@@ -266,7 +277,7 @@ def render_save_version_dialog(yaml_content: str):
                 Button("Save",
                        type="submit",
                        cls=ButtonT.primary,
-                       hx_post=routes.Endpoints.SAVE_YAML.with_prefix(),
+                       hx_post=routes.Endpoints.SAVE_VERSIOn.with_prefix(),
                        hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
                        hx_target="#save-version-dialog",
                        hx_swap="delete"),
