@@ -51,7 +51,8 @@ def _render_editor_visible(version: str, yaml_content: str, prev_version: str, n
                 ),
             ),
             Div(
-                render_controls(version, prev_version, next_version, swap=False),
+                render_controls(version, prev_version,
+                                next_version, swap=False),
                 render_source_editor(yaml_content, charts_target, swap=False),
                 Div(
                     id="dialog-container",
@@ -100,14 +101,14 @@ def render_controls(version: str, prev_version: str, next_version: str, swap: bo
                 cls="flex items-center gap-2 px-4"
             ),
             cls="flex justify-end",
+            style="margin: 1em;"
         ),
         # Version navigation
         Div(
             Div(
                 Span(
                     version,
-                    cls=[TextT.secondary,
-                         "font-mono text-sm truncate max-w-[250px]"],
+                    cls="font-mono text-sm max-w-[250px]",
                 ),
                 Button(UkIcon("chevron-left"),
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
@@ -125,11 +126,11 @@ def render_controls(version: str, prev_version: str, next_version: str, swap: bo
                        hx_indicator="#spinner",
                        disabled=next_version is None,
                        aria_label="Next Version"),
-                id="version-navigation",
-                cls="flex items-center justify-center gap-2",
+                cls="flex items-center gap-2",
             ),
             id="version-navigation",
-            cls="flex items-center justify-center gap-2 py-2 border-t border-b border-gray-200 dark:border-gray-700",
+            cls="flex gap-2 justify-end pr-4",
+            style="margin-right: 1em;"
         ),
         id="editor-controls-container",
     )
@@ -155,8 +156,8 @@ def render_source_editor(yaml_content: str, charts_target: str, swap: bool = Tru
              cls="uk-codeblock"
              ),
         cls=(
-            f'bg-gray-100 dark:bg-gray-800 {TextT.gray} p-0.4 rounded text-sm font-mono language-yaml'),
-        style="resize: none; font-size: 14px; height: calc(100vh - 105px);",
+            f'bg-gray-100 dark:bg-gray-800 {TextT.gray} rounded text-sm font-mono language-yaml'),
+        style="resize: none; font-size: 14px; height: calc(100vh - var(--editor-controls-height, 80px)); margin: 0;",
         id="editor-source-container",
     )
 
