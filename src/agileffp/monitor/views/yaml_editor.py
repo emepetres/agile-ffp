@@ -131,7 +131,7 @@ def render_controls(version: str, prev_version: str, next_version: str, swap: bo
                        cls=[ButtonT.ghost, "h-6 w-6 p-0"],
                        hx_post=routes.Endpoints.DELETE_VERSION.with_prefix(),
                        hx_vals=f'js:{{version: "{version}"}}',
-                       hx_confirm="Are you sure you wish to delete this version?",
+                       hx_confirm=f"Are you sure you wish to delete '{version}' version?",
                        hx_target="#yaml-editor-container",
                        hx_indicator="#spinner",
                        disabled=version is None or version == "dirty",

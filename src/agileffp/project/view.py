@@ -31,7 +31,9 @@ def render_projects(projects: list[model.Project], render_target: str):
                         aria_label="Delete",
                         hx_post=routes.Endpoints.DELETE.with_prefix(),
                         hx_vals=f'js:{{name: "{project.name}"}}',
+                        hx_confirm=f"Are you sure you wish to delete '{project.name}'?",
                         hx_indicator="#spinner",
+                        hx_push_url="false",
                         cls=(ButtonT.ghost, "h-9 w-9 p-0"),
                         style="width: 2.25rem;"
                     ),
@@ -46,20 +48,22 @@ def render_projects(projects: list[model.Project], render_target: str):
             )
             for project in projects
         ],
-        Button(
-            "New Project",
-            UkIcon("plus"),
-            hx_get=routes.Endpoints.NEW_PROJECT.with_prefix(),
-            hx_target="#new-project-container",
-            cls="w-full"
-        ),
         cols_md=1,
         cols_lg=2,
         cols_xl=3
     ),
         Div(
-        id="new-project-container",
-    ))
+            Button(
+                "New Project",
+                UkIcon("plus"),
+                hx_get=routes.Endpoints.NEW_PROJECT.with_prefix(),
+                hx_target="#new-project-container",
+                cls="w-full"
+            ),
+            cls="flex mx-auto pt-4 mt-4",
+    ),
+        Div(id="new-project-container")
+    )
 
 
 def render_new_project_dialog(render_target: str):
