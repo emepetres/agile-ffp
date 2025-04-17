@@ -109,7 +109,10 @@ def get(session):
 @rt("/auth", name="auth")
 async def auth(request):
     client = oauth.create_client('microsoft')
-    return await client.authorize_redirect(request, request.url_for('auth_callback'))
+    redirect_uri = request.url_for('auth_callback')
+    if not request.url.hostname == 'localhost':
+        redirect_uri = str(redirect_uri).replace('http://', 'https://')
+    return await client.authorize_redirect(request, redirect_uri)
 
 
 @rt("/auth/callback", name="auth_callback")
