@@ -31,7 +31,7 @@ from agileffp.constants import (
     PROJECTS_API_PREFIX,
 )
 from agileffp.monitor.routes import init as init_monitor_module
-from agileffp.project.controller import index as render_projects
+from agileffp.project.controller import list_projects
 from agileffp.project.routes import init as init_project_module
 from agileffp.settings import app_settings
 
@@ -185,7 +185,7 @@ def index(session, auth=None):
         Container(
             header,
             DivHStacked(
-                render_projects(),
+                list_projects(),
                 id=MAIN_CONTAINER_ID,
                 cls="gap-4",
             ),

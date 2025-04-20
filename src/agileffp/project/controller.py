@@ -10,7 +10,6 @@ from agileffp.monitor import controller as monitor_controller
 from agileffp.project import model, view
 
 _render_target = None
-index: callable = None
 
 
 def init(router, endpoints, render_target: str):
@@ -18,9 +17,8 @@ def init(router, endpoints, render_target: str):
     _render_target = render_target
 
     @router.get(endpoints.LIST.value)
-    def list_projects():
-        projects = model.get_projects()
-        return view.render_projects(projects, _render_target)
+    def list_all():
+        return list_projects()
 
     @router.get(endpoints.NEW_PROJECT.value)
     def new_project_dialog():
@@ -66,8 +64,10 @@ def init(router, endpoints, render_target: str):
 
         return monitor_controller.index(name)
 
-    global index
-    index = list_projects
+
+def list_projects():
+    projects = model.get_projects()
+    return view.render_projects(projects, _render_target)
 
 
 def get_project_context(name: str, version: str = None):
