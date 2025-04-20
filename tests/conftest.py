@@ -4,6 +4,7 @@ from starlette.testclient import TestClient
 
 from agileffp.app import app
 from agileffp.project import model
+from tests.agileffp.mocks import MockProjectModel, MockYamlEditor
 
 
 @pytest.fixture(scope="session")
@@ -33,3 +34,15 @@ def test_app(test_db):
     """Create a fresh FastAPI app instance with the test database."""
     test_app, _ = fast_app()
     return test_app
+
+
+@pytest.fixture
+def mock_project_model():
+    """Return a MockProjectModel instance for testing."""
+    return MockProjectModel()
+
+
+@pytest.fixture
+def mock_yaml_editor():
+    """Return a MockYamlEditor instance for testing."""
+    return MockYamlEditor()

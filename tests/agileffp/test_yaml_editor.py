@@ -187,3 +187,13 @@ def test_endpoints_prefix():
     init(app, None, prefix="/test")
 
     assert Endpoints.UPLOAD.with_prefix() == "/test" + Endpoints.UPLOAD.value
+
+
+"""
+This test file has been refactored and split into multiple test modules:
+
+1. tests/agileffp/project/ - Tests for the project module
+2. tests/agileffp/monitor/ - Tests for the monitor module
+
+Please refer to these modules for the updated tests.
+"""
