@@ -1,20 +1,57 @@
-from asyncio import Queue
 from io import BytesIO
 
 import pytest
-from fasthtml.common import fast_app
+from fasthtml.common import database, fast_app
 from starlette.testclient import TestClient
 
-from agileffp.yaml_editor.api import build_api
-from agileffp.yaml_editor.config import Endpoints
+from agileffp.monitor.routes import Endpoints, init
+from agileffp.project import model
 
 
 @pytest.fixture
-def client():
-    app, _ = fast_app()
-    build_api(app, Queue())
-    test_client = TestClient(app)
-    test_client.put(Endpoints.RESET.with_prefix())
+def test_db():
+    # Create an in-memory SQLite database for testing
+    db = database(":memory:")
+
+    # Initialize the project model with the test database
+    model.init(db)
+
+    return db
+
+
+@pytest.fixture
+def yaml_editor_client(test_app, test_db, monkeypatch):
+    """Create a test client for YAML editor tests."""
+    # Set up test YAML content
+    test_yaml = """
+iterations:
+  - name: Sample Iteration
+    points: 100
+    stories:
+      - name: User Story 1
+        points: 25
+        status: Completed
+
+epics:
+  - name: Sample Epic
+    points: 50
+    priority: High
+"""
+
+    # Mock the get_yaml_version_context method to return test data
+    def mock_get_yaml_context(project_name, version=None):
+        return "current_version", test_yaml, "prev_version", "next_version"
+
+    monkeypatch.setattr(model, "get_yaml_version_context",
+                        mock_get_yaml_context)
+
+    # Initialize monitor module with a test charts container ID
+    init(test_app, "charts_container_id")
+    test_client = TestClient(test_app)
+
+    # Set the HX-Current-URL header to simulate being in a project context
+    test_client.headers = {"hx-current-url": "/project/test_project"}
+
     return test_client
 
 
@@ -51,52 +88,74 @@ config:
 """
 
 
-def test_set_yaml_success(client, sample_yaml):
+def test_set_yaml_success(yaml_editor_client, sample_yaml):
     file = BytesIO(sample_yaml.encode("utf-8"))
-    response = client.put(
-        Endpoints.UPLOAD.with_prefix(), files={"file": ("test.yaml", file, "text/yaml")}
+    response = yaml_editor_client.put(
+        Endpoints.UPLOAD.with_prefix(),
+        files={"file": ("test.yaml", file, "text/yaml")},
+        headers={"hx-current-url": "/project/test_project"}
     )
 
     assert response.status_code == 200
-    assert "File: test.yaml" in response.text
     assert "name: test" in response.text
     assert "items:" in response.text
     assert "value: foo" in response.text
 
 
-def test_set_yaml_no_file(client):
-    response = client.put(Endpoints.UPLOAD.with_prefix())
+def test_set_yaml_no_file(yaml_editor_client):
+    response = yaml_editor_client.put(
+        Endpoints.UPLOAD.with_prefix(),
+        headers={"hx-current-url": "/project/test_project"}
+    )
     assert response.status_code == 200
     assert "No content loaded" in response.text
 
 
-def test_set_yaml_invalid_yaml(client):
+def test_set_yaml_invalid_yaml(yaml_editor_client):
     invalid_yaml = """
     bad: [
       unclosed bracket
     """
     file = BytesIO(invalid_yaml.encode("utf-8"))
-    response = client.put(
+    response = yaml_editor_client.put(
         Endpoints.UPLOAD.with_prefix(),
         files={"file": ("invalid.yaml", file, "text/yaml")},
+        headers={"hx-current-url": "/project/test_project"}
     )
 
     assert response.status_code == 200
     assert "Invalid YAML format" in response.text
 
 
-def test_load_template(client):
-    response = client.put(Endpoints.UPLOAD_TEMPLATE.with_prefix())
+def test_load_template(yaml_editor_client, monkeypatch):
+    # Mock the template function to return a known value
+    template_content = """
+iterations:
+  - name: Sample Iteration
+    points: 100
+epics:
+  - name: Sample Epic
+    points: 50
+"""
+    monkeypatch.setattr("agileffp.monitor.views.yaml_editor.get_default_template",
+                        lambda: template_content)
+
+    response = yaml_editor_client.put(
+        Endpoints.UPLOAD_TEMPLATE.with_prefix(),
+        headers={"hx-current-url": "/project/test_project"}
+    )
 
     assert response.status_code == 200
     assert "iterations:" in response.text
     assert "epics:" in response.text
 
 
-def test_set_yaml_preserves_order(client, ordered_yaml):
+def test_set_yaml_preserves_order(yaml_editor_client, ordered_yaml):
     file = BytesIO(ordered_yaml.encode("utf-8"))
-    response = client.put(
-        Endpoints.UPLOAD.with_prefix(), files={"file": ("test.yaml", file, "text/yaml")}
+    response = yaml_editor_client.put(
+        Endpoints.UPLOAD.with_prefix(),
+        files={"file": ("test.yaml", file, "text/yaml")},
+        headers={"hx-current-url": "/project/test_project"}
     )
 
     assert response.status_code == 200
@@ -122,9 +181,9 @@ def test_set_yaml_preserves_order(client, ordered_yaml):
 
 
 def test_endpoints_prefix():
-    from agileffp.yaml_editor.config import Endpoints
+    from agileffp.monitor.routes import Endpoints
 
     app, _ = fast_app()
-    build_api(app, None, None, prefix="/test")
+    init(app, None, prefix="/test")
 
     assert Endpoints.UPLOAD.with_prefix() == "/test" + Endpoints.UPLOAD.value

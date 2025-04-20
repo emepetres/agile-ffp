@@ -2,6 +2,21 @@
 
 Build agile charts for firm fixed price projects, to compute estimated milestones deadlines.
 
+## TODO
+
+- [x] Fix tests
+- [ ] Add tests for UI
+- [ ] Add edit project in project list
+- [ ] Add version to yaml
+- [ ] Modify yaml properties with better UI
+- [ ] Move yaml template to a separate file
+- [ ] Write this README
+- [ ] Merge everything to main
+- [ ] Modify CD to set env variables
+- [ ] Add edit yaml version
+- [ ] Disable save button if no changes or empty content
+- [ ] Use dirty state to (dis/en)able save button
+
 ## Installation
 
 TODO e.g. pip install ...
