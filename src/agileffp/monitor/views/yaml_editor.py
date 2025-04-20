@@ -277,7 +277,7 @@ def render_save_version_dialog(yaml_content: str):
                 Button("Save",
                        type="submit",
                        cls=ButtonT.primary,
-                       hx_post=routes.Endpoints.SAVE_VERSIOn.with_prefix(),
+                       hx_post=routes.Endpoints.SAVE_VERSION.with_prefix(),
                        hx_vals='js:{yaml_content: document.getElementById("yaml-editor").innerText}',
                        hx_target="#save-version-dialog",
                        hx_swap="delete"),
