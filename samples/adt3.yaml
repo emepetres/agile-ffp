@@ -1,3 +1,4 @@
+version: 1
 teams:
   - name: AI
     days: 247 # jornadas_totales: (229-Mng:15) + ADTII:47 + ADTII3D:14 = 247
@@ -135,7 +136,7 @@ default_iteration:
     Gabriel: 9
     Silva: 9
 
-epics:
+milestones:
   - name: Mejora arquitectura
     items:
       AI: 7
@@ -153,20 +154,20 @@ epics:
     items:
       AI: 29
       3D: 3
-    planned:
+    expected_cycle_time:
       Gabriel: 2.8
       Marcos: 1
     priority: 30
   - name: Plugin NKSR
     items:
       AI: 6
-    planned:
+    expected_cycle_time:
       Silva: 3.5
     priority: 30
   - name: Plugin defectos
     items:
       AI: 8
-    planned:
+    expected_cycle_time:
       Silva: 2.75
     priority: 60
     depends_on:
@@ -174,7 +175,7 @@ epics:
   - name: Plugin materiales
     items:
       AI: 22
-    planned:
+    expected_cycle_time:
       Silva: 3
       Gabriel: 3
     priority: 60

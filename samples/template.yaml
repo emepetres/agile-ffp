@@ -19,12 +19,12 @@ iterations:
       Marcos: 7
     closed:
       Gabriel:
-        epic_one: 2
-        epic_two: 2
+        milestone_one: 2
+        milestone_two: 2
       Iker:
-        epic_one: 4
+        milestone_one: 4
       Marcos:
-        epic_one: 3
+        milestone_one: 3
   - name: Sprint 2
     start: 2025-01-19
     end: 2025-02-01
@@ -34,11 +34,11 @@ iterations:
       Marcos: 6
     closed:
       Gabriel:
-        epic_two: 3
+        milestone_two: 3
       Iker:
-        epic_two: 3
+        milestone_two: 3
       Marcos:
-        epic_two: 2
+        milestone_two: 2
 
 default_iteration:
   index: 3
@@ -49,25 +49,25 @@ default_iteration:
     Iker: 8
     Marcos: 6
 
-epics:
-  - name: epic_one
+milestones:
+  - name: milestone_one
     items:
       AI: 6
       3D: 3
-  - name: epic_two
+  - name: milestone_two
     items:
       AI: 10
       3D: 5
     depends_on:
-      - epic_one
-  - name: epic_three
+      - milestone_one
+  - name: milestone_three
     items:
       AI: 8
       3D: 4
-    planned:
+    expected_cycle_time:
       Gabriel: 2
       Iker: -1
       Marcos: 2
     priority: 60
     depends_on:
-      - epic_one
+      - milestone_one

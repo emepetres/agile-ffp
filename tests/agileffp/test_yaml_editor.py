@@ -32,8 +32,8 @@ iterations:
         points: 25
         status: Completed
 
-epics:
-  - name: Sample Epic
+milestones:
+  - name: Sample Milestone
     points: 50
     priority: High
 """
@@ -133,8 +133,8 @@ def test_load_template(yaml_editor_client, monkeypatch):
 iterations:
   - name: Sample Iteration
     points: 100
-epics:
-  - name: Sample Epic
+milestones:
+  - name: Sample Milestone
     points: 50
 """
     monkeypatch.setattr("agileffp.monitor.views.yaml_editor.get_default_template",
@@ -147,7 +147,7 @@ epics:
 
     assert response.status_code == 200
     assert "iterations:" in response.text
-    assert "epics:" in response.text
+    assert "milestones:" in response.text
 
 
 def test_set_yaml_preserves_order(yaml_editor_client, ordered_yaml):

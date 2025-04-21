@@ -5,17 +5,17 @@ Build agile charts for firm fixed price projects, to compute estimated milestone
 ## TODO
 
 - [x] Fix tests
-- [ ] Add tests for UI
-- [ ] Add edit project in project list
-- [ ] Add version to yaml
-- [ ] Modify yaml properties with better UI
+- [ ] Modify yaml properties with better names
 - [ ] Move yaml template to a separate file
 - [ ] Write this README
 - [ ] Merge everything to main
+- [ ] Remove inactive iteration slots on gantt chart
+- [ ] Show iteration lines in gantt chart
 - [ ] Modify CD to set env variables
-- [ ] Add edit yaml version
 - [ ] Disable save button if no changes or empty content
 - [ ] Use dirty state to (dis/en)able save button
+- [ ] Add edit project in project list
+- [ ] Add edit yaml version
 
 ## Installation
 

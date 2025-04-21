@@ -4,7 +4,7 @@ import plotly.express as px
 from fasthtml.common import FT, NotStr, Table, Tbody, Td, Th, Thead, Tr
 from monsterui.all import Card, DivVStacked
 
-from agileffp.roadmap.models.epic import Epic
+from agileffp.roadmap.models.milestone import Milestone
 from agileffp.roadmap.models.planning import Planning
 
 
@@ -27,13 +27,13 @@ def render_charts(data: dict, target: str, swap: bool = True):
     # #      for tl in c.to_timeline()] if capacity else []
     # # )
 
-    epics = [epic.to_dict(planning.teams) for epic in planning.sorted_epics]
+    milestones = [milestone.to_dict(planning.teams) for milestone in planning.sorted_milestones]
     iterations = [it.to_dict(planning.teams) for it in planning.iterations]
 
     _charts = _charts(
-        Card(render_planning_chart(planning.sorted_epics)),
+        Card(render_planning_chart(planning.sorted_milestones)),
         # Card(render_capacity_chart(timeline_tasks)) if capacity else None,
-        Card(render_table(epics)),
+        Card(render_table(milestones)),
         Card(render_table(iterations)),
     )
 
@@ -41,26 +41,26 @@ def render_charts(data: dict, target: str, swap: bool = True):
 
 
 
-def render_planning_chart(epics: list[Epic]) -> FT:
+def render_planning_chart(milestones: list[Milestone]) -> FT:
     df = pd.DataFrame(
         [
             {
-                "Epic": epic.name,
-                "Start": epic.start,
-                "Finish": epic.end,
-                "Color": int((float(i)/len(epics))*100),
+                "Milestone": milestone.name,
+                "Start": milestone.start,
+                "Finish": milestone.end,
+                "Color": int((float(i)/len(milestones))*100),
             }
-            for i, epic in enumerate(epics)
+            for i, milestone in enumerate(milestones)
         ]
     )
 
     fig1 = px.timeline(df, x_start="Start", x_end="Finish",
-                       y="Epic", title="Project Timeline", template="plotly_dark", color="Color")
+                       y="Milestone", title="Project Timeline", template="plotly_dark", color="Color")
     fig1.update_yaxes(autorange="reversed")
     fig1.update_layout(
         showlegend=False,
         xaxis_title="Date",
-        yaxis_title="Epics",
+        yaxis_title="Milestones",
     )
 
     return NotStr(

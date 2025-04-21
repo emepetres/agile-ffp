@@ -49,17 +49,17 @@ class Iteration(BaseModel):
 
     def _compute_closed_items_velocity(self):
         self._velocity = defaultdict(float)
-        for dev, epic_closed_items in self.closed.items():
+        for dev, milestone_closed_items in self.closed.items():
             self._velocity[dev] = float(
-                self.capacity[dev]) / sum([count for count in epic_closed_items.values()])
+                self.capacity[dev]) / sum([count for count in milestone_closed_items.values()])
 
     def _compute_closed_items_effort(self):
-        for dev, epic_closed_items in self.closed.items():
-            for epic_name, count in epic_closed_items.items():
-                self._dedicated_effort[epic_name][dev] += count * \
+        for dev, milestone_closed_items in self.closed.items():
+            for milestone_name, count in milestone_closed_items.items():
+                self._dedicated_effort[milestone_name][dev] += count * \
                     self._velocity[dev]
 
-    def try_to_assign_effort(self, epic: str, dev: str, effort: float) -> float:
+    def try_to_assign_effort(self, milestone: str, dev: str, effort: float) -> float:
         """Tries to assign effort to a team member."""
         if dev not in self._capacity_available or self._capacity_available[dev] == 0:
             return 0
@@ -70,21 +70,21 @@ class Iteration(BaseModel):
         effort -= assigned_effort
         return assigned_effort
 
-    def register_planned_items(self, epic: str, dev: str, items: float):
+    def register_planned_items(self, milestone: str, dev: str, items: float):
         """Registers the assigned effort to a team member."""
-        self._planned[dev][epic] += items
+        self._planned[dev][milestone] += items
 
     def get_developer_velocity(self, dev: str) -> float:
         """Returns the developer velocity in the iteration."""
         return self._velocity[dev]
 
-    def get_dedicated_effort(self, epic: str, dev: str) -> float:
-        """Returns the developer dedicated effort in the iteration for a given epic."""
-        return self._dedicated_effort[epic][dev]
+    def get_dedicated_effort(self, milestone: str, dev: str) -> float:
+        """Returns the developer dedicated effort in the iteration for a given milestone."""
+        return self._dedicated_effort[milestone][dev]
 
-    def is_epic_in_this_iteration(self, epic: str) -> bool:
-        """Returns True if the epic has items closed in this iteration."""
-        return epic in self._dedicated_effort
+    def is_milestone_in_this_iteration(self, milestone: str) -> bool:
+        """Returns True if the milestone has items closed in this iteration."""
+        return milestone in self._dedicated_effort
 
     def get_dev_velocity(self, dev: str) -> float:
         """Returns the team member velocity in the iteration."""
@@ -110,7 +110,7 @@ class Iteration(BaseModel):
                     items[f"[Items] {dev}"] = "-"
                 else:
                     items[f"[Items] {dev}"] = ", ".join(
-                        f"{epic}: {count}" for epic, count in closed_or_planned[dev].items())
+                        f"{milestone}: {count}" for milestone, count in closed_or_planned[dev].items())
 
         return base | capacity | items
 

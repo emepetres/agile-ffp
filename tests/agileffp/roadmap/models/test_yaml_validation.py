@@ -5,8 +5,8 @@ import pytest
 import yaml
 
 from agileffp.roadmap.models.developers_team import Team
-from agileffp.roadmap.models.epic import Epic
 from agileffp.roadmap.models.iteration import Iteration
+from agileffp.roadmap.models.milestone import Milestone
 
 
 @pytest.fixture
@@ -21,7 +21,7 @@ def team_yaml() -> str:
 
 
 @pytest.fixture
-def epic_yaml() -> str:
+def milestone_yaml() -> str:
     return dedent("""
         name: Mejora arquitectura
         items:
@@ -33,7 +33,7 @@ def epic_yaml() -> str:
         depends_on:
             - Habilitar trabajo paralelo
             - PoC 2D Alta calidad
-        planned:
+        expected_cycle_time:
             Gabriel: 3
             Iker: 3
     """)
@@ -77,18 +77,18 @@ def test_team_yaml_validation(team_yaml: str):
     assert team.days == 20
 
 
-def test_epic_yaml_validation(epic_yaml: str):
-    data = yaml.safe_load(epic_yaml)
-    epic = Epic(**data)
+def test_milestone_yaml_validation(milestone_yaml: str):
+    data = yaml.safe_load(milestone_yaml)
+    milestone = Milestone(**data)
 
-    assert epic.name == "Mejora arquitectura"
-    assert epic.items == {"AI": 7}
-    assert epic.priority == 30
-    assert epic.depends_on == [
+    assert milestone.name == "Mejora arquitectura"
+    assert milestone.items == {"AI": 7}
+    assert milestone.priority == 30
+    assert milestone.depends_on == [
         "Habilitar trabajo paralelo",
         "PoC 2D Alta calidad",
     ]
-    assert epic.planned == {"Gabriel": 3, "Iker": 3}
+    assert milestone.planned == {"Gabriel": 3, "Iker": 3}
 
 
 def test_past_iteration_yaml_validation(past_iteration_yaml: str):

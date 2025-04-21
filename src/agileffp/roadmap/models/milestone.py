@@ -25,15 +25,15 @@ from agileffp.roadmap.models.developers_team import Team
 from agileffp.roadmap.models.iteration import Iteration
 
 
-class Epic(BaseModel):
-    """Represents an epic in the roadmap."""
+class Milestone(BaseModel):
+    """Represents an milestone in the roadmap."""
 
     name: str
     items: dict[str, int]
     description: str | None = None
     priority: int = 50
     depends_on: list[str] = []
-    planned: dict[str, float] | None = None
+    expected_cycle_time: dict[str, float] | None = None
 
     def model_post_init(self, ctx):
         self._parents = []
@@ -46,22 +46,22 @@ class Epic(BaseModel):
         self._iterations = set()
         self._is_closed = False
 
-    def reference_parents(self, epics: dict[str, "Epic"]) -> None:
-        """Sets the parent epics."""
+    def reference_parents(self, milestones: dict[str, "Milestone"]) -> None:
+        """Sets the parent milestones."""
         for parent in self.depends_on:
-            if parent not in epics:
-                raise ValueError(f"Parent epic {parent} not found")
-            self._parents.append(epics[parent])
+            if parent not in milestones:
+                raise ValueError(f"Parent milestone {parent} not found")
+            self._parents.append(milestones[parent])
 
     def compute_work_already_done(self, iterations: list[Iteration], teams: list[Team]):
-        """Computes the epic effort in each iteration."""
+        """Computes the milestone effort in each iteration."""
         for it in iterations:
             self._compute_closed_items(it, teams)
         self._is_closed = all(
             [round(count, 1) == 0 for count in self._remaining_items.values()])
 
     def plan_remaining_work(self, iterations: list[Iteration], teams: list[Team]) -> bool:
-        """Plans the remaining work for the epic."""
+        """Plans the remaining work for the milestone."""
         could_plan_work = False
         for it in iterations:
             if it.capacity_available:
@@ -75,7 +75,7 @@ class Epic(BaseModel):
         if it.capacity_available:
             return
 
-        if not it.is_epic_in_this_iteration(self.name):
+        if not it.is_milestone_in_this_iteration(self.name):
             return
 
         for team in teams:
@@ -130,14 +130,14 @@ class Epic(BaseModel):
 
     def _get_dev_planned_velocity(self, dev: str) -> float:
         """Returns the developer planned velocity or 0 if not planned."""
-        if self.planned and dev not in self.planned:
+        if self.expected_cycle_time and dev not in self.expected_cycle_time:
             return 0  # no planned effort for this developer
 
-        if self.planned and self.planned[dev] != -1:
+        if self.expected_cycle_time and self.expected_cycle_time[dev] != -1:
             # use planned velocity
-            return self.planned[dev]
+            return self.expected_cycle_time[dev]
 
-        # get planned velocity based on previous velocities on the epic
+        # get planned velocity based on previous velocities on the milestone
         return sum(self._dev_velocities[dev]) / max(len(self._dev_velocities[dev]), 1)
 
     def team_effort_done(self, team: Team) -> float:
@@ -146,22 +146,22 @@ class Epic(BaseModel):
 
     @property
     def is_closed(self) -> bool:
-        """Returns True if the epic is closed."""
+        """Returns True if the milestone is closed."""
         return self._is_closed
 
     @property
     def is_planned(self) -> bool:
-        """Returns True if the epic is estimated."""
+        """Returns True if the milestone is estimated."""
         return all([round(count, 1) == 0 for count in self._remaining_items.values()])
 
     @property
     def start(self) -> str:
-        """Returns the start date of the epic."""
+        """Returns the start date of the milestone."""
         return self._start
 
     @property
     def end(self) -> str:
-        """Returns the end date of the epic."""
+        """Returns the end date of the milestone."""
         return self._end
 
     def team_remaining_items(self, team: Team) -> float:
@@ -173,7 +173,7 @@ class Epic(BaseModel):
 
     @property
     def iterations(self) -> list[Iteration]:
-        """Returns the iterations where the epic is planned."""
+        """Returns the iterations where the milestone is planned."""
         return sorted(self._iterations, key=lambda it: it.start)
 
     @property

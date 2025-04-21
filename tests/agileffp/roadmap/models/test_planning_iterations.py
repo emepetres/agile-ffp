@@ -3,8 +3,8 @@ from datetime import date
 import pytest
 
 from agileffp.roadmap.models.developers_team import Team
-from agileffp.roadmap.models.epic import Epic
 from agileffp.roadmap.models.iteration import Iteration
+from agileffp.roadmap.models.milestone import Milestone
 from agileffp.roadmap.models.planning import Planning
 
 
@@ -25,9 +25,9 @@ def sample_iterations():
             end=date(2025, 1, 15),
             capacity={"dev1": 3, "dev2": 2, "dev3": 3},
             closed={
-                "dev1": {"Closed Epic": 3},
-                "dev2": {"Closed Epic": 2},
-                "dev3": {"Closed Epic": 3}
+                "dev1": {"Closed Milestone": 3},
+                "dev2": {"Closed Milestone": 2},
+                "dev3": {"Closed Milestone": 3}
             }
         ),
         Iteration(
@@ -36,9 +36,9 @@ def sample_iterations():
             end=date(2025, 1, 31),
             capacity={"dev1": 2, "dev2": 1, "dev3": 2},
             closed={
-                "dev1": {"Closed Epic": 2},
-                "dev2": {"Closed Epic": 3},
-                "dev3": {"Closed Epic": 2}
+                "dev1": {"Closed Milestone": 2},
+                "dev2": {"Closed Milestone": 3},
+                "dev3": {"Closed Milestone": 2}
             }
         ),
         Iteration(
@@ -47,9 +47,9 @@ def sample_iterations():
             end=date(2025, 2, 15),
             capacity={"dev1": 3, "dev2": 2, "dev3": 3},
             closed={
-                "dev1": {"In Progress Epic": 3},
-                "dev2": {"In Progress Epic": 2},
-                "dev3": {"In Progress Epic": 2}
+                "dev1": {"In Progress Milestone": 3},
+                "dev2": {"In Progress Milestone": 2},
+                "dev3": {"In Progress Milestone": 2}
             }
         ),
         Iteration(
@@ -70,28 +70,28 @@ def sample_iterations():
 
 
 @pytest.fixture
-def sample_epics():
+def sample_milestones():
     return [
-        Epic(
-            name="Closed Epic",
+        Milestone(
+            name="Closed Milestone",
             items={"team1": 10, "team2": 5},
         ),
-        Epic(
-            name="In Progress Epic",
+        Milestone(
+            name="In Progress Milestone",
             items={"team1": 10, "team2": 5},
             planned={"dev1": 1, "dev3": 1}
         ),
-        Epic(
-            name="Unstarted Epic",
+        Milestone(
+            name="Unstarted Milestone",
             items={"team1": 7, "team2": 3},
             planned={"dev2": 1, "dev3": 1}
         )
     ]
 
 
-def test_planned_effort_in_iterations(sample_teams, sample_iterations, sample_epics):
+def test_planned_effort_in_iterations(sample_teams, sample_iterations, sample_milestones):
     sample_planning = Planning(teams=sample_teams,
-                            iterations=sample_iterations, epics=sample_epics)
+                            iterations=sample_iterations, milestones=sample_milestones)
 
     iteration_1 = sample_planning.iterations[0].to_dict(sample_teams)
     iteration_2 = sample_planning.iterations[1].to_dict(sample_teams)
@@ -99,22 +99,22 @@ def test_planned_effort_in_iterations(sample_teams, sample_iterations, sample_ep
     iteration_4 = sample_planning.iterations[3].to_dict(sample_teams)
     iteration_5 = sample_planning.iterations[4].to_dict(sample_teams)
 
-    assert iteration_1["[Items] dev1"] == "Closed Epic: 3.0"
-    assert iteration_1["[Items] dev2"] == "Closed Epic: 2.0"
-    assert iteration_1["[Items] dev3"] == "Closed Epic: 3.0"
+    assert iteration_1["[Items] dev1"] == "Closed Milestone: 3.0"
+    assert iteration_1["[Items] dev2"] == "Closed Milestone: 2.0"
+    assert iteration_1["[Items] dev3"] == "Closed Milestone: 3.0"
 
-    assert iteration_2["[Items] dev1"] == "Closed Epic: 2.0"
-    assert iteration_2["[Items] dev2"] == "Closed Epic: 3.0"
-    assert iteration_2["[Items] dev3"] == "Closed Epic: 2.0"
+    assert iteration_2["[Items] dev1"] == "Closed Milestone: 2.0"
+    assert iteration_2["[Items] dev2"] == "Closed Milestone: 3.0"
+    assert iteration_2["[Items] dev3"] == "Closed Milestone: 2.0"
 
-    assert iteration_3["[Items] dev1"] == "In Progress Epic: 3.0"
-    assert iteration_3["[Items] dev2"] == "In Progress Epic: 2.0"
-    assert iteration_3["[Items] dev3"] == "In Progress Epic: 2.0"
+    assert iteration_3["[Items] dev1"] == "In Progress Milestone: 3.0"
+    assert iteration_3["[Items] dev2"] == "In Progress Milestone: 2.0"
+    assert iteration_3["[Items] dev3"] == "In Progress Milestone: 2.0"
 
-    assert iteration_4["[Items] dev1"] == "In Progress Epic: 3.0"
-    assert iteration_4["[Items] dev2"] == "Unstarted Epic: 4.0"
-    assert iteration_4["[Items] dev3"] == "In Progress Epic: 3.0"
+    assert iteration_4["[Items] dev1"] == "In Progress Milestone: 3.0"
+    assert iteration_4["[Items] dev2"] == "Unstarted Milestone: 4.0"
+    assert iteration_4["[Items] dev3"] == "In Progress Milestone: 3.0"
 
-    assert iteration_5["[Items] dev1"] == "In Progress Epic: 2.0"
-    assert iteration_5["[Items] dev2"] == "Unstarted Epic: 3.0"
-    assert iteration_5["[Items] dev3"] == "Unstarted Epic: 3.0"
+    assert iteration_5["[Items] dev1"] == "In Progress Milestone: 2.0"
+    assert iteration_5["[Items] dev2"] == "Unstarted Milestone: 3.0"
+    assert iteration_5["[Items] dev3"] == "Unstarted Milestone: 3.0"

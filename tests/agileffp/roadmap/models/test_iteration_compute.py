@@ -15,8 +15,8 @@ def sample_iteration():
         end=date(2025, 1, 15),
         capacity={"dev1": 12, "dev2": 15},
         closed={
-            "dev1": {"epic1": 5, "epic2": 5},
-            "dev2": {"epic1": 10, "epic2": 5}
+            "dev1": {"milestone1": 5, "milestone2": 5},
+            "dev2": {"milestone1": 10, "milestone2": 5}
         }
     )
 
@@ -27,7 +27,7 @@ def test_get_developer_velocity(sample_iteration):
 
 
 def test_get_dedicated_effort(sample_iteration):
-    assert sample_iteration.get_dedicated_effort("epic1", "dev1") == 6.0
-    assert sample_iteration.get_dedicated_effort("epic2", "dev1") == 6.0
-    assert sample_iteration.get_dedicated_effort("epic1", "dev2") == 10.0
-    assert sample_iteration.get_dedicated_effort("epic2", "dev2") == 5.0
+    assert sample_iteration.get_dedicated_effort("milestone1", "dev1") == 6.0
+    assert sample_iteration.get_dedicated_effort("milestone2", "dev1") == 6.0
+    assert sample_iteration.get_dedicated_effort("milestone1", "dev2") == 10.0
+    assert sample_iteration.get_dedicated_effort("milestone2", "dev2") == 5.0
