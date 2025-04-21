@@ -4,7 +4,7 @@ Build agile charts for firm fixed price projects, to compute estimated milestone
 
 ## TODO
 
-- [x] Fix tests - NEXT: add dependency injection & modify new mocks
+- [x] Fix tests
 - [ ] Add tests for UI
 - [ ] Add edit project in project list
 - [ ] Add version to yaml
