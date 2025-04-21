@@ -164,7 +164,7 @@ epics:
       3D: 11
   - name: Plugins clasificación y arquitectura IFC
     items:
-      AI: 29
+      AI: 28
       3D: 3
     planned:
       Gabriel: 2.8
@@ -172,24 +172,39 @@ epics:
     priority: 30
   - name: Plugin NKSR
     items:
-      AI: 6
+      AI: 10
     planned:
       Silva: 3.5
     priority: 30
   - name: Plugin defectos
     items:
-      AI: 6
+      AI: 7
     planned:
       Silva: 2.75
     priority: 60
     depends_on:
       - Plugin NKSR
+  - name: Plugin LLMs
+    items:
+      AI: 1
+    planned:
+      Gabriel: 2
+    priority: 60
   - name: Plugin materiales
     items:
-      AI: 22
+      AI: 16
     planned:
       Silva: 3
       Gabriel: 3
     priority: 60
     depends_on:
       - Plugin NKSR
+  - name: E2.1 Data augmentation
+    items:
+      AI: 3
+    planned:
+      Silva: 2
+      Gabriel: 2
+    priority: 80
+    depends_on:
+      - Plugin materiales
