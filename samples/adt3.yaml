@@ -133,6 +133,13 @@ iterations:
     capacity:
       Gabriel: 8
       Silva: 8
+    closed:
+        Gabriel:
+          Plugins clasificación y arquitectura IFC: 3
+          Plugin NKSR: 1
+        Silva:
+          Plugin defectos: 1
+          Plugin NKSR: 2
   - name: 20
     start: 2025-04-23
     end: 2025-05-06
@@ -178,9 +185,10 @@ epics:
     priority: 30
   - name: Plugin defectos
     items:
-      AI: 7
+      AI: 6
     planned:
       Silva: 2.75
+      Gabriel: 2.5
     priority: 60
     depends_on:
       - Plugin NKSR
